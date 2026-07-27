@@ -31,7 +31,7 @@ export default function Projets() {
     return (
         <div>
             <Header />
-            <h1 className="text-3xl font-semibold mb-6 text-left px-6 md:px-10 py-10">Projets</h1>
+            <h1 className="text-3xl font-semibold mb-6 text-left px-10 md:px-10 ml-45 py-10">Projets</h1>
             <div className="grid grid-cols-31 gap-7 px-10 max-md:hidden">
                 {projects.map((project,index) => (
                     <div key={project.to}
