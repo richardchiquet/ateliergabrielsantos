@@ -12,7 +12,7 @@ export default function Contact() {
                     <img src={PhotoContact} alt="Photo de profil" className="w-75 h-75 md:w-96 md:h-96 object-cover rounded-full border-white border-5" />
                 </div>
                 
-                <div>
+                <div className="max-md:flex-col-reverse flex md:flex-col gap-4 md:gap-10 w-full md:w-1/2 px-4">
                     <h1 className="text-xl font-semibold mb-2 max-md:hidden">Un projet ? Contactez-moi !</h1>
                     <p className="max-md:hidden">Je serais ravi d'échanger avec vous sur votre projet d’aménagement ou de construction. <br />N'hésitez pas à me contacter pour toute interrogation ou demande de rendez-vous.</p>
                     <div className="flex space-between flex-wrap justify-start md:mt-6 md:gap-10">
