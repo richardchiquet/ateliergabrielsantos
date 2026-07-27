@@ -55,7 +55,7 @@ export default function AcceuilPage() {
 
                 {/* Section de Matériaux */}
                 <div className="bg-white w-full min-h-screen">
-                    <h1 className="text-3xl px-50 py-20 text-left w-full font-semibold max-md:px-10 max-md:py-5">Une approche par les matériaux</h1>
+                    <h1 className="text-3xl px-50 py-20 text-left w-full font-medium max-md:px-10 max-md:py-5">Une approche par les matériaux</h1>
                     <div className='flex items-center justify-center w-full h-full max-md:hidden'>
                         <div className="px-10 my-5 space-y-3 space-x-10 grid grid-cols-9 w-[70%] h-[50%] ">
                             <div className=" col-start-1 col-end-6 h-20 max-md:hidden">
@@ -107,7 +107,7 @@ export default function AcceuilPage() {
                 </div>
                 {/* Section de Projets */}
                 <div className="bg-greige-400 h-screen flex flex-col items-center justify-center max-md:hidden">
-                    <h1 className="text-3xl px-50 py-10 text-left w-full font-semibold">Projets</h1>
+                    <h1 className="text-3xl px-50 py-10 text-left w-full font-medium">Projets</h1>
                     <div className='w-[70%] h-[70%] flex items-center mx-auto aspect-1920/1080' >
                         <Swiper
                             slidesPerView={1}
@@ -146,7 +146,7 @@ export default function AcceuilPage() {
                 {/* Section de Services */}
 
                 <div className="bg-white h-screen flex flex-col items-center justify-center max-md:hidden">
-                    <h1 className="text-3xl px-50 py-10 text-left w-full">Services</h1>
+                    <h1 className="text-3xl px-50 py-10 text-left w-full font-medium">Services</h1>
                     <div className="w-full h-full flex items-baseline justify-center px-8">
                         {services.map((service, index) => (
                             <div key={index} className="h-[80%] w-[80%] mx-auto flex items-center justify-center px-3">
@@ -167,10 +167,8 @@ export default function AcceuilPage() {
                     <div>
                         <div className="flex flex-row items-start justify-center max-md:flex-col">
                             <h1 className="text-5xl">Discutons de </h1>
-                            <h1 className="text-5xl ">votre projet</h1>
+                            <h1 className="text-5xl md:ml-5 ">votre projet</h1>
                         </div>
-                        
-
                         <p className="text-lg  text-left mt-30">
                             Vous avez un projet en tête ? <br />Contactez-moi pour en discuter et nous <br />trouverons ensemble la solution adaptée <br /> à vos besoins.
                         </p>
