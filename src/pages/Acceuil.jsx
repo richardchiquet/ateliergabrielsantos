@@ -16,9 +16,9 @@ import mat1 from "../assets/mat1.jpg";
 import mat2 from "../assets/mat2.jpg";
 import mat3 from "../assets/mat3.png";
 import BG1 from "../assets/BG1.jpg";
-import projet1 from "../assets/PhotoProjets/alex-wongx.png";
-import projet2 from "../assets/PhotoProjets/danist-soh.png";
-import projet3 from "../assets/PhotoProjets/micro-habitat.png";
+import projet1 from "../assets/PhotoProjets/001-MICRO HABITAT 01-Vue EXT 01.jpg";
+import projet2 from "../assets/PhotoProjets/002-FAMILY HOUSE 01-Vue EXT 01.jpg";
+import projet3 from "../assets/PhotoProjets/004-MICRO HABITAT 02-Vue EXT 01.jpg";
 import service1 from "../assets/PhotoService/ConstructionNeuve.png";
 import service2 from "../assets/PhotoService/Renovation.png";
 import service3 from "../assets/PhotoService/EquipementPublique.png";
@@ -45,7 +45,7 @@ export default function AcceuilPage() {
                 <div className="flex flex-col items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: `url(${BG1})` }}>
                     <h1 className=" text-white text-7xl max-md:text-center">Gabriel Santos</h1>
                     <br />
-                    <p className="text-white text-3xl text-center text">Architect HMONP <br />Créateur d'espace sains et fonctionnels </p>
+                    <p className="text-white text-3xl text-center text">Architecte HMONP <br />Créateur d'espace sains et fonctionnels </p>
                     <br />
                     <div className="px-5 py-2 space-x-5">
                         <Link to="/contact" className="btn btn-accent bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Contactez-moi</Link>
@@ -108,7 +108,7 @@ export default function AcceuilPage() {
                 {/* Section de Projets */}
                 <div className="bg-greige-400 h-screen flex flex-col items-center justify-center max-md:hidden">
                     <h1 className="text-3xl px-50 py-10 text-left w-full font-semibold">Projets</h1>
-                    <div className='w-[70%] h-[70%] flex items-center mx-auto' >
+                    <div className='w-[70%] h-[70%] flex items-center mx-auto aspect-1920/1080' >
                         <Swiper
                             slidesPerView={1}
                             spaceBetween={30}
@@ -118,18 +118,24 @@ export default function AcceuilPage() {
                             modules={[Pagination, Navigation]}
                         >
                             <SwiperSlide>
-                                <div className="bg-gray-300 h-[80%] w-[80%] mx-auto flex items-center justify-center">
-                                    <img src={projet1} alt="Projet 1" className="h-full w-full object-cover" />
+                                <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
+                                    <Link to="/projets/Projet1" className="h-full w-full">
+                                        <img src={projet1} alt="Projet 1" className="h-full w-full object-cover" />
+                                    </Link>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <div className="bg-gray-300 h-[80%] w-[80%] mx-auto flex items-center justify-center">
+                                <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
+                                    <Link to="/projets/Projet2" className="h-full w-full">
                                     <img src={projet2} alt="Projet 2" className="h-full w-full object-cover" />
+                                    </Link>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <div className="bg-gray-300 h-[80%] w-[80%] mx-auto flex items-center justify-center">
+                                <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
+                                    <Link to="/projets/Projet3" className="h-full w-full">
                                     <img src={projet3} alt="Projet 3" className="h-full w-full object-cover" />
+                                    </Link>
                                 </div>
                             </SwiperSlide>
                         </Swiper>
@@ -160,7 +166,7 @@ export default function AcceuilPage() {
                 <div className="bg-orange-600 h-screen text-black items-center justify-center flex flex-col">
                     <div>
                         <div className="flex flex-row items-start justify-center max-md:flex-col">
-                            <h1 className="text-5xl">Discutons de</h1>
+                            <h1 className="text-5xl">Discutons de </h1>
                             <h1 className="text-5xl ">votre projet</h1>
                         </div>
                         

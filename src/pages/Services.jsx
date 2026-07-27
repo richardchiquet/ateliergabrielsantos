@@ -31,7 +31,7 @@ export default function Services() {
             <div className="w-full min-h-[calc(100vh-76px)]">
                 {/*Construction Neuve*/}
                 <div id="construction-neuve" className="w-full min-h-[calc(100vh-70px)] bg-white scroll-mt-17">
-                    <h1 className="text-3xl px-6 md:px-50 py-6 md:py-10 text-left w-full">Services Proposé</h1>
+                    <h1 className="text-3xl px-6 md:px-50 py-6 md:py-10 text-left w-full">Services proposés</h1>
                     <div className="flex flex-col md:flex-row items-center gap-10 px-6 md:px-50 md:py-10  justify-between">
                         <img src={service1} alt="Construction Neuve" className="w-[60%] md:w-[30%] max-w-xl h-auto object-cover" />
                         <div className="flex flex-col justify-end w-full md:w-[40%]">
@@ -102,7 +102,7 @@ export default function Services() {
                     <div className="flex flex-col  w-full md:w-1/2 gap-6">
                         <img src={service3} alt="Equipement publique" className="w-[60%] md:w-[40%] h-auto object-cover " />
                         <div className="flex flex-col justify-center w-full">
-                            <h2 className="text-2xl my-5">Equipement publique</h2>
+                            <h2 className="text-2xl my-5">Equipement public</h2>
                             <div className="mb-3">Conception et réalisation d'établissements recevant du public conformes aux normes d'accessibilité et de sécurité adaptés aux besoins de la maîtrise d’ouvrage.</div>
                             <ul className="list-disc mx-5">
                                 <li>Mise en conformité</li>
