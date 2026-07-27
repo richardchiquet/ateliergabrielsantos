@@ -14,33 +14,25 @@ import "./projet.css";
 import {FreeMode, Pagination, Navigation, Thumbs } from "swiper/modules";
 
 //images
-import p1 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Vue EXT 01.jpg";
-import p2 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Vue EXT 02.jpg";
-import p3 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Vue EXT 03.jpg";
-import p4 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Vue EXT 04.jpg";
-import p5 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Vue INT 01.jpg";
-import p6 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Vue INT 02.jpg";
-import p7 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Vue INT 03.jpg";
-import p8 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Facade 01.jpg";
-import p9 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Facade 02.jpg";
-import p10 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Facade 03.jpg";
-import p11 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Facade 04.jpg";
-import p12 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Coupe 01.jpg";
-import p13 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Plan 01.jpg";
-import p14 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Plan 02.jpg";
-import p15 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Axonometrie 01.jpg";
-import p16 from "../../assets/PhotoProjets/02_family_house/002-FAMILY HOUSE 01-Axonometrie 02.jpg";
+import p1 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Vue EXT 01.jpg";
+import p2 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Vue INT 01.jpg";
+import p3 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Vue INT 02.jpg";
+import p4 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Vue INT 03.jpg";
+import p5 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Facade 01.jpg";
+import p6 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Facade 02.jpg";
+import p7 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Facade 03.jpg";
+import p8 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Facade 04.jpg";
+import p9 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Plan RDC.jpg";
+import p10 from "../../assets/PhotoProjets/Projet1/001-MICRO HABITAT 01-Coupe 01.jpg";
 
-const familyHouseImages = [
-  p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16,
-];
+const familyHouseImages = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
 
 export default function Projet1() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
-        <div className="text-white">
+        <div className="text-black">
             <Header />
-            <div className="w-full h-full bg-[#19191A] grid grid-cols-12 place-items-start relative">
+            <div className="w-full h-full bg-chrome-400 grid grid-cols-12 place-items-start relative">
             <Link to="/projets" className="btn btn-ghost text-4xl col-start-2 ">←</Link>
             <div className="col-start-2 col-end-7 mb-5">
                 <h1 className="text-2xl font-bold">Maison passive</h1>

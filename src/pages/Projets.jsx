@@ -1,8 +1,8 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer";
-import p001 from "../assets/PhotoProjets/alex-wongx.png";
-import p002 from "../assets/PhotoProjets/danist-soh.png";
-import p003 from "../assets/PhotoProjets/002-FAMILY HOUSE 01-Vue EXT 01.jpg";
+import p001 from "../assets/PhotoProjets/001-MICRO HABITAT 01-Vue EXT 01.jpg";
+import p002 from "../assets/PhotoProjets/002-FAMILY HOUSE 01-Vue EXT 01.jpg";
+import p003 from "../assets/PhotoProjets/004-MICRO HABITAT 02-Vue EXT 01.jpg";
 import p004 from "../assets/PhotoProjets/Rectangle159x.png";
 import p005 from "../assets/PhotoProjets/Rectangle160.png";
 import p006 from "../assets/PhotoProjets/Rectangle161.png";
