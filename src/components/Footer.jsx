@@ -25,7 +25,7 @@ export default function Footer() {
                 <nav>
                     <ul className="space-y-1">
                         <li><a href="https://www.linkedin.com/in/gabriel-santos-a584703a7/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">LinkedIn</a></li>
-                        <li><a href="https://www.instagram.com/barbriel_santos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">Instagram</a></li>
+                        <li><a href="https://www.instagram.com/atelier_gabrielsantos/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">Instagram</a></li>
                     </ul>
                 </nav>
             </div>
