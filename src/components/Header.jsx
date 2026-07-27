@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
     return (
         <header className="w-full flex bg-white justify-center md:justify-between items-center text-black py-3 px-2 md:px-12 sticky top-0 shadow-md z-50">
+            <title>Atelier Gabriel Santos</title>
             <Link to="/">
                 <img src={logo} alt="Logo" className = "w-12 hover:scale-105 transition-all" />
             </Link>
