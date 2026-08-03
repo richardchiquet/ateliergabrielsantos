@@ -11,12 +11,18 @@
 }
 
 .mySwiper2 {
-  height: 100%;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+
+@media (min-width: 1024px) {
+  .mySwiper2 {
+    aspect-ratio: 1920/1080;
+  }
 }
 
 .mySwiper2 .swiper-slide {
@@ -32,7 +38,6 @@
   height: auto;
   object-fit: contain;
   align-items: center;
-  aspect-ratio: 1920/1080 ;
 }
 
 .mySwiper {

@@ -42,7 +42,7 @@ export default function Projet3() {
                 <p className="text-sm mt-2">Lieu : Seine-et-Marne <br />Statut : En cours</p>
                 
             </div>
-            <div className="md:col-start-2 col-start-2 col-end-12 w-full md:w-7/10 mx-auto">
+            <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-6/10 mx-auto">
                 <Swiper
                     style={{
                       '--swiper-navigation-color': '#000000',
@@ -61,6 +61,7 @@ export default function Projet3() {
                       </SwiperSlide>
                     ))}
                   </Swiper>
+                  <div className="max-md:hidden">
                   <Swiper
                     onSwiper={setThumbsSwiper}
                     loop={true}
@@ -77,6 +78,7 @@ export default function Projet3() {
                       </SwiperSlide>
                     ))}
                   </Swiper>
+                  </div>
                             </div>
                   <div className="col-start-2 col-end-12 mt-20">Je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public. Mon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.</div>
                   <div className="col-start-2 col-end-12 mt-5 mb-20">Je m'intéresse particulièrement à la conception de bâtiments passifs et à l'architecture bioclimatique. Je cherche à concevoir des bâtiments qui s'intègrent dans leur environnement et qui répondent aux besoins des usagers tout en minimisant leur impact sur l'environnement.</div>
