@@ -1,10 +1,9 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom"
-import Acceuil from "./pages/Acceuil";
+import Accueil from "./pages/Accueil";
 import Contact from "./pages/Contact";
-import Atelier from "./pages/L'Atelier";
+import Atelier from "./pages/L'atelier";
 import Projets from "./pages/Projets";
 import Services from "./pages/Services";
-import Test from "./pages/Test";
 import Projet1 from "./pages/projets/Projet1";
 import Projet2 from "./pages/projets/Projet2";
 import Projet3 from "./pages/projets/Projet3";
@@ -16,13 +15,12 @@ import Projet8 from "./pages/projets/Projet8";
 import Projet9 from "./pages/projets/Projet9";
 import Projet10 from "./pages/projets/Projet10";
 import Projet11 from "./pages/projets/Projet11";
-function App() {
 
+function App() {
   return (
-    
     <Router>
       <Routes>
-        <Route path="/" element={<Acceuil/>} />
+        <Route path="/" element={<Accueil/>} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/atelier' element={<Atelier />} />
         <Route path='/projets' element={<Projets />} />
@@ -38,10 +36,8 @@ function App() {
         <Route path='/projets/Projet9' element={<Projet9 />} />
         <Route path='/projets/Projet10' element={<Projet10 />} />
         <Route path='/projets/Projet11' element={<Projet11 />} />
-        <Route path='/test' element={<Test />} />
       </Routes>
     </Router>
-   
   )
 }
 
