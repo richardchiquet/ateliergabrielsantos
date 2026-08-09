@@ -1,7 +1,7 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom"
 import Accueil from "./pages/Accueil";
 import Contact from "./pages/Contact";
-import Atelier from "./pages/L'atelier";
+import Atelier from "./pages/Atelier";
 import Projets from "./pages/Projets";
 import Services from "./pages/Services";
 import Projet1 from "./pages/projets/Projet1";

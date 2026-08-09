@@ -74,8 +74,8 @@ export default function AccueilPage() {
                         {content.home.subtitle}
                     </h1>
                     <br />
-                    <p className="text-white text-3xl text-center text">
-                        {content.home.text}
+                    <p className="text-formatting text-white text-3xl text-center text">
+                        {content.home.second_title}
                     </p>
                     <br />
                     <div className="px-5 py-2 space-x-5">
@@ -97,21 +97,21 @@ export default function AccueilPage() {
                         <div className="px-10 my-5 space-y-3 space-x-10 grid grid-cols-9 w-[70%] h-[50%]">
                             <div className=" col-start-1 col-end-6 h-20 max-md:hidden">
                                 <div className="h-20 w-full overflow-hidden">
-                                    <img className="object-cover w-full h-full" src={matiereArgile} alt={content.home.materials.argile.description} />
+                                    <img className="object-cover w-full h-full" src={matiereArgile} alt={content.home.materials.clay.description} />
                                 </div>
                             </div>
                             <div className="col-start-2 col-end-7 h-20 max-md:hidden">
                                 <div className="h-20 w-full overflow-hidden">
-                                    <img className="object-cover w-full h-full" src={matiereBois} alt={content.home.materials.bois.description} />
+                                    <img className="object-cover w-full h-full" src={matiereBois} alt={content.home.materials.wood.description} />
                                 </div>
                             </div>
                             <div className=" col-start-3 col-end-8 h-20 max-md:hidden">
                                 <div className="h-20 w-full overflow-hidden">
-                                    <img className="object-cover w-full h-full" src={matierePaille} alt={content.home.materials.paille.description} />
+                                    <img className="object-cover w-full h-full" src={matierePaille} alt={content.home.materials.straw.description} />
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col justify-centre items-center w-[30%] h-[50%] p-20">
+                        <div className="text-formatting flex flex-col justify-centre items-center w-[30%] h-[50%] p-20">
                             <div>
                                 {content.home.materials.text}
                             </div>
@@ -124,9 +124,9 @@ export default function AccueilPage() {
                             </div>
                         </div>
                         <div className="grid grid-cols-6 gap-2 mt-5 mx-5">
-                            <img className="col-span-3 h-20 w-full object-cover" src={matiereBois} alt={content.home.materials.bois.description} />
-                            <img className="col-span-1 h-20 w-full object-cover" src={matiereArgile} alt={content.home.materials.argile.description} />
-                            <img className="col-span-2 h-20 w-full object-cover" src={matierePaille} alt={content.home.materials.paille.description} />
+                            <img className="col-span-3 h-20 w-full object-cover" src={matiereBois} alt={content.home.materials.wood.description} />
+                            <img className="col-span-1 h-20 w-full object-cover" src={matiereArgile} alt={content.home.materials.clay.description} />
+                            <img className="col-span-2 h-20 w-full object-cover" src={matierePaille} alt={content.home.materials.straw.description} />
                         </div>
                         <div className="flex flex-col">
                             <h1 className="text-3xl my-10 text-left font-semibold px-10">
@@ -214,7 +214,7 @@ export default function AccueilPage() {
                                 {content.home.contact.title}
                             </h1>
                         </div>
-                        <p className="text-lg  text-left mt-30">
+                        <p className="text-formatting text-lg text-left mt-30">
                             {content.home.contact.text}
                         </p>
                         <div className="py-2 justify-center items-center space-x-5 mt-10 flex flex-row max-md:flex-col">

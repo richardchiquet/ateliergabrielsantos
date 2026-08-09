@@ -23,7 +23,7 @@ export default function Contact() {
                     <h1 className="text-xl font-semibold mb-2 max-md:hidden">
                         {content.contact.subtitle}
                     </h1>
-                    <p className="max-md:hidden">
+                    <p className="text-formatting max-md:hidden">
                         {content.contact.text}
                     </p>
                     <div className="flex space-between flex-wrap justify-start md:mt-6 md:gap-10">

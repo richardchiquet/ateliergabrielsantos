@@ -9,8 +9,8 @@ export const content = {
     },
     home: {
         title: "Accueil",
-        subtitle: "Atelier Gabriel Santos",
-        text: "Architecte HMONP, créateur d'espaces sains et fonctionnels",
+        subtitle: "L'atelier Gabriel Santos",
+        second_title: "Architecte HMONP\nCréateur d'espaces sains et fonctionnels",
         cta: {
             contact: "Contactez-moi",
             projects: "Voir mes projets",
@@ -18,23 +18,23 @@ export const content = {
         },
         materials: {
             title: "Une approche par les matériaux",
-            text: "Je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public. Mon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.",
-            argile: {
+            text: "Je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public.\n\nMon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.",
+            clay: {
                 name: "Argile",
                 description: "Image illustrative de l'argile, matériau naturel qui permet de réguler l'humidité et la température dans les bâtiments."
             },
-            bois: {
+            wood: {
                 name: "Bois",
                 description: "Image illustrative du bois, matériau renouvelable et écologique qui offre une grande variété d'essences et de finitions."
             },
-            paille: {
+            straw: {
                 name: "Paille",
                 description: "Image illustrative de la paille, matériau isolant naturel qui permet de réduire les besoins en chauffage et en climatisation."
             }
         },
         contact: {
             title: "Discutons de votre projet",
-            text: "Vous avez un projet en tête ? Contactez-moi pour en discuter et nous trouverons ensemble la solution adaptée à vos besoins.",
+            text: "Vous avez un projet en tête ?\nContactez-moi pour en discuter et nous trouverons ensemble la solution adaptée à vos besoins.",
         },
         more: {
             title: "En savoir plus"
@@ -49,11 +49,11 @@ export const content = {
         subtitle: "L'architecte derrière l'atelier",
         history : {
             title: "Son histoire",
-            text: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021. Mon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics, des commerces, de l'aménagement intérieur et du dessin de mobilier. Engagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage. Mon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage. La simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet. Le temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers. La réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
+            text: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics, des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.\n\nMon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage.\n\nLa simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet.\nLe temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers.\n\nLa réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
         },
         philosophy: {
             title: "Sa philosophie",
-            text: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique. L'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur. C'est pour cela que j'ai à cœur de concevoir des espaces sains et fonctionnels adaptés aux besoins des usagers. Et cela passe par la compréhension des matériaux utilisés dans la construction : leur aspect, leurs propriétés et leur impact environnemental. Les matériaux et leur mise en œuvre sont un point central dans ma démarche architecturale."
+            text: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.\n\nC'est pour cela que j'ai à cœur de concevoir des espaces sains et fonctionnels adaptés aux besoins des usagers.\n\nEt cela passe par la compréhension des matériaux utilisés dans la construction : leur aspect, leurs propriétés et leur impact environnemental.\nLes matériaux et leur mise en œuvre sont un point central dans ma démarche architecturale."
         }
     },
     services: {
@@ -130,7 +130,7 @@ export const content = {
     contact: {
         title: "Contact",
         subtitle: "Un projet ? Contactez-moi !",
-        text: "Je serais ravi d'échanger avec vous sur votre projet d'aménagement ou de construction. N'hésitez pas à me contacter pour toute interrogation ou demande de rendez-vous.",
+        text: "Je serais ravi d'échanger avec vous sur votre projet d'aménagement ou de construction.\nN'hésitez pas à me contacter pour toute interrogation ou demande de rendez-vous.",
         place: {
             title: "Zone d'intervention",
             text: "Ile-de-France et départements limitrophes"
