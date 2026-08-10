@@ -3,28 +3,28 @@ import Footer from "../components/Footer";
 import p001 from "../assets/PhotoProjets/001-MICRO HABITAT 01-Vue EXT 01.jpg";
 import p002 from "../assets/PhotoProjets/002-FAMILY HOUSE 01-Vue EXT 01.jpg";
 import p003 from "../assets/PhotoProjets/004-MICRO HABITAT 02-Vue EXT 01.jpg";
-import p004 from "../assets/PhotoProjets/Rectangle159x.png";
-import p005 from "../assets/PhotoProjets/Rectangle160.png";
-import p006 from "../assets/PhotoProjets/Rectangle161.png";
-import p007 from "../assets/PhotoProjets/Rectangle162.png";
-import p008 from "../assets/PhotoProjets/Rectangle163.png";
-import p009 from "../assets/PhotoProjets/Rectangle164.png";
-import p010 from "../assets/PhotoProjets/Rectangle165.png";
-import p011 from "../assets/PhotoProjets/Rectangle166.png";
+import p004 from "../assets/PhotoProjets/003-1-RENOVATION INTERIEUR 01-Vue INT 01.jpg";
+import p005 from "../assets/PhotoProjets/006-1-CABANON 01-Vue EXT 01.jpg";
+//import p006 from "../assets/PhotoProjets/Rectangle161.png";
+//import p007 from "../assets/PhotoProjets/Rectangle162.png";
+//import p008 from "../assets/PhotoProjets/Rectangle163.png";
+//import p009 from "../assets/PhotoProjets/Rectangle164.png";
+//import p010 from "../assets/PhotoProjets/Rectangle165.png";
+//import p011 from "../assets/PhotoProjets/Rectangle166.png";
 import { Link } from "react-router-dom";
 
 const projects = [
-    { to: "/projets/Projet1", src: p001, alt: "Projet 1", color: "bg-chrome-400", description: "Description du projet 1",status: "En cours" },
-    { to: "/projets/Projet2", src: p002, alt: "Projet 2", color: "bg-greige-400", description: "Description du projet 2",status: "En cours" },
-    { to: "/projets/Projet3", src: p003, alt: "Maison passive", color: "bg-chrome-900", description: "Extension - 2025",status: "En cours" },
-    { to: "/projets/Projet4", src: p004, alt: "Projet 4", color: "bg-chrome-400", description: "Description du projet 4",status: "En cours" },
-    { to: "/projets/Projet5", src: p005, alt: "Projet 5", color: "bg-greige-400", description: "Description du projet 5",status: "En cours" },
-    { to: "/projets/Projet6", src: p006, alt: "Projet 6", color: "bg-seafoam-300", description: "Description du projet 6",status: "En cours" },
-    { to: "/projets/Projet7", src: p007, alt: "Projet 7", color: "bg-chrome-400", description: "Description du projet 7",status: "En cours" },
-    { to: "/projets/Projet8", src: p008, alt: "Projet 8", color: "bg-orange-600", description: "Description du projet 8",status: "En cours" },
-    { to: "/projets/Projet9", src: p009, alt: "Projet 9", color: "bg-chrome-400", description: "Description du projet 9",status: "En cours" },
-    { to: "/projets/Projet10", src: p010, alt: "Projet 10", color: "bg-greige-400", description: "Description du projet 10",status: "En cours" },
-    { to: "/projets/Projet11", src: p011, alt: "Projet 11", color: "bg-greige-400", description: "Description du projet 11",status: "En cours" },
+    { to: "/projets/Projet1", src: p001, alt: "Micro Habitat 1", color: "bg-chrome-400", description: "Description du projet 1",status: "En cours" },
+    { to: "/projets/Projet2", src: p002, alt: "Family House", color: "bg-greige-400", description: "Description du projet 2",status: "En cours" },
+    { to: "/projets/Projet3", src: p003, alt: "Micro Habitat 2", color: "bg-chrome-900", description: "Extension - 2025",status: "En cours" },
+    { to: "/projets/Projet4", src: p004, alt: "Rénovation Intérieure", color: "bg-chrome-400", description: "Description du projet 4",status: "En cours" },
+    { to: "/projets/Projet5", src: p005, alt: "Cabanon", color: "bg-greige-400", description: "Description du projet 5",status: "En cours" },
+    //{ to: "/projets/Projet6", src: p006, alt: "Projet 6", color: "bg-seafoam-300", description: "Description du projet 6",status: "En cours" },
+    //{ to: "/projets/Projet7", src: p007, alt: "Projet 7", color: "bg-chrome-400", description: "Description du projet 7",status: "En cours" },
+    //{ to: "/projets/Projet8", src: p008, alt: "Projet 8", color: "bg-orange-600", description: "Description du projet 8",status: "En cours" },
+    //{ to: "/projets/Projet9", src: p009, alt: "Projet 9", color: "bg-chrome-400", description: "Description du projet 9",status: "En cours" },
+    //{ to: "/projets/Projet10", src: p010, alt: "Projet 10", color: "bg-greige-400", description: "Description du projet 10",status: "En cours" },
+    //{ to: "/projets/Projet11", src: p011, alt: "Projet 11", color: "bg-greige-400", description: "Description du projet 11",status: "En cours" },
 ];
 
 export default function Projets() {
@@ -32,7 +32,7 @@ export default function Projets() {
         <div>
             <Header />
             <h1 className="text-3xl font-semibold mb-6 text-left px-10 md:px-10 ml-45 py-10">Projets</h1>
-            <div className="grid grid-cols-31 gap-7 px-10 max-md:hidden">
+            <div className="grid grid-cols-31 gap-7 px-10 mb-10 max-md:hidden">
                 {projects.map((project,index) => (
                     <div key={project.to}
                          className={'col-span-12 h-110 ' + (index % 2 === 0 ? 'col-start-4' : 'col-start-17')}
