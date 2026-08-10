@@ -77,7 +77,6 @@ export default function Projet1() {
                   </Swiper>
                   </div>
                             </div>
-                  <div className="col-start-2 col-end-12 mt-20">Je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public. Mon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.</div>
                   <div className="col-start-2 col-end-12 mt-5 mb-20">Je m'intéresse particulièrement à la conception de bâtiments passifs et à l'architecture bioclimatique. Je cherche à concevoir des bâtiments qui s'intègrent dans leur environnement et qui répondent aux besoins des usagers tout en minimisant leur impact sur l'environnement.</div>
             </div>
             <Footer />
