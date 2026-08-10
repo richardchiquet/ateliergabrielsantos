@@ -3,24 +3,24 @@ import Footer from "../components/Footer";
 import { content } from "../constants/Content";
 
 // Images
-import photoContact from "../assets/photosContact/photoContact.jpg";
+import photoContact from "../assets/photosContact/portraitGabrielSantos.jpg";
 
 export default function Contact() {
     return (
         <div className="min-h-screen bg-orange-600">
             <Header />
             <div className="bg-orange-600 text-white w-full h-full md:h-screen flex flex-col md:flex-row items-center justify-center gap-3 md:gap-70 py-5 md:py-20 px-4">
-                <h1 className="text-3xl md:mb-2 md:hidden text-left w-full px-4">
+                <h1 className="md:mb-2 md:hidden text-left w-full px-4">
                     {content.contact.subtitle}
                 </h1>
                 <p className="md:hidden pl-4">
                     {content.contact.text}
                 </p>
-                <div className="">
+                <div>
                     <img src={photoContact} alt="Profil" className="w-75 h-75 md:w-96 md:h-96 object-cover rounded-full border-white border-5" />
                 </div>
                 <div>
-                    <h1 className="text-xl font-semibold mb-2 max-md:hidden">
+                    <h1 className="mb-5 max-md:hidden">
                         {content.contact.subtitle}
                     </h1>
                     <p className="text-formatting max-md:hidden">
@@ -44,11 +44,11 @@ export default function Contact() {
                             </p>
                         </div>
                     </div>
-                    <div className="mt-4 flex flex-col md:flex-row gap-4 justify-center items-center md:justify-start">
-                        <a href={`tel:${content.contact.phone.url}`} className="inline-flex w-fit bg-orange-200 hover:bg-orange-300 text-black font-bold py-2 px-4 rounded-4xl">
+                    <div className="mt-10 flex flex-col md:flex-row gap-8 justify-center items-center md:justify-start">
+                        <a href={`tel:${content.contact.phone.url}`} className="cta-button contact-primary inline-flex w-fit">
                             {content.contact.phone.text}
                         </a>
-                        <a href={`mailto:${content.contact.email.text}`} className="inline-flex w-fit bg-orange-100 hover:bg-orange-200 text-black font-bold py-2 px-4 rounded-4xl">
+                        <a href={`mailto:${content.contact.email.text}`} className="cta-button contact-secondary inline-flex w-fit">
                             {content.contact.email.text}
                         </a>
                     </div>

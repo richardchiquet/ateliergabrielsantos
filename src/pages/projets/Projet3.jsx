@@ -37,15 +37,15 @@ export default function Projet3() {
     <div className="text-white">
       <Header />
       <div className="w-full h-full bg-chrome-900 grid grid-cols-12 place-items-start relative">
-        <Link to="/projets" className="btn btn-ghost text-4xl col-start-2 ">
+        <Link to="/projets" className="text-4xl col-start-2">
           {content.projects.icon_back}
         </Link>
         <div className="col-start-2 col-end-12 mb-5">
-          <h1 className="text-2xl font-bold">
+          <h1>
             {content.projects.project_3.title}
           </h1>
-          <p className="text-sm mt-2">
-            {content.projects.project_3.description}
+          <p>
+            {content.projects.category.draft}
           </p>
         </div>
         <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
@@ -62,8 +62,8 @@ export default function Projet3() {
             className="mySwiper2"
           >
             {projectImages.map((image, index) => (
-              <SwiperSlide key={`main-${index}`}>
-                <img src={image} alt={`Project ${index + 1}`} className="w-full h-full object-contain" />
+              <SwiperSlide key={`${image}-${index}`}>
+                <img src={image} alt={`${content.projects.project_3.title} thumb ${index + 1}`} className="w-full h-full object-contain" />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -79,15 +79,15 @@ export default function Projet3() {
               className="mySwiper"
             >
               {projectImages.map((image, index) => (
-                <SwiperSlide key={`thumb-${index}`}>
-                  <img src={image} alt={`Project thumb ${index + 1}`} className="w-full h-auto object-contain" />
+                <SwiperSlide key={`${image}-${index}`}>
+                  <img src={image} alt={`${content.projects.project_3.title} thumb ${index + 1}`} className="w-full h-auto object-contain" />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </div>
-        <div className="col-start-2 col-end-12 mt-20">
-          <p className="text-formatting text-lg">
+        <div className="col-start-2 col-end-12 mt-20 mb-20">
+          <p className="text-formatting">
             {content.projects.project_3.description}
           </p>
         </div>

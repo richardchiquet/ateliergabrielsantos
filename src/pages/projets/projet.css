@@ -62,7 +62,3 @@
   height: 100%;
   object-fit: contain;
 }
-
-.text-formatting {
-  white-space: pre-line; /* respecte les \n, ignore les espaces multiples */
-}

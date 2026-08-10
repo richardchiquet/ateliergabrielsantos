@@ -70,19 +70,17 @@ export default function AccueilPage() {
 
                 {/* Section d'accueil */}
                 <div className="flex flex-col items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundHome})` }}>
-                    <h1 className="text-white text-7xl max-md:text-center">
+                    <h1 className="text-white text-7xl max-md:text-center mb-5">
                         {content.home.subtitle}
                     </h1>
-                    <br />
-                    <p className="text-formatting text-white text-3xl text-center text">
+                    <h2 className="text-formatting text-white text-center mb-5">
                         {content.home.second_title}
-                    </p>
-                    <br />
+                    </h2>
                     <div className="px-5 py-2 space-x-5">
-                        <Link to="/contact" className="btn btn-accent bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+                        <Link to="/contact" className="cta-button home-primary">
                             {content.home.cta.contact}
                         </Link>
-                        <Link to="/projets" className="btn btn-secondary bg-orange-100 hover:bg-orange-200 text-black  font-bold py-2 px-4 rounded">
+                        <Link to="/projets" className="cta-button home-secondary">
                             {content.home.cta.projects}
                         </Link>
                     </div>
@@ -90,7 +88,7 @@ export default function AccueilPage() {
 
                 {/* Section de Matériaux */}
                 <div className="bg-white w-full min-h-screen">
-                    <h1 className="text-3xl px-50 py-20 text-left w-full font-medium max-md:px-10 max-md:py-5">
+                    <h1 className="px-50 py-20 text-left w-full max-md:px-10 max-md:py-5 mt-5">
                         {content.home.materials.title}
                     </h1>
                     <div className="flex items-center justify-center w-full h-full max-md:hidden">
@@ -119,7 +117,7 @@ export default function AccueilPage() {
                     </div>
                     <div className="md:hidden h-auto w-full">
                         <div className="flex flex-col ml-40 mr-5">
-                            <div>
+                            <div className="text-formatting">
                                 {content.home.materials.text}
                             </div>
                         </div>
@@ -129,17 +127,23 @@ export default function AccueilPage() {
                             <img className="col-span-2 h-20 w-full object-cover" src={matierePaille} alt={content.home.materials.straw.description} />
                         </div>
                         <div className="flex flex-col">
-                            <h1 className="text-3xl my-10 text-left font-semibold px-10">
+                            <h2 className="my-10 text-left px-10">
                                 {content.home.more.title}
-                            </h1>
-                            <Link to="/projets" className="text-xl text-left underline px-10 m-3">
-                                {content.home.cta.allProjects}
+                            </h2>
+                            <Link to="/projets" className="text-left underline px-10 m-3">
+                                <h3>
+                                    {content.projects.title}
+                                </h3>
                             </Link>
-                            <Link to={{ pathname: "/services", hash: "#construction-neuve" }} className="text-xl text-left underline  px-10 m-3">
-                                {content.services.title}
+                            <Link to={{ pathname: "/services", hash: "#construction-neuve" }} className="text-left underline px-10 m-3">
+                                <h3>
+                                    {content.services.title}
+                                </h3>
                             </Link>
-                            <Link to="/atelier" className="text-xl text-left underline px-10 m-3 ">
-                                {content.atelier.title}
+                            <Link to="/atelier" className="text-left underline px-10 m-3">
+                                <h3>
+                                    {content.atelier.title}
+                                </h3>
                             </Link>
                         </div>
                     </div>
@@ -147,11 +151,15 @@ export default function AccueilPage() {
 
                 {/* Section de Projets */}
                 <div className="bg-greige-400 h-screen flex flex-col items-center justify-center max-md:hidden">
-                    <h1 className="text-3xl px-50 py-10 text-left w-full font-medium">
+                    <h1 className="px-50 py-10 text-left w-full">
                         {content.projects.title}
                     </h1>
                     <div className="w-[70%] h-[70%] flex items-center mx-auto aspect-1920/1080">
                         <Swiper
+                            style={{
+                                '--swiper-navigation-color': '#000000',
+                                '--swiper-pagination-color': '#000000',
+                            }}
                             slidesPerView={1}
                             spaceBetween={30}
                             pagination={{ clickable: true }}
@@ -182,14 +190,14 @@ export default function AccueilPage() {
                             </SwiperSlide>
                         </Swiper>
                     </div>
-                    <Link to="/projets" className="btn btn-secondary bg-primary-400 hover:bg-primary-200 hover:text-black text-white font-bold py-2 px-4 rounded mt-10">
+                    <Link to="/projets" className="cta-button project-button mt-7 mb-3">
                         {content.home.cta.projects}
                     </Link>
                 </div>
 
                 {/* Section de Services */}
                 <div className="bg-white h-screen flex flex-col items-center justify-center max-md:hidden">
-                    <h1 className="text-3xl px-50 py-10 text-left w-full font-medium">
+                    <h1 className="px-50 py-10 text-left w-full">
                         {content.services.title}
                     </h1>
                     <div className="w-full h-full flex items-baseline justify-center px-8">
@@ -197,7 +205,7 @@ export default function AccueilPage() {
                             <div key={service.hash} className="h-[80%] w-[80%] mx-auto flex items-center justify-center px-3">
                                 <Link to={{ pathname: "/services", hash: service.hash }} className="h-full w-full overflow-hidden group block relative">
                                     <img src={service.src} alt={service.alt} className="h-full w-full object-cover" />
-                                    <span className="absolute bottom-0 right-0 text-white text-3xl align-text-bottom" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
+                                    <span className="absolute bottom-0 right-[-2%] text-white text-4xl align-text-bottom" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
                                         {service.description}
                                     </span>
                                 </Link>
@@ -214,14 +222,14 @@ export default function AccueilPage() {
                                 {content.home.contact.title}
                             </h1>
                         </div>
-                        <p className="text-formatting text-lg text-left mt-30">
+                        <p className="text-formatting text-xl text-left mt-15">
                             {content.home.contact.text}
                         </p>
                         <div className="py-2 justify-center items-center space-x-5 mt-10 flex flex-row max-md:flex-col">
-                            <a href={`tel:${content.contact.phone.url}`} className="bg-orange-300 hover:bg-orange-400 text-black font-bold py-2 px-4 rounded-4xl m-5">
+                            <a href={`tel:${content.contact.phone.url}`} className="cta-button contact-primary m-5">
                                 {content.contact.phone.text}
                             </a>
-                            <a href={`mailto:${content.contact.email.text}`} className="bg-orange-100 hover:bg-orange-200 text-black font-bold py-2 px-4 rounded-4xl m-5">
+                            <a href={`mailto:${content.contact.email.text}`} className="cta-button contact-secondary m-5">
                                 {content.contact.email.text}
                             </a>
                         </div>

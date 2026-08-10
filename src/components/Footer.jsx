@@ -5,19 +5,19 @@ export default function Footer() {
     return (
         <footer className="bg-primary-50 text-black py-6 px-4 flex space-between flex-wrap justify-around max-md:hidden">
             <div>
-                <h1 className="mb-4">
+                <h3 className="mb-4">
                     {content.about.title}
-                </h1>
-                <p>
+                </h3>
+                <p className="text-formatting max-w-xs">
                     {content.about.text}
                 </p>
             </div>
             <div>
-                <h1 className="mb-4">
+                <h3 className="mb-4">
                     {content.navigation.title}
-                </h1>
+                </h3>
                 <nav>
-                    <ul className="space-y-1 list-disc" >
+                    <ul className="space-y-1 list-style">
                         <li>
                             <Link to="/" className="hover:text-blue-400">
                                 {content.home.title}
@@ -47,9 +47,9 @@ export default function Footer() {
                 </nav>
             </div>
             <div>
-                <h1 className="mb-4">
+                <h3 className="mb-4">
                     {content.social_media.title}
-                </h1>
+                </h3>
                 <nav>
                     <ul className="space-y-1">
                         <li>
@@ -62,9 +62,9 @@ export default function Footer() {
                 </nav>
             </div>
             <div>
-                <h1 className="mb-4">
+                <h3 className="mb-4">
                     {content.contact.title}
-                </h1>
+                </h3>
                 <p>
                     {content.contact.address.title} : {content.contact.address.text}
                 </p>
