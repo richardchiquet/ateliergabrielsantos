@@ -1,7 +1,10 @@
-import logo from "../assets/logoNB.png";
 import { content } from "../constants/Content";
 import { Link } from "react-router-dom";
-import React,{useState} from "react";
+
+import React, { useState } from "react";
+
+// Images
+import logo from "../assets/logoNB.png";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,11 +26,31 @@ export default function Header() {
             </button>
             <nav className={`md:hidden absolute left-0 top-full w-full bg-white shadow-md z-50 ${isMenuOpen ? "block" : "hidden"}`}>
                 <ul className="flex flex-col items-center space-y-4 py-4 font-medium text-lg">
-                    <li><Link to="/" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>Accueil</Link></li>
-                    <li><Link to="/projets" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>Projets</Link></li>
-                    <li><Link to="/services" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>Services</Link></li>
-                    <li><Link to="/atelier" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>L'atelier</Link></li>
-                    <li><Link to="/contact" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
+                    <li>
+                        <Link to="/" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                            {content.home.title}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/projets" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                            {content.projects.title}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/services" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                            {content.services.title}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/atelier" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                            {content.atelier.title}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/contact" className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                            {content.contact.title}
+                        </Link>
+                    </li>
                 </ul>
             </nav>
 

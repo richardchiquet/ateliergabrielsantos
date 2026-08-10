@@ -1,3 +1,8 @@
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { content } from "../../constants/Content";
+import { Link } from "react-router-dom";
+import "./projet.css";
 import React, { useState } from "react";
 
 // Swiper
@@ -7,92 +12,86 @@ import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
-import "./projet.css";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-//import { content } from "../constants/Content";
-import { Link } from "react-router-dom";
-
 // Images
-import p1 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Vue EXT 01.jpg";
-import p2 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Vue INT 01.jpg";
-import p3 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Vue INT 02.jpg";
-import p4 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Vue INT 03.jpg";
-import p5 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Facade 01.jpg";
-import p6 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Facade 02.jpg";
-import p7 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Facade 03.jpg";
-import p8 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Facade 04.jpg";
-import p9 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Plan RDC.jpg";
-import p10 from "../../assets/photosProjets/Projet1/001-MICRO HABITAT 01-Coupe 01.jpg";
+import p1 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Vue EXT 01.jpg";
+import p2 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Vue INT 01.jpg";
+import p3 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Vue INT 02.jpg";
+import p4 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Vue INT 03.jpg";
+import p5 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Facade 01.jpg";
+import p6 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Facade 02.jpg";
+import p7 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Facade 03.jpg";
+import p8 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Facade 04.jpg";
+import p9 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Plan RDC.jpg";
+import p10 from "../../assets/photosProjets/projet1/001-MICRO HABITAT 01-Coupe 01.jpg";
 
-const familyHouseImages = [
+const projectImages = [
   p1, p2, p3, p4, p5, p6, p7, p8, p9, p10
 ];
 
 export default function Projet1() {
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    return (
-        <div className="text-black">
-            <Header />
-            <div className="w-full h-full bg-chrome-400 grid grid-cols-12 place-items-start relative">
-            <Link to="/projets" className="btn btn-ghost text-4xl col-start-2 ">←</Link>
-            <div className="col-start-2 col-end-12 mb-5">
-                <h1 className="text-2xl font-bold">Micro Habitat 1</h1>
-                <p className="text-sm mt-2">Ebauche<br /></p>
-                
-            </div>
-            <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
-                <Swiper
-                    style={{
-                      '--swiper-navigation-color': '#000000',
-                      '--swiper-pagination-color': '#000000',
-                    }}
-                    loop={true}
-                    spaceBetween={10}
-                    navigation={true}
-                    thumbs={{ swiper: thumbsSwiper }}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className="mySwiper2"
-                  >
-                    {familyHouseImages.map((image, index) => (
-                      <SwiperSlide key={`main-${index}`}>
-                        <img src={image} alt={`Family house ${index + 1}`} className="w-full h-full object-contain" />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                  <div className="max-md:hidden">
-                  <Swiper
-                    onSwiper={setThumbsSwiper}
-                    loop={true}
-                    spaceBetween={10}
-                    slidesPerView={9}
-                    freeMode={true}
-                    watchSlidesProgress={true}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className="mySwiper"
-                  >
-                    {familyHouseImages.map((image, index) => (
-                      <SwiperSlide key={`thumb-${index}`}>
-                        <img src={image} alt={`Family house thumb ${index + 1}`} className="w-full h-auto object-contain" />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                  </div>
-                            </div>
-                  <div className="col-start-2 col-end-12 mt-10">Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous.<br/>Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu’une qualité d’espace et architecturale importante.</div>
-                  <div className="col-start-2 col-end-12 mt-5">Architecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical.<br/>Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison.<br/>La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.</div>
-                  <div className="col-start-2 col-end-12 mt-5">En termes de technique : le projet est conçu en ossature et charpente bois posé sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d’atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d’hiver comme d’été.<br/>La pergolas et les brises soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.</div>
-                  <div className="col-start-2 col-end-12 mt-5 mb-20">Pour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale.</div>
-            </div>
-          </div>
-          <div className="col-start-2 col-end-12 mt-20">
-            Je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public. Mon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.
-          </div>
-          <div className="col-start-2 col-end-12 mt-5 mb-20">
-            Je m'intéresse particulièrement à la conception de bâtiments passifs et à l'architecture bioclimatique. Je cherche à concevoir des bâtiments qui s'intègrent dans leur environnement et qui répondent aux besoins des usagers tout en minimisant leur impact sur l'environnement.
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  return (
+    <div className="text-black">
+      <Header />
+      <div className="w-full h-full bg-chrome-400 grid grid-cols-12 place-items-start relative">
+        <Link to="/projets" className="btn btn-ghost text-4xl col-start-2 ">
+           {content.projects.icon_back}
+        </Link>
+        <div className="col-start-2 col-end-12 mb-5">
+          <h1 className="text-2xl font-bold">
+            {content.projects.project_1.title}
+          </h1>
+          <p className="text-sm mt-2">
+            {content.projects.project_1.category}
+          </p> 
+        </div>
+        <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
+          <Swiper
+            style={{
+              '--swiper-navigation-color': '#000000',
+              '--swiper-pagination-color': '#000000',
+            }}
+            loop={true}
+            spaceBetween={10}
+            navigation={true}
+            thumbs={{ swiper: thumbsSwiper }}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="mySwiper2"
+          >
+            {projectImages
+          .map((image, index) => (
+              <SwiperSlide key={`main-${index}`}>
+                <img src={image} alt={`Family house ${index + 1}`} className="w-full h-full object-contain" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="max-md:hidden">
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              loop={true}
+              spaceBetween={10}
+              slidesPerView={9}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="mySwiper"
+            >
+              {projectImages
+            .map((image, index) => (
+                <SwiperSlide key={`thumb-${index}`}>
+                  <img src={image} alt={`Family house thumb ${index + 1}`} className="w-full h-auto object-contain" />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
-        <Footer />
+        <div className="col-start-2 col-end-12 mt-10">
+          <p className="text-formatting text-lg">
+            {content.projects.project_1.description}
+          </p>
+        </div>
       </div>
-    )
+      <Footer />
+    </div>
+  )
 }

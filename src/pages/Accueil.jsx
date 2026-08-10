@@ -1,21 +1,21 @@
-// Swiper
-import "swiper/css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
-
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
 import { Link } from "react-router-dom";
+
+// Swiper
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 
 // Images
 import backgroundHome from "../assets/photosAccueil/backgroundHome.jpg";
 import matiereArgile from "../assets/photosAccueil/matiereArgile.jpg";
 import matiereBois from "../assets/photosAccueil/matiereBois.jpg";
 import matierePaille from "../assets/photosAccueil/matierePaille.png";
-import projet1 from "../assets/photosProjets/001-MICRO HABITAT 01-Vue EXT 01.jpg";
-import projet2 from "../assets/photosProjets/002-FAMILY HOUSE 01-Vue EXT 01.jpg";
-import projet3 from "../assets/photosProjets/004-MICRO HABITAT 02-Vue EXT 01.jpg";
+import projet1 from "../assets/photosProjets/projet1/001-MICRO HABITAT 01-Vue EXT 01.jpg";
+import projet2 from "../assets/photosProjets/projet2/002-FAMILY HOUSE 01-Vue EXT 01.jpg";
+import projet3 from "../assets/photosProjets/projet3/004-MICRO HABITAT 02-Vue EXT 01.jpg";
 import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.png";
 import serviceRenovation from "../assets/photosServices/renovation.png";
 import serviceEquipementPublic from "../assets/photosServices/equipementPublic.png";

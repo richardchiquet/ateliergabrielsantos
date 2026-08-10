@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
 import Header from "../components/Header"
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
+
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 // Images
 import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.png";

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+// Images
 import logo from "../assets/logoNB.png";
 
 export default function Sidebar() {
