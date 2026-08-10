@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+
+    /* Colors */
     --color-primary-50: #f6f4f0;
     --color-primary-100: #eae3d7;
     --color-primary-200: #d6c7b2;
@@ -144,4 +146,116 @@
     --color-parchment-800: #6e503e;  
     --color-parchment-900: #594335;
     --color-parchment-950: #2f221b;
+
+    /* Fonts */
+    --font-title: "Satoshi", "sans-serif";
+    --font-body: "Montserrat", sans-serif;
+
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+}
+
+@layer base {
+
+  h1 {
+    font-family: var(--font-title);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-medium);
+  }
+
+  h2 {
+    font-family: var(--font-title);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-regular);
+  }
+
+  h3 {
+    font-family: var(--font-title);
+    font-size: var(--text-xl);
+    font-weight: var(--font-regular);
+  }
+
+  h4 {
+    font-family: var(--font-title);
+    font-size: var(--text-lg);
+    font-weight: var(--font-regular);
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-regular);
+  }
+
+  ul {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-regular);
+  }
+
+}
+
+.cta-button {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    padding: 0.8em;
+    border-radius: 2em;
+}
+
+.home-primary {
+    color: white;
+    background-color: var(--color-orange-600); 
+
+    &:hover {
+        background-color: var(--color-orange-700);
+    }
+}
+
+.home-secondary {
+    color: black;
+    background-color: var(--color-orange-100); 
+    
+    &:hover {
+        background-color: var(--color-orange-200);
+    }
+    
+}
+
+.project-button {
+    color: white;
+    background-color: var(--color-primary-400); 
+
+    &:hover {
+        background-color: var(--color-primary-200);
+        color: black;
+    }   
+}
+
+.contact-primary {
+    color: black;
+    background-color: var(--color-orange-300);
+
+    &:hover {
+        background-color: var(--color-orange-400);
+    }
+}
+
+.contact-secondary {
+    color: black;
+    background-color: var(--color-orange-100);
+
+    &:hover {
+        background-color: var(--color-orange-200);
+    }
+}
+
+.burger-menu {
+    font-size: var(--text-xl);
+}
+
+.text-formatting {
+  white-space: pre-line; /* respecte les \n, ignore les espaces multiples */
 }
