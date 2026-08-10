@@ -7,7 +7,7 @@ import photoContact from "../assets/photosContact/photoContact.jpg";
 
 export default function Contact() {
     return (
-        <div>
+        <div className="min-h-screen bg-orange-600">
             <Header />
             <div className="bg-orange-600 text-white w-full h-full md:h-screen flex flex-col md:flex-row items-center justify-center gap-3 md:gap-70 py-5 md:py-20 px-4">
                 <h1 className="text-3xl md:mb-2 md:hidden text-left w-full px-4">

@@ -35,54 +35,57 @@ const familyHouseImages = [
 export default function Projet3() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
-      <div className="text-white">
-        <Header />
-        <div className="w-full h-full bg-chrome-900 grid grid-cols-12 place-items-start relative">
-          <Link to="/projets" className="btn btn-ghost text-4xl col-start-2 ">
-            ←
-          </Link>
-          <div className="col-start-2 col-end-7 mb-5">
-            <h1 className="text-2xl font-bold">
-              Maison passive
-            </h1>
-            <p className="text-sm mt-2">
-              Lieu : Seine-et-Marne <br />Statut : En cours
-            </p>
-          </div>
-          <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-6/10 mx-auto">
-            <Swiper
-              style={{
-                '--swiper-navigation-color': '#000000',
-                '--swiper-pagination-color': '#000000',
-              }}
-              loop={true}
-              spaceBetween={10}
-              navigation={true}
-              thumbs={{ swiper: thumbsSwiper }}
-              modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper2"
-            >
-              {familyHouseImages.map((image, index) => (
-                <SwiperSlide key={`main-${index}`}>
-                  <img src={image} alt={`Family house ${index + 1}`} className="w-full h-full object-contain" />
-                </SwiperSlide>))}
-            </Swiper>
-            <div className="max-md:hidden">
-              <Swiper
-                onSwiper={setThumbsSwiper}
-                loop={true}
-                spaceBetween={10}
-                slidesPerView={9}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
-              >
-                {familyHouseImages.map((image, index) => (
-                  <SwiperSlide key={`thumb-${index}`}>
-                    <img src={image} alt={`Family house thumb ${index + 1}`} className="w-full h-auto object-contain" />
-                  </SwiperSlide>))}
-              </Swiper>
+        <div className="text-white">
+            <Header />
+            <div className="w-full h-full bg-chrome-900 grid grid-cols-12 place-items-start relative">
+            <Link to="/projets" className="btn btn-ghost text-4xl col-start-2 ">←</Link>
+            <div className="col-start-2 col-end-12 mb-5">
+                <h1 className="text-2xl font-bold">Micro Habitat 2</h1>
+                <p className="text-sm mt-2">Ebauche<br/></p>
+                
+            </div>
+            <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
+                <Swiper
+                    style={{
+                      '--swiper-navigation-color': '#000000',
+                      '--swiper-pagination-color': '#000000',
+                    }}
+                    loop={true}
+                    spaceBetween={10}
+                    navigation={true}
+                    thumbs={{ swiper: thumbsSwiper }}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper2"
+                  >
+                    {familyHouseImages.map((image, index) => (
+                      <SwiperSlide key={`main-${index}`}>
+                        <img src={image} alt={`Family house ${index + 1}`} className="w-full h-full object-contain" />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  <div className="max-md:hidden">
+                  <Swiper
+                    onSwiper={setThumbsSwiper}
+                    loop={true}
+                    spaceBetween={10}
+                    slidesPerView={9}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper"
+                  >
+                    {familyHouseImages.map((image, index) => (
+                      <SwiperSlide key={`thumb-${index}`}>
+                        <img src={image} alt={`Family house thumb ${index + 1}`} className="w-full h-auto object-contain" />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  </div>
+                            </div>
+                  <div className="col-start-2 col-end-12 mt-20">Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous.<br/>Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu’une qualité d’espace et architecturale importante.</div>
+                  <div className="col-start-2 col-end-12 mt-5">Architecturalement, le projet s’implante dans un paysage boisé et entretient un rapport à la nature particulier. Le bâtiment est un volume simple brisé en son centre avec une façade largement vitrée et des parties pleines en bardage bois brûlé inspiré de la technique japonaise du Shou-sugi-ban.<br/>Le bardage bois brûlé permet à ce dernier d’être plus durable et de mieux résister aux intempéries.<br/>La toiture est en tôle acier finement ondulée et vient en large débord par rapport aux façades. Une large terrasse et une circulation couverte sont aménagées sous ce débord tout autour de la maison. Un escalier immergé est installé le long de la circulation pour donner accès au bassin de baignade mitoyen avec le bâtiment.</div>
+                  <div className="col-start-2 col-end-12 mt-5">En termes de technique : le projet est conçu en ossature et charpente bois posé sur des fondations en pieux permettant d’installer le bâtiment au-dessus du sol. Cela permet de limiter l’impact du bâtiment sur les sols existants. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d’atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d’hiver comme d’été.<br/>Le large débord de toiture permet au bâtiment de limiter facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.</div>
+                  <div className="col-start-2 col-end-12 mt-5 mb-20">Pour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale.</div>
             </div>
           </div>
           <div className="col-start-2 col-end-12 mt-20">
