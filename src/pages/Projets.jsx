@@ -14,11 +14,11 @@ import p005 from "../assets/PhotoProjets/006-1-CABANON 01-Vue EXT 01.jpg";
 import { Link } from "react-router-dom";
 
 const projects = [
-    { to: "/projets/Projet1", src: p001, alt: "Micro Habitat 1", color: "bg-chrome-400", description: "Description du projet 1",status: "En cours" },
-    { to: "/projets/Projet2", src: p002, alt: "Family House", color: "bg-greige-400", description: "Description du projet 2",status: "En cours" },
-    { to: "/projets/Projet3", src: p003, alt: "Micro Habitat 2", color: "bg-chrome-900", description: "Extension - 2025",status: "En cours" },
-    { to: "/projets/Projet4", src: p004, alt: "Rénovation Intérieure", color: "bg-chrome-400", description: "Description du projet 4",status: "En cours" },
-    { to: "/projets/Projet5", src: p005, alt: "Cabanon", color: "bg-greige-400", description: "Description du projet 5",status: "En cours" },
+    { to: "/projets/Projet1", src: p001, alt: "Micro Habitat 1", color: "bg-chrome-400", description: "Ebauche",status: "" },
+    { to: "/projets/Projet2", src: p002, alt: "Family House", color: "bg-greige-400", description: "Ebauche",status: "" },
+    { to: "/projets/Projet3", src: p003, alt: "Micro Habitat 2", color: "bg-chrome-900", description: "Ebauche",status: "" },
+    { to: "/projets/Projet4", src: p004, alt: "Rénovation Intérieure", color: "bg-chrome-400", description: "Ebauche",status: "" },
+    { to: "/projets/Projet5", src: p005, alt: "Cabanon", color: "bg-greige-400", description: "Ebauche",status: "" },
     //{ to: "/projets/Projet6", src: p006, alt: "Projet 6", color: "bg-seafoam-300", description: "Description du projet 6",status: "En cours" },
     //{ to: "/projets/Projet7", src: p007, alt: "Projet 7", color: "bg-chrome-400", description: "Description du projet 7",status: "En cours" },
     //{ to: "/projets/Projet8", src: p008, alt: "Projet 8", color: "bg-orange-600", description: "Description du projet 8",status: "En cours" },

@@ -32,10 +32,10 @@ export default function Projet4() {
             <Link to="/projets" className="btn btn-ghost text-4xl col-start-2 ">←</Link>
             <div className="col-start-2 col-end-12 mb-5">
                 <h1 className="text-2xl font-bold">Rénovation intérieure</h1>
-                <p className="text-sm mt-2">Lieu : Seine-et-Marne <br />Statut : En cours</p>
+                <p className="text-sm mt-2">Ebauche<br /></p>
                 
             </div>
-            <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-6/10 mx-auto">
+            <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
                 <Swiper
                     style={{
                       '--swiper-navigation-color': '#000000',
