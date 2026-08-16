@@ -55,7 +55,7 @@ const projects = [
 
 export default function Projets() {
     return (
-        <div>
+        <div id="top" className="min-h-screen bg-white scroll-mt-100">
             <Header />
             <h1 className="mb-6 text-left px-10 md:px-10 ml-45 py-10">
                 Projets

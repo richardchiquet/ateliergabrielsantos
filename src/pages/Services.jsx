@@ -2,8 +2,7 @@ import Header from "../components/Header"
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
 
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import Scroll from "../components/Scroll";
 
 // Images
 import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.png";
@@ -14,30 +13,18 @@ import serviceAmenagementInterieur from "../assets/photosServices/amenagementInt
 import serviceMobilier from "../assets/photosServices/mobilier.png";
 
 export default function Services() {
-    const location = useLocation();
-
-    useEffect(() => {
-        const sectionId = location.hash.replace("#", "");
-        if (!sectionId) return;
-
-        const target = document.getElementById(sectionId);
-        if (target) {
-            requestAnimationFrame(() => {
-                target.scrollIntoView({ behavior: "smooth", block: "start" });
-            });
-        }
-    }, [location.hash]);
 
     return (
-        <div>
+        <div id="top" className="min-h-screen scroll-mt-100">
             <Header />
+            <Scroll />
             <div className="w-full min-h-[calc(100vh-76px)]">
                 <h1 className="px-6 md:px-50 py-6 md:py-10 text-left w-full">
                     {content.services.subtitle}
                 </h1>
 
                 {/* Construction Neuve */}
-                <div id="construction-neuve" className="w-full min-h-[calc(100vh-70px)] bg-white scroll-mt-17">
+                <div id="construction-neuve" className="w-full min-h-[calc(100vh-70px)] bg-white scroll-mt-100">
                     <div className="flex flex-col md:flex-row items-center gap-10 px-6 md:px-50 md:py-10  justify-between">
                         <img src={serviceConstructionNeuve} alt="Construction Neuve" className="w-[60%] md:w-[30%] max-w-xl h-auto object-cover" />
                         <div className="flex flex-col justify-end w-full md:w-[40%]">

@@ -63,8 +63,9 @@ const services = [
 ];
 
 export default function AccueilPage() {
+    
     return (
-        <div>
+        <div id="top" className="min-h-screen scroll-mt-100">
             <Header />
             <div className="w-full h-full">
 
@@ -77,10 +78,10 @@ export default function AccueilPage() {
                         {content.home.second_title}
                     </h2>
                     <div className="px-5 py-2 space-x-5">
-                        <Link to="/contact" className="cta-button home-primary">
+                        <Link to={{ pathname: "/contact", hash: "top" }} className="cta-button home-primary">
                             {content.home.cta.contact}
                         </Link>
-                        <Link to="/projets" className="cta-button home-secondary">
+                        <Link to={{ pathname: "/projets", hash: "top" }} className="cta-button home-secondary">
                             {content.home.cta.projects}
                         </Link>
                     </div>
@@ -190,7 +191,7 @@ export default function AccueilPage() {
                             </SwiperSlide>
                         </Swiper>
                     </div>
-                    <Link to="/projets" className="cta-button project-button mt-7 mb-3">
+                    <Link to={{ pathname: "/projets" , hash: "top" }} className="cta-button project-button mt-7 mb-3">
                         {content.home.cta.projects}
                     </Link>
                 </div>
@@ -205,7 +206,7 @@ export default function AccueilPage() {
                             <div key={service.hash} className="h-[80%] w-[80%] mx-auto flex items-center justify-center px-3">
                                 <Link to={{ pathname: "/services", hash: service.hash }} className="h-full w-full overflow-hidden group block relative">
                                     <img src={service.src} alt={service.alt} className="h-full w-full object-cover" />
-                                    <span className="absolute bottom-0 right-[-2%] text-white text-4xl align-text-bottom" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
+                                    <span className="absolute bottom-[-0.59%] right-[-2%] text-white text-4xl align-text-bottom" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
                                         {service.description}
                                     </span>
                                 </Link>
@@ -217,12 +218,12 @@ export default function AccueilPage() {
                 {/* Section de Contact */}
                 <div className="bg-orange-600 h-screen text-black items-center justify-center flex flex-col">
                     <div>
-                        <div className="flex flex-row items-start justify-center max-md:flex-col">
+                        <div className="flex flex-row items-center justify-center max-md:flex-col pl-10">
                             <h1 className="text-5xl">
                                 {content.home.contact.title}
                             </h1>
                         </div>
-                        <p className="text-formatting text-xl text-left mt-15">
+                        <p className="text-formatting text-xl text-left mt-15 pl-10">
                             {content.home.contact.text}
                         </p>
                         <div className="py-2 justify-center items-center space-x-5 mt-10 flex flex-row max-md:flex-col">

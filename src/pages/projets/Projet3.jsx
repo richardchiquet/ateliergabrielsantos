@@ -37,7 +37,7 @@ export default function Projet3() {
     <div className="text-white">
       <Header />
       <div className="w-full h-full bg-chrome-900 grid grid-cols-12 place-items-start relative">
-        <Link to="/projets" className="text-4xl col-start-2">
+        <Link to={{ pathname: "/projets", hash: "top" }} className="text-4xl col-start-2">
           {content.projects.icon_back}
         </Link>
         <div className="col-start-2 col-end-12 mb-5">

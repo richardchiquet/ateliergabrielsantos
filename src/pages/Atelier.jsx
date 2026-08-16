@@ -7,10 +7,12 @@ import histoire from "../assets/photosAtelier/histoire.png";
 import philosophie from "../assets/photosAtelier/philosophie.jpg"
 
 export default function Atelier() {
+
+
     return (
-        <div>
+        <div id="top" className="min-h-screen scroll-mt-100">
             <Header />
-            <div className="h-screen w-full max-md:hidden">
+            <div className="h-screen w-full max-md:hidden scroll-mt-1000">
                 <h1 className="px-10 py-10 text-left w-full">
                     {content.atelier.subtitle}
                 </h1>
