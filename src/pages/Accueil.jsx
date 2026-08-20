@@ -10,6 +10,7 @@ import { Pagination, Navigation } from "swiper/modules";
 
 // Images
 import backgroundHome from "../assets/photosAccueil/backgroundHome.jpg";
+import logo from "../assets/logoNB.png";
 import matiereArgile from "../assets/photosAccueil/matiereArgile.jpg";
 import matiereBois from "../assets/photosAccueil/matiereBois.jpg";
 import matierePaille from "../assets/photosAccueil/matierePaille.png";
@@ -70,20 +71,26 @@ export default function AccueilPage() {
             <div className="w-full h-full">
 
                 {/* Section d'accueil */}
-                <div className="flex flex-col items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundHome})` }}>
-                    <h1 className="text-white text-7xl max-md:text-center mb-5">
-                        {content.home.subtitle}
-                    </h1>
-                    <h2 className="text-formatting text-white text-center mb-5">
-                        {content.home.second_title}
-                    </h2>
-                    <div className="px-5 py-2 space-x-5">
-                        <Link to={{ pathname: "/contact", hash: "top" }} className="cta-button home-primary">
-                            {content.home.cta.contact}
-                        </Link>
-                        <Link to={{ pathname: "/projets", hash: "top" }} className="cta-button home-secondary">
-                            {content.home.cta.projects}
-                        </Link>
+                
+                <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundHome})` }}>
+                    <div className="flex flex-row justify-center align-center items-center  h-full w-full">
+                        <img src={logo} alt={content.home.logo_alt} className="h-100 w-auto" />
+                        <div className="flex flex-col justify-start items-start align-center">
+                            <h1 className="text-white text-7xl text-left mb-5">
+                                {content.home.subtitle}
+                            </h1>
+                            <h2 className="text-formatting text-white text-left mb-5">
+                                {content.home.second_title}
+                            </h2>
+                            <div className="py-2 space-x-5">
+                                <Link to={{ pathname: "/contact", hash: "top" }} className="cta-button home-primary">
+                                    {content.home.cta.contact}
+                                </Link>
+                                <Link to={{ pathname: "/projets", hash: "top" }} className="cta-button home-secondary">
+                                    {content.home.cta.projects}
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -141,7 +148,7 @@ export default function AccueilPage() {
                                     {content.services.title}
                                 </h3>
                             </Link>
-                            <Link to="/atelier" className="text-left underline px-10 m-3">
+                            <Link to="/atelier" className="text-left underline px-10 m-3 pb-10">
                                 <h3>
                                     {content.atelier.title}
                                 </h3>

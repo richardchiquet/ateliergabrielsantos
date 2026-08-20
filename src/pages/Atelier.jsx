@@ -22,20 +22,26 @@ export default function Atelier() {
                         {content.atelier.history.title}
                     </h2>
                     <p className="text-formatting col-start-6 col-span-5 my-2">
-                        {content.atelier.history.text}
+                        {content.atelier.history.textPart1}
+                    </p>
+                    <p className="text-formatting col-start-6 col-span-5 my-2">
+                        {content.atelier.history.textPart2}
                     </p>
                 </div>
-                <div className="absolute bottom-0 w-full bg-walnut-700 h-30 -z-10"></div>
+                <div className="absolute bottom-0 w-full bg-walnut-700 h-60 -z-10 hidden"></div>
             </div>
             <div className="relative h-screen w-full -mt-20 max-md:hidden">
-                <div className="relative top-0 w-full bg-walnut-700 h-30 -z-10"></div>
+                <div className="relative top-0 w-full bg-walnut-700 h-60 z-2"></div>
                 <img src={philosophie} alt="Gabriel au japon / Calin" className="absolute bottom-0 right-0 max-w-[30%] max-h-full w-auto object-cover z-10" />
-                <div className="grid grid-cols-12 mt-50">
+                <div className="grid grid-cols-12 mt-30">
                     <h2 className="col-start-2 col-span-3 mb-5">
                         {content.atelier.philosophy.title}
                     </h2>
                     <p className="text-formatting col-start-2 col-span-5 my-2">
-                        {content.atelier.philosophy.text}
+                        {content.atelier.philosophy.textPart1}
+                    </p>
+                    <p className="text-formatting col-start-2 col-span-5 my-2">
+                        {content.atelier.philosophy.textPart2}
                     </p>
                 </div>
             </div>
@@ -48,11 +54,14 @@ export default function Atelier() {
                         {content.atelier.history.title}
                     </h2>
                     <p className="text-formatting px-10 py-2 text-left w-full pl-20">
-                        {content.atelier.history.text}
+                        {content.atelier.history.textPart1}
                     </p>
-                    <img src={histoire} alt="Histoire de l'atelier" className="w-full h-auto object-cover mt-5" />
                 </div>
-                <div className="h-screen w-full bg-walnut-700">
+                <div className="h-full w-full bg-walnut-700">
+                    <img src={histoire} alt="Histoire de l'atelier" className="w-full h-auto object-cover mt-5" />
+                    <p className="text-formatting px-10 text-left w-full pl-20 py-10">
+                        {content.atelier.history.textPart2}
+                    </p>
                     <div className="text-white flex flex-col justify-center items-center align-center h-full">
                     </div>
                 </div>
@@ -60,10 +69,13 @@ export default function Atelier() {
                     <h1 className="text-3xl px-10 py-10 text-left w-full">
                         {content.atelier.philosophy.title}
                     </h1>
-                    <p className="text-formatting px-10 py-2 text-left w-full pl-30">
-                        {content.atelier.philosophy.text}
+                    <p className="text-formatting px-10 py-10 text-left w-full pl-30">
+                        {content.atelier.philosophy.textPart1}
                     </p>
-                    <img src={philosophie} alt="Gabriel au japon / Calin" className="w-[50%] h-[60vh] max-h-[60vh] object-cover object-bottom mt-5" />
+                    <img src={philosophie} alt="Gabriel au japon / Calin" className="w-[50%] h-[60vh] max-h-[60vh] object-cover object-bottom" />
+                    <p className="text-formatting px-10 py-10 text-left w-full pl-30">
+                        {content.atelier.philosophy.textPart2}
+                    </p>
                 </div>                    
             </div>
             <Footer />
