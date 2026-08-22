@@ -4,11 +4,7 @@ import Contact from "./pages/Contact";
 import Atelier from "./pages/Atelier";
 import Projets from "./pages/Projets";
 import Services from "./pages/Services";
-import Projet1 from "./pages/projets/Projet1";
-import Projet2 from "./pages/projets/Projet2";
-import Projet3 from "./pages/projets/Projet3";
-import Projet4 from "./pages/projets/Projet4";
-import Projet5 from "./pages/projets/Projet5";
+import ProjetDetail from "./pages/projets/ProjetDetail";
 
 function App() {
   return (
@@ -19,11 +15,7 @@ function App() {
         <Route path='/atelier' element={<Atelier />} />
         <Route path='/projets' element={<Projets />} />
         <Route path='/services' element={<Services />} />
-        <Route path='/projets/Projet1' element={<Projet1 />} />
-        <Route path='/projets/Projet2' element={<Projet2 />} />
-        <Route path='/projets/Projet3' element={<Projet3 />} />
-        <Route path='/projets/Projet4' element={<Projet4 />} />
-        <Route path='/projets/Projet5' element={<Projet5 />} />
+        <Route path='/projets/:projetId' element={<ProjetDetail />} />
       </Routes>
     </Router>
   )
