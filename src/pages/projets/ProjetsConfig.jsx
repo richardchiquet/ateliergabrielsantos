@@ -20,7 +20,7 @@ export const projetsConfig = {
         getImageLoader: () => getImageLoaderForFolder("projet1"),
     },
     Projet2: {
-        color: "bg-chrome-400",
+        color: "bg-greige-400",
         content: content.projects.project_2,
         text_color: "text-black",
         category: content.projects.category.draft,

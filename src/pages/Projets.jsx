@@ -1,57 +1,26 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer";
-import { content } from "../constants/Content";
+
 import { Link } from "react-router-dom";
+import { projetsConfig } from "./projets/ProjetsConfig";
 
 // Images
-import p1 from "../assets/photosProjets/projet1/001-MICRO HABITAT 01-Vue EXT 01.jpg";
-import p2 from "../assets/photosProjets/projet2/002-FAMILY HOUSE 01-Vue EXT 01.jpg";
-import p3 from "../assets/photosProjets/projet3/004-MICRO HABITAT 02-Vue EXT 01.jpg";
+import p1 from "../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.jpg";
+import p2 from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.jpg";
+import p3 from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.jpg";
 import p4 from "../assets/photosProjets/projet4/003-1-RENOVATION INTERIEUR 01-Vue INT 01.jpg";
 import p5 from "../assets/photosProjets/projet5/006-1-CABANON 01-Vue EXT 01.jpg";
 
-const projects = [
-    {
-        to: "/projets/Projet1", 
-        src: p1, 
-        title: content.projects.project_1.title, 
-        color: "bg-chrome-400", 
-        description: content.projects.category.draft,
-        status: ""
-    },
-    {
-        to: "/projets/Projet2", 
-        src: p2, 
-        title: content.projects.project_2.title, 
-        color: "bg-greige-400", 
-        description: content.projects.category.draft,
-        status: "" 
-    },
-    {
-        to: "/projets/Projet3", 
-        src: p3, 
-        title: content.projects.project_3.title, 
-        color: "bg-chrome-900", 
-        description: content.projects.category.draft,
-        status: "" 
-    },
-    {
-        to: "/projets/Projet4", 
-        src: p4, 
-        title: content.projects.project_4.title, 
-        color: "bg-seafoam-400", 
-        description: content.projects.category.draft,
-        status: "" 
-    },
-    {
-        to: "/projets/Projet5", 
-        src: p5, 
-        title: content.projects.project_5.title, 
-        color: "bg-greige-400", 
-        description: content.projects.category.draft,
-        status: "" 
-    },
-];
+const thumbnails = { Projet1: p1, Projet2: p2, Projet3: p3, Projet4: p4, Projet5: p5 };
+
+const projects = Object.entries(projetsConfig).map(([id, projet]) => ({
+  to: `/projets/${id}`,
+  src: thumbnails[id],
+  title: projet.content.title,
+  color: projet.color,
+  description: projet.category,
+  status: "",
+}));
 
 export default function Projets() {
     return (

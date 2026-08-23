@@ -29,7 +29,7 @@ export default function ProjetDetail() {
     return () => { isMounted = false; };
   }, [projet, projetId]);
 
-  if (!projet) return <div>Projet introuvable</div>;
+  if (!projet) return <div><Header/>Projet introuvable</div>;
 
   const { color, content: projetContent, text_color, category } = projet;
 
