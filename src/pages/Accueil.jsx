@@ -212,7 +212,7 @@ export default function AccueilPage() {
                         {services.map((service) => (
                             <div key={service.hash} className="h-[80%] w-[80%] mx-auto flex items-center justify-center px-3">
                                 <Link to={{ pathname: "/services", hash: service.hash }} className="h-full w-full overflow-hidden group block relative">
-                                    <img src={service.src} alt={service.alt} className="h-full w-full object-cover" />
+                                    <img src={service.src} alt={service.alt} className="h-full w-full object-cover hover:scale-110 transition-transform duration-300" />
                                     <span className="absolute bottom-[-0.59%] right-[-2%] text-white text-4xl align-text-bottom" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
                                         {service.description}
                                     </span>
