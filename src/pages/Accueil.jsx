@@ -74,8 +74,8 @@ export default function AccueilPage() {
                 
                 <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundHome})` }}>
                     <div className="flex flex-row justify-center align-center items-center  h-full w-full">
-                        <img src={logo} alt={content.home.logo_alt} className="h-100 w-auto" />
-                        <div className="flex flex-col justify-start items-start align-center">
+                        <img src={logo} alt={content.home.logo_alt} className="h-100 w-auto max-md:hidden" />
+                        <div className="flex flex-col justify-start items-start align-center max-md:ml-5">
                             <h1 className="text-white text-7xl text-left mb-5">
                                 {content.home.subtitle}
                             </h1>
