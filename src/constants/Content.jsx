@@ -190,7 +190,7 @@ export const content = {
         title: "Réseaux sociaux",
         linkedin: {
             title: "LinkedIn",
-            url: "https://www.linkedin.com/in/gabriel-santos-a584703a7/"
+            url: "https://www.linkedin.com/in/gabriel-santos-c77860/"
         },
         instagram: {
             title: "Instagram",
