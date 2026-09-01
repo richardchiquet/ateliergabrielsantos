@@ -18,20 +18,41 @@ export default function ProjetDetail() {
   const projet = projetsConfig[projetId];
 
   useEffect(() => {
+    setImages([]);
+    setThumbsSwiper(null);
+
     if (!projet) return;
     let isMounted = true;
 
     Promise.all(projet.getImageLoader().map((load) => load()))
       .then((modules) => {
-        if (isMounted) setImages(modules.map((m) => m.default));
+        if (isMounted) {
+          setImages(modules.map((m) => m.default));
+        }
       });
 
-    return () => { isMounted = false; };
+    return () => {
+      isMounted = false;
+    };
   }, [projet, projetId]);
 
   if (!projet) return <div><Header/>Projet introuvable</div>;
 
   const { color, content: projetContent, text_color, category } = projet;
+
+  if (images.length === 0) {
+    return (
+      <div className={`${text_color}`}>
+        <Header />
+        <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
+          <div className="col-start-2 col-end-12 my-20">
+            <p>Chargement des images…</p>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className={`${text_color}`}>
@@ -46,11 +67,12 @@ export default function ProjetDetail() {
         </div>
         <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
           <Swiper
+            key={`${projetId}-main`}
             style={{ "--swiper-navigation-color": "#000000", "--swiper-pagination-color": "#000000" }}
-            loop
+            loop={images.length > 1}
             spaceBetween={10}
             navigation
-            thumbs={{ swiper: thumbsSwiper }}
+            thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper2"
           >
@@ -62,10 +84,11 @@ export default function ProjetDetail() {
           </Swiper>
           <div className="max-md:hidden">
             <Swiper
+              key={`${projetId}-thumbs`}
               onSwiper={setThumbsSwiper}
-              loop
+              loop={images.length > 1}
               spaceBetween={10}
-              slidesPerView={9}
+              slidesPerView={Math.min(9, images.length || 1)}
               freeMode
               watchSlidesProgress
               modules={[FreeMode, Navigation, Thumbs]}
