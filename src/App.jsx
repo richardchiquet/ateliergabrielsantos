@@ -1,4 +1,5 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom"
+import { Analytics } from '@vercel/analytics/react';
 import Accueil from "./pages/Accueil";
 import Contact from "./pages/Contact";
 import Atelier from "./pages/Atelier";
@@ -17,6 +18,7 @@ function App() {
         <Route path='/services' element={<Services />} />
         <Route path='/projets/:projetId' element={<ProjetDetail />} />
       </Routes>
+      <Analytics />
     </Router>
   )
 }
