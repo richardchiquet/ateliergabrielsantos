@@ -5,10 +5,9 @@ const imageLoader = import.meta.glob("../../assets/photosProjets/*/*.jpg");
 
 function getImageLoaderForFolder(folderName) {
     return Object.entries(imageLoader)
-    .filter(([path]) => path.includes(`/photosProjets/${folderName}/`))
-    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, undefined, { numeric: true }))
-    .map(([, loader]) => loader);
-
+        .filter(([path]) => path.includes(`/photosProjets/${folderName}/`))
+        .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, undefined, { numeric: true }))
+        .map(([, loader]) => loader);
 }
 
 export const projetsConfig = {

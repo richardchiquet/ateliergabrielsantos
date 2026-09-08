@@ -1,15 +1,18 @@
-import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { content } from "../../constants/Content";
+import { useParams, Link } from "react-router-dom";
+import { projetsConfig } from "./ProjetsConfig";
 import "./projet.css";
+import { useState, useEffect } from "react";
+
+// Swiper
 import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import { projetsConfig } from "./ProjetsConfig";
+
 
 export default function ProjetDetail() {
   const { projetId } = useParams();
@@ -78,7 +81,7 @@ export default function ProjetDetail() {
           >
             {images.map((image, index) => (
               <SwiperSlide key={`${image}-${index}`}>
-                <img src={image} alt={`${projetContent.title} ${index + 1}`} className="w-full h-full object-contain" />
+                <img className="w-full h-full object-contain" src={image} alt={`${projetContent.title} ${index + 1}`} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -96,7 +99,7 @@ export default function ProjetDetail() {
             >
               {images.map((image, index) => (
                 <SwiperSlide key={`${image}-${index}`}>
-                  <img src={image} alt={`${projetContent.title} thumb ${index + 1}`} className="w-full h-auto object-contain" />
+                  <img className="w-full h-auto object-contain" src={image} alt={`${projetContent.title} thumb ${index + 1}`} />
                 </SwiperSlide>
               ))}
             </Swiper>

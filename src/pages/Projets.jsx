@@ -1,6 +1,5 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer";
-
 import { Link } from "react-router-dom";
 import { projetsConfig } from "./projets/ProjetsConfig";
 
@@ -32,7 +31,7 @@ export default function Projets() {
 
             {/* Desktop */}
             <div className="grid grid-cols-31 gap-7 px-10 mb-10 max-md:hidden">
-                {projects.map((project,index) => (
+                {projects.map((project, index) => (
                     <div key={project.to} className={"col-span-12 h-110 " + (index % 2 === 0 ? "col-start-4" : "col-start-17")}>
                         <Link to={project.to} className="group relative block overflow-hidden h-full">
                             <div className={`absolute inset-y-0 left-0 ${project.color} w-[3%] transition-all duration-500 ease-in-out group-hover:w-full z-10`}>
@@ -50,7 +49,7 @@ export default function Projets() {
                                     </div>
                                 </div>
                             </div>
-                            <img src={project.src} alt={project.title} className="block w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"/>
+                            <img className="block w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105" src={project.src} alt={project.title} />
                         </Link>
                     </div>
                 ))}
@@ -62,9 +61,7 @@ export default function Projets() {
                     <div key={project.to} className="w-full h-[50%] mb-5 flex flex-col items-start justify-start">
                         <Link to={project.to} className="group relative block overflow-hidden h-full w-full">
                             <div className={`absolute inset-y-0 left-0 ${project.color} w-[5%] z-10`}></div>
-                            <img src={project.src}
-                                 alt={project.title}
-                                 className="block w-full h-full object-cover"/>
+                            <img className="block w-full h-full object-cover" src={project.src} alt={project.title} />
                         </Link>
                         <div className="pt-2 pl-10 pb-10">
                             <h1>

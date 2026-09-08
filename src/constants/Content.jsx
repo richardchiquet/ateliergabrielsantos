@@ -51,12 +51,12 @@ export const content = {
         },
         category: {
             project: "Catégorie : Projet",
-            draft: "Catégorie : Ebauche",
+            draft: "Catégorie : Ébauche",
             competition: "Catégorie : Concours"
         },
         project_1: {
             title: "Micro Habitat 1",
-            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical. Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison. La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. La pergolas et les brises soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\n          Pour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
+            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical. Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison. La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. La pergolas et les brises soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
         },
         project_2: {
             title: "Famille House 1",
@@ -80,11 +80,13 @@ export const content = {
         subtitle: "L'architecte derrière l'atelier",
         history : {
             title: "Son histoire",
+            alt: "Architecte réalisant un croquis d'un projet d'architecture",
             textPart1: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics, des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.",
             textPart2: "Mon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage.\n\nLa simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet.\nLe temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers.\n\nLa réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
         },
         philosophy: {
             title: "Sa philosophie",
+            alt: "Gabriel Santos au Japon enlaçant un poteau en bois dans un temple traditionnel",
             textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.\n\n",
             textPart2: "C'est pour cela que j'ai à cœur de concevoir des espaces sains et fonctionnels adaptés aux besoins des usagers.\n\nEt cela passe par la compréhension des matériaux utilisés dans la construction : leur aspect, leurs propriétés et leur impact environnemental.\nLes matériaux et leur mise en œuvre sont un point central dans ma démarche architecturale."
         }
@@ -94,6 +96,7 @@ export const content = {
         subtitle: "Services proposés",
         new_construction: {
             title: "Construction neuve",
+            alt: "Photo de them snapshots sur Unsplash représentant une maison contemporaine en ossature bois avec bardage bois et toiture en tôle acier à joint debout",
             text: "Conception et réalisation de bâtiments performants où l'attention est portée sur la nature des matériaux, leur mise en œuvre et sur leur efficacité énergétique.",
             list: [
                 "Étude de faisabilité et programmation",
@@ -105,6 +108,7 @@ export const content = {
         },
         renovation: {
             title: "Rénovation",
+            alt: "Photo de ??? sur Unsplash représentant un bâtiment ancien en pierre avec une toiture en tuile plate de pays",
             text: "Conception et réalisation de réhabilitation de bâtiment existant où l'attention est portée sur la mise en valeur des éléments présents. La mise aux normes et l'amélioration des performances du bâtiment passe par le réemploi de matériaux et techniques traditionnelles.",
             list: [
                 "Diagnostics des existants",
@@ -117,17 +121,19 @@ export const content = {
         },
         interior_design: {
             title: "Aménagement intérieur",
+            alt: "Photo de Zaji Kanamajinas sur Unsplash représentant un intérieur contemporain avec un mobilier sur mesure et des matériaux naturels",
             text: "Optimisation, personnalisation et design d'espaces intérieurs fonctionnels et esthétiques.",
             list: [
                 "Plans d'aménagement",
                 "Choix des matériaux",
-            "Création d'ambiances",
-            "Optimisation des espaces",
-            "Suivi de réalisation"
+                "Création d'ambiances",
+                "Optimisation des espaces",
+                "Suivi de réalisation"
             ],
         },
         furniture: {
             title: "Mobilier",
+            alt: "Photo de Hans sur Unsplash représentant un meuble en bois sur mesure intégré dans un intérieur contemporain",
             text: "Conception de mobilier sur mesure intégré à votre projet.",
             list: [
                 "Design sur mesure",
@@ -139,6 +145,7 @@ export const content = {
         },
         public_facilities: {
             title: "Équipement public",
+            alt: "Photo de Fabrizio Coco sur Unsplash représentant un bâtiment public contemporain avec une façade en bois et une toiture végétalisée",
             text: "Conception et réalisation d'établissements recevant du public conformes aux normes d'accessibilité et de sécurité adaptés aux besoins de la maîtrise d'ouvrage.",
             list: [
                 "Mise en conformité",
@@ -150,6 +157,7 @@ export const content = {
         },
         extension: {
             title: "Extension",
+            alt: "Photo de Curated Lifestyle sur Unsplash représentant une extension contemporaine en ossature bois avec bardage bois et toiture végétalisée",
             text: "Développement harmonieux de votre espace de vie en respectant l'architecture existante.",
             list: [
                 "Étude de faisabilité",
@@ -163,6 +171,7 @@ export const content = {
     contact: {
         title: "Contact",
         subtitle: "Un projet ? Contactez-moi !",
+        alt: "Portrait de Gabriel Santos, architecte HMONP",
         text: "Je serais ravi d'échanger avec vous sur votre projet d'aménagement ou de construction.\nN'hésitez pas à me contacter pour toute interrogation ou demande de rendez-vous.",
         place: {
             title: "Zone d'intervention",

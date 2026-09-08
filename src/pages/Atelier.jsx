@@ -16,7 +16,7 @@ export default function Atelier() {
                 <h1 className="px-10 py-10 text-left w-full">
                     {content.atelier.subtitle}
                 </h1>
-                <img src={histoire} alt="Histoire de l'atelier" className="absolute -bottom-10 left-0 max-h-[80%] max-w-[30%] aspect-1/2 object-cover z-1"/>
+                <img className="absolute -bottom-10 left-0 max-h-[80%] max-w-[30%] aspect-1/2 object-cover z-1" src={histoire} alt={content.atelier.history.alt} />
                 <div className="grid grid-cols-12">
                     <h2 className="col-start-5 col-span-3 mb-5">
                         {content.atelier.history.title}
@@ -32,7 +32,7 @@ export default function Atelier() {
             </div>
             <div className="relative min-h-screen w-full -mt-10 max-md:hidden">
                 <div className="relative top-0 w-full bg-walnut-700 h-60 z-2"></div>
-                <img src={philosophie} alt="Gabriel au japon / Calin" className="absolute bottom-0 right-0 max-w-[30%] max-h-screen w-auto object-cover z-10" />
+                <img className="absolute bottom-0 right-0 max-w-[30%] max-h-screen w-auto object-cover z-10" src={philosophie} alt={content.atelier.philosophy.alt} />
                 <div className="grid grid-cols-12 mt-20">
                     <h2 className="col-start-2 col-span-3 mb-5">
                         {content.atelier.philosophy.title}
@@ -58,7 +58,7 @@ export default function Atelier() {
                     </p>
                 </div>
                 <div className="min-h-screen w-full bg-walnut-700">
-                    <img src={histoire} alt="Histoire de l'atelier" className="w-full h-auto object-cover mt-5" />
+                    <img className="w-full h-auto object-cover mt-5" src={histoire} alt={content.atelier.history.alt} />
                     <p className="text-formatting px-10 text-left w-full pl-20 py-10">
                         {content.atelier.history.textPart2}
                     </p>
@@ -72,7 +72,7 @@ export default function Atelier() {
                     <p className="text-formatting px-10 py-10 text-left w-full pl-30">
                         {content.atelier.philosophy.textPart1}
                     </p>
-                    <img src={philosophie} alt="Gabriel au japon / Calin" className="w-[50%] h-[60vh] max-h-[60vh] object-cover object-bottom" />
+                    <img className="w-[50%] h-[60vh] max-h-[60vh] object-cover object-bottom" src={philosophie} alt={content.atelier.philosophy.alt} />
                     <p className="text-formatting px-10 py-10 text-left w-full pl-30">
                         {content.atelier.philosophy.textPart2}
                     </p>

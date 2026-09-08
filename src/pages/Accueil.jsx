@@ -28,37 +28,37 @@ import serviceMobilier from "../assets/photosServices/mobilier.png";
 const services = [
     { 
         src: serviceConstructionNeuve, 
-        alt: content.services.new_construction.title, 
+        alt: content.services.new_construction.alt, 
         description: content.services.new_construction.title, 
         hash: "#construction-neuve" 
     },
     { 
         src: serviceRenovation, 
-        alt: content.services.renovation.title, 
+        alt: content.services.renovation.alt, 
         description: content.services.renovation.title, 
         hash: "#renovation" 
     },
     { 
         src: serviceEquipementPublic, 
-        alt: content.services.public_facilities.title, 
+        alt: content.services.public_facilities.alt, 
         description: content.services.public_facilities.title, 
         hash: "#equipement-public-et-extension" 
     },
     { 
         src: serviceExtension, 
-        alt: content.services.extension.title, 
+        alt: content.services.extension.alt, 
         description: content.services.extension.title, 
         hash: "#equipement-public-et-extension" 
     },
     { 
         src: serviceAmenagementInterieur, 
-        alt: content.services.interior_design.title, 
+        alt: content.services.interior_design.alt, 
         description: content.services.interior_design.title, 
         hash: "#amenagement-interieur-et-mobilier" 
     },
     { 
         src: serviceMobilier, 
-        alt: content.services.furniture.title, 
+        alt: content.services.furniture.alt, 
         description: content.services.furniture.title, 
         hash: "#amenagement-interieur-et-mobilier" 
     }
@@ -75,7 +75,7 @@ export default function AccueilPage() {
                 
                 <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundHome})` }}>
                     <div className="flex flex-row justify-center align-center items-center  h-full w-full">
-                        <img src={logo} alt={content.home.logo_alt} className="h-100 w-auto invert max-md:hidden" />
+                        <img className="h-100 w-auto invert max-md:hidden" src={logo} alt={content.home.logo_alt} />
                         <div className="flex flex-col justify-start items-start align-center max-md:ml-5">
                             <h1 className="text-white text-7xl text-left mb-5">
                                 {content.home.subtitle}
@@ -179,7 +179,7 @@ export default function AccueilPage() {
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet1" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet1} alt="Projet 1" className="h-full w-full object-cover" />
+                                        <img className="h-full w-full object-cover" src={projet1} alt="Projet 1" />
                                         <h1 className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_1.title}
                                         </h1>
@@ -189,7 +189,7 @@ export default function AccueilPage() {
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet2" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet2} alt="Projet 2" className="h-full w-full object-cover" />
+                                        <img className="h-full w-full object-cover" src={projet2} alt="Projet 2" />
                                         <h1 className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_2.title}
                                         </h1>
@@ -199,7 +199,7 @@ export default function AccueilPage() {
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet3" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet3} alt="Projet 3" className="h-full w-full object-cover" />
+                                        <img className="h-full w-full object-cover" src={projet3} alt="Projet 3" />
                                         <h1 className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_3.title}
                                         </h1>
@@ -222,7 +222,7 @@ export default function AccueilPage() {
                         {services.map((service) => (
                             <div key={service.hash} className="h-[80%] w-[80%] mx-auto flex items-center justify-center px-3">
                                 <Link to={{ pathname: "/services", hash: service.hash }} className="h-full w-full overflow-hidden group block relative">
-                                    <img src={service.src} alt={service.alt} className="h-full w-full object-cover hover:scale-110 transition-transform duration-300" />
+                                    <img className="h-full w-full object-cover hover:scale-110 transition-transform duration-300" src={service.src} alt={service.alt} />
                                     <span className="absolute bottom-[-0.59%] right-[-2%] text-white text-4xl align-text-bottom" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
                                         {service.description}
                                     </span>

@@ -1,8 +1,7 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
-
-import Scroll from "../components/Scroll";
+import Scroll from "../helpers/Scroll";
 
 // Images
 import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.png";
@@ -26,7 +25,7 @@ export default function Services() {
                 {/* Construction Neuve */}
                 <div id="construction-neuve" className="w-full min-h-[calc(100vh-70px)] bg-white scroll-mt-100">
                     <div className="flex flex-col md:flex-row items-center gap-10 px-6 md:px-50 md:py-10  justify-between">
-                        <img src={serviceConstructionNeuve} alt="Construction Neuve" className="w-[60%] md:w-[30%] max-w-xl h-auto object-cover" />
+                        <img className="w-[60%] md:w-[30%] max-w-xl h-auto object-cover" src={serviceConstructionNeuve} alt={content.services.new_construction.alt} />
                         <div className="flex flex-col justify-end w-full md:w-[40%]">
                             <h2 className="mb-5">
                                 {content.services.new_construction.title}
@@ -59,14 +58,14 @@ export default function Services() {
                                 ))}
                             </ul>
                         </div>
-                        <img src={serviceRenovation} alt="Rénovation" className="w-full md:w-1/2 max-w-xl h-auto object-cover" />
+                        <img className="w-full md:w-1/2 max-w-xl h-auto object-cover" src={serviceRenovation} alt={content.services.renovation.alt} />
                     </div>
                 </div>
 
                 {/* Aménagement intérieur et Mobilier */}
                 <div id="amenagement-interieur-et-mobilier" className="w-full min-h-[calc(100vh-70px)] bg-white flex flex-col justify-start scroll-mt-17">
                     <div className="flex flex-col md:flex-row mt-10 px-6 md:px-50 justify-between items-center gap-10">
-                        <img src={serviceAmenagementInterieur} alt="Aménagement intérieur" className="w-full md:w-1/2 max-w-xl h-auto object-cover" />
+                        <img className="w-full md:w-1/2 max-w-xl h-auto object-cover" src={serviceAmenagementInterieur} alt={content.services.interior_design.alt} />
                         <div className="flex flex-col justify-center w-full md:w-[30%]">
                             <h2 className="mb-5">
                                 {content.services.interior_design.title}
@@ -82,7 +81,7 @@ export default function Services() {
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row px-6 md:px-50 md:py-10 py-30 justify-start items-center gap-10">
-                        <img src={serviceMobilier} alt="Mobilier" className="w-[60%] md:w-[15%] h-auto object-cover" />
+                        <img className="w-[60%] md:w-[15%] h-auto object-cover" src={serviceMobilier} alt={content.services.furniture.alt} />
                         <div className="flex flex-col justify-center w-full md:w-[30%] mx-70">
                             <h2 className="mb-5">
                                 {content.services.furniture.title}
@@ -102,7 +101,7 @@ export default function Services() {
                 {/* Equipement public et Extension */}
                 <div id="equipement-public-et-extension" className="w-full min-h-[calc(100vh-70px)] bg-lemon-500 flex flex-col md:flex-row justify-center items-start gap-10 px-6 md:px-50 py-16 scroll-mt-17">
                     <div className="flex flex-col  w-full md:w-1/2 gap-6">
-                        <img src={serviceEquipementPublic} alt="Equipement public" className="w-[60%] md:w-[40%] h-auto object-cover " />
+                        <img className="w-[60%] md:w-[40%] h-auto object-cover " src={serviceEquipementPublic} alt={content.services.public_facilities.alt} />
                         <div className="flex flex-col justify-center w-full">
                             <h2 className="mb-5">
                                 {content.services.public_facilities.title}
@@ -118,7 +117,7 @@ export default function Services() {
                         </div>
                     </div>
                     <div className="flex flex-col w-full md:w-1/2 gap-6">
-                        <img src={serviceExtension} alt="Extension" className="w-[60%] md:w-[40%] h-auto object-cover" />
+                        <img className="w-[60%] md:w-[40%] h-auto object-cover" src={serviceExtension} alt={content.services.extension.alt} />
                         <div className="flex flex-col justify-center w-full">
                             <h2 className="mb-5">
                                 {content.services.extension.title}
