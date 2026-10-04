@@ -170,7 +170,7 @@ export default function AccueilPage() {
                                 '--swiper-pagination-color': '#000000',
                             }}
                             slidesPerView={1}
-                            spaceBetween={30}
+                            spaceBetween={10}
                             pagination={{ clickable: true }}
                             loop={true}
                             navigation={true}
