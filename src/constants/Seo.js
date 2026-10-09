@@ -1,5 +1,5 @@
 import { content } from "./Content";
-import ogImage from "../assets/photosAccueil/backgroundHome.jpg";
+import ogImage from "../assets/photosAccueil/backgroundHome.webp";
 import logo from "../assets/logoNB.png";
 
 export const SITE_URL = "https://www.ateliergabrielsantos.com";

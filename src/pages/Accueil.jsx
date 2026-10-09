@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 
 // Images
-import backgroundHome from "../assets/photosAccueil/backgroundHome.jpg";
+import backgroundHome from "../assets/photosAccueil/backgroundHome.webp";
 import logo from "../assets/logoNB.png";
 import matiereArgile from "../assets/photosAccueil/matiereArgile.jpg";
 import matiereBois from "../assets/photosAccueil/matiereBois.jpg";
