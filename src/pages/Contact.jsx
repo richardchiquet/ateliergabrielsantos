@@ -1,10 +1,17 @@
 import Header from "../components/Header"
+import { buildMeta } from "../constants/Seo";
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
 
 
 // Images
 import photoContact from "../assets/photosContact/portraitGabrielSantos.jpg";
+
+export const meta = () => buildMeta({
+    title: content.meta.title,
+    description: content.meta.description,
+    path: "/contact",
+});
 
 export default function Contact() {
     return (
@@ -18,7 +25,7 @@ export default function Contact() {
                     {content.contact.text}
                 </p>
                 <div >
-                    <img src={photoContact} alt="Profil" className="w-75 h-75 md:w-96 md:h-96 object-cover rounded-full border-white border-5" />
+                    <img src={photoContact} alt="Portrait de Gabriel Santos, architecte HMONP" className="w-75 h-75 md:w-96 md:h-96 object-cover rounded-full border-white border-5" />
                 </div>
                 <div>
                     <h1 className="mb-5 max-md:hidden">

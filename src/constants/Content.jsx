@@ -4,6 +4,10 @@ export const content = {
         title: "À propos",
         text: "Gabriel Santos, architecte HMONP, vous accompagne dans la conception et la réalisation de vos projets à travers l'utilisation de matériaux naturels et écologiques."
     },
+    meta: {
+        title: "L'atelier Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77)",
+        description: "Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77), conçoit des maisons, rénovations et extensions saines en matériaux biosourcés : bois, paille, argile.",
+    },
     navigation: {
         title: "Navigation"
     },
@@ -184,6 +188,15 @@ export const content = {
         email: {
             title: "Email",
             text: "ateliergabrielsantos@gmail.com"
+        }
+    },
+    not_found: {
+        code: "404",
+        title: "Page introuvable",
+        text: "La page que vous cherchez n'existe pas ou a été déplacée.\nPas d'inquiétude, le reste de l'atelier est toujours là.",
+        cta: {
+            home: "Retour à l'accueil",
+            projects: "Voir les projets"
         }
     },
     social_media: {

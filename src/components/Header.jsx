@@ -1,5 +1,5 @@
 import { content } from "../constants/Content";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import React, { useState } from "react";
 import Scroll from "./Scroll";
 
@@ -13,13 +13,9 @@ export default function Header() {
         
         <header className=" w-full flex items-center justify-between bg-white text-black py-3 px-2 md:px-12 sticky top-0 shadow-md z-50">
             <Scroll />
-            <title>
-              {content.title}
-            </title>
-
             {/* Mobile */}
             <Link to={{ pathname: "/" ,hash: "#top" }} className="flex items-center">
-                <img src={logo} alt="Logo" className="w-12 hover:scale-105 transition-all" onClick={() => setIsMenuOpen(false)} />
+                <img src={logo} alt={content.home.logo_alt} className="w-12 hover:scale-105 transition-all" onClick={() => setIsMenuOpen(false)} />
             </Link>
             <button
                 type="button"

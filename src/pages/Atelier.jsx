@@ -1,10 +1,17 @@
 import Header from "../components/Header"
+import { buildMeta } from "../constants/Seo";
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
 
 // Images
 import histoire from "../assets/photosAtelier/histoire.png";
 import philosophie from "../assets/photosAtelier/philosophie.jpg"
+
+export const meta = () => buildMeta({
+    title:content.meta.title,
+    description: content.meta.description,
+    path: "/atelier",
+});
 
 export default function Atelier() {
 
@@ -16,7 +23,7 @@ export default function Atelier() {
                 <h1 className="px-10 py-10 text-left w-full">
                     {content.atelier.subtitle}
                 </h1>
-                <img src={histoire} alt="Histoire de l'atelier" className="absolute -bottom-10 left-0 max-h-[80%] max-w-[30%] aspect-1/2 object-cover z-1"/>
+                <img src={histoire} alt="Architecte dessinant un plan à la main" className="absolute -bottom-10 left-0 max-h-[80%] max-w-[30%] aspect-1/2 object-cover z-1"/>
                 <div className="grid grid-cols-12">
                     <h2 className="col-start-5 col-span-3 mb-5">
                         {content.atelier.history.title}
@@ -32,7 +39,7 @@ export default function Atelier() {
             </div>
             <div className="relative min-h-screen w-full -mt-10 max-md:hidden">
                 <div className="relative top-0 w-full bg-walnut-700 h-60 z-2"></div>
-                <img src={philosophie} alt="Gabriel au japon / Calin" className="absolute bottom-0 right-0 max-w-[30%] max-h-screen w-auto object-cover z-10" />
+                <img src={philosophie} alt="Gabriel Santos enlaçant un pilier en bois d'un temple japonais" className="absolute bottom-0 right-0 max-w-[30%] max-h-screen w-auto object-cover z-10" />
                 <div className="grid grid-cols-12 mt-20">
                     <h2 className="col-start-2 col-span-3 mb-5">
                         {content.atelier.philosophy.title}
@@ -58,7 +65,7 @@ export default function Atelier() {
                     </p>
                 </div>
                 <div className="min-h-screen w-full bg-walnut-700">
-                    <img src={histoire} alt="Histoire de l'atelier" className="w-full h-auto object-cover mt-5" />
+                    <img src={histoire} alt="Architecte dessinant un plan à la main" className="w-full h-auto object-cover mt-5" />
                     <p className="text-formatting px-10 text-left w-full pl-20 py-10">
                         {content.atelier.history.textPart2}
                     </p>
@@ -66,13 +73,13 @@ export default function Atelier() {
                     </div>
                 </div>
                 <div className="min-h-screen w-full bg-white">
-                    <h1 className="text-3xl px-10 py-10 text-left w-full">
+                    <h2 className="text-3xl font-medium px-10 py-10 text-left w-full">
                         {content.atelier.philosophy.title}
-                    </h1>
+                    </h2>
                     <p className="text-formatting px-10 py-10 text-left w-full pl-30">
                         {content.atelier.philosophy.textPart1}
                     </p>
-                    <img src={philosophie} alt="Gabriel au japon / Calin" className="w-[50%] h-[60vh] max-h-[60vh] object-cover object-bottom" />
+                    <img src={philosophie} alt="Gabriel Santos enlaçant un pilier en bois d'un temple japonais" className="w-[50%] h-[60vh] max-h-[60vh] object-cover object-bottom" />
                     <p className="text-formatting px-10 py-10 text-left w-full pl-30">
                         {content.atelier.philosophy.textPart2}
                     </p>
