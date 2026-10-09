@@ -15,7 +15,7 @@ export const meta = () => buildMeta({
 
 export default function Contact() {
     return (
-        <div id="top" className="min-h-screen scroll-mt-100">
+        <div id="0" className="min-h-screen scroll-mt-100">
             <Header />
             <div className="bg-orange-600 text-white w-full h-full md:h-screen flex flex-col md:flex-row items-center justify-around  py-5 md:py-20 px-4">
                 <h1 className="md:mb-2 md:hidden text-left w-full px-4">

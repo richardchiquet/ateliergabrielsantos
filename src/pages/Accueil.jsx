@@ -75,7 +75,7 @@ export const meta = () => buildMeta({
 export default function AccueilPage() {
     
     return (
-        <div id="top" className="min-h-screen scroll-mt-100">
+        <div id="0" className="min-h-screen scroll-mt-100">
             <Header />
             <div className="w-full h-full">
 
@@ -92,10 +92,10 @@ export default function AccueilPage() {
                                 {content.home.second_title}
                             </h2>
                             <div className="py-2 space-x-5">
-                                <Link to={{ pathname: "/contact", hash: "top" }} className="cta-button home-primary">
+                                <Link to={{ pathname: "/contact", hash: "0" }} className="cta-button home-primary">
                                     {content.home.cta.contact}
                                 </Link>
-                                <Link to={{ pathname: "/projets", hash: "top" }} className="cta-button home-secondary">
+                                <Link to={{ pathname: "/projets", hash: "0" }} className="cta-button home-secondary">
                                     {content.home.cta.projects}
                                 </Link>
                             </div>
@@ -216,7 +216,7 @@ export default function AccueilPage() {
                             </SwiperSlide>
                         </Swiper>
                     </div>
-                    <Link to={{ pathname: "/projets" , hash: "top" }} className="cta-button project-button mt-7 mb-3">
+                    <Link to={{ pathname: "/projets" , hash: "0" }} className="cta-button project-button mt-7 mb-3">
                         {content.home.cta.projects}
                     </Link>
                 </div>

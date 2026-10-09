@@ -17,7 +17,7 @@ export default function Atelier() {
 
 
     return (
-        <div id="top" className="min-h-screen scroll-mt-100">
+        <div id="0" className="min-h-screen scroll-mt-100">
             <Header />
             <div className=" min-h-screen w-full max-md:hidden scroll-mt-1000">
                 <h1 className="px-10 py-10 text-left w-full">

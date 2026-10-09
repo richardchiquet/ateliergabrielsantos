@@ -14,7 +14,7 @@ export default function Header() {
         <header className=" w-full flex items-center justify-between bg-white text-black py-3 px-2 md:px-12 sticky top-0 shadow-md z-50">
             <Scroll />
             {/* Mobile */}
-            <Link to={{ pathname: "/" ,hash: "#top" }} className="flex items-center">
+            <Link to={{ pathname: "/" ,hash: "#0" }} className="flex items-center">
                 <img src={logo} alt={content.home.logo_alt} className="w-12 hover:scale-105 transition-all" onClick={() => setIsMenuOpen(false)} />
             </Link>
             <button
@@ -28,27 +28,27 @@ export default function Header() {
             <nav className={`md:hidden absolute left-0 top-full w-full h-screen bg-white shadow-md z-50 ${isMenuOpen ? "block" : "hidden"}`}>
                 <ul className="burger-menu flex flex-col items-center space-y-15 py-4 mt-60">
                     <li>
-                        <Link to={{ pathname: "/" ,hash: "#top" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                        <Link to={{ pathname: "/" ,hash: "#0" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
                             {content.home.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/projets", hash: "#top" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                        <Link to={{ pathname: "/projets", hash: "#0" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
                             {content.projects.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/services", hash: "#top" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                        <Link to={{ pathname: "/services", hash: "#0" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
                             {content.services.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/atelier", hash: "#top" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                        <Link to={{ pathname: "/atelier", hash: "#0" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
                             {content.atelier.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/contact", hash: "#top" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
+                        <Link to={{ pathname: "/contact", hash: "#0" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
                             {content.contact.title}
                         </Link>
                     </li>
@@ -59,27 +59,27 @@ export default function Header() {
             <nav className="max-md:hidden md:flex items-center gap-10">
                 <ul className="flex space-x-10">
                     <li>
-                        <Link to={{ pathname: "/" ,hash: "#top" }} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/" ,hash: "#0" }} className="hover:text-gray-700">
                             {content.home.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/projets", hash: "#top" }} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/projets", hash: "#0" }} className="hover:text-gray-700">
                             {content.projects.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/services", hash: "#top" }} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/services", hash: "#0" }} className="hover:text-gray-700">
                             {content.services.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/atelier", hash: "#top" }} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/atelier", hash: "#0" }} className="hover:text-gray-700">
                             {content.atelier.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/contact", hash: "#top" }} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/contact", hash: "#0" }} className="hover:text-gray-700">
                             {content.contact.title}
                         </Link>
                     </li>

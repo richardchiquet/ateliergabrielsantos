@@ -58,7 +58,7 @@ export default function ProjetDetail() {
     <div className={`${text_color}`}>
       <Header />
       <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
-        <Link to={{ pathname: "/projets", hash: "top" }} className="text-4xl col-start-2">
+        <Link to={{ pathname: "/projets", hash: "0" }} className="text-4xl col-start-2">
           {content.projects.icon_back}
         </Link>
         <div className="col-start-2 col-end-12 mb-5">
