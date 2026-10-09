@@ -7,7 +7,6 @@ export const SITE_NAME = "L'atelier Gabriel Santos";
 
 const absolute = (path) => (path.startsWith("http") ? path : `${SITE_URL}${path}`);
 
-// Balises <head> d'une page : titre, description, canonical, Open Graph et Twitter
 export function buildMeta({ title, description, path, image = ogImage }) {
     const url = absolute(path);
     const imageUrl = absolute(image);
@@ -29,7 +28,6 @@ export function buildMeta({ title, description, path, image = ogImage }) {
     ];
 }
 
-// Données structurées (schema.org) de l'entreprise
 export const businessJsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
