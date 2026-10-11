@@ -1,6 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { Analytics } from "@vercel/analytics/react";
-import { businessJsonLd } from "./constants/Seo";
+import { businessJsonLd, websiteJsonLd } from "./constants/Seo";
 import "./index.css";
 
 export function Layout({ children }) {
@@ -16,6 +16,10 @@ export function Layout({ children }) {
                 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
                 <Meta />
                 <Links />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+                />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}

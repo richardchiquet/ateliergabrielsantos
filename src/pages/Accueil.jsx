@@ -104,20 +104,20 @@ export default function AccueilPage() {
                 </div>
 
                 {/* Section de Matériaux */}
-                <div className="bg-white w-full min-h-screen">
-                    <h2 className="text-4xl font-medium px-50 py-20 text-left w-full max-md:px-10 max-md:py-5 mt-5">
+                <div className="bg-white w-full min-h-screen md:flex md:flex-col md:justify-center">
+                    <h2 className="text-4xl font-medium px-50 py-20 text-left w-full max-md:px-10 max-md:py-5 mt-5 md:mt-0">
                         {content.home.materials.title}
                     </h2>
-                    <div className="flex items-center justify-center w-full h-full max-md:hidden">
-                        <div className="px-10 my-5 space-y-3 space-x-10 grid grid-cols-9 w-[70%] h-[50%]">
+                    <div className="flex items-center justify-center w-full max-md:hidden px-50 pb-20">
+                        <div className="grid grid-cols-7 gap-y-3 w-[60%]">
                             <div className=" col-start-1 col-end-6 h-20 max-md:hidden">
                                 <div className="h-20 w-full overflow-hidden">
                                     <img className="object-cover w-full h-full" src={matiereArgile} alt={content.home.materials.clay.description} />
                                 </div>
                             </div>
                             <div className="col-start-2 col-end-7 h-20 max-md:hidden">
-                                <div className="h-20 w-full overflow-hidden">
-                                    <img className="object-cover w-full h-full" src={matiereBois} alt={content.home.materials.wood.description} />
+                                <div className="h-20 w-full overflow-hidden relative @container-[size]">
+                                    <img className="object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 w-[100cqh] h-[100cqw]" src={matiereBois} alt={content.home.materials.wood.description} />
                                 </div>
                             </div>
                             <div className=" col-start-3 col-end-8 h-20 max-md:hidden">
@@ -126,7 +126,7 @@ export default function AccueilPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="text-formatting flex flex-col justify-centre items-center w-[30%] h-[50%] p-20">
+                        <div className="text-formatting flex flex-col justify-center w-[40%] pl-16">
                             <div>
                                 {content.home.materials.text}
                             </div>

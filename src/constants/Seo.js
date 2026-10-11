@@ -28,6 +28,17 @@ export function buildMeta({ title, description, path, image = ogImage }) {
     ];
 }
 
+export const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    alternateName: ["Atelier Gabriel Santos", "Gabriel Santos Architecte"],
+    url: `${SITE_URL}/`,
+    inLanguage: "fr-FR",
+    publisher: { "@id": `${SITE_URL}/#atelier` },
+};
+
 export const businessJsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
