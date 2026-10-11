@@ -8,8 +8,8 @@ import { content } from "../constants/Content";
 import photoContact from "../assets/photosContact/portraitGabrielSantos.jpg";
 
 export const meta = () => buildMeta({
-    title: content.meta.title,
-    description: content.meta.description,
+    title: content.meta.contact.title,
+    description: content.meta.contact.description,
     path: "/contact",
 });
 

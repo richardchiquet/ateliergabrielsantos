@@ -25,10 +25,10 @@ export default function NotFound() {
                         {content.not_found.text}
                     </p>
                     <div className="mt-10 flex flex-col md:flex-row gap-5">
-                        <Link to={{ pathname: "/", hash: "top" }} className="cta-button home-primary w-fit">
+                        <Link to={{ pathname: "/", hash: "0" }} className="cta-button home-primary w-fit">
                             {content.not_found.cta.home}
                         </Link>
-                        <Link to={{ pathname: "/projets", hash: "top" }} className="cta-button home-secondary w-fit">
+                        <Link to={{ pathname: "/projets", hash: "0" }} className="cta-button home-secondary w-fit">
                             {content.not_found.cta.projects}
                         </Link>
                     </div>

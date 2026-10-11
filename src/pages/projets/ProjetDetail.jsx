@@ -58,7 +58,7 @@ export default function ProjetDetail() {
     <div className={`${text_color}`}>
       <Header />
       <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
-        <Link to={{ pathname: "/projets", hash: "0" }} className="text-4xl col-start-2">
+        <Link to={{ pathname: "/projets" }} className="text-4xl col-start-2">
           {content.projects.icon_back}
         </Link>
         <div className="col-start-2 col-end-12 mb-5">
@@ -76,7 +76,7 @@ export default function ProjetDetail() {
             loop={images.length > 1}
             spaceBetween={10}
             navigation
-            thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+            thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper2"
           >
@@ -90,7 +90,6 @@ export default function ProjetDetail() {
             <Swiper
               key={`${projetId}-thumbs`}
               onSwiper={setThumbsSwiper}
-              loop={images.length > 1}
               spaceBetween={10}
               slidesPerView={Math.min(9, images.length || 1)}
               freeMode

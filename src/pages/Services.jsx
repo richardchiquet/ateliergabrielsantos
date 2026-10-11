@@ -14,8 +14,8 @@ import serviceAmenagementInterieur from "../assets/photosServices/amenagementInt
 import serviceMobilier from "../assets/photosServices/mobilier.png";
 
 export const meta = () => buildMeta({
-    title: content.meta.title,
-    description: content.meta.description,
+    title: content.meta.services.title,
+    description: content.meta.services.description,
     path: "/services",
 });
 

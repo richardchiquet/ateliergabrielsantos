@@ -17,8 +17,8 @@ const projects = Object.entries(projetsConfig).map(([id, projet]) => ({
 }));
 
 export const meta = () => buildMeta({
-    title: content.meta.title,
-    description: content.meta.description,
+    title: content.meta.projets.title,
+    description: content.meta.projets.description,
     path: "/projets",
 });
 

@@ -8,8 +8,8 @@ import histoire from "../assets/photosAtelier/histoire.png";
 import philosophie from "../assets/photosAtelier/philosophie.jpg"
 
 export const meta = () => buildMeta({
-    title:content.meta.title,
-    description: content.meta.description,
+    title:content.meta.atelier.title,
+    description: content.meta.atelier.description,
     path: "/atelier",
 });
 
