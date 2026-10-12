@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export default function Footer() {
     return (
-        <footer className="bg-primary-50 text-black py-6 px-4 flex space-between flex-wrap justify-around max-md:hidden">
+        <footer className="bg-primary-50 text-black py-6 px-4 flex flex-wrap justify-around max-md:hidden">
             <div>
                 <h3 className="mb-4">
                     {content.about.title}
@@ -19,27 +19,27 @@ export default function Footer() {
                 <nav>
                     <ul className="space-y-1 list-style">
                         <li>
-                            <Link to="/" className="hover:text-blue-400">
+                            <Link to="/" className="hover:text-gray-500">
                                 {content.home.title}
                             </Link>
                         </li>
                         <li>
-                            <Link to="/projets" className="hover:text-blue-400">
+                            <Link to="/projets" className="hover:text-gray-500">
                                 {content.projects.title}
                             </Link>
                         </li>
                         <li>
-                            <Link to="/services" className="hover:text-blue-400">
+                            <Link to="/services" className="hover:text-gray-500">
                                 {content.services.title}
                             </Link>
                         </li>
                         <li>
-                            <Link to="/atelier" className="hover:text-blue-400">
+                            <Link to="/atelier" className="hover:text-gray-500">
                                 {content.atelier.title}
                             </Link>
                         </li>
                         <li>
-                            <Link to="/contact" className="hover:text-blue-400">
+                            <Link to="/contact" className="hover:text-gray-500">
                                 {content.contact.title}
                             </Link>
                         </li>
@@ -53,10 +53,10 @@ export default function Footer() {
                 <nav>
                     <ul className="space-y-1">
                         <li>
-                            <a href={content.social_media.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">{content.social_media.linkedin.title}</a>
+                            <a href={content.social_media.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">{content.social_media.linkedin.title}</a>
                         </li>
                         <li>
-                            <a href={content.social_media.instagram.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">{content.social_media.instagram.title}</a>
+                            <a href={content.social_media.instagram.url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">{content.social_media.instagram.title}</a>
                         </li>
                     </ul>
                 </nav>
@@ -69,12 +69,12 @@ export default function Footer() {
                     {content.contact.address.title} : {content.contact.address.text}
                 </p>
                 <p className="mt-1">
-                    {content.contact.phone.title} : <a href={`tel:${content.contact.phone.url}`} className="hover:text-blue-400">
+                    {content.contact.phone.title} : <a href={`tel:${content.contact.phone.url}`} className="hover:text-gray-500">
                         {content.contact.phone.text}
                     </a>
                 </p>
                 <p className="mt-1">
-                    {content.contact.email.title} : <a href={`mailto:${content.contact.email.text}`} className="hover:text-blue-400">
+                    {content.contact.email.title} : <a href={`mailto:${content.contact.email.text}`} className="hover:text-gray-500">
                         {content.contact.email.text}
                     </a>
                 </p>

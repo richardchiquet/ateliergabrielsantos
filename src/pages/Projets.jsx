@@ -24,10 +24,10 @@ export const meta = () => buildMeta({
 
 export default function Projets() {
     return (
-        <div id="top" className="min-h-screen bg-white scroll-mt-100">
+        <div id="top" className="min-h-screen bg-white">
             <Header />
             <h1 className="mb-6 text-left px-10 md:px-10 ml-45 py-10">
-                Projets
+                {content.projects.title}
             </h1>
 
             {/* Desktop */}

@@ -34,7 +34,7 @@ export default function Contact() {
                     <p className="text-formatting max-md:hidden">
                         {content.contact.text}
                     </p>
-                    <div className="flex space-between flex-wrap justify-start md:mt-6 md:gap-10">
+                    <div className="flex flex-wrap justify-start md:mt-6 md:gap-10">
                         <div>
                             <h2>
                                 {content.contact.place.title}

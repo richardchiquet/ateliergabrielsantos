@@ -1,6 +1,6 @@
 import { content } from "../constants/Content";
 import { Link } from "react-router";
-import React, { useState } from "react";
+import { useState } from "react";
 import Scroll from "./Scroll";
 
 // Images

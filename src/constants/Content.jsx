@@ -143,9 +143,9 @@ export const content = {
             list: [
                 "Plans d'aménagement",
                 "Choix des matériaux",
-            "Création d'ambiances",
-            "Optimisation des espaces",
-            "Suivi de réalisation"
+                "Création d'ambiances",
+                "Optimisation des espaces",
+                "Suivi de réalisation"
             ],
         },
         furniture: {
