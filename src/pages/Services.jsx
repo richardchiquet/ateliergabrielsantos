@@ -3,6 +3,8 @@ import { buildMeta } from "../constants/Seo";
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
 
+import Scroll from "../components/Scroll";
+
 // Images
 import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.png";
 import serviceRenovation from "../assets/photosServices/renovation.png";
