@@ -5,7 +5,7 @@ export const content = {
         text: "Gabriel Santos, architecte HMONP, vous accompagne dans la conception et la réalisation de vos projets à travers l'utilisation de matériaux naturels et écologiques."
     },
     meta: {
-        acceuil: {
+        accueil: {
             title: "L'atelier Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77)",
             description: "Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77), conçoit des maisons, rénovations et extensions saines en matériaux biosourcés : bois, paille, argile.",
         },
@@ -73,12 +73,12 @@ export const content = {
         },
         category: {
             project: "Catégorie : Projet",
-            draft: "Catégorie : Ebauche",
+            draft: "Catégorie : Ébauche",
             competition: "Catégorie : Concours"
         },
         project_1: {
             title: "Micro Habitat 1",
-            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical. Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison. La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. La pergolas et les brises soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\n          Pour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
+            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical. Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison. La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. La pergolas et les brises soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
         },
         project_2: {
             title: "Famille House 1",
@@ -90,7 +90,7 @@ export const content = {
         },
         project_4: {
             title: "Rénovation intérieure",
-            description: "Le projet d'aménagement de cet intérieur a pour objectif de proposer une qualité de vie importante aux usagers. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet s'implante dans une maison de ville ancienne avec très peu d'ouverture sur l'extérieur. Cette contrainte nous amène donc à aller chercher la lumière en y installant les éléments les plus bas de côté des ouvertures et installer les éléments hauts sur les murs du fond de la pièce. L'aménagement du projet propose, premièrement un meuble bas sur mesure permettant d'intégrer des rangements, un radiateur et le meuble télévision. Ce meuble permet également de poser des plantes sur le plan supérieur mais également de proposer des assises lorsqu'il y a des invités. Deuxièmement la cuisine intégrée au projet vient en prolongement de ce meuble bas sur le fond de la pièce. Le meuble vient prendre toute la largeur de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en faïence et le comptoir en terrazzo. Ensuite, le sol existant est remplacé par des tomettes traditionnelles. Ayant une inertie thermique élevée et étant facilement nettoyable ce matériau permet au projet de conserver l'esthétique traditionnelle du reste de la maison tout en étant facile d'entretien et se mariant à merveille avec le mobilier contemporain.\n\nPour conclure, ce projet d'aménagement a pour objectif de donner un espace intérieur de qualité aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de confort, luminosité, santé, usages et qualité architecturale."
+            description: "Le projet d'aménagement de cet intérieur a pour objectif de proposer une qualité de vie importante aux usagers. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet s'implante dans une maison de ville ancienne avec très peu d'ouvertures sur l'extérieur. Cette contrainte nous amène donc à aller chercher la lumière en y installant les éléments les plus bas de côté des ouvertures et installer les éléments hauts sur les murs du fond de la pièce. L'aménagement du projet propose, premièrement un meuble bas sur mesure permettant d'intégrer des rangements, un radiateur et le meuble télévision. Ce meuble permet également de poser des plantes sur le plan supérieur mais également de proposer des assises lorsqu'il y a des invités. Deuxièmement la cuisine intégrée au projet vient en prolongement de ce meuble bas sur le fond de la pièce. Le meuble vient prendre toute la largeur de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en faïence et le comptoir en terrazzo. Ensuite, le sol existant est remplacé par des tomettes traditionnelles. Ayant une inertie thermique élevée et étant facilement nettoyable ce matériau permet au projet de conserver l'esthétique traditionnelle du reste de la maison tout en étant facile d'entretien et se mariant à merveille avec le mobilier contemporain.\n\nPour conclure, ce projet d'aménagement a pour objectif de donner un espace intérieur de qualité aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de confort, luminosité, santé, usages et qualité architecturale."
         },
         project_5: {
             title: "Cabanon",
@@ -100,14 +100,14 @@ export const content = {
     atelier: {
         title: "L'atelier",
         subtitle: "L'architecte derrière l'atelier",
-        history : {
+        history: {
             title: "Son histoire",
             textPart1: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics, des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.",
             textPart2: "Mon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage.\n\nLa simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet.\nLe temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers.\n\nLa réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
         },
         philosophy: {
             title: "Sa philosophie",
-            textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.\n\n",
+            textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.",
             textPart2: "C'est pour cela que j'ai à cœur de concevoir des espaces sains et fonctionnels adaptés aux besoins des usagers.\n\nEt cela passe par la compréhension des matériaux utilisés dans la construction : leur aspect, leurs propriétés et leur impact environnemental.\nLes matériaux et leur mise en œuvre sont un point central dans ma démarche architecturale."
         }
     },
@@ -188,7 +188,7 @@ export const content = {
         text: "Je serais ravi d'échanger avec vous sur votre projet d'aménagement ou de construction.\nN'hésitez pas à me contacter pour toute interrogation ou demande de rendez-vous.",
         place: {
             title: "Zone d'intervention",
-            text: "Ile-de-France et départements limitrophes"
+            text: "Île-de-France et départements limitrophes"
         },
         hours: {
             title: "Horaires",
@@ -201,7 +201,7 @@ export const content = {
         phone: {
             title: "Téléphone",
             text: "+33 6 48 70 55 28",
-            url: "0648705528"
+            url: "+33648705528"
         },
         email: {
             title: "Email",
