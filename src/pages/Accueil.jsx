@@ -67,8 +67,8 @@ const services = [
 ];
 
 export const meta = () => buildMeta({
-    title: content.meta.acceuil.title,
-    description: content.meta.acceuil.description,
+    title: content.meta.accueil.title,
+    description: content.meta.accueil.description,
     path: "/",
 });
 
