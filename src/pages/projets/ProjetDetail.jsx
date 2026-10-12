@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -10,6 +10,20 @@ import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { projetsConfig } from "./ProjetsConfig";
+import { buildMeta } from "../../constants/Seo";
+import NotFound, { meta as notFoundMeta } from "../NotFound";
+
+export const meta = ({ params }) => {
+  const projet = projetsConfig[params.projetId];
+  if (!projet) return notFoundMeta();
+  const { title, description } = projet.content;
+  return buildMeta({
+    title: `${title} | Projet d'architecture | L'atelier Gabriel Santos`,
+    description: description.replace(/\s+/g, " ").trim().slice(0, 155).replace(/\s\S*$/, "") + "…",
+    path: `/projets/${params.projetId}`,
+    image: projet.cover,
+  });
+};
 
 export default function ProjetDetail() {
   const { projetId } = useParams();
@@ -36,29 +50,15 @@ export default function ProjetDetail() {
     };
   }, [projet, projetId]);
 
-  if (!projet) return <div><Header/>Projet introuvable</div>;
+  if (!projet) return <NotFound />;
 
   const { color, content: projetContent, text_color, category } = projet;
-
-  if (images.length === 0) {
-    return (
-      <div className={`${text_color}`}>
-        <Header />
-        <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
-          <div className="col-start-2 col-end-12 my-20">
-            <p>Chargement des images…</p>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
 
   return (
     <div className={`${text_color}`}>
       <Header />
       <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
-        <Link to={{ pathname: "/projets", hash: "top" }} className="text-4xl col-start-2">
+        <Link to={{ pathname: "/projets" }} className="text-4xl col-start-2">
           {content.projects.icon_back}
         </Link>
         <div className="col-start-2 col-end-12 mb-5">
@@ -66,19 +66,23 @@ export default function ProjetDetail() {
           <p>{category}</p>
         </div>
         <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
+          {images.length === 0 ? (
+            <img src={projet.cover} alt={projetContent.title} className="w-full h-auto object-contain" />
+          ) : (
+          <>
           <Swiper
             key={`${projetId}-main`}
             style={{ "--swiper-navigation-color": "#000000", "--swiper-pagination-color": "#000000" }}
             loop={images.length > 1}
             spaceBetween={10}
             navigation
-            thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+            thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper2"
           >
             {images.map((image, index) => (
               <SwiperSlide key={`${image}-${index}`}>
-                <img src={image} alt={`${projetContent.title} ${index + 1}`} className="w-full h-full object-contain" />
+                <img src={image} alt={`${projetContent.title} – vue ${index + 1}`} className="w-full h-full object-contain" />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -86,7 +90,6 @@ export default function ProjetDetail() {
             <Swiper
               key={`${projetId}-thumbs`}
               onSwiper={setThumbsSwiper}
-              loop={images.length > 1}
               spaceBetween={10}
               slidesPerView={Math.min(9, images.length || 1)}
               freeMode
@@ -96,11 +99,13 @@ export default function ProjetDetail() {
             >
               {images.map((image, index) => (
                 <SwiperSlide key={`${image}-${index}`}>
-                  <img src={image} alt={`${projetContent.title} thumb ${index + 1}`} className="w-full h-auto object-contain" />
+                  <img src={image} alt={`${projetContent.title} – miniature ${index + 1}`} className="w-full h-auto object-contain" />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
+          </>
+          )}
         </div>
         <div className="col-start-2 col-end-12 mt-20 mb-20">
           <p className="text-formatting">{projetContent.description}</p>

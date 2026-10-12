@@ -1,16 +1,18 @@
 import Header from "../components/Header";
+import { buildMeta } from "../constants/Seo";
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 // Swiper
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 
 // Images
-import backgroundHome from "../assets/photosAccueil/backgroundHome.jpg";
+import backgroundHome from "../assets/photosAccueil/backgroundHome.webp";
 import logo from "../assets/logoNB.png";
 import matiereArgile from "../assets/photosAccueil/matiereArgile.jpg";
 import matiereBois from "../assets/photosAccueil/matiereBois.jpg";
@@ -64,10 +66,16 @@ const services = [
     }
 ];
 
+export const meta = () => buildMeta({
+    title: content.meta.acceuil.title,
+    description: content.meta.acceuil.description,
+    path: "/",
+});
+
 export default function AccueilPage() {
     
     return (
-        <div id="top" className="min-h-screen scroll-mt-100">
+        <div id="0" className="min-h-screen scroll-mt-100">
             <Header />
             <div className="w-full h-full">
 
@@ -84,10 +92,10 @@ export default function AccueilPage() {
                                 {content.home.second_title}
                             </h2>
                             <div className="py-2 space-x-5">
-                                <Link to={{ pathname: "/contact", hash: "top" }} className="cta-button home-primary">
+                                <Link to={{ pathname: "/contact" }} className="cta-button home-primary">
                                     {content.home.cta.contact}
                                 </Link>
-                                <Link to={{ pathname: "/projets", hash: "top" }} className="cta-button home-secondary">
+                                <Link to={{ pathname: "/projets"}} className="cta-button home-secondary">
                                     {content.home.cta.projects}
                                 </Link>
                             </div>
@@ -96,20 +104,20 @@ export default function AccueilPage() {
                 </div>
 
                 {/* Section de Matériaux */}
-                <div className="bg-white w-full min-h-screen">
-                    <h1 className="px-50 py-20 text-left w-full max-md:px-10 max-md:py-5 mt-5">
+                <div className="bg-white w-full min-h-screen md:flex md:flex-col md:justify-center">
+                    <h2 className="text-4xl font-medium px-50 py-20 text-left w-full max-md:px-10 max-md:py-5 mt-5 md:mt-0">
                         {content.home.materials.title}
-                    </h1>
-                    <div className="flex items-center justify-center w-full h-full max-md:hidden">
-                        <div className="px-10 my-5 space-y-3 space-x-10 grid grid-cols-9 w-[70%] h-[50%]">
+                    </h2>
+                    <div className="flex items-center justify-center w-full max-md:hidden px-50 pb-20">
+                        <div className="grid grid-cols-7 gap-y-3 w-[60%]">
                             <div className=" col-start-1 col-end-6 h-20 max-md:hidden">
                                 <div className="h-20 w-full overflow-hidden">
                                     <img className="object-cover w-full h-full" src={matiereArgile} alt={content.home.materials.clay.description} />
                                 </div>
                             </div>
                             <div className="col-start-2 col-end-7 h-20 max-md:hidden">
-                                <div className="h-20 w-full overflow-hidden">
-                                    <img className="object-cover w-full h-full" src={matiereBois} alt={content.home.materials.wood.description} />
+                                <div className="h-20 w-full overflow-hidden relative @container-[size]">
+                                    <img className="object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 w-[100cqh] h-[100cqw]" src={matiereBois} alt={content.home.materials.wood.description} />
                                 </div>
                             </div>
                             <div className=" col-start-3 col-end-8 h-20 max-md:hidden">
@@ -118,7 +126,7 @@ export default function AccueilPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="text-formatting flex flex-col justify-centre items-center w-[30%] h-[50%] p-20">
+                        <div className="text-formatting flex flex-col justify-center w-[40%] pl-16">
                             <div>
                                 {content.home.materials.text}
                             </div>
@@ -160,9 +168,9 @@ export default function AccueilPage() {
 
                 {/* Section de Projets */}
                 <div className="bg-greige-400 h-screen flex flex-col items-center justify-center max-md:hidden">
-                    <h1 className="px-50 py-10 text-left w-full">
+                    <h2 className="text-4xl font-medium px-50 py-10 text-left w-full">
                         {content.projects.title}
-                    </h1>
+                    </h2>
                     <div className="w-[70%] h-[70%] flex items-center mx-auto aspect-1920/1080">
                         <Swiper
                             style={{
@@ -179,45 +187,45 @@ export default function AccueilPage() {
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet1" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet1} alt="Projet 1" className="h-full w-full object-cover" />
-                                        <h1 className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
+                                        <img src={projet1} alt={content.projects.project_1.title} className="h-full w-full object-cover" />
+                                        <h3 className="text-4xl font-medium absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_1.title}
-                                        </h1>
+                                        </h3>
                                     </Link>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet2" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet2} alt="Projet 2" className="h-full w-full object-cover" />
-                                        <h1 className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
+                                        <img src={projet2} alt={content.projects.project_2.title} className="h-full w-full object-cover" />
+                                        <h3 className="text-4xl font-medium absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_2.title}
-                                        </h1>
+                                        </h3>
                                     </Link>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet3" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet3} alt="Projet 3" className="h-full w-full object-cover" />
-                                        <h1 className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
+                                        <img src={projet3} alt={content.projects.project_3.title} className="h-full w-full object-cover" />
+                                        <h3 className="text-4xl font-medium absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_3.title}
-                                        </h1>
+                                        </h3>
                                     </Link>
                                 </div>
                             </SwiperSlide>
                         </Swiper>
                     </div>
-                    <Link to={{ pathname: "/projets" , hash: "top" }} className="cta-button project-button mt-7 mb-3">
+                    <Link to={{ pathname: "/projets" }} className="cta-button project-button mt-7 mb-3">
                         {content.home.cta.projects}
                     </Link>
                 </div>
 
                 {/* Section de Services */}
                 <div className="bg-white h-screen flex flex-col items-center justify-center max-md:hidden">
-                    <h1 className="px-50 py-10 text-left w-full">
+                    <h2 className="text-4xl font-medium px-50 py-10 text-left w-full">
                         {content.services.title}
-                    </h1>
+                    </h2>
                     <div className="w-full h-full flex items-baseline justify-center px-8">
                         {services.map((service) => (
                             <div key={service.hash} className="h-[80%] w-[80%] mx-auto flex items-center justify-center px-3">
@@ -236,9 +244,9 @@ export default function AccueilPage() {
                 <div className="bg-orange-600 h-screen text-black items-center justify-center flex flex-col">
                     <div>
                         <div className="flex flex-row items-center justify-center max-md:flex-col pl-10">
-                            <h1 className="text-5xl">
+                            <h2 className="text-5xl font-medium">
                                 {content.home.contact.title}
-                            </h1>
+                            </h2>
                         </div>
                         <p className="text-formatting text-xl text-left mt-15 pl-10">
                             {content.home.contact.text}

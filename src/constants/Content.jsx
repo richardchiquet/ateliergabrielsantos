@@ -4,6 +4,28 @@ export const content = {
         title: "À propos",
         text: "Gabriel Santos, architecte HMONP, vous accompagne dans la conception et la réalisation de vos projets à travers l'utilisation de matériaux naturels et écologiques."
     },
+    meta: {
+        acceuil: {
+            title: "L'atelier Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77)",
+            description: "Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77), conçoit des maisons, rénovations et extensions saines en matériaux biosourcés : bois, paille, argile.",
+        },
+        projets: {
+            title: "Projets d'architecture en matériaux sains | Atelier Gabriel Santos",
+            description: "Micro-habitats, maison familiale évolutive, rénovation intérieure et cabanon : les projets de Gabriel Santos, architecte HMONP en Île-de-France.",
+        },
+        services: {
+            title: "Services d'architecte : construction, rénovation | Atelier Gabriel Santos",
+            description: "Construction neuve, rénovation, extension, équipement public, aménagement intérieur et mobilier sur mesure : les missions de Gabriel Santos, architecte HMONP.",
+        },
+        atelier: {
+            title: "L'atelier : l'architecte et sa philosophie | Atelier Gabriel Santos",
+            description: "Architecte HMONP diplômé en 2021, Gabriel Santos place les matériaux bio-sourcés et géo-sourcés au cœur de sa démarche pour concevoir des espaces sains.",
+        },
+        contact: {
+            title: "Contact : architecte à Couilly-Pont-aux-Dames (77) | Atelier Gabriel Santos",
+            description: "Contactez Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77). Intervention en Île-de-France et départements limitrophes, du lundi au vendredi.",
+        },
+    },
     navigation: {
         title: "Navigation"
     },
@@ -121,9 +143,9 @@ export const content = {
             list: [
                 "Plans d'aménagement",
                 "Choix des matériaux",
-            "Création d'ambiances",
-            "Optimisation des espaces",
-            "Suivi de réalisation"
+                "Création d'ambiances",
+                "Optimisation des espaces",
+                "Suivi de réalisation"
             ],
         },
         furniture: {
@@ -184,6 +206,15 @@ export const content = {
         email: {
             title: "Email",
             text: "ateliergabrielsantos@gmail.com"
+        }
+    },
+    not_found: {
+        code: "404",
+        title: "Page introuvable",
+        text: "La page que vous cherchez n'existe pas ou a été déplacée.\nPas d'inquiétude, le reste de l'atelier est toujours là.",
+        cta: {
+            home: "Retour à l'accueil",
+            projects: "Voir les projets"
         }
     },
     social_media: {

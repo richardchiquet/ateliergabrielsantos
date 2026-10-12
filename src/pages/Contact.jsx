@@ -1,4 +1,5 @@
 import Header from "../components/Header"
+import { buildMeta } from "../constants/Seo";
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
 
@@ -6,9 +7,15 @@ import { content } from "../constants/Content";
 // Images
 import photoContact from "../assets/photosContact/portraitGabrielSantos.jpg";
 
+export const meta = () => buildMeta({
+    title: content.meta.contact.title,
+    description: content.meta.contact.description,
+    path: "/contact",
+});
+
 export default function Contact() {
     return (
-        <div id="top" className="min-h-screen scroll-mt-100">
+        <div id="0" className="min-h-screen scroll-mt-100">
             <Header />
             <div className="bg-orange-600 text-white w-full h-full md:h-screen flex flex-col md:flex-row items-center justify-around  py-5 md:py-20 px-4">
                 <h1 className="md:mb-2 md:hidden text-left w-full px-4">
@@ -18,7 +25,7 @@ export default function Contact() {
                     {content.contact.text}
                 </p>
                 <div >
-                    <img src={photoContact} alt="Profil" className="w-75 h-75 md:w-96 md:h-96 object-cover rounded-full border-white border-5" />
+                    <img src={photoContact} alt="Portrait de Gabriel Santos, architecte HMONP" className="w-75 h-75 md:w-96 md:h-96 object-cover rounded-full border-white border-5" />
                 </div>
                 <div>
                     <h1 className="mb-5 max-md:hidden">
@@ -27,7 +34,7 @@ export default function Contact() {
                     <p className="text-formatting max-md:hidden">
                         {content.contact.text}
                     </p>
-                    <div className="flex space-between flex-wrap justify-start md:mt-6 md:gap-10">
+                    <div className="flex flex-wrap justify-start md:mt-6 md:gap-10">
                         <div>
                             <h2>
                                 {content.contact.place.title}
