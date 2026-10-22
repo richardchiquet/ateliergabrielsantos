@@ -25,6 +25,7 @@ export const projetsConfig = {
         text_color: "text-black",
         category: content.projects.category.draft,
         cover: cover1,
+        status: "",
         getImageLoader: () => getImageLoaderForFolder("projet1"),
     },
     Projet2: {
@@ -33,6 +34,7 @@ export const projetsConfig = {
         text_color: "text-black",
         category: content.projects.category.draft,
         cover: cover2,
+        status: "",
         getImageLoader: () => getImageLoaderForFolder("projet2"),
     },
     Projet3: {
@@ -41,6 +43,7 @@ export const projetsConfig = {
         text_color: "text-white",
         category: content.projects.category.draft,
         cover: cover3,
+        status: "",
         getImageLoader: () => getImageLoaderForFolder("projet3"),
     },
     Projet4: {
@@ -49,6 +52,7 @@ export const projetsConfig = {
         text_color: "text-black",
         category: content.projects.category.draft,
         cover: cover4,
+        status:"",
         getImageLoader: () => getImageLoaderForFolder("projet4"),
     },
     Projet5: {
@@ -57,6 +61,7 @@ export const projetsConfig = {
         text_color: "text-black",
         category: content.projects.category.draft,
         cover: cover5,
+        status: "",
         getImageLoader: () => getImageLoaderForFolder("projet5"),
     },
     Projet6: {
@@ -65,6 +70,7 @@ export const projetsConfig = {
         text_color: "text-black",
         category: content.projects.category.draft,
         cover: cover6,
+        status: content.projects.status.ongoing,
         getImageLoader: () => getImageLoaderForFolder("projet6"),
     }
 

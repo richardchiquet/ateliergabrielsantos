@@ -13,7 +13,7 @@ const projects = Object.entries(projetsConfig).map(([id, projet]) => ({
   title: projet.content.title,
   color: projet.color,
   description: projet.category,
-  status: "",
+  status: projet.status,
 }));
 
 export const meta = () => buildMeta({
@@ -44,7 +44,7 @@ export default function Projets() {
                                         <p>
                                             {project.description}
                                         </p>
-                                        <p>
+                                        <p className="right-0">
                                             {project.status}
                                         </p>
                                     </div>

@@ -52,7 +52,7 @@ export default function ProjetDetail() {
 
   if (!projet) return <NotFound />;
 
-  const { color, content: projetContent, text_color, category } = projet;
+  const { color, content: projetContent, text_color, category, status } = projet;
 
   return (
     <div className={`${text_color}`}>
@@ -64,6 +64,7 @@ export default function ProjetDetail() {
         <div className="col-start-2 col-end-12 mb-5">
           <h1>{projetContent.title}</h1>
           <p>{category}</p>
+          <p>{status}</p>
         </div>
         <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
           {images.length === 0 ? (
@@ -86,7 +87,7 @@ export default function ProjetDetail() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="max-md:hidden">
+          <div className="max-md:hidden mt-3">
             <Swiper
               key={`${projetId}-thumbs`}
               onSwiper={setThumbsSwiper}
