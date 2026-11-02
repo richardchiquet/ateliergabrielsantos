@@ -62,27 +62,27 @@ export default function Header() {
             <nav className="max-md:hidden md:flex items-center gap-10">
                 <ul className="flex space-x-10">
                     <li>
-                        <Link to={{ pathname: "/"}} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/", hash: "#top" }} className="hover:text-gray-700">
                             {content.home.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/projets"}} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/projets", hash: "#top" }} className="hover:text-gray-700">
                             {content.projects.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/services"}} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/services", hash: "#top" }} className="hover:text-gray-700">
                             {content.services.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/atelier"}} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/atelier", hash: "#top" }} className="hover:text-gray-700">
                             {content.atelier.title}
                         </Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/contact"}} className="hover:text-gray-700">
+                        <Link to={{ pathname: "/contact", hash: "#top" }} className="hover:text-gray-700">
                             {content.contact.title}
                         </Link>
                     </li>
