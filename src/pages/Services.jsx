@@ -1,4 +1,5 @@
 import Header from "../components/Header"
+import { buildMeta } from "../constants/Seo";
 import Footer from "../components/Footer";
 import { content } from "../constants/Content";
 import Scroll from "../helpers/Scroll";
@@ -11,10 +12,26 @@ import serviceExtension from "../assets/photosServices/extension.png";
 import serviceAmenagementInterieur from "../assets/photosServices/amenagementInterieur.png";
 import serviceMobilier from "../assets/photosServices/mobilier.png";
 
+export const meta = () => buildMeta({
+    title: content.meta.services.title,
+    description: content.meta.services.description,
+    path: "/services",
+});
+
+function ServicesList({items}){
+    return (
+        <ul className="list-disc mx-5">
+            {items.map((item, index) => (
+                <li key={item-index}>{item}</li>
+            ))}
+        </ul>
+    )
+}
+
 export default function Services() {
 
     return (
-        <div id="top" className="min-h-screen scroll-mt-100">
+        <div id="0" className="min-h-screen scroll-mt-100">
             <Header />
             <Scroll />
             <div className="w-full min-h-[calc(100vh-76px)]">
@@ -25,7 +42,7 @@ export default function Services() {
                 {/* Construction Neuve */}
                 <div id="construction-neuve" className="w-full min-h-[calc(100vh-70px)] bg-white scroll-mt-100">
                     <div className="flex flex-col md:flex-row items-center gap-10 px-6 md:px-50 md:py-10  justify-between">
-                        <img className="w-[60%] md:w-[30%] max-w-xl h-auto object-cover" src={serviceConstructionNeuve} alt={content.services.new_construction.alt} />
+                        <img src={serviceConstructionNeuve} alt="Construction neuve en matériaux biosourcés" className="w-[60%] md:w-[30%] max-w-xl h-auto object-cover" />
                         <div className="flex flex-col justify-end w-full md:w-[40%]">
                             <h2 className="mb-5">
                                 {content.services.new_construction.title}
@@ -33,11 +50,7 @@ export default function Services() {
                             <p className="mb-3">
                                 {content.services.new_construction.text}
                             </p>
-                            <ul className="list-disc mx-5">
-                                {content.services.new_construction.list.map((item, index) => (
-                                    <li key={item-index}>{item}</li>
-                                ))}
-                            </ul>
+                            <ServicesList items={content.services.new_construction.list} />
                         </div>
                     </div>
                 </div>
@@ -52,13 +65,9 @@ export default function Services() {
                             <p className="mb-3">
                                 {content.services.renovation.text}
                             </p>
-                            <ul className="list-disc mx-5">
-                                {content.services.renovation.list.map((item, index) => (
-                                    <li key={item-index}>{item}</li>
-                                ))}
-                            </ul>
+                            <ServicesList items={content.services.renovation.list} />
                         </div>
-                        <img className="w-full md:w-1/2 max-w-xl h-auto object-cover" src={serviceRenovation} alt={content.services.renovation.alt} />
+                        <img src={serviceRenovation} alt="Rénovation de bâtiment existant" className="w-full md:w-1/2 max-w-xl h-auto object-cover" />
                     </div>
                 </div>
 
@@ -73,15 +82,11 @@ export default function Services() {
                             <p className="mb-3">
                                 {content.services.interior_design.text}
                             </p>
-                            <ul className="list-disc mx-5">
-                                {content.services.interior_design.list.map((item, index) => (
-                                    <li key={item-index}>{item}</li>
-                                ))}
-                            </ul>
+                            <ServicesList items={content.services.interior_design.list} />
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row px-6 md:px-50 md:py-10 py-30 justify-start items-center gap-10">
-                        <img className="w-[60%] md:w-[15%] h-auto object-cover" src={serviceMobilier} alt={content.services.furniture.alt} />
+                        <img src={serviceMobilier} alt="Mobilier sur mesure" className="w-[60%] md:w-[15%] h-auto object-cover" />
                         <div className="flex flex-col justify-center w-full md:w-[30%] mx-70">
                             <h2 className="mb-5">
                                 {content.services.furniture.title}
@@ -90,9 +95,7 @@ export default function Services() {
                                 {content.services.furniture.text}
                             </p>
                             <ul className="list-disc mx-5">
-                                {content.services.furniture.list.map((item, index) => (
-                                    <li key={item-index}>{item}</li>
-                                ))}
+                                <ServicesList items={content.services.furniture.list} />
                             </ul>
                         </div>
                     </div>                    
@@ -101,7 +104,7 @@ export default function Services() {
                 {/* Equipement public et Extension */}
                 <div id="equipement-public-et-extension" className="w-full min-h-[calc(100vh-70px)] bg-lemon-500 flex flex-col md:flex-row justify-center items-start gap-10 px-6 md:px-50 py-16 scroll-mt-17">
                     <div className="flex flex-col  w-full md:w-1/2 gap-6">
-                        <img className="w-[60%] md:w-[40%] h-auto object-cover " src={serviceEquipementPublic} alt={content.services.public_facilities.alt} />
+                        <img src={serviceEquipementPublic} alt="Équipement public" className="w-[60%] md:w-[40%] h-auto object-cover " />
                         <div className="flex flex-col justify-center w-full">
                             <h2 className="mb-5">
                                 {content.services.public_facilities.title}
@@ -109,15 +112,11 @@ export default function Services() {
                             <p className="mb-3">
                                 {content.services.public_facilities.text}
                             </p>
-                            <ul className="list-disc mx-5">
-                                {content.services.public_facilities.list.map((item, index) => (
-                                    <li key={item-index}>{item}</li>
-                                ))}
-                            </ul>
+                            <ServicesList items={content.services.public_facilities.list} />
                         </div>
                     </div>
                     <div className="flex flex-col w-full md:w-1/2 gap-6">
-                        <img className="w-[60%] md:w-[40%] h-auto object-cover" src={serviceExtension} alt={content.services.extension.alt} />
+                        <img src={serviceExtension} alt="Extension de maison" className="w-[60%] md:w-[40%] h-auto object-cover" />
                         <div className="flex flex-col justify-center w-full">
                             <h2 className="mb-5">
                                 {content.services.extension.title}
@@ -125,11 +124,7 @@ export default function Services() {
                             <p className="mb-3">
                                 {content.services.extension.text}
                             </p>
-                            <ul className="list-disc mx-5">
-                                {content.services.extension.list.map((item, index) => (
-                                    <li key={item-index}>{item}</li>
-                                ))}
-                            </ul>
+                            <ServicesList items={content.services.extension.list} />
                         </div>
                     </div>
                 </div>               

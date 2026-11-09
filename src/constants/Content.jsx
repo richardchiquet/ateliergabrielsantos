@@ -4,6 +4,28 @@ export const content = {
         title: "À propos",
         text: "Gabriel Santos, architecte HMONP, vous accompagne dans la conception et la réalisation de vos projets à travers l'utilisation de matériaux naturels et écologiques."
     },
+    meta: {
+        accueil: {
+            title: "L'atelier Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77)",
+            description: "Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77), conçoit des maisons, rénovations et extensions saines en matériaux biosourcés : bois, paille, argile.",
+        },
+        projets: {
+            title: "Projets d'architecture en matériaux sains | Atelier Gabriel Santos",
+            description: "Micro-habitats, maison familiale évolutive, rénovation intérieure et cabanon : les projets de Gabriel Santos, architecte HMONP en Île-de-France.",
+        },
+        services: {
+            title: "Services d'architecte : construction, rénovation | Atelier Gabriel Santos",
+            description: "Construction neuve, rénovation, extension, équipement public, aménagement intérieur et mobilier sur mesure : les missions de Gabriel Santos, architecte HMONP.",
+        },
+        atelier: {
+            title: "L'atelier : l'architecte et sa philosophie | Atelier Gabriel Santos",
+            description: "Architecte HMONP diplômé en 2021, Gabriel Santos place les matériaux bio-sourcés et géo-sourcés au cœur de sa démarche pour concevoir des espaces sains.",
+        },
+        contact: {
+            title: "Contact : architecte à Couilly-Pont-aux-Dames (77) | Atelier Gabriel Santos",
+            description: "Contactez Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77). Intervention en Île-de-France et départements limitrophes, du lundi au vendredi.",
+        },
+    },
     navigation: {
         title: "Navigation"
     },
@@ -68,17 +90,21 @@ export const content = {
         },
         project_4: {
             title: "Rénovation intérieure",
-            description: "Le projet d'aménagement de cet intérieur a pour objectif de proposer une qualité de vie importante aux usagers. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet s'implante dans une maison de ville ancienne avec très peu d'ouverture sur l'extérieur. Cette contrainte nous amène donc à aller chercher la lumière en y installant les éléments les plus bas de côté des ouvertures et installer les éléments hauts sur les murs du fond de la pièce. L'aménagement du projet propose, premièrement un meuble bas sur mesure permettant d'intégrer des rangements, un radiateur et le meuble télévision. Ce meuble permet également de poser des plantes sur le plan supérieur mais également de proposer des assises lorsqu'il y a des invités. Deuxièmement la cuisine intégrée au projet vient en prolongement de ce meuble bas sur le fond de la pièce. Le meuble vient prendre toute la largeur de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en faïence et le comptoir en terrazzo. Ensuite, le sol existant est remplacé par des tomettes traditionnelles. Ayant une inertie thermique élevée et étant facilement nettoyable ce matériau permet au projet de conserver l'esthétique traditionnelle du reste de la maison tout en étant facile d'entretien et se mariant à merveille avec le mobilier contemporain.\n\nPour conclure, ce projet d'aménagement a pour objectif de donner un espace intérieur de qualité aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de confort, luminosité, santé, usages et qualité architecturale."
+            description: "Le projet d'aménagement de cet intérieur a pour objectif de proposer une qualité de vie importante aux usagers. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet s'implante dans une maison de ville ancienne avec très peu d'ouvertures sur l'extérieur. Cette contrainte nous amène donc à aller chercher la lumière en y installant les éléments les plus bas de côté des ouvertures et installer les éléments hauts sur les murs du fond de la pièce. L'aménagement du projet propose, premièrement un meuble bas sur mesure permettant d'intégrer des rangements, un radiateur et le meuble télévision. Ce meuble permet également de poser des plantes sur le plan supérieur mais également de proposer des assises lorsqu'il y a des invités. Deuxièmement la cuisine intégrée au projet vient en prolongement de ce meuble bas sur le fond de la pièce. Le meuble vient prendre toute la largeur de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en faïence et le comptoir en terrazzo. Ensuite, le sol existant est remplacé par des tomettes traditionnelles. Ayant une inertie thermique élevée et étant facilement nettoyable ce matériau permet au projet de conserver l'esthétique traditionnelle du reste de la maison tout en étant facile d'entretien et se mariant à merveille avec le mobilier contemporain.\n\nPour conclure, ce projet d'aménagement a pour objectif de donner un espace intérieur de qualité aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de confort, luminosité, santé, usages et qualité architecturale."
         },
         project_5: {
             title: "Cabanon",
             description: "Le projet de cabanon de jardin a pour objectif de proposer une construction légère et esthétique à installer dans un jardin. Il propose des prestations de qualités et une capacité d'usage élevé. La qualité d'espace et architecturale permet au projet de s'intégrer facilement dans son environnement.\n\nArchitecturalement, le projet s'implante dans un paysage entouré de nature et entretient un rapport particulier à celle-ci. Le cabanon est un volume simple proposant une façade montrant un parallélépipède droit lorsqu'elle est fermée et une richesse d'ouverture possible lorsqu'elle est ouverte. La structure en bois est visible en partie basse et haute du volume parallélépipédique et permet à une toiture en tôle acier finement ondulée de venir couvrir et étancher le cabanon. Les ouvertures de façade sont comme des volets et permettent une multiplicité des usages rendant le cabanon central dans l'usage du jardin.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations superficielles. Cela permet de limiter l'impact du bâtiment sur les sols existants.\n\nPour conclure, ce projet de cabanon a pour objectif de donner accès à un rangement de jardin aux coûts raisonnés tout en donnant une multiplicité d'usage pratique ainsi qu'une qualité architecturale."
         },
+        project_6: {
+            title: "Appartement Nice",
+            description: "Ce projet à pour objectif la restructuration de la partie salle d’eau et cuisine d’un appartement à Nice. Cet appartement est situé en RDC et possède une double orientation avec de grandes ouvertures.\n\nLa maîtrise d’ouvrage souhaite aménager dans cet appartement de 32m2 un espace nuit avec un accès direct à une salle d’eau, ainsi qu’une deuxième salle d’eau accessible depuis l’espace de vie principal et d’une cuisine sur mesure le long de la façade.\n\n\nPour ce faire j’ai proposé plusieurs configurations, toutes, respectant les contraintes de programme et d’espace. Vous voyez ici la proposition qui optimise au maximum la taille de la pièce de vie en créant ainsi un grand volume capable d’accueillir une dizaine de personnes.\n\nDans cette pièce, une cuisine sur mesure vient en prolongement de la façade et fait face à la mezzanine existante de l’appartement. Le meuble vient prendre la quasi-totalité de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en inox et le comptoir en terrazzo. En termes de technique, le meuble contient un évier, un réfrigérateur, une machine à laver, un micro-onde, des rangements, une banquette pouvant devenir un lit, une unité intérieure de climatisation et un écran pour projecteur déroulant.\n\nLa pièce de vie étant optimisée au maximum, la pièce de nuit et les salles d’eau sont, de ce fait, réduites à leurs strict minimum. En termes de couleurs et de matériaux les zones humides sont traitées sur les murs en faïence de couleur vert émeraude et sur le sol en carrelage gris. La pièce de nuit est séparée de la zone humide par une porte coulissante imitation shogi japonais afin de créer une ambiance calme et détendue dans cette pièce. Le sol est en tatami ce qui permet de créer une zone à usage mixte : une pièce de rangement, une pièce de travail, ou avec un futon une pièce pour dormir.\n\nEn résumé, ce projet d’aménagement a été un petit casse tête contraint par un espace de 32m2 et un programme comportant beaucoup d’éléments à faire fonctionner ensemble. Ce qui n’empêche pas d’avoir un espace agréable, fonctionnel et adapté au besoin du client."
+        },
     },
     atelier: {
         title: "L'atelier",
         subtitle: "L'architecte derrière l'atelier",
-        history : {
+        history: {
             title: "Son histoire",
             alt: "Architecte réalisant un croquis d'un projet d'architecture",
             textPart1: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics, des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.",
@@ -86,8 +112,7 @@ export const content = {
         },
         philosophy: {
             title: "Sa philosophie",
-            alt: "Gabriel Santos au Japon enlaçant un poteau en bois dans un temple traditionnel",
-            textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.\n\n",
+            textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.",
             textPart2: "C'est pour cela que j'ai à cœur de concevoir des espaces sains et fonctionnels adaptés aux besoins des usagers.\n\nEt cela passe par la compréhension des matériaux utilisés dans la construction : leur aspect, leurs propriétés et leur impact environnemental.\nLes matériaux et leur mise en œuvre sont un point central dans ma démarche architecturale."
         }
     },
@@ -175,7 +200,7 @@ export const content = {
         text: "Je serais ravi d'échanger avec vous sur votre projet d'aménagement ou de construction.\nN'hésitez pas à me contacter pour toute interrogation ou demande de rendez-vous.",
         place: {
             title: "Zone d'intervention",
-            text: "Ile-de-France et départements limitrophes"
+            text: "Île-de-France et départements limitrophes"
         },
         hours: {
             title: "Horaires",
@@ -188,11 +213,20 @@ export const content = {
         phone: {
             title: "Téléphone",
             text: "+33 6 48 70 55 28",
-            url: "0648705528"
+            url: "+33648705528"
         },
         email: {
             title: "Email",
             text: "ateliergabrielsantos@gmail.com"
+        }
+    },
+    not_found: {
+        code: "404",
+        title: "Page introuvable",
+        text: "La page que vous cherchez n'existe pas ou a été déplacée.\nPas d'inquiétude, le reste de l'atelier est toujours là.",
+        cta: {
+            home: "Retour à l'accueil",
+            projects: "Voir les projets"
         }
     },
     social_media: {
