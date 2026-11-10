@@ -1,11 +1,11 @@
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { content } from "../constants/Content";
-import { SITE_NAME } from "../constants/Seo";
+import Footer from "../components/Footer";
 import { Link } from "react-router";
+import { websiteName } from "../constants/Seo";
 
 export const meta = () => [
-    { title: `${content.not_found.title} | ${SITE_NAME}` },
+    { title: `${content.not_found.title} | ${websiteName}` },
     { name: "robots", content: "noindex" },
 ];
 

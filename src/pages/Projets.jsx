@@ -1,11 +1,9 @@
-import Header from "../components/Header"
 import { buildMeta } from "../constants/Seo";
-import Footer from "../components/Footer";
+import Header from "../components/Header"
 import { content } from "../constants/Content";
-
+import Footer from "../components/Footer";
 import { Link } from "react-router";
 import { projetsConfig } from "./projets/ProjetsConfig";
-
 
 const projects = Object.entries(projetsConfig).map(([id, projet]) => ({
   to: `/projets/${id}`,

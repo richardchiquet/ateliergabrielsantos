@@ -7,7 +7,7 @@ export const content = {
     meta: {
         accueil: {
             title: "L'atelier Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77)",
-            description: "Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77), conçoit des maisons, rénovations et extensions saines en matériaux biosourcés : bois, paille, argile.",
+            description: "Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77860), conçoit des maisons, rénovations et extensions saines en matériaux biosourcés : bois, paille, argile.",
         },
         projets: {
             title: "Projets d'architecture en matériaux sains | Atelier Gabriel Santos",
@@ -23,7 +23,7 @@ export const content = {
         },
         contact: {
             title: "Contact : architecte à Couilly-Pont-aux-Dames (77) | Atelier Gabriel Santos",
-            description: "Contactez Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77). Intervention en Île-de-France et départements limitrophes, du lundi au vendredi.",
+            description: "Contactez Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77860). Intervention en Île-de-France et départements limitrophes, du lundi au vendredi.",
         },
     },
     navigation: {
@@ -106,12 +106,13 @@ export const content = {
         subtitle: "L'architecte derrière l'atelier",
         history: {
             title: "Son histoire",
-            alt: "Architecte réalisant un croquis d'un projet d'architecture",
+            alt: "Architecte dessinant un croquis d'architecture à la main",
             textPart1: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics, des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.",
             textPart2: "Mon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage.\n\nLa simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet.\nLe temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers.\n\nLa réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
         },
         philosophy: {
             title: "Sa philosophie",
+            alt: "Gabriel Santos enlaçant un pilier en bois d'un temple japonais",
             textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.",
             textPart2: "C'est pour cela que j'ai à cœur de concevoir des espaces sains et fonctionnels adaptés aux besoins des usagers.\n\nEt cela passe par la compréhension des matériaux utilisés dans la construction : leur aspect, leurs propriétés et leur impact environnemental.\nLes matériaux et leur mise en œuvre sont un point central dans ma démarche architecturale."
         }
@@ -238,6 +239,10 @@ export const content = {
         instagram: {
             title: "Instagram",
             url: "https://www.instagram.com/atelier_gabrielsantos/"
+        },
+        architectes_pour_tous: {
+            title: "Architectes pour tous",
+            url: "https://www.architectes-pour-tous.fr/architectes-pour-tous/santos-gabriel"
         }
     }
 };

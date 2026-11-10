@@ -58,6 +58,9 @@ export default function Footer() {
                         <li>
                             <a href={content.social_media.instagram.url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">{content.social_media.instagram.title}</a>
                         </li>
+                        <li>
+                            <a href={content.social_media.architectes_pour_tous.url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">{content.social_media.architectes_pour_tous.title}</a>
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -1,11 +1,13 @@
 import { content } from "./Content";
+
+// Images
 import ogImage from "../assets/photosAccueil/backgroundHome.webp";
 import logo from "../assets/logoNB.png";
 
-export const SITE_URL = "https://www.ateliergabrielsantos.com";
-export const SITE_NAME = "L'atelier Gabriel Santos";
+export const websiteUrl = "https://www.ateliergabrielsantos.com";
+export const websiteName = "L'atelier Gabriel Santos";
 
-const absolute = (path) => (path.startsWith("http") ? path : `${SITE_URL}${path}`);
+const absolute = (path) => (path.startsWith("http") ? path : `${websiteUrl}${path}`);
 
 export function buildMeta({ title, description, path, image = ogImage }) {
     const url = absolute(path);
@@ -16,7 +18,7 @@ export function buildMeta({ title, description, path, image = ogImage }) {
         { tagName: "link", rel: "canonical", href: url },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "fr_FR" },
-        { property: "og:site_name", content: SITE_NAME },
+        { property: "og:site_name", content: websiteName },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
@@ -31,21 +33,21 @@ export function buildMeta({ title, description, path, image = ogImage }) {
 export const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    name: SITE_NAME,
+    "@id": `${websiteUrl}/#website`,
+    name: websiteName,
     alternateName: ["Atelier Gabriel Santos", "Gabriel Santos Architecte"],
-    url: `${SITE_URL}/`,
+    url: `${websiteUrl}/`,
     inLanguage: "fr-FR",
-    publisher: { "@id": `${SITE_URL}/#atelier` },
+    publisher: { "@id": `${websiteUrl}/#atelier` },
 };
 
 export const businessJsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": `${SITE_URL}/#atelier`,
-    name: SITE_NAME,
+    "@id": `${websiteUrl}/#atelier`,
+    name: websiteName,
     description: content.about.text,
-    url: `${SITE_URL}/`,
+    url: `${websiteUrl}/`,
     logo: absolute(logo),
     image: absolute(ogImage),
     telephone: content.contact.phone.text,

@@ -1,7 +1,7 @@
 import { content } from "../constants/Content";
 import { Link } from "react-router";
 import { useState } from "react";
-import Scroll from "./Scroll";
+import Scroll from "../helpers/Scroll";
 
 // Images
 import logo from "../assets/logoNB.png";
@@ -10,11 +10,11 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className=" w-full flex items-center justify-between bg-white text-black py-3 px-2 md:px-12 sticky top-0 shadow-md z-50">
+        <header className="w-full flex items-center justify-between bg-white text-black py-3 px-2 md:px-12 sticky top-0 shadow-md z-50">
             <Scroll />
             {/* Mobile */}
             <Link to={{ pathname: "/" }} className="flex items-center">
-                <img src={logo} alt={content.home.logo_alt} className="w-12 hover:scale-105 transition-all" onClick={() => setIsMenuOpen(false)} />
+                <input type="image" src={logo} alt={content.home.logo_alt} className="w-12 hover:scale-105 transition-all" onClick={() => setIsMenuOpen(false)} />
             </Link>
             <button
                 type="button"
@@ -24,8 +24,8 @@ export default function Header() {
             >
                 {isMenuOpen ? "×" : "☰"}
             </button>
-            <nav className={`md:hidden absolute left-0 top-full w-full h-screen bg-white shadow-md z-50 ${isMenuOpen ? "block" : "hidden"}`}>
-                <ul className="burger-menu flex flex-col items-center space-y-15 py-4 mt-60">
+            <nav className={`md:hidden absolute left-0 top-full w-full h-screen bg-white ${isMenuOpen ? "block" : "hidden"}`}>
+                <ul className="burger-menu flex flex-col items-center space-y-15 m-25">
                     <li>
                         <Link to={{ pathname: "/" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
                             {content.home.title}
