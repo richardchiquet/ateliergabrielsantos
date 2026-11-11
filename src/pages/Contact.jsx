@@ -4,7 +4,7 @@ import { content } from "../constants/Content";
 import Footer from "../components/Footer";
 
 // Images
-import photoContact from "../assets/photosContact/portraitGabrielSantos.jpg";
+import photoContact from "../assets/photosContact/portraitGabrielSantos.webp";
 
 export const meta = () => buildMeta({
     title: content.meta.contact.title,
@@ -23,8 +23,8 @@ export default function Contact() {
                 <p className="md:hidden pl-4">
                     {content.contact.text}
                 </p>
-                <div >
-                    <img src={photoContact} alt={content.contact.alt} className="w-75 h-75 md:w-96 md:h-96 object-cover rounded-full border-white border-5" />
+                <div className="max-md:m-5">
+                    <img src={photoContact} alt={content.contact.alt} className="w-75 h-75 object-cover rounded-full border-white border-5" />
                 </div>
                 <div>
                     <h1 className="mb-5 max-md:hidden">

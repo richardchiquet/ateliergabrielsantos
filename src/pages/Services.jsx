@@ -4,12 +4,12 @@ import { content } from "../constants/Content";
 import Footer from "../components/Footer";
 
 // Images
-import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.png";
-import serviceRenovation from "../assets/photosServices/renovation.png";
-import serviceEquipementPublic from "../assets/photosServices/equipementPublic.png";
-import serviceExtension from "../assets/photosServices/extension.png";
-import serviceAmenagementInterieur from "../assets/photosServices/amenagementInterieur.png";
-import serviceMobilier from "../assets/photosServices/mobilier.png";
+import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.webp";
+import serviceRenovation from "../assets/photosServices/renovation.webp";
+import serviceEquipementPublic from "../assets/photosServices/equipementPublic.webp";
+import serviceExtension from "../assets/photosServices/extension.webp";
+import serviceAmenagementInterieur from "../assets/photosServices/amenagementInterieur.webp";
+import serviceMobilier from "../assets/photosServices/mobilier.webp";
 
 export const meta = () => buildMeta({
     title: content.meta.services.title,

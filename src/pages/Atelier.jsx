@@ -4,8 +4,8 @@ import { content } from "../constants/Content";
 import Footer from "../components/Footer";
 
 // Images
-import histoire from "../assets/photosAtelier/histoire.png";
-import philosophie from "../assets/photosAtelier/philosophie.jpg"
+import histoire from "../assets/photosAtelier/histoire.webp";
+import philosophie from "../assets/photosAtelier/philosophie.webp"
 
 export const meta = () => buildMeta({
     title:content.meta.atelier.title,

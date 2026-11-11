@@ -1,9 +1,15 @@
+
+import { buildMeta } from "../../constants/Seo";
+import Header from "../../components/Header";
+import { content } from "../../constants/Content";
+import Footer from "../../components/Footer";
 import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { content } from "../../constants/Content";
+
+// Projects
 import "./projet.css";
+import { projetsConfig } from "./ProjetsConfig";
+import NotFound, { meta as notFoundMeta } from "../NotFound";
 
 // Swiper
 import "swiper/css";
@@ -11,9 +17,6 @@ import "swiper/css/pagination";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import { projetsConfig } from "./ProjetsConfig";
-import { buildMeta } from "../../constants/Seo";
-import NotFound, { meta as notFoundMeta } from "../NotFound";
 
 export const meta = ({ params }) => {
   const projet = projetsConfig[params.projetId];
@@ -45,6 +48,9 @@ export default function ProjetDetail() {
         if (isMounted) {
           setImages(modules.map((m) => m.default));
         }
+      })
+      .catch((error) => {
+        console.error("Error loading images:", error);
       });
 
     return () => {

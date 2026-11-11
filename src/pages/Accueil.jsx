@@ -14,18 +14,18 @@ import { Pagination, Navigation } from "swiper/modules";
 // Images
 import backgroundHome from "../assets/photosAccueil/backgroundHome.webp";
 import logo from "../assets/logoNB.png";
-import matiereArgile from "../assets/photosAccueil/matiereArgile.jpg";
-import matiereBois from "../assets/photosAccueil/matiereBois.jpg";
-import matierePaille from "../assets/photosAccueil/matierePaille.png";
+import matiereArgile from "../assets/photosAccueil/matiereArgile.webp";
+import matiereBois from "../assets/photosAccueil/matiereBois.webp";
+import matierePaille from "../assets/photosAccueil/matierePaille.webp";
 import projet1 from "../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.jpg";
 import projet2 from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.jpg";
 import projet3 from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.jpg";
-import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.png";
-import serviceRenovation from "../assets/photosServices/renovation.png";
-import serviceEquipementPublic from "../assets/photosServices/equipementPublic.png";
-import serviceExtension from "../assets/photosServices/extension.png";
-import serviceAmenagementInterieur from "../assets/photosServices/amenagementInterieur.png";
-import serviceMobilier from "../assets/photosServices/mobilier.png";
+import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.webp";
+import serviceRenovation from "../assets/photosServices/renovation.webp";
+import serviceEquipementPublic from "../assets/photosServices/equipementPublic.webp";
+import serviceExtension from "../assets/photosServices/extension.webp";
+import serviceAmenagementInterieur from "../assets/photosServices/amenagementInterieur.webp";
+import serviceMobilier from "../assets/photosServices/mobilier.webp";
 
 const services = [
     { 
