@@ -33,6 +33,7 @@ export const content = {
         title: "Accueil",
         subtitle: "L'atelier Gabriel Santos",
         second_title: "Architecte HMONP\nCréateur d'espaces sains et fonctionnels",
+        background_alt: "Ébauche architecturale de l'atelier Gabriel Santos représentant une maison familiale contemporaine avec une série de portiques en bois.",
         logo_alt: "Logo de l'atelier Gabriel Santos",
         cta: {
             contact: "Contactez-moi",

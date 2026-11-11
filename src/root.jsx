@@ -9,6 +9,7 @@ export function Layout({ children }) {
             <head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="preload" href="index.css" as="style" />
                 <link rel="icon" type="image/svg+xml" href="/atelierGabrielSantosIcon.svg?v=2" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

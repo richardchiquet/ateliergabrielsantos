@@ -80,8 +80,7 @@ export default function AccueilPage() {
             <div className="w-full h-full">
 
                 {/* Section d'accueil */}
-                
-                <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundHome})` }}>
+                <div rel="preload" fetchPriority="high" style={{ backgroundImage: `url(${backgroundHome})` }} alt={content.home.background_alt} className="h-screen bg-cover bg-center">
                     <div className="flex flex-row justify-center align-center items-center  h-full w-full">
                         <img className="h-100 w-auto invert max-md:hidden" src={logo} alt={content.home.logo_alt} />
                         <div className="flex flex-col justify-start items-start align-center max-md:ml-5">

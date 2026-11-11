@@ -148,7 +148,7 @@
     --color-parchment-950: #2f221b;
 
     /* Fonts */
-    --font-title: "Satoshi", "sans-serif";
+    --font-title: "Satoshi", sans-serif;
     --font-body: "Montserrat", sans-serif;
 
     --font-regular: 400;
