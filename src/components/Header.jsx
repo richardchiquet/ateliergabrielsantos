@@ -14,7 +14,7 @@ export default function Header() {
             <Scroll />
             {/* Mobile */}
             <Link to={{ pathname: "/" }} className="flex items-center">
-                <input type="image" src={logo} alt={content.home.logo_alt} className="w-12 hover:scale-105 transition-all" onClick={() => setIsMenuOpen(false)} />
+                <input type="image" src={logo} alt={content.home.logo_alt} className="w-12 h-auto hover:scale-105 transition-all" onClick={() => setIsMenuOpen(false)} />
             </Link>
             <button
                 type="button"

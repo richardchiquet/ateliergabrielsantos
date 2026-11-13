@@ -24,7 +24,7 @@ export default function Contact() {
                     {content.contact.text}
                 </p>
                 <div className="max-md:m-5">
-                    <img src={photoContact} alt={content.contact.alt} className="w-75 h-75 object-cover rounded-full border-white border-5" />
+                    <img rel="preload" fetchPriority="high" src={photoContact} alt={content.contact.alt} className="w-75 h-75 md:w-98 md:h-98 object-cover rounded-full border-white border-5" />
                 </div>
                 <div>
                     <h1 className="mb-5 max-md:hidden">

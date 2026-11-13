@@ -186,7 +186,7 @@ export default function AccueilPage() {
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet1" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet1} alt={content.projects.project_1.title} className="h-full w-full object-cover" />
+                                        <img rel="preload" fetchPriority="high" src={projet1} alt={content.projects.project_1.title} className="h-full w-full object-cover" />
                                         <h3 className="text-4xl font-medium absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_1.title}
                                         </h3>
@@ -196,7 +196,7 @@ export default function AccueilPage() {
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet2" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet2} alt={content.projects.project_2.title} className="h-full w-full object-cover" />
+                                        <img rel="preload" fetchPriority="high" src={projet2} alt={content.projects.project_2.title} className="h-full w-full object-cover" />
                                         <h3 className="text-4xl font-medium absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_2.title}
                                         </h3>
@@ -206,7 +206,7 @@ export default function AccueilPage() {
                             <SwiperSlide>
                                 <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
                                     <Link to="/projets/Projet3" className="group relative block h-full w-full overflow-hidden">
-                                        <img src={projet3} alt={content.projects.project_3.title} className="h-full w-full object-cover" />
+                                        <img rel="preload" fetchPriority="high" src={projet3} alt={content.projects.project_3.title} className="h-full w-full object-cover" />
                                         <h3 className="text-4xl font-medium absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
                                             {content.projects.project_3.title}
                                         </h3>
