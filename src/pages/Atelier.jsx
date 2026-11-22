@@ -53,26 +53,24 @@ export default function Atelier() {
             </div>
             <div className="md:hidden">
                 <div className="h-full w-full">
-                    <h1 className="text-3xl px-10 py-10 text-left w-full">
+                    <h1 className="w-full px-10 py-10 text-left">
                         {content.atelier.subtitle}
                     </h1>
-                    <h2 className="text-2xl px-10 py-2 text-left w-full">
+                    <h2 className="w-full px-10 py-2 text-left">
                         {content.atelier.history.title}
                     </h2>
-                    <p className="text-formatting px-10 py-2 text-left w-full pl-20">
+                    <p className="w-full px-10 py-2 pl-20 text-left text-formatting">
                         {content.atelier.history.textPart1}
                     </p>
                 </div>
                 <div className="min-h-screen w-full bg-walnut-700">
                     <img src={histoire} alt={content.atelier.history.alt} className="w-full h-auto object-cover mt-5" />
-                    <p className="text-formatting px-10 text-left w-full pl-20 py-10">
+                    <p className="text-formatting text-white px-10 text-left w-full pl-20 py-10">
                         {content.atelier.history.textPart2}
                     </p>
-                    <div className="text-white flex flex-col justify-center items-center align-center h-full">
-                    </div>
                 </div>
                 <div className="min-h-screen w-full bg-white">
-                    <h2 className="text-3xl font-medium px-10 py-10 text-left w-full">
+                    <h2 className="px-10 py-10 text-left w-full">
                         {content.atelier.philosophy.title}
                     </h2>
                     <p className="text-formatting px-10 py-10 text-left w-full pl-30">

@@ -69,13 +69,16 @@ export const content = {
         back: "Retour aux projets",
         icon_back: "←",
         status: {
-            ongoing: "Statut : En cours",
-            completed: "Statut : Terminé"
+            name: "Statut",
+            empty: "",
+            ongoing: "En cours",
+            completed: "Terminé"
         },
         category: {
-            project: "Catégorie : Projet",
-            draft: "Catégorie : Ébauche",
-            competition: "Catégorie : Concours"
+            name: "Catégorie",
+            project: "Projet",
+            draft: "Ébauche",
+            competition: "Concours"
         },
         project_1: {
             title: "Micro Habitat 1",

@@ -10,21 +10,21 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="w-full flex items-center justify-between bg-white text-black py-3 px-2 md:px-12 sticky top-0 shadow-md z-50">
+        <header className="w-full flex items-center justify-between py-3 px-2 md:px-12 sticky top-0 shadow-md z-50">
             <Scroll />
             {/* Mobile */}
             <Link to={{ pathname: "/" }} className="flex items-center">
-                <input type="image" src={logo} alt={content.home.logo_alt} className="w-12 h-auto hover:scale-105 transition-all" onClick={() => setIsMenuOpen(false)} />
+                <input type="image" src={logo} alt={content.home.logo_alt} className="w-12 h-auto hover:scale-105 transition-all" aria-label={content.home.logo_alt} onClick={() => setIsMenuOpen(false)} />
             </Link>
             <button
                 type="button"
-                className="md:hidden leading-none p-2"
+                className="leading-none p-2 md:hidden"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Toggle menu"
             >
                 {isMenuOpen ? "×" : "☰"}
             </button>
-            <nav className={`md:hidden absolute left-0 top-full w-full h-screen bg-white ${isMenuOpen ? "block" : "hidden"}`}>
+            <nav className={`bg-greige-50 absolute left-0 top-full w-full h-screen md:hidden ${isMenuOpen ? "block" : "hidden"}`} aria-label="Mobile Navigation">
                 <ul className="burger-menu flex flex-col items-center space-y-15 m-25">
                     <li>
                         <Link to={{ pathname: "/" }} className="hover:text-gray-700" onClick={() => setIsMenuOpen(false)}>
@@ -55,7 +55,7 @@ export default function Header() {
             </nav>
 
             {/* Desktop */}
-            <nav className="max-md:hidden md:flex items-center gap-10">
+            <nav className="items-center gap-10 md:flex max-md:hidden" aria-label="Desktop Navigation">
                 <ul className="flex space-x-10">
                     <li>
                         <Link to={{ pathname: "/" }} className="hover:text-gray-700">

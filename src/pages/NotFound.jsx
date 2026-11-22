@@ -13,22 +13,22 @@ export default function NotFound() {
     return (
         <div id="top" className="min-h-screen scroll-mt-100">
             <Header />
-            <div className="bg-greige-400 text-black w-full min-h-[calc(100vh-72px)] flex items-center justify-center px-6 py-20">
+            <div className="bg-walnut-200 w-full min-h-[calc(100vh-72px)] flex items-center justify-center px-6 py-20">
                 <div className="flex flex-col items-start max-w-xl">
-                    <p className="font-title text-[8rem] md:text-[12rem] leading-none text-white" aria-hidden="true">
+                    <h1 className="text-8xl">
                         {content.not_found.code}
-                    </p>
-                    <h1 className="mt-4 mb-5">
-                        {content.not_found.title}
                     </h1>
+                    <h2 className="mt-4 mb-5">
+                        {content.not_found.title}
+                    </h2>
                     <p className="text-formatting">
                         {content.not_found.text}
                     </p>
                     <div className="mt-10 flex flex-col md:flex-row gap-5">
-                        <Link to={{ pathname: "/" }} className="cta-button home-primary w-fit">
+                        <Link to={{ pathname: "/" }} className="cta-button walnut-primary w-fit">
                             {content.not_found.cta.home}
                         </Link>
-                        <Link to={{ pathname: "/projets" }} className="cta-button home-secondary w-fit">
+                        <Link to={{ pathname: "/projets" }} className="cta-button walnut-secondary w-fit">
                             {content.not_found.cta.projects}
                         </Link>
                     </div>

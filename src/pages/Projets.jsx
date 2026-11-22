@@ -22,9 +22,9 @@ export const meta = () => buildMeta({
 
 export default function Projets() {
     return (
-        <div id="top" className="min-h-screen bg-white">
+        <div id="top" className="min-h-screen">
             <Header />
-            <h1 className="mb-6 text-left px-10 md:px-10 ml-45 py-10">
+            <h1 className="text-left px-10 py-10">
                 {content.projects.title}
             </h1>
 
@@ -35,16 +35,18 @@ export default function Projets() {
                         <Link to={project.to} className="group relative block overflow-hidden h-full">
                             <div className={`absolute inset-y-0 left-0 ${project.color} w-[3%] transition-all duration-500 ease-in-out group-hover:w-full z-10`}>
                                 <div className="m-5 absolute inset-0 flex items-end justify-start text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                    <div className="flex flex-col">
-                                        <h2 className="text-4xl font-medium">
+                                    <div className="flex flex-col text-chrome-950">
+                                        <h2>
                                             {project.title}
                                         </h2>
-                                        <p>
-                                            {project.description}
-                                        </p>
-                                        <p className="right-0">
-                                            {project.status}
-                                        </p>
+                                        <div className="flex flex-row place-content-between">
+                                            <p>
+                                                {project.description}
+                                            </p>
+                                            <p>
+                                                {project.status}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +65,7 @@ export default function Projets() {
                             <img className="block w-full h-full object-cover" src={project.src} alt={project.title} />
                         </Link>
                         <div className="pt-2 pl-10 pb-10">
-                            <h2 className="text-4xl font-medium">
+                            <h2>
                                 {project.title}
                             </h2>
                             <p>

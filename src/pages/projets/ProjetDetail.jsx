@@ -20,8 +20,11 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 export const meta = ({ params }) => {
   const projet = projetsConfig[params.projetId];
+
   if (!projet) return notFoundMeta();
+
   const { title, description } = projet.content;
+
   return buildMeta({
     title: `${title} | Projet d'architecture | L'atelier Gabriel Santos`,
     description: description.replace(/\s+/g, " ").trim().slice(0, 155).replace(/\s\S*$/, "") + "…",
@@ -57,13 +60,13 @@ export default function ProjetDetail() {
       isMounted = false;
     };
   }, [projet, projetId]);
-
+  
   if (!projet) return <NotFound />;
 
-  const { color, content: projetContent, text_color, category, status } = projet;
+  const { color, content: projetContent, category, status } = projet;
 
   return (
-    <div className={`${text_color}`}>
+    <div>
       <Header />
       <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
         <Link to={{ pathname: "/projets" }} className="text-4xl col-start-2">
@@ -71,10 +74,10 @@ export default function ProjetDetail() {
         </Link>
         <div className="col-start-2 col-end-12 mb-5">
           <h1>{projetContent.title}</h1>
-          <p>{category}</p>
-          <p>{status}</p>
+          <p>{content.projects.category.name} : {category}</p>
+          <p>{content.projects.status.name} : {status}</p>
         </div>
-        <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
+        <div className="col-start-1 col-end-13 w-full mx-auto md:w-8/10 md:col-start-2 md:col-end-12">
           {images.length === 0 ? (
             <img src={projet.cover} alt={projetContent.title} className="w-full h-auto object-contain" />
           ) : (
@@ -116,8 +119,10 @@ export default function ProjetDetail() {
           </>
           )}
         </div>
-        <div className="col-start-2 col-end-12 mt-20 mb-20">
-          <p className="text-formatting">{projetContent.description}</p>
+        <div className="col-start-4 col-end-10 mt-20 mb-20">
+          <p className="text-formatting">
+            {projetContent.description}
+          </p>
         </div>
       </div>
       <Footer />
