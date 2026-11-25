@@ -1,9 +1,18 @@
 import { buildMeta } from "../constants/Seo";
+import Header from "../components/Header"
 import { content } from "../constants/Content";
+import Footer from "../components/Footer";
+import { Link } from "react-router";
 import { projetsConfig } from "./projets/ProjetsConfig";
-import Section from "../components/layout/Section";
-import Card from "../components/Card";
-import ContactCta from "../components/ContactCta";
+
+const projects = Object.entries(projetsConfig).map(([id, projet]) => ({
+  to: `/projets/${id}`,
+  src: projet.cover,
+  title: projet.content.title,
+  color: projet.color,
+  description: projet.category,
+  status: projet.status,
+}));
 
 export const meta = () => buildMeta({
     title: content.meta.projets.title,
@@ -13,25 +22,63 @@ export const meta = () => buildMeta({
 
 export default function Projets() {
     return (
-        <>
-            <Section labelledBy="projects-title">
-                <h1 id="projects-title">{content.projects.title}</h1>
-                <div className="grid-12 mt-12 gap-y-12">
-                    {Object.entries(projetsConfig).map(([id, projet]) => (
-                        <div key={id} className="md:col-span-6 lg:col-span-4">
-                            <Card
-                                to={`/projets/${id}`}
-                                headingLevel={2}
-                                accentClass={projet.color}
-                                image={projet.cover}
-                                title={projet.content.title}
-                                meta={[projet.location, projet.year, projet.category, projet.status].filter(Boolean).join(" · ")}
-                            />
+        <div id="top" className="min-h-screen">
+            <Header />
+            <h1 className="text-left px-10 py-10">
+                {content.projects.title}
+            </h1>
+
+            {/* Desktop */}
+            <div className="grid grid-cols-31 gap-7 px-10 mb-10 max-md:hidden">
+                {projects.map((project, index) => (
+                    <div key={project.to} className={"col-span-12 h-110 " + (index % 2 === 0 ? "col-start-4" : "col-start-17")}>
+                        <Link to={project.to} className="group relative block overflow-hidden h-full">
+                            <div className={`absolute inset-y-0 left-0 ${project.color} w-[3%] transition-all duration-500 ease-in-out group-hover:w-full z-10`}>
+                                <div className="m-5 absolute inset-0 flex items-end justify-start text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                    <div className="flex flex-col text-chrome-950">
+                                        <h2>
+                                            {project.title}
+                                        </h2>
+                                        <div className="flex flex-row place-content-between">
+                                            <p>
+                                                {project.description}
+                                            </p>
+                                            <p>
+                                                {project.status}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img className="block w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105" src={project.src} alt={project.title} />
+                        </Link>
+                    </div>
+                ))}
+            </div>
+
+            {/* Mobile */}
+            <div className="flex flex-col md:hidden">
+                {projects.map((project) => (
+                    <div key={project.to} className="w-full h-[50%] mb-5 flex flex-col items-start justify-start">
+                        <Link to={project.to} className="group relative block overflow-hidden h-full w-full">
+                            <div className={`absolute inset-y-0 left-0 ${project.color} w-[5%] z-10`}></div>
+                            <img className="block w-full h-full object-cover" src={project.src} alt={project.title} />
+                        </Link>
+                        <div className="pt-2 pl-10 pb-10">
+                            <h2>
+                                {project.title}
+                            </h2>
+                            <p>
+                                {project.description}
+                            </p>
+                            <p>
+                                {project.status}
+                            </p>
                         </div>
-                    ))}
-                </div>
-            </Section>
-            <ContactCta />
-        </>
-    );
-}
+                    </div>
+                ))}
+            </div>
+            <Footer />
+        </div>
+        )
+    }

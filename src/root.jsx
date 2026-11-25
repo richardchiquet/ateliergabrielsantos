@@ -2,9 +2,6 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { Analytics } from "@vercel/analytics/react";
 import { businessJsonLd, websiteJsonLd } from "./constants/Seo";
 import "./index.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Scroll from "./helpers/Scroll";
 
 export function Layout({ children }) {
     return (
@@ -30,14 +27,7 @@ export function Layout({ children }) {
                 />
             </head>
             <body>
-                <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-100 focus:bg-cream focus:px-4 focus:py-2">
-                    Aller au contenu
-                </a>
-                <Header />
-                <main id="contenu" tabIndex={-1} className="focus:outline-none">
-                    {children}
-                </main>
-                <Footer />
+                {children}
                 <ScrollRestoration />
                 <Scripts />
             </body>
@@ -48,7 +38,6 @@ export function Layout({ children }) {
 export default function App() {
     return (
         <>
-            <Scroll />
             <Outlet />
             <Analytics />
         </>

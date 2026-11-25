@@ -11,8 +11,7 @@ export default function ScrollToSection() {
         const target = document.getElementById(sectionId);
         if (target) {
             requestAnimationFrame(() => {
-                const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-                target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
             });
         }
     }, [location.hash]);

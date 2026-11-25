@@ -1,13 +1,15 @@
 import { buildMeta } from "../constants/Seo";
+import Header from "../components/Header";
 import { content } from "../constants/Content";
-import { projetsConfig } from "./projets/ProjetsConfig";
-import Container from "../components/layout/Container";
-import Section from "../components/layout/Section";
-import MediaText from "../components/MediaText";
-import Card from "../components/Card";
-import Picture from "../components/Picture";
-import Button from "../components/Button";
-import ContactCta from "../components/ContactCta";
+import Footer from "../components/Footer";
+import { Link } from "react-router";
+
+// Swiper
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 
 // Images
 import backgroundHome from "../assets/photosAccueil/backgroundHome.webp";
@@ -15,6 +17,9 @@ import logo from "../assets/logoNB.png";
 import matiereArgile from "../assets/photosAccueil/matiereArgile.webp";
 import matiereBois from "../assets/photosAccueil/matiereBois.webp";
 import matierePaille from "../assets/photosAccueil/matierePaille.webp";
+import projet1 from "../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.jpg";
+import projet2 from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.jpg";
+import projet3 from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.jpg";
 import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.webp";
 import serviceRenovation from "../assets/photosServices/renovation.webp";
 import serviceEquipementPublic from "../assets/photosServices/equipementPublic.webp";
@@ -23,20 +28,42 @@ import serviceAmenagementInterieur from "../assets/photosServices/amenagementInt
 import serviceMobilier from "../assets/photosServices/mobilier.webp";
 
 const services = [
-    { src: serviceConstructionNeuve, title: content.services.new_construction.title, hash: "#construction-neuve" },
-    { src: serviceRenovation, title: content.services.renovation.title, hash: "#renovation" },
-    { src: serviceAmenagementInterieur, title: content.services.interior_design.title, hash: "#amenagement-interieur-et-mobilier" },
-    { src: serviceMobilier, title: content.services.furniture.title, hash: "#amenagement-interieur-et-mobilier" },
-    { src: serviceEquipementPublic, title: content.services.public_facilities.title, hash: "#equipement-public-et-extension" },
-    { src: serviceExtension, title: content.services.extension.title, hash: "#equipement-public-et-extension" },
-];
-
-const featuredProjects = Object.entries(projetsConfig).slice(0, 3);
-
-const materials = [
-    { src: matiereArgile, alt: content.home.materials.clay.description },
-    { src: matiereBois, alt: content.home.materials.wood.description },
-    { src: matierePaille, alt: content.home.materials.straw.description },
+    { 
+        src: serviceConstructionNeuve, 
+        alt: content.services.new_construction.alt, 
+        description: content.services.new_construction.title, 
+        hash: "#construction-neuve" 
+    },
+    { 
+        src: serviceRenovation, 
+        alt: content.services.renovation.alt, 
+        description: content.services.renovation.title, 
+        hash: "#renovation" 
+    },
+    { 
+        src: serviceEquipementPublic, 
+        alt: content.services.public_facilities.alt, 
+        description: content.services.public_facilities.title, 
+        hash: "#equipement-public-et-extension" 
+    },
+    { 
+        src: serviceExtension, 
+        alt: content.services.extension.alt, 
+        description: content.services.extension.title, 
+        hash: "#equipement-public-et-extension" 
+    },
+    { 
+        src: serviceAmenagementInterieur, 
+        alt: content.services.interior_design.alt, 
+        description: content.services.interior_design.title, 
+        hash: "#amenagement-interieur-et-mobilier" 
+    },
+    { 
+        src: serviceMobilier, 
+        alt: content.services.furniture.alt, 
+        description: content.services.furniture.title, 
+        hash: "#amenagement-interieur-et-mobilier" 
+    }
 ];
 
 export const meta = () => buildMeta({
@@ -46,86 +73,195 @@ export const meta = () => buildMeta({
 });
 
 export default function AccueilPage() {
+    
     return (
-        <>
-            {/* Héros */}
-            <section aria-labelledby="hero-title" className="relative isolate flex min-h-[calc(100svh-var(--spacing-header))] items-center overflow-hidden">
-                <img
-                    src={backgroundHome}
-                    alt={content.home.background_alt}
-                    width="1600"
-                    height="900"
-                    fetchPriority="high"
-                    decoding="async"
-                    className="absolute inset-0 -z-10 h-full w-full object-cover"
-                />
-                {/* Voile : 60 % d'ink partout (contraste ≥ 4.5:1 même sur une zone blanche), renforcé à gauche dès md */}
-                <div className="absolute inset-0 -z-10 bg-ink/60 md:bg-linear-to-r md:from-ink/80 md:via-ink/60 md:to-ink/40" aria-hidden="true" />
-                <Container className="flex items-center gap-12 py-20">
-                    <img src={logo} alt="" width="192" height="192" className="hidden h-48 w-48 invert lg:block" />
-                    <div className="text-chrome-50">
-                        <h1 id="hero-title">{content.home.subtitle}</h1>
-                        <p className="text-formatting text-subtitle mt-4">{content.home.second_title}</p>
-                        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                            <Button to="/contact" variant="primary">{content.home.cta.contact}</Button>
-                            <Button to="/projets" variant="secondary">{content.home.cta.projects}</Button>
+        <div id="0" className="min-h-screen scroll-mt-100">
+            <Header />
+            <div className="w-full h-full">
+
+                {/* Section d'accueil */}
+                <div rel="preload" fetchPriority="high" style={{ backgroundImage: `url(${backgroundHome})` }} alt={content.home.background_alt} className="h-screen bg-cover bg-center">
+                    <div className="flex flex-row justify-center align-center items-center h-full w-full" style={{ backgroundColor: "rgba(10, 10, 10, 0.15)" }}>
+                        <img className="h-100 w-auto invert max-md:hidden" src={logo} alt={content.home.logo_alt} />
+                        <div className="flex flex-col justify-start items-start align-center max-md:ml-5">
+                            <h1 className="text-7xl text-chrome-50 text-left mb-5">
+                                {content.home.subtitle}
+                            </h1>
+                            <h2 className="text-formatting text-chrome-50 text-left mb-5">
+                                {content.home.second_title}
+                            </h2>
+                            <div className="py-2 space-x-5">
+                                <Link to={{ pathname: "/contact" }} className="cta-button orange-primary">
+                                    {content.home.cta.contact}
+                                </Link>
+                                <Link to={{ pathname: "/projets"}} className="cta-button orange-secondary">
+                                    {content.home.cta.projects}
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </Container>
-            </section>
+                </div>
 
-            {/* Matériaux */}
-            <Section labelledBy="materials-title">
-                <MediaText
-                    imageSide="left"
-                    media={
-                        <div className="flex gap-4">
-                            {materials.map((material) => (
-                                <div key={material.src} className="flex-1">
-                                    <Picture src={material.src} alt={material.alt} ratio="portrait" />
+                {/* Section de Matériaux */}
+                <div className="w-full min-h-screen md:flex md:flex-col md:justify-center">
+                    <h2 className="px-50 py-20 text-left w-full mt-5 md:mt-0 max-md:px-10 max-md:py-5">
+                        {content.home.materials.title}
+                    </h2>
+                    <div className="flex items-center justify-center w-full px-50 pb-20 max-md:hidden">
+                        <div className="grid grid-cols-7 gap-y-3 w-[60%]">
+                            <div className=" col-start-1 col-end-6 h-20 max-md:hidden">
+                                <div className="h-20 w-full overflow-hidden">
+                                    <img className="object-cover w-full h-full" src={matiereArgile} alt={content.home.materials.clay.description} />
                                 </div>
-                            ))}
+                            </div>
+                            <div className="col-start-2 col-end-7 h-20 max-md:hidden">
+                                <div className="h-20 w-full overflow-hidden relative @container-[size]">
+                                    <img className="object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 w-[100cqh] h-[100cqw]" src={matiereBois} alt={content.home.materials.wood.description} />
+                                </div>
+                            </div>
+                            <div className=" col-start-3 col-end-8 h-20 max-md:hidden">
+                                <div className="h-20 w-full overflow-hidden">
+                                    <img className="object-cover w-full h-full" src={matierePaille} alt={content.home.materials.straw.description} />
+                                </div>
+                            </div>
                         </div>
-                    }
-                >
-                    <h2 id="materials-title">{content.home.materials.title}</h2>
-                    <p className="text-formatting mt-6">{content.home.materials.text}</p>
-                </MediaText>
-            </Section>
-
-            {/* Projets */}
-            <Section bg="teal" labelledBy="projects-title">
-                <h2 id="projects-title">{content.projects.title}</h2>
-                <div className="grid-12 mt-12 gap-y-12">
-                    {featuredProjects.map(([id, projet]) => (
-                        <div key={id} className="md:col-span-6 lg:col-span-4">
-                            <Card
-                                to={`/projets/${id}`}
-                                image={projet.cover}
-                                title={projet.content.title}
-                                meta={[projet.location, projet.year, projet.category].filter(Boolean).join(" · ")}
-                            />
+                        <div className="text-formatting flex flex-col justify-center w-[40%] pl-16">
+                            <div>
+                                {content.home.materials.text}
+                            </div>
                         </div>
-                    ))}
-                </div>
-                <div className="mt-12">
-                    <Button to="/projets" variant="secondary">{content.home.cta.allProjects}</Button>
-                </div>
-            </Section>
-
-            {/* Services */}
-            <Section labelledBy="services-title">
-                <h2 id="services-title">{content.services.title}</h2>
-                <div className="grid-12 mt-12 gap-y-12">
-                    {services.map((service) => (
-                        <div key={service.title} className="md:col-span-6 lg:col-span-4">
-                            <Card to={`/services${service.hash}`} image={service.src} title={service.title} />
+                    </div>
+                    <div className="h-auto w-full md:hidden">
+                        <div className="flex flex-col ml-40 mr-5">
+                            <div className="text-formatting">
+                                {content.home.materials.text}
+                            </div>
                         </div>
-                    ))}
+                        <div className="grid grid-cols-6 gap-2 mt-5 mx-5">
+                            <img className="col-span-3 h-20 w-full object-cover" src={matiereBois} alt={content.home.materials.wood.description} />
+                            <img className="col-span-1 h-20 w-full object-cover" src={matiereArgile} alt={content.home.materials.clay.description} />
+                            <img className="col-span-2 h-20 w-full object-cover" src={matierePaille} alt={content.home.materials.straw.description} />
+                        </div>
+                        <div className="flex flex-col pb-10">
+                            <h2 className="text-left px-10 my-10">
+                                {content.home.more.title}
+                            </h2>
+                            <Link to="/projets" className="text-left underline px-10 m-3">
+                                <h3>
+                                    {content.projects.title}
+                                </h3>
+                            </Link>
+                            <Link to={{ pathname: "/services", hash: "#construction-neuve" }} className="text-left underline px-10 m-3">
+                                <h3>
+                                    {content.services.title}
+                                </h3>
+                            </Link>
+                            <Link to="/atelier" className="text-left underline px-10 m-3">
+                                <h3>
+                                    {content.atelier.title}
+                                </h3>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-            </Section>
 
-            <ContactCta />
-        </>
-    );
-}
+                {/* Section de Projets */}
+                <div className="bg-walnut-700 h-screen flex flex-col items-center justify-center max-md:hidden">
+                    <h2 className="w-full text-chrome-50 text-left px-50 py-10">
+                        {content.projects.title}
+                    </h2>
+                    <div className="w-[70%] h-[70%] flex items-center mx-auto aspect-1920/1080">
+                        <Swiper
+                            style={{
+                                '--swiper-navigation-color': '#fafafa',
+                                '--swiper-pagination-color': '#fafafa',
+                            }}
+                            slidesPerView={1}
+                            spaceBetween={10}
+                            pagination={{ clickable: true }}
+                            loop={true}
+                            navigation={true}
+                            modules={[Pagination, Navigation]}
+                        >
+                            <SwiperSlide>
+                                <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
+                                    <Link to="/projets/Projet1" className="group relative block h-full w-full overflow-hidden">
+                                        <img rel="preload" fetchPriority="high" src={projet1} alt={content.projects.project_1.title} className="h-full w-full object-cover" />
+                                        <h3 className="text-4xl absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
+                                            {content.projects.project_1.title}
+                                        </h3>
+                                    </Link>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
+                                    <Link to="/projets/Projet2" className="group relative block h-full w-full overflow-hidden">
+                                        <img rel="preload" fetchPriority="high" src={projet2} alt={content.projects.project_2.title} className="h-full w-full object-cover" />
+                                        <h3 className="text-4xl absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
+                                            {content.projects.project_2.title}
+                                        </h3>
+                                    </Link>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="h-[80%] w-[80%] mx-auto flex items-center justify-center aspect-1920/1080">
+                                    <Link to="/projets/Projet3" className="group relative block h-full w-full overflow-hidden">
+                                        <img rel="preload" fetchPriority="high" src={projet3} alt={content.projects.project_3.title} className="h-full w-full object-cover" />
+                                        <h3 className="text-4xl absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-center text-white transition-transform duration-300 group-hover:scale-105">
+                                            {content.projects.project_3.title}
+                                        </h3>
+                                    </Link>
+                                </div>
+                            </SwiperSlide>
+                        </Swiper>
+                    </div>
+                    <Link to={{ pathname: "/projets" }} className="cta-button walnut-secondary mt-7 mb-3">
+                        {content.home.cta.projects}
+                    </Link>
+                </div>
+
+                {/* Section de Services */}
+                <div className="h-screen flex flex-col items-center justify-center max-md:hidden">
+                    <h2 className="px-50 py-10 text-left w-full">
+                        {content.services.title}
+                    </h2>
+                    <div className="w-full h-full flex items-baseline justify-center px-8">
+                        {services.map((service) => (
+                            <div key={service.hash} className="h-[80%] w-[80%] mx-auto flex items-center justify-center px-3">
+                                <Link to={{ pathname: "/services", hash: service.hash }} className="h-full w-full overflow-hidden group block relative">
+                                    <img className="h-full w-full object-cover hover:scale-110 transition-transform duration-300" src={service.src} alt={service.alt} />
+                                    <p className="h-full pt-2 absolute bottom-[0%] right-[0%] text-4xl align-text-bottom" style={{ backgroundColor: "rgba(248, 247, 244, 0.75)", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
+                                        {service.description}
+                                    </p>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Section de Contact */}
+                <div className="bg-orange-600 h-screen text-black items-center justify-center flex flex-col">
+                    <div>
+                        <div className="flex flex-row items-center justify-center max-md:flex-col pl-10">
+                            <h2>
+                                {content.home.contact.title}
+                            </h2>
+                        </div>
+                        <p className="text-formatting text-xl text-left mt-15 pl-10">
+                            {content.home.contact.text}
+                        </p>
+                        <div className="py-2 justify-center items-center space-x-5 mt-10 flex flex-row max-md:flex-col">
+                            <a href={`tel:${content.contact.phone.url}`} className="cta-button orange-tertiary m-5">
+                                {content.contact.phone.text}
+                            </a>
+                            <a href={`mailto:${content.contact.email.text}`} className="cta-button orange-secondary m-5">
+                                {content.contact.email.text}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Footer />
+        </div>
+    )
+}       

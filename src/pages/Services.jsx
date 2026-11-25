@@ -1,10 +1,7 @@
 import { buildMeta } from "../constants/Seo";
+import Header from "../components/Header"
 import { content } from "../constants/Content";
-import Section from "../components/layout/Section";
-import MediaText from "../components/MediaText";
-import Card from "../components/Card";
-import Picture from "../components/Picture";
-import ContactCta from "../components/ContactCta";
+import Footer from "../components/Footer";
 
 // Images
 import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.webp";
@@ -20,82 +17,117 @@ export const meta = () => buildMeta({
     path: "/services",
 });
 
-function ServiceDetails({ service }) {
+function ServicesList({items}){
     return (
-        <>
-            <p>{service.text}</p>
-            <p className="text-eyebrow mt-6">{content.services.list_title}</p>
-            <ul className="mt-2 list-disc pl-6">
-                {service.list.map((item) => (
-                    <li key={item}>{item}</li>
-                ))}
-            </ul>
-        </>
-    );
-}
-
-function ServiceMediaText({ id, bg, imageSide, image, service }) {
-    return (
-        <Section id={id} bg={bg} labelledBy={`${id}-title`}>
-            <MediaText
-                imageSide={imageSide}
-                media={<Picture src={image} alt={service.alt} ratio="portrait" caption={service.credit} />}
-            >
-                <h2 id={`${id}-title`} className="mb-6">{service.title}</h2>
-                <ServiceDetails service={service} />
-            </MediaText>
-        </Section>
-    );
-}
-
-function ServicePair({ id, bg, title, items }) {
-    return (
-        <Section id={id} bg={bg} labelledBy={`${id}-title`}>
-            <h2 id={`${id}-title`}>{title}</h2>
-            <div className="grid-12 mt-12 gap-y-12">
-                {items.map(({ image, service }) => (
-                    <div key={service.title} className="md:col-span-6">
-                        <Card image={image} imageAlt={service.alt} caption={service.credit} title={service.title}>
-                            <ServiceDetails service={service} />
-                        </Card>
-                    </div>
-                ))}
-            </div>
-        </Section>
-    );
+        <ul className="list-disc mx-5">
+            {items.map((item, index) => (
+                <li key={item-index}>{item}</li>
+            ))}
+        </ul>
+    )
 }
 
 export default function Services() {
-    const s = content.services;
 
     return (
-        <>
-            <Section labelledBy="services-title" className="pb-0 lg:pb-0">
-                <h1 id="services-title">{s.subtitle}</h1>
-            </Section>
+        <div id="0" className="min-h-screen scroll-mt-100">
+            <Header />
+            <div className="w-full min-h-[calc(100vh-76px)]">
+                <h1 className="px-6 md:px-50 py-6 md:py-10 text-left w-full">
+                    {content.services.subtitle}
+                </h1>
 
-            <ServiceMediaText id="construction-neuve" imageSide="left" image={serviceConstructionNeuve} service={s.new_construction} />
-            <ServiceMediaText id="renovation" bg="teal" imageSide="right" image={serviceRenovation} service={s.renovation} />
+                {/* Construction Neuve */}
+                <div id="construction-neuve" className="w-full min-h-[calc(100vh-70px)] scroll-mt-100">
+                    <div className="flex flex-col items-center gap-10 px-6 justify-between md:flex-row md:px-50 md:py-10">
+                        <img src={serviceConstructionNeuve} alt={content.services.new_construction.alt} className="w-[60%] max-w-xl h-auto object-cover md:w-[30%]" />
+                        <div className="flex flex-col justify-end w-full md:w-[40%]">
+                            <h2 className="mb-5">
+                                {content.services.new_construction.title}
+                            </h2>
+                            <p className="mb-3">
+                                {content.services.new_construction.text}
+                            </p>
+                            <ServicesList items={content.services.new_construction.list} />
+                        </div>
+                    </div>
+                </div>
 
-            <ServicePair
-                id="amenagement-interieur-et-mobilier"
-                title={`${s.interior_design.title} et ${s.furniture.title.toLowerCase()}`}
-                items={[
-                    { image: serviceAmenagementInterieur, service: s.interior_design },
-                    { image: serviceMobilier, service: s.furniture },
-                ]}
-            />
-            <ServicePair
-                id="equipement-public-et-extension"
-                bg="mustard"
-                title={`${s.public_facilities.title} et ${s.extension.title.toLowerCase()}`}
-                items={[
-                    { image: serviceEquipementPublic, service: s.public_facilities },
-                    { image: serviceExtension, service: s.extension },
-                ]}
-            />
+                {/* Rénovation */}
+                <div id="renovation" className="bg-seafoam-300 w-full min-h-[calc(100vh-70px)] scroll-mt-17">
+                    <div className="flex flex-col-reverse px-6 py-10 justify-between items-center gap-10 min-h-[80vh] md:flex-row md:px-50">
+                        <div className="flex flex-col justify-center w-full md:w-[40%]">
+                            <h2 className="mb-5">
+                                {content.services.renovation.title}
+                            </h2>
+                            <p className="mb-3">
+                                {content.services.renovation.text}
+                            </p>
+                            <ServicesList items={content.services.renovation.list} />
+                        </div>
+                        <img src={serviceRenovation} alt={content.services.renovation.alt} className="w-full max-w-xl h-auto object-cover md:w-1/2" />
+                    </div>
+                </div>
 
-            <ContactCta />
-        </>
-    );
+                {/* Aménagement intérieur et Mobilier */}
+                <div id="amenagement-interieur-et-mobilier" className="w-full min-h-[calc(100vh-70px)] flex flex-col justify-start scroll-mt-17">
+                    <div className="flex flex-col mt-10 px-6 justify-between items-center gap-10 md:flex-row md:px-50">
+                        <img className="w-full max-w-xl h-auto object-cover md:w-1/2" src={serviceAmenagementInterieur} alt={content.services.interior_design.alt} />
+                        <div className="flex flex-col justify-center w-full md:w-[30%]">
+                            <h2 className="mb-5">
+                                {content.services.interior_design.title}
+                            </h2>
+                            <p className="mb-3">
+                                {content.services.interior_design.text}
+                            </p>
+                            <ServicesList items={content.services.interior_design.list} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col px-6 py-30 justify-start items-center gap-10 md:flex-row md:px-50 md:py-10">
+                        <img src={serviceMobilier} alt={content.services.furniture.alt} className="w-[60%] h-auto object-cover md:w-[15%]" />
+                        <div className="flex flex-col justify-center w-full mx-70 md:w-[30%]">
+                            <h2 className="mb-5">
+                                {content.services.furniture.title}
+                            </h2>
+                            <p className="mb-3">
+                                {content.services.furniture.text}
+                            </p>
+                            <ul className="list-disc mx-5">
+                                <ServicesList items={content.services.furniture.list} />
+                            </ul>
+                        </div>
+                    </div>                    
+                </div>
+
+                {/* Equipement public et Extension */}
+                <div id="equipement-public-et-extension" className="bg-lemon-500 w-full min-h-[calc(100vh-70px)] scroll-mt-17 flex flex-col justify-center items-start gap-10 px-6 py-16 md:flex-row md:px-50">
+                    <div className="flex flex-col w-full gap-6 md:w-1/2">
+                        <img src={serviceEquipementPublic} alt={content.services.public_facilities.alt} className="w-[60%] h-auto object-cover md:w-[40%]" />
+                        <div className="flex flex-col justify-center w-full">
+                            <h2 className="mb-5">
+                                {content.services.public_facilities.title}
+                            </h2>
+                            <p className="mb-3">
+                                {content.services.public_facilities.text}
+                            </p>
+                            <ServicesList items={content.services.public_facilities.list} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col w-full gap-6 md:w-1/2">
+                        <img src={serviceExtension} alt={content.services.extension.alt} className="w-[60%] h-auto object-cover md:w-[40%]" />
+                        <div className="flex flex-col justify-center w-full">
+                            <h2 className="mb-5">
+                                {content.services.extension.title}
+                            </h2>
+                            <p className="mb-3">
+                                {content.services.extension.text}
+                            </p>
+                            <ServicesList items={content.services.extension.list} />
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <Footer />
+        </div>
+    )
 }
