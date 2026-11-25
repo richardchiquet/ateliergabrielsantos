@@ -10,11 +10,35 @@ import cover6 from "../../assets/photosProjets/projet6/007-1-Appartement Nice-Vu
 
 const imageLoader = import.meta.glob("../../assets/photosProjets/*/*.{jpg,jpeg,png,webp}");
 
-function getImageLoaderForFolder(folderName) {
+// Libellé lisible tiré du nom de fichier : "001-2-MICRO HABITAT 01-Vue INT 01.webp" → "Vue intérieure 01"
+const LABELS = [
+    [/Vue EXT/i, "Vue extérieure"],
+    [/Vue INT/i, "Vue intérieure"],
+    [/Plan/i, "Plan"],
+    [/Coupe/i, "Coupe"],
+    [/Fa[cç]ade/i, "Façade"],
+    [/Axonom[eé]trie/i, "Axonométrie"],
+];
+
+function describe(path) {
+    const name = path.split("/").pop().replace(/\.[a-z]+$/i, "");
+    const last = name.split("-").pop().trim();
+    const label = LABELS.find(([re]) => re.test(last));
+    const number = last.match(/\d+$/)?.[0];
+    return {
+        label: label ? `${label[1]}${number ? ` ${number}` : ""}` : last,
+        // Plans, coupes, façades, axonométries : affichés en entier (contain) sur fond crème
+        isDrawing: !/Vue (EXT|INT)/i.test(last),
+    };
+}
+
+// Images d'un projet, triées, sans la couverture (déjà affichée en tête de fiche)
+function getImagesForFolder(folderName) {
     return Object.entries(imageLoader)
         .filter(([path]) => path.includes(`/photosProjets/${folderName}/`))
         .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, undefined, { numeric: true }))
-        .map(([, loader]) => loader);
+        .slice(1)
+        .map(([path, load]) => ({ ...describe(path), load }));
 }
 
 export const projetsConfig = {
@@ -24,7 +48,9 @@ export const projetsConfig = {
         category: content.projects.category.draft,
         cover: cover1,
         status: content.projects.status.empty,
-        getImageLoader: () => getImageLoaderForFolder("projet1"),
+        location: "",
+        year: "",
+        getImages: () => getImagesForFolder("projet1"),
     },
     Projet2: {
         color: "bg-greige-400",
@@ -32,7 +58,9 @@ export const projetsConfig = {
         category: content.projects.category.draft,
         cover: cover2,
         status: content.projects.status.empty,
-        getImageLoader: () => getImageLoaderForFolder("projet2"),
+        location: "",
+        year: "",
+        getImages: () => getImagesForFolder("projet2"),
     },
     Projet3: {
         color: "bg-walnut-400",
@@ -40,7 +68,9 @@ export const projetsConfig = {
         category: content.projects.category.draft,
         cover: cover3,
         status: content.projects.status.empty,
-        getImageLoader: () => getImageLoaderForFolder("projet3"),
+        location: "",
+        year: "",
+        getImages: () => getImagesForFolder("projet3"),
     },
     Projet4: {
         color: "bg-seafoam-300",
@@ -48,7 +78,9 @@ export const projetsConfig = {
         category: content.projects.category.draft,
         cover: cover4,
         status: content.projects.status.empty,
-        getImageLoader: () => getImageLoaderForFolder("projet4"),
+        location: "",
+        year: "",
+        getImages: () => getImagesForFolder("projet4"),
     },
     Projet5: {
         color: "bg-greige-400",
@@ -56,7 +88,9 @@ export const projetsConfig = {
         category: content.projects.category.draft,
         cover: cover5,
         status: content.projects.status.empty,
-        getImageLoader: () => getImageLoaderForFolder("projet5"),
+        location: "",
+        year: "",
+        getImages: () => getImagesForFolder("projet5"),
     },
     Projet6: {
         color: "bg-orange-400",
@@ -64,7 +98,9 @@ export const projetsConfig = {
         category: content.projects.category.draft,
         cover: cover6,
         status: content.projects.status.ongoing,
-        getImageLoader: () => getImageLoaderForFolder("projet6"),
+        location: "Nice",
+        year: "",
+        getImages: () => getImagesForFolder("projet6"),
     }
 
 };

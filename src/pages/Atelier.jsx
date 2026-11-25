@@ -1,88 +1,48 @@
 import { buildMeta } from "../constants/Seo";
-import Header from "../components/Header"
 import { content } from "../constants/Content";
-import Footer from "../components/Footer";
+import Section from "../components/layout/Section";
+import MediaText from "../components/MediaText";
+import Picture from "../components/Picture";
+import ContactCta from "../components/ContactCta";
 
 // Images
 import histoire from "../assets/photosAtelier/histoire.webp";
-import philosophie from "../assets/photosAtelier/philosophie.webp"
+import philosophie from "../assets/photosAtelier/philosophie.webp";
 
 export const meta = () => buildMeta({
-    title:content.meta.atelier.title,
+    title: content.meta.atelier.title,
     description: content.meta.atelier.description,
     path: "/atelier",
 });
 
 export default function Atelier() {
+    const { history, philosophy } = content.atelier;
 
     return (
-        <div id="0" className="min-h-screen scroll-mt-100">
-            <Header />
-            <div className=" min-h-screen w-full max-md:hidden scroll-mt-1000">
-                <h1 className="px-10 py-10 text-left w-full">
-                    {content.atelier.subtitle}
-                </h1>
-                <img src={histoire} alt= {content.atelier.history.alt} className="absolute -bottom-10 left-0 max-h-[80%] max-w-[30%] aspect-1/2 object-cover z-1"/>
-                <div className="grid grid-cols-12">
-                    <h2 className="col-start-5 col-span-3 mb-5">
-                        {content.atelier.history.title}
-                    </h2>
-                    <p className="text-formatting col-start-5 col-span-6 my-2">
-                        {content.atelier.history.textPart1}
-                    </p>
-                    <p className="text-formatting col-start-5 col-span-6 my-2 mb-15">
-                        {content.atelier.history.textPart2}
-                    </p>
+        <>
+            <Section labelledBy="history-title">
+                <h1 className="mb-12">{content.atelier.subtitle}</h1>
+                <MediaText imageSide="left" media={<Picture src={histoire} alt={history.alt} ratio="landscape" priority />}>
+                    <h2 id="history-title">{history.title}</h2>
+                    <p className="text-formatting mt-6">{history.textPart1}</p>
+                </MediaText>
+                <div className="grid-12 mt-12">
+                    <p className="text-formatting md:col-span-5 md:col-start-8">{history.textPart2}</p>
                 </div>
+            </Section>
 
-            </div>
-            <div className="relative min-h-screen w-full -mt-10 max-md:hidden">
-                <div className="relative top-0 w-full bg-walnut-700 h-60 z-2"></div>
-                <img src={philosophie} alt={content.atelier.philosophy.alt} className="absolute bottom-0 right-0 max-w-[30%] max-h-screen w-auto object-cover z-10" />
-                <div className="grid grid-cols-12 mt-20">
-                    <h2 className="col-start-2 col-span-3 mb-5">
-                        {content.atelier.philosophy.title}
-                    </h2>
-                    <p className="text-formatting col-start-2 col-span-5 my-2">
-                        {content.atelier.philosophy.textPart1}
-                    </p>
-                    <p className="text-formatting col-start-2 col-span-5 my-2">
-                        {content.atelier.philosophy.textPart2}
-                    </p>
-                </div>
-            </div>
-            <div className="md:hidden">
-                <div className="h-full w-full">
-                    <h1 className="w-full px-10 py-10 text-left">
-                        {content.atelier.subtitle}
-                    </h1>
-                    <h2 className="w-full px-10 py-2 text-left">
-                        {content.atelier.history.title}
-                    </h2>
-                    <p className="w-full px-10 py-2 pl-20 text-left text-formatting">
-                        {content.atelier.history.textPart1}
-                    </p>
-                </div>
-                <div className="min-h-screen w-full bg-walnut-700">
-                    <img src={histoire} alt={content.atelier.history.alt} className="w-full h-auto object-cover mt-5" />
-                    <p className="text-formatting text-white px-10 text-left w-full pl-20 py-10">
-                        {content.atelier.history.textPart2}
-                    </p>
-                </div>
-                <div className="min-h-screen w-full bg-white">
-                    <h2 className="px-10 py-10 text-left w-full">
-                        {content.atelier.philosophy.title}
-                    </h2>
-                    <p className="text-formatting px-10 py-10 text-left w-full pl-30">
-                        {content.atelier.philosophy.textPart1}
-                    </p>
-                    <img src={philosophie} alt={content.atelier.philosophy.alt} className="w-[50%] h-[60vh] max-h-[60vh] object-cover object-bottom" />
-                    <p className="text-formatting px-10 py-10 text-left w-full pl-30">
-                        {content.atelier.philosophy.textPart2}
-                    </p>
-                </div>                    
-            </div>
-            <Footer />
-        </div>
-    )
+            <Section bg="teal" labelledBy="philosophy-title">
+                <MediaText
+                    imageSide="right"
+                    media={<Picture src={philosophie} alt={philosophy.alt} ratio="portrait" position="50% 72%" />}
+                >
+                    <h2 id="philosophy-title">{philosophy.title}</h2>
+                    <p className="text-formatting mt-6">{philosophy.textPart1}</p>
+                    <p className="text-formatting mt-6">{philosophy.textPart2}</p>
+                </MediaText>
+            </Section>
+
+            <ContactCta />
+        </>
+    );
 }

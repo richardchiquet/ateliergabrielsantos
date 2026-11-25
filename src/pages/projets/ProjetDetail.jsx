@@ -1,22 +1,15 @@
-
 import { buildMeta } from "../../constants/Seo";
-import Header from "../../components/Header";
 import { content } from "../../constants/Content";
-import Footer from "../../components/Footer";
 import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
-
-// Projects
-import "./projet.css";
 import { projetsConfig } from "./ProjetsConfig";
 import NotFound, { meta as notFoundMeta } from "../NotFound";
+import Container from "../../components/layout/Container";
+import Section from "../../components/layout/Section";
+import Picture from "../../components/Picture";
+import ContactCta from "../../components/ContactCta";
 
-// Swiper
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/thumbs";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+const projetIds = Object.keys(projetsConfig);
 
 export const meta = ({ params }) => {
   const projet = projetsConfig[params.projetId];
@@ -33,23 +26,22 @@ export const meta = ({ params }) => {
   });
 };
 
+const navLinkClass = "inline-flex min-h-11 items-center underline-offset-4 hover:underline";
+
 export default function ProjetDetail() {
   const { projetId } = useParams();
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [images, setImages] = useState([]);
   const projet = projetsConfig[projetId];
 
   useEffect(() => {
-    setImages([]);
-    setThumbsSwiper(null);
-
     if (!projet) return;
     let isMounted = true;
+    const entries = projet.getImages();
 
-    Promise.all(projet.getImageLoader().map((load) => load()))
+    Promise.all(entries.map((entry) => entry.load()))
       .then((modules) => {
         if (isMounted) {
-          setImages(modules.map((m) => m.default));
+          setImages(entries.map((entry, index) => ({ ...entry, src: modules[index].default })));
         }
       })
       .catch((error) => {
@@ -58,74 +50,87 @@ export default function ProjetDetail() {
 
     return () => {
       isMounted = false;
+      setImages([]);
     };
-  }, [projet, projetId]);
-  
+  }, [projet]);
+
   if (!projet) return <NotFound />;
 
-  const { color, content: projetContent, category, status } = projet;
+  const { color, content: projetContent, category, status, location, year } = projet;
+  const index = projetIds.indexOf(projetId);
+  const previousId = projetIds[(index - 1 + projetIds.length) % projetIds.length];
+  const nextId = projetIds[(index + 1) % projetIds.length];
+
+  const details = [
+    [content.projects.location, location],
+    [content.projects.year, year],
+    [content.projects.category.name, category],
+    [content.projects.status.name, status],
+  ].filter(([, value]) => value);
 
   return (
-    <div>
-      <Header />
-      <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
-        <Link to={{ pathname: "/projets" }} className="text-4xl col-start-2">
-          {content.projects.icon_back}
+    <>
+      <Section labelledBy="projet-title">
+        <Link to="/projets" className={navLinkClass}>
+          <span aria-hidden="true">{content.projects.icon_back}&nbsp;</span>
+          {content.projects.back}
         </Link>
-        <div className="col-start-2 col-end-12 mb-5">
-          <h1>{projetContent.title}</h1>
-          <p>{content.projects.category.name} : {category}</p>
-          <p>{content.projects.status.name} : {status}</p>
-        </div>
-        <div className="col-start-1 col-end-13 w-full mx-auto md:w-8/10 md:col-start-2 md:col-end-12">
-          {images.length === 0 ? (
-            <img src={projet.cover} alt={projetContent.title} className="w-full h-auto object-contain" />
-          ) : (
-          <>
-          <Swiper
-            key={`${projetId}-main`}
-            style={{ "--swiper-navigation-color": "#000000", "--swiper-pagination-color": "#000000" }}
-            loop={images.length > 1}
-            spaceBetween={10}
-            navigation
-            thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
-          >
-            {images.map((image, index) => (
-              <SwiperSlide key={`${image}-${index}`}>
-                <img src={image} alt={`${projetContent.title} – vue ${index + 1}`} className="w-full h-full object-contain" />
-              </SwiperSlide>
+
+        <div className={`mt-6 h-2 w-12 ${color}`} aria-hidden="true" />
+        <h1 id="projet-title" className="mt-4">{projetContent.title}</h1>
+        {details.length > 0 && (
+          <dl className="text-small mt-4 flex flex-wrap gap-x-8 gap-y-2">
+            {details.map(([label, value]) => (
+              <div key={label} className="flex gap-2">
+                <dt>{label} :</dt>
+                <dd>{value}</dd>
+              </div>
             ))}
-          </Swiper>
-          <div className="max-md:hidden mt-3">
-            <Swiper
-              key={`${projetId}-thumbs`}
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={Math.min(9, images.length || 1)}
-              freeMode
-              watchSlidesProgress
-              modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper"
-            >
-              {images.map((image, index) => (
-                <SwiperSlide key={`${image}-${index}`}>
-                  <img src={image} alt={`${projetContent.title} – miniature ${index + 1}`} className="w-full h-auto object-contain" />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-          </>
-          )}
+          </dl>
+        )}
+
+        <div className="mt-12">
+          <Picture src={projet.cover} alt={`${projetContent.title} – vue principale`} ratio="wide" priority />
         </div>
-        <div className="col-start-4 col-end-10 mt-20 mb-20">
-          <p className="text-formatting">
-            {projetContent.description}
-          </p>
-        </div>
-      </div>
-      <Footer />
-    </div>
+
+        <p className="text-formatting mt-12">{projetContent.description}</p>
+      </Section>
+
+      {images.length > 0 && (
+        <Section labelledBy="gallery-title" className="pt-0 lg:pt-0">
+          <h2 id="gallery-title">{content.projects.gallery}</h2>
+          <ul className="grid-12 mt-12 gap-y-8">
+            {images.map((image) => (
+              <li key={image.src} className="md:col-span-6 lg:col-span-4">
+                <a href={image.src} target="_blank" rel="noopener noreferrer" className="block">
+                  <Picture
+                    src={image.src}
+                    alt={`${projetContent.title} – ${image.label}`}
+                    ratio="landscape"
+                    fit={image.isDrawing ? "contain" : "cover"}
+                  />
+                  <span className="sr-only"> ({content.projects.enlarge})</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
+      <nav aria-label="Navigation entre projets" className="pb-20 lg:pb-30">
+        <Container className="flex flex-wrap justify-between gap-4">
+          <Link to={`/projets/${previousId}`} className={navLinkClass}>
+            <span aria-hidden="true">←&nbsp;</span>
+            {content.projects.previous} : {projetsConfig[previousId].content.title}
+          </Link>
+          <Link to={`/projets/${nextId}`} className={navLinkClass}>
+            {content.projects.next} : {projetsConfig[nextId].content.title}
+            <span aria-hidden="true">&nbsp;→</span>
+          </Link>
+        </Container>
+      </nav>
+
+      <ContactCta />
+    </>
   );
 }
