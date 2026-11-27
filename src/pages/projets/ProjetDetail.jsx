@@ -1,8 +1,7 @@
 
 import { buildMeta } from "../../constants/Seo";
-import Header from "../../components/Header";
 import { content } from "../../constants/Content";
-import Footer from "../../components/Footer";
+import Container from "../../components/layout/Container";
 import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
 
@@ -13,10 +12,18 @@ import NotFound, { meta as notFoundMeta } from "../NotFound";
 
 // Swiper
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { A11y, FreeMode, Keyboard, Navigation, Thumbs } from "swiper/modules";
+
+const a11y = {
+  prevSlideMessage: "Image précédente",
+  nextSlideMessage: "Image suivante",
+  firstSlideMessage: "Première image",
+  lastSlideMessage: "Dernière image",
+  slideLabelMessage: "Image {{index}} sur {{slidesLength}}",
+};
 
 export const meta = ({ params }) => {
   const projet = projetsConfig[params.projetId];
@@ -46,10 +53,11 @@ export default function ProjetDetail() {
     if (!projet) return;
     let isMounted = true;
 
-    Promise.all(projet.getImageLoader().map((load) => load()))
+    const entries = projet.getImageLoader();
+    Promise.all(entries.map((entry) => entry.load()))
       .then((modules) => {
         if (isMounted) {
-          setImages(modules.map((m) => m.default));
+          setImages(modules.map((m, i) => ({ src: m.default, label: entries[i].label, isDrawing: entries[i].isDrawing })));
         }
       })
       .catch((error) => {
@@ -63,38 +71,75 @@ export default function ProjetDetail() {
   
   if (!projet) return <NotFound />;
 
-  const { color, content: projetContent, category, status } = projet;
+  const { color, content: projetContent, category, status, location, year } = projet;
+
+  // Seules les informations renseignées sont affichées (pas de « non défini »)
+  const details = [
+    [
+      content.projects.category.name, 
+      category
+    ],
+    [
+      content.projects.status.name, 
+      status
+    ],
+    [
+      content.projects.location.name, 
+      location
+    ],
+    [
+      content.projects.year.name, 
+      year
+    ],
+  ].filter(([, value]) => value);
 
   return (
-    <div>
-      <Header />
-      <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
-        <Link to={{ pathname: "/projets" }} className="text-4xl col-start-2">
-          {content.projects.icon_back}
+    <div className={`w-full min-h-section ${color}`}>
+      <Container className="grid-layout place-items-start content-start relative min-h-section">
+        <Link to="/projets" className="inline-flex min-h-11 items-center gap-2 underline-offset-4 hover:underline">
+          {content.projects.back}
         </Link>
-        <div className="col-start-2 col-end-12 mb-5">
+        <div className="mb-6">
           <h1>{projetContent.title}</h1>
-          <p>{content.projects.category.name} : {category}</p>
-          <p>{content.projects.status.name} : {status}</p>
+          {/* Informations compactes sous le titre, en petite taille (14px).
+              Mobile : 2 par ligne, chacune sur 2 colonnes de la grille (même gouttière, alignées sur les colonnes 1 et 3).
+              Dès md : toutes sur une ligne (retour à la ligne si besoin). */}
+          {details.length > 0 && (
+            <dl className="text-small mt-2 grid grid-cols-2 gap-x-(--grid-gutter) gap-y-1 md:flex md:flex-wrap md:gap-x-6">
+              {details.map(([label, value]) => (
+                <div key={label} className="flex gap-1">
+                  <dt>{label} :</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </div>
-        <div className="col-start-1 col-end-13 w-full mx-auto md:w-8/10 md:col-start-2 md:col-end-12">
+        {/* Carrousel sur toute la largeur du contenu (12 colonnes en bureau) */}
+        <div className="w-full">
           {images.length === 0 ? (
-            <img src={projet.cover} alt={projetContent.title} className="w-full h-auto object-contain" />
+            <img src={projet.cover} alt={projetContent.title} fetchPriority="high" className="aspect-video w-full object-cover" />
           ) : (
           <>
           <Swiper
             key={`${projetId}-main`}
-            style={{ "--swiper-navigation-color": "#000000", "--swiper-pagination-color": "#000000" }}
-            loop={images.length > 1}
+            // Après la dernière image, retour à la toute première (rewind) au lieu d'une boucle infinie.
+            // La boucle (loop) fonctionne mal avec les miniatures ; rewind les garde synchronisées.
+            rewind
+            initialSlide={0}
+            // Précharge l'image précédente et la suivante
+            lazyPreloadPrevNext={1}
+            keyboard={{ enabled: true, onlyInViewport: true }}
+            a11y={a11y}
             spaceBetween={10}
             navigation
             thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-            modules={[FreeMode, Navigation, Thumbs]}
+            modules={[A11y, Keyboard, Navigation, Thumbs]}
             className="mySwiper2"
           >
             {images.map((image, index) => (
-              <SwiperSlide key={`${image}-${index}`}>
-                <img src={image} alt={`${projetContent.title} – vue ${index + 1}`} className="w-full h-full object-contain" />
+              <SwiperSlide key={`${image.src}-${index}`}>
+                <img src={image.src} alt={`${projetContent.title} – ${image.label}`} loading={index === 0 ? "eager" : "lazy"} decoding="async" className={image.isDrawing ? "is-drawing" : undefined} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -106,12 +151,12 @@ export default function ProjetDetail() {
               slidesPerView={Math.min(9, images.length || 1)}
               freeMode
               watchSlidesProgress
-              modules={[FreeMode, Navigation, Thumbs]}
+              modules={[FreeMode, Thumbs]}
               className="mySwiper"
             >
               {images.map((image, index) => (
-                <SwiperSlide key={`${image}-${index}`}>
-                  <img src={image} alt={`${projetContent.title} – miniature ${index + 1}`} className="w-full h-auto object-contain" />
+                <SwiperSlide key={`${image.src}-${index}`}>
+                  <img src={image.src} alt="" loading="lazy" decoding="async" className={image.isDrawing ? "is-drawing" : undefined} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -119,13 +164,14 @@ export default function ProjetDetail() {
           </>
           )}
         </div>
-        <div className="col-start-4 col-end-10 mt-20 mb-20">
-          <p className="text-formatting">
-            {projetContent.description}
-          </p>
+        <div className="mt-20 mb-20 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-8">
+          <div className="lg:mx-auto lg:max-w-[75ch]">
+            <p className="text-formatting">
+              {projetContent.description}
+            </p>
+          </div>
         </div>
-      </div>
-      <Footer />
+      </Container>
     </div>
   );
 }

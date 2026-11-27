@@ -33,7 +33,7 @@ export const content = {
         title: "Accueil",
         subtitle: "L'atelier Gabriel Santos",
         second_title: "Architecte HMONP\nCréateur d'espaces sains et fonctionnels",
-        background_alt: "Ébauche architecturale de l'atelier Gabriel Santos représentant une maison familiale contemporaine avec une série de portiques en bois.",
+        background_alt: "Perspective d'une maison familiale contemporaine à portiques en bois et toiture en tuiles, entourée d'un jardin luxuriant",
         logo_alt: "Logo de l'atelier Gabriel Santos",
         cta: {
             contact: "Contactez-moi",
@@ -42,18 +42,18 @@ export const content = {
         },
         materials: {
             title: "Une approche par les matériaux",
-            text: "Je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public.\n\nMon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.",
+            text: "Je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public (ERP).\n\nMon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.",
             clay: {
                 name: "Argile",
-                description: "Image illustrative de l'argile, matériau naturel qui permet de réguler l'humidité et la température dans les bâtiments."
+                description: "Enduit de terre crue à la surface texturée, parsemée de fibres végétales"
             },
             wood: {
                 name: "Bois",
-                description: "Image illustrative du bois, matériau renouvelable et écologique qui offre une grande variété d'essences et de finitions."
+                description: "Planches de bois brut aux teintes brunes, traversées par une poutre horizontale"
             },
             straw: {
                 name: "Paille",
-                description: "Image illustrative de la paille, matériau isolant naturel qui permet de réduire les besoins en chauffage et en climatisation."
+                description: "Gros plan sur une botte de paille compressée"
             }
         },
         contact: {
@@ -66,11 +66,19 @@ export const content = {
     },
     projects: {
         title: "Projets",
-        back: "Retour aux projets",
-        icon_back: "←",
+        back: "← Retour aux projets",
+        image_labels: {
+            exterior: "vue extérieure",
+            interior: "vue intérieure",
+            ground_floor_plan: "plan du rez-de-chaussée",
+            plan: "plan",
+            section: "coupe",
+            facade: "façade",
+            axonometric: "axonométrie",
+        },
+        empty: "",
         status: {
             name: "Statut",
-            empty: "",
             ongoing: "En cours",
             completed: "Terminé"
         },
@@ -80,9 +88,18 @@ export const content = {
             draft: "Ébauche",
             competition: "Concours"
         },
+        location:{
+            name: "Lieu",
+            nice: "Nice",
+            ile_de_france: "Île-de-France"
+        },
+        year: {
+            name: "Année",
+            twentySix: "2026",
+        },
         project_1: {
             title: "Micro Habitat 1",
-            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical. Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison. La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. La pergolas et les brises soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
+            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical. Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison. La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. La pergola et les brises soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
         },
         project_2: {
             title: "Famille House 1",
@@ -102,7 +119,7 @@ export const content = {
         },
         project_6: {
             title: "Appartement Nice",
-            description: "Ce projet à pour objectif la restructuration de la partie salle d’eau et cuisine d’un appartement à Nice. Cet appartement est situé en RDC et possède une double orientation avec de grandes ouvertures.\n\nLa maîtrise d’ouvrage souhaite aménager dans cet appartement de 32m2 un espace nuit avec un accès direct à une salle d’eau, ainsi qu’une deuxième salle d’eau accessible depuis l’espace de vie principal et d’une cuisine sur mesure le long de la façade.\n\n\nPour ce faire j’ai proposé plusieurs configurations, toutes, respectant les contraintes de programme et d’espace. Vous voyez ici la proposition qui optimise au maximum la taille de la pièce de vie en créant ainsi un grand volume capable d’accueillir une dizaine de personnes.\n\nDans cette pièce, une cuisine sur mesure vient en prolongement de la façade et fait face à la mezzanine existante de l’appartement. Le meuble vient prendre la quasi-totalité de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en inox et le comptoir en terrazzo. En termes de technique, le meuble contient un évier, un réfrigérateur, une machine à laver, un micro-onde, des rangements, une banquette pouvant devenir un lit, une unité intérieure de climatisation et un écran pour projecteur déroulant.\n\nLa pièce de vie étant optimisée au maximum, la pièce de nuit et les salles d’eau sont, de ce fait, réduites à leurs strict minimum. En termes de couleurs et de matériaux les zones humides sont traitées sur les murs en faïence de couleur vert émeraude et sur le sol en carrelage gris. La pièce de nuit est séparée de la zone humide par une porte coulissante imitation shogi japonais afin de créer une ambiance calme et détendue dans cette pièce. Le sol est en tatami ce qui permet de créer une zone à usage mixte : une pièce de rangement, une pièce de travail, ou avec un futon une pièce pour dormir.\n\nEn résumé, ce projet d’aménagement a été un petit casse tête contraint par un espace de 32m2 et un programme comportant beaucoup d’éléments à faire fonctionner ensemble. Ce qui n’empêche pas d’avoir un espace agréable, fonctionnel et adapté au besoin du client."
+            description: "Ce projet a pour objectif la restructuration de la partie salle d’eau et cuisine d’un appartement à Nice. Cet appartement est situé en RDC et possède une double orientation avec de grandes ouvertures.\n\nLa maîtrise d’ouvrage souhaite aménager dans cet appartement de 32m2 un espace nuit avec un accès direct à une salle d’eau, ainsi qu’une deuxième salle d’eau accessible depuis l’espace de vie principal et d’une cuisine sur mesure le long de la façade.\n\nPour ce faire, j’ai proposé plusieurs configurations, toutes, respectant les contraintes de programme et d’espace. Vous voyez ici la proposition qui optimise au maximum la taille de la pièce de vie en créant ainsi un grand volume capable d’accueillir une dizaine de personnes.\n\nDans cette pièce, une cuisine sur mesure vient en prolongement de la façade et fait face à la mezzanine existante de l’appartement. Le meuble vient prendre la quasi-totalité de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en inox et le comptoir en terrazzo. En termes de technique, le meuble contient un évier, un réfrigérateur, une machine à laver, un micro-onde, des rangements, une banquette pouvant devenir un lit, une unité intérieure de climatisation et un écran pour projecteur déroulant.\n\nLa pièce de vie étant optimisée au maximum, la pièce de nuit et les salles d’eau sont, de ce fait, réduites à leur strict minimum. En termes de couleurs et de matériaux les zones humides sont traitées sur les murs en faïence de couleur vert émeraude et sur le sol en carrelage gris. La pièce de nuit est séparée de la zone humide par une porte coulissante imitation shogi japonais afin de créer une ambiance calme et détendue dans cette pièce. Le sol est en tatami ce qui permet de créer une zone à usage mixte : une pièce de rangement, une pièce de travail, ou avec un futon une pièce pour dormir.\n\nEn résumé, ce projet d’aménagement a été un petit casse tête contraint par un espace de 32m2 et un programme comportant beaucoup d’éléments à faire fonctionner ensemble. Ce qui n’empêche pas d’avoir un espace agréable, fonctionnel et adapté au besoin du client."
         },
     },
     atelier: {
@@ -110,13 +127,13 @@ export const content = {
         subtitle: "L'architecte derrière l'atelier",
         history: {
             title: "Son histoire",
-            alt: "Architecte dessinant un croquis d'architecture à la main",
-            textPart1: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics, des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.",
-            textPart2: "Mon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage.\n\nLa simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet.\nLe temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers.\n\nLa réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
+            alt: "Homme dessinant à la main la perspective d'un bâtiment sur un rouleau de papier, une règle posée à côté",
+            textPart1: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics (ERP), des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.",
+            textPart2: "Mon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage.\n\nLa simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet. Le temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers.\n\nLa réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
         },
         philosophy: {
             title: "Sa philosophie",
-            alt: "Gabriel Santos enlaçant un pilier en bois d'un temple japonais",
+            alt: "Gabriel Santos enlaçant un immense pilier en bois rouge dans la salle d'un temple japonais",
             textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.",
             textPart2: "C'est pour cela que j'ai à cœur de concevoir des espaces sains et fonctionnels adaptés aux besoins des usagers.\n\nEt cela passe par la compréhension des matériaux utilisés dans la construction : leur aspect, leurs propriétés et leur impact environnemental.\nLes matériaux et leur mise en œuvre sont un point central dans ma démarche architecturale."
         }
@@ -124,9 +141,11 @@ export const content = {
     services: {
         title: "Services",
         subtitle: "Services proposés",
+        list_title: "Nos prestations",
         new_construction: {
             title: "Construction neuve",
-            alt: "Photo de them snapshots sur Unsplash représentant une maison contemporaine en ossature bois avec bardage bois et toiture en tôle acier à joint debout",
+            alt: "Échafaudage métallique dressé contre la façade d'un immeuble en construction, encadré de branches de conifères",
+            credit: "Photo : them snapshots, Unsplash",
             text: "Conception et réalisation de bâtiments performants où l'attention est portée sur la nature des matériaux, leur mise en œuvre et sur leur efficacité énergétique.",
             list: [
                 "Étude de faisabilité et programmation",
@@ -138,7 +157,8 @@ export const content = {
         },
         renovation: {
             title: "Rénovation",
-            alt: "Photo de ??? sur Unsplash représentant un bâtiment ancien en pierre avec une toiture en tuile plate de pays",
+            alt: "Un architecte et un homme en casque de chantier observent des ouvriers sur le chantier de réhabilitation d'un bâtiment en briques entouré d'échafaudages",
+            credit: "Photo : Mark Potterton, Unsplash",
             text: "Conception et réalisation de réhabilitation de bâtiment existant où l'attention est portée sur la mise en valeur des éléments présents. La mise aux normes et l'amélioration des performances du bâtiment passe par le réemploi de matériaux et techniques traditionnelles.",
             list: [
                 "Diagnostics des existants",
@@ -151,7 +171,8 @@ export const content = {
         },
         interior_design: {
             title: "Aménagement intérieur",
-            alt: "Photo de Zaji Kanamajinas sur Unsplash représentant un intérieur contemporain avec un mobilier sur mesure et des matériaux naturels",
+            alt: "Salon aux murs habillés de bois avec étagères, canapé, fauteuils et suspensions lumineuses, ouvert par une grande baie vitrée sur la ville",
+            credit: "Photo : Zaji Kanamajinas, Unsplash",
             text: "Optimisation, personnalisation et design d'espaces intérieurs fonctionnels et esthétiques.",
             list: [
                 "Plans d'aménagement",
@@ -163,7 +184,8 @@ export const content = {
         },
         furniture: {
             title: "Mobilier",
-            alt: "Photo de Hans sur Unsplash représentant un meuble en bois sur mesure intégré dans un intérieur contemporain",
+            alt: "Détail d'un fauteuil en bois au coussin vert et à l'assise jaune cloutée, baigné de soleil",
+            credit: "Photo : Hans, Unsplash",
             text: "Conception de mobilier sur mesure intégré à votre projet.",
             list: [
                 "Design sur mesure",
@@ -175,8 +197,9 @@ export const content = {
         },
         public_facilities: {
             title: "Équipement public",
-            alt: "Photo de Fabrizio Coco sur Unsplash représentant un bâtiment public contemporain avec une façade en bois et une toiture végétalisée",
-            text: "Conception et réalisation d'établissements recevant du public conformes aux normes d'accessibilité et de sécurité adaptés aux besoins de la maîtrise d'ouvrage.",
+            alt: "Grande cour intérieure d'un musée couverte d'une verrière, traversée par des visiteurs",
+            credit: "Photo : Fabrizio Coco, Unsplash",
+            text: "Conception et réalisation d'établissements recevant du public (ERP) conformes aux normes d'accessibilité et de sécurité adaptés aux besoins de la maîtrise d'ouvrage.",
             list: [
                 "Mise en conformité",
                 "Accessibilité PMR",
@@ -187,7 +210,8 @@ export const content = {
         },
         extension: {
             title: "Extension",
-            alt: "Photo de Curated Lifestyle sur Unsplash représentant une extension contemporaine en ossature bois avec bardage bois et toiture végétalisée",
+            alt: "Ossature bois d'une extension en construction accolée à une maison en briques, une échelle appuyée contre la structure",
+            credit: "Photo : Curated Lifestyle, Unsplash",
             text: "Développement harmonieux de votre espace de vie en respectant l'architecture existante.",
             list: [
                 "Étude de faisabilité",

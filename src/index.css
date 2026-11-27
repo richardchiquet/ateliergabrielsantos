@@ -1,5 +1,60 @@
 @import "tailwindcss";
 
+/*
+    Polices hébergées sur le site (public/fonts) : plus aucun appel à Google Fonts ni à Fontshare.
+    - Satoshi (titres) : Indian Type Foundry, licence ITF Free Font License (fontshare.com)
+    - Instrument Sans (texte) : licence SIL Open Font License, police variable 400 à 700
+*/
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/satoshi-300.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/satoshi-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/satoshi-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/satoshi-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Instrument Sans";
+    src: url("/fonts/instrument-sans-latin-ext.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Instrument Sans";
+    src: url("/fonts/instrument-sans-latin.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @theme {
 
     /* 
@@ -91,9 +146,16 @@
     --color-lemon-900: #614a1b;
     --color-lemon-950: #38280b;
 
+    /* Couleurs de marque (tokens à utiliser dans le code) */
+    --color-cream: var(--color-greige-50);   /* #F8F7F4 : fond par défaut */
+    --color-ink: var(--color-chrome-950);    /* #0A0A0A : texte */
+    --color-teal: var(--color-seafoam-300);  /* #78B0A8 */
+    --color-mustard: var(--color-lemon-500); /* #D4BE20 */
+    --color-accent: var(--color-orange-600); /* #D4612A : bouton « Contactez-moi » */
+
     /* Fonts */
     --font-title: "Satoshi", sans-serif;
-    --font-body: "Montserrat", sans-serif;
+    --font-body: "Instrument Sans", sans-serif;
 
     /* Font weights */
     --font-regular: 400;
@@ -101,70 +163,221 @@
     --font-semibold: 600;
     --font-bold: 700;
 
-    /* Background colors */
-    --bg-primary: var(--color-greige-50);
-    --bg-secondary: var(--color-walnut-700);
-    --bg-tertiary: var(--color-orange-600);
+    /*
+        Échelle d'espacement unique (Tailwind : 1 unité = 4px) :
+        8px = 2 · 16px = 4 · 24px = 6 · 32px = 8 · 48px = 12 · 80px = 20 · 120px = 30
+        N'utiliser que ces valeurs pour les marges, paddings et gaps.
+    */
+
+    /* Hauteur du header : sert aussi au scroll-margin-top des sections (scroll-mt-header) */
+    --spacing-header: 4.5rem;
+
 }
 
 @layer base {
 
-    header {
-        background-color: var(--color-greige-100);
-        font-weight: var(--font-regular);
-        color: var(--color-chrome-950);
+    /* Les ancres (ex. /services#renovation) s'arrêtent sous le header sticky, pas derrière */
+    html {
+        scroll-padding-top: var(--spacing-header);
+    }
+
+    /* Variables de la grille (voir grid-layout / grid-page plus bas) */
+    :root {
+        --grid-cols: 4;
+        --grid-gutter: 1rem;
+        --grid-margin: 1.5rem;
+        --content-max: 69rem; /* 1104px */
+
+        @media (width >= 48rem) {
+            --grid-cols: 8;
+            --grid-gutter: 1.5rem;
+            --grid-margin: 2rem;
+        }
+
+        @media (width >= 64rem) {
+            --grid-cols: 12;
+            --grid-gutter: 2rem;
+            --grid-margin: 3rem;
+        }
     }
 
     body {
-        background-color: var(--bg-primary);
+        background-color: var(--color-cream);
+        color: var(--color-ink);
+        font-family: var(--font-body);
         font-weight: var(--font-regular);
-        color: var(--color-chrome-950);
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
 
-    footer {
+    header, footer {
         background-color: var(--color-greige-100);
-        font-weight: var(--font-regular);
-        color: var(--color-chrome-950);
     }
-    
-    h1 {
-        font-family: var(--font-title);
-        font-size: var(--text-5xl);
-    }
-    
-    h2 {
-        font-family: var(--font-title);
-        font-size: var(--text-4xl);
-    }
-    
-    h3 {
-        font-family: var(--font-title);
-        font-size: var(--text-xl);
-    }
-    
-    h4 {
-        font-family: var(--font-title);
-        font-size: var(--text-lg);
+
+    h1 { @apply text-display; }
+    h2 { @apply text-title; }
+    h3 { @apply text-subtitle; }
+
+    p, li {
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
 
     p {
-        font-family: var(--font-body);
-        font-size: var(--text-base);
+        max-width: 65ch;
     }
-    
-    ul {
-        font-family: var(--font-body);
-        font-size: var(--text-base);
+
+    :focus-visible {
+        outline: 2px solid var(--color-ink);
+        outline-offset: 3px;
+        border-radius: 2px;
     }
-    
-    nav a {
-        &:hover {
-            color: var(--color-chrome-400);
+
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            /* sans ça, un délai (ex. titre des cartes Projets) s'appliquerait encore alors que l'animation est coupée */
+            transition-delay: 0s !important;
+            animation-delay: 0s !important;
+            scroll-behavior: auto !important;
+        }
+
+        /* Exception voulue, comme sur le site d'origine : le glissement de la bande des cartes Projets
+           (court, horizontal, déclenché par la souris) est gardé même avec « réduire les animations ».
+           Même couche que la règle ci-dessus, sélecteurs plus précis : ils l'emportent. */
+        .project-slide {
+            transition-duration: 500ms !important;
+        }
+
+        .project-caption {
+            transition-duration: 300ms !important;
+        }
+
+        .group:hover .project-caption,
+        .group:focus-within .project-caption {
+            transition-delay: 200ms !important;
         }
     }
 }
 
+/* Typographie */
+@utility text-display {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-size: clamp(2rem, 6vw + 1rem, 3rem);
+    line-height: 1.15;
+}
+
+@utility text-title {
+    font-family: var(--font-title);
+    font-weight: 500;
+    font-size: clamp(1.625rem, 3vw + 1rem, 2.25rem);
+    line-height: 1.2;
+}
+
+@utility text-subtitle {
+    font-family: var(--font-title);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 1vw + 1rem, 1.5rem);
+    line-height: 1.3;
+}
+
+@utility text-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@utility text-body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+@utility text-small {
+    font-family: var(--font-body);
+    font-size: 0.875rem; /* jamais en dessous de 14px */
+    line-height: 1.25rem;
+}
+
+/* Respecte les \n du contenu */
+@utility text-formatting {
+    white-space: pre-line;
+}
+
+/*
+    Grille du site : 4 colonnes en mobile, 8 en tablette (md), 12 en bureau (lg).
+
+    | Écran   | Colonnes | Gouttière | Marge |
+    | mobile  | 4        | 16px      | 24px  |
+    | ≥ 768   | 8        | 24px      | 32px  |
+    | ≥ 1024  | 12       | 32px      | 48px  |
+
+    Largeur du contenu : 1104px max (1200px avec les marges).
+
+    Trois outils :
+    - container-page : conteneur centré avec les marges (composant Container) ;
+    - grid-layout    : grille de colonnes à l'intérieur d'un Container.
+                       Par défaut un enfant prend toute la largeur ; on le place avec
+                       col-span-* / col-start-* (préfixes md: = 8 colonnes, lg: = 12 colonnes) ;
+    - grid-page      : grille pleine largeur avec lignes nommées, pour faire déborder un élément
+                       jusqu'au bord de l'écran sans position absolue :
+                         col-content            → largeur du contenu (défaut)
+                         col-full               → toute la largeur de l'écran
+                         col-[col_5/span_6]     → colonnes 5 à 10 du contenu
+                         col-[full-start/col_4] → du bord gauche de l'écran jusqu'à la colonne 3 incluse
+                         col-[col_9/full-end]   → de la colonne 9 jusqu'au bord droit de l'écran
+*/
+@utility container-page {
+    width: 100%;
+    max-width: calc(var(--content-max) + 2 * var(--grid-margin));
+    margin-inline: auto;
+    padding-inline: var(--grid-margin);
+}
+
+@utility grid-layout {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+    column-gap: var(--grid-gutter);
+
+    :where(& > *) {
+        grid-column: 1 / -1;
+    }
+}
+
+@utility grid-page {
+    --col-max: calc((var(--content-max) - (var(--grid-cols) - 1) * var(--grid-gutter)) / var(--grid-cols));
+    display: grid;
+    grid-template-columns:
+        [full-start] minmax(calc(var(--grid-margin) - var(--grid-gutter)), 1fr)
+        [content-start] repeat(var(--grid-cols), [col] minmax(0, var(--col-max)))
+        [content-end] minmax(calc(var(--grid-margin) - var(--grid-gutter)), 1fr)
+        [full-end];
+    column-gap: var(--grid-gutter);
+
+    :where(& > *) {
+        grid-column: content;
+    }
+}
+
+@utility col-content {
+    grid-column: content;
+}
+
+@utility col-full {
+    grid-column: full;
+}
+
+/* Boutons (styles d'origine, utilisés via le composant Button) */
 .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--font-body);
     font-size: var(--text-base);
     font-weight: var(--font-medium);
@@ -173,7 +386,7 @@
 }
 
 .orange-primary {
-    background-color: var(--color-orange-600); 
+    background-color: var(--color-orange-600);
 
     &:hover {
         background-color: var(--color-orange-500);
@@ -181,8 +394,8 @@
 }
 
 .orange-secondary {
-    background-color: var(--color-orange-50); 
-    
+    background-color: var(--color-orange-50);
+
     &:hover {
         background-color: var(--color-orange-200);
     }
@@ -198,36 +411,118 @@
 
 .walnut-primary {
     color: var(--color-chrome-50);
-    background-color: var(--color-walnut-700); 
+    background-color: var(--color-walnut-700);
 
     &:hover {
         background-color: var(--color-walnut-500);
         color: var(--color-chrome-950);
-    }   
+    }
 }
 
 .walnut-secondary {
-    background-color: var(--color-walnut-50); 
+    background-color: var(--color-walnut-50);
 
     &:hover {
         background-color: var(--color-walnut-300);
-    }   
+    }
 }
 
-.walnut-tertiary {
-    color: var(--color-chrome-50);
-    background-color: var(--color-walnut-300); 
-
-    &:hover {
-        background-color: var(--color-walnut-400);
-        color: var(--color-chrome-950);
-    }   
+/*
+    Hauteur d'une section = hauteur visible de l'écran moins le header (sticky).
+    svh : hauteur réellement visible sur mobile, barre d'adresse comprise.
+    - min-h-section : au moins un écran, la section grandit si le contenu dépasse (cas général) ;
+    - h-section     : exactement un écran, pour les sections dont les enfants sont en hauteurs relatives (h-full, %).
+*/
+@utility min-h-section {
+    min-height: calc(100svh - var(--spacing-header));
 }
 
-.burger-menu {
-    font-size: var(--text-xl);
+@utility max-h-section {
+    max-height: calc(100svh - var(--spacing-header));
 }
 
-.text-formatting {
-  white-space: pre-line; /* respecte les \n, ignore les espaces multiples */
+@utility h-section {
+    height: calc(100svh - var(--spacing-header));
+}
+
+/*
+    Flèches des carrousels : sans fond, flèche foncée par défaut (crème sur l'accueil, voir Accueil.jsx).
+    Zone cliquable de 44px, posées sur les bords gauche / droit de l'image.
+*/
+.swiper {
+    --swiper-navigation-color: var(--color-ink);
+    --swiper-navigation-size: 1rem;
+    --swiper-navigation-sides-offset: 0.75rem;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-top: -1.375rem; /* centrage vertical exact de la zone de 44px */
+}
+
+/* Mobile : flèche plus petite (20px de haut au lieu de 44px), zone cliquable inchangée (44px) */
+@media (width < 48rem) {
+    .swiper .swiper-button-prev svg,
+    .swiper .swiper-button-next svg {
+        width: auto;
+        height: 1.25rem;
+    }
+}
+
+.swiper .swiper-button-prev:focus-visible,
+.swiper .swiper-button-next:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+}
+
+/*
+    Pagination des carrousels : zone cliquable de 24×24px (WCAG 2.2, critère 2.5.8),
+    le point visible reste de 8px (dessiné en ::before).
+*/
+.swiper .swiper-pagination-bullet {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    opacity: 1;
+}
+
+.swiper .swiper-pagination-bullet::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--swiper-pagination-bullet-inactive-color, var(--color-ink));
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.35);
+}
+
+.swiper .swiper-pagination-bullet-active::before {
+    background: var(--swiper-pagination-color, var(--color-ink));
+    opacity: 1;
+}
+
+.swiper .swiper-pagination-bullet:focus-visible {
+    outline: 2px solid var(--swiper-pagination-color, var(--color-ink));
+    outline-offset: -2px;
+}
+
+/*
+    Cartes de la page Projets sur écran tactile (tablette) : pas de survol possible,
+    donc le titre et les informations sont affichés sous l'image, comme en mobile.
+    (Règle hors couche Tailwind : elle l'emporte sur les classes md: de la carte.)
+*/
+@media (hover: none) and (width >= 48rem) {
+    .project-caption {
+        position: static;
+        margin: 0;
+        padding: 0.5rem 0 3rem 2rem;
+        opacity: 1;
+        pointer-events: auto;
+        color: var(--color-ink);
+    }
 }

@@ -1,6 +1,5 @@
-import Header from "../components/Header";
 import { content } from "../constants/Content";
-import Footer from "../components/Footer";
+import Container from "../components/layout/Container";
 import { Link } from "react-router";
 import { websiteName } from "../constants/Seo";
 
@@ -11,16 +10,17 @@ export const meta = () => [
 
 export default function NotFound() {
     return (
-        <div id="top" className="min-h-screen scroll-mt-100">
-            <Header />
-            <div className="bg-walnut-200 w-full min-h-[calc(100vh-72px)] flex items-center justify-center px-6 py-20">
-                <div className="flex flex-col items-start max-w-xl">
-                    <h1 className="text-8xl">
+        <div className="bg-walnut-200">
+            {/* « Page introuvable » est le titre de page (h1) : en haut à gauche comme sur les autres pages.
+                Le grand « 404 », le texte et les boutons sont centrés verticalement dans l'espace restant (my-auto). */}
+            <Container className="min-h-section flex flex-col pb-20">
+                <h1 className="py-12 text-left">
+                    {content.not_found.title}
+                </h1>
+                <div className="my-auto flex flex-col items-start max-w-xl self-center">
+                    <p className="font-title text-8xl mb-6" aria-hidden="true">
                         {content.not_found.code}
-                    </h1>
-                    <h2 className="mt-4 mb-5">
-                        {content.not_found.title}
-                    </h2>
+                    </p>
                     <p className="text-formatting">
                         {content.not_found.text}
                     </p>
@@ -33,8 +33,7 @@ export default function NotFound() {
                         </Link>
                     </div>
                 </div>
-            </div>
-            <Footer />
+            </Container>
         </div>
     );
 }
