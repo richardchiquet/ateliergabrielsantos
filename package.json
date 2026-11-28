@@ -10,7 +10,7 @@
     "preview": "vite preview --outDir build/client"
   },
   "dependencies": {
-    "@react-router/node": "^7.18.4",
+    "@react-router/node": "^8.5.3",
     "@tailwindcss/vite": "^4.1.17",
     "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.23.24",
