@@ -4,7 +4,7 @@ import { content } from "../../constants/Content";
     Images des projets, résolues à la compilation (vite-imagetools)
     Les URL sont importées directement (eager)
 */
-const PROJETS = "../../assets/photosProjets";
+const listPhotoProjet = "../../assets/photosProjets";
 // Galerie 
 const galleryUrls = import.meta.glob("../../assets/photosProjets/*/*.{jpg,jpeg,png,webp}", { eager: true, import: "default" });
 const gallerySrcsets = import.meta.glob("../../assets/photosProjets/*/*.{jpg,jpeg,png,webp}", { eager: true, import: "default", query: "?w=320;960;1600&format=webp&as=srcset" });
@@ -54,11 +54,11 @@ function imageLabel(path) {
     return number && rule[1] !== listImageLabels.ground_floor_plan ? `${rule[1]} ${Number(number)}` : rule[1];
 }
 
-const inFolder = (glob, folder) => Object.entries(glob).find(([path]) => path.startsWith(`${PROJETS}/${folder}/`))?.[1];
+const inFolder = (glob, folder) => Object.entries(glob).find(([path]) => path.startsWith(`${listPhotoProjet}/${folder}/`))?.[1];
 
 function folderImages(folder) {
     const images = Object.keys(galleryUrls)
-        .filter((path) => path.startsWith(`${PROJETS}/${folder}/`))
+        .filter((path) => path.startsWith(`${listPhotoProjet}/${folder}/`))
         .sort((pathA, pathB) => pathA.localeCompare(pathB, undefined, { numeric: true }))
         .map((path) => ({
             src: galleryUrls[path],

@@ -17,7 +17,7 @@ export default function Contact() {
         <div className="bg-orange-600">
             <Container className="grid-layout content-center items-center gap-y-6 min-h-section py-6 md:py-20">
                 <div className="md:col-start-5 md:col-span-4 md:row-start-1 md:self-end lg:col-start-7 lg:col-span-6">
-                    <h1 id="contact-title" className="mb-6">
+                    <h1 id="contact-title" className="mb-6 text-formatting">
                         {content.contact.subtitle}
                     </h1>
                     <p className="text-formatting">

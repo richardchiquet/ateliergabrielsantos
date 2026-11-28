@@ -4,6 +4,13 @@ import Container from "../components/layout/Container";
 import { Link } from "react-router";
 import { getProjetDetails, projetsConfig } from "./projets/ProjetsConfig";
 
+export const meta = () => buildMeta({
+    title: content.meta.projets.title,
+    description: content.meta.projets.description,
+    path: "/projets",
+    breadcrumb: content.projects.title,
+});
+
 const projects = Object.values(projetsConfig).map((projet) => ({
   to: `/projets/${projet.url}`,
   src: projet.cover,
@@ -12,13 +19,6 @@ const projects = Object.values(projetsConfig).map((projet) => ({
   color: projet.color,
   details: getProjetDetails(projet),
 }));
-
-export const meta = () => buildMeta({
-    title: content.meta.projets.title,
-    description: content.meta.projets.description,
-    path: "/projets",
-    breadcrumb: content.projects.title,
-});
 
 export default function Projets() {
     return (

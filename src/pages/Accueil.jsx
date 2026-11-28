@@ -25,6 +25,12 @@ import projet2Srcset from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01
 import projet3 from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.webp";
 import projet3Srcset from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.webp?w=320;960;1600&format=webp&as=srcset";
 
+export const meta = () => buildMeta({
+    title: content.meta.accueil.title,
+    description: content.meta.accueil.description,
+    path: "/",
+});
+
 // Projets du carrousel (mêmes images que la galerie des fiches projet)
 const homeProjects = [
     { 
@@ -67,11 +73,7 @@ function updateInertSlides(swiper) {
     });
 }
 
-export const meta = () => buildMeta({
-    title: content.meta.accueil.title,
-    description: content.meta.accueil.description,
-    path: "/",
-});
+
 
 export default function AccueilPage() {
     

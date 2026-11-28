@@ -4,6 +4,8 @@ import Container from "./layout/Container";
 import ExternalLink from "./ExternalLink";
 import LegalLinks from "./LegalLinks";
 
+const [emailUser, emailDomain] = contactLinks.email.label.split("@");
+
 const linkClass = "underline-offset-4 hover:underline";
 
 export default function Footer() {
@@ -67,8 +69,8 @@ export default function Footer() {
                     </p>
                     <p className="mt-2">
                         {content.contact.email.title} :{" "}
-                        <a href={contactLinks.email.href} className={`break-all ${linkClass}`}>
-                            {contactLinks.email.label}
+                        <a href={contactLinks.email.href} className={linkClass}>
+                            {emailUser}<wbr />@{emailDomain}
                         </a>
                     </p>
                 </address>
