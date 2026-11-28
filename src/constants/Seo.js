@@ -1,4 +1,4 @@
-import { content } from "./Content";
+import { content, serviceList, socials } from "./Content";
 
 // Images
 import ogImage from "../assets/photosAccueil/backgroundHome.webp?w=1200&h=630&fit=cover&format=jpeg&quality=82";
@@ -7,7 +7,7 @@ import logo from "../assets/logoNB.png";
 export const websiteUrl = "https://www.ateliergabrielsantos.com";
 export const websiteName = "L'atelier Gabriel Santos";
 
-const absolute = (path) => (path.startsWith("http") ? path : `${websiteUrl}${path}`);
+export const absolute = (path) => (path.startsWith("http") ? path : `${websiteUrl}${path}`);
 
 export function breadcrumbJsonLd(items) {
     return {
@@ -22,6 +22,13 @@ export function breadcrumbJsonLd(items) {
     };
 }
 
+// Titre de page sous 60 caractères (au-delà, Google le coupe)
+export function pageTitle(name) {
+    const full = `${name} | Atelier Gabriel Santos`;
+    return full.length <= 60 ? full : `${name} | Gabriel Santos`;
+}
+
+// breadcrumb, cad fil d'Ariane après « Accueil »
 export function buildMeta({ title, description, path, image = ogImage, imageAlt = content.home.background_alt, breadcrumb, jsonLd = [] }) {
     const url = absolute(path);
     const imageUrl = absolute(image);
@@ -44,7 +51,7 @@ export function buildMeta({ title, description, path, image = ogImage, imageAlt 
         { name: "twitter:description", content: description },
         { name: "twitter:image", content: imageUrl },
         { name: "twitter:image:alt", content: imageAlt },
-        ...(breadcrumb ? [breadcrumbJsonLd([[breadcrumb, path]])] : []),
+        ...(breadcrumb ? [breadcrumbJsonLd(Array.isArray(breadcrumb) ? breadcrumb : [[breadcrumb, path]])] : []),
         ...jsonLd,
     ].map((entry) => (entry["@context"] ? { "script:ld+json": entry } : entry));
 }
@@ -94,20 +101,16 @@ export const businessJsonLd = {
         opens: "10:00",
         closes: "17:00",
     },
-    sameAs: [content.social_media.linkedin.url, content.social_media.instagram.url, content.social_media.architectes_pour_tous.url],
+    sameAs: socials.map((social) => social.url),
     hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: content.services.title,
-        itemListElement: [
-            content.services.new_construction,
-            content.services.renovation,
-            content.services.extension,
-            content.services.interior_design,
-            content.services.furniture,
-            content.services.public_facilities,
-        ].map((service) => ({
+        itemListElement: serviceList.map((service) => ({
             "@type": "Offer",
             itemOffered: { "@type": "Service", name: service.title, description: service.text, areaServed: "Île-de-France" },
         })),
     },
 };
+
+// Données structurées communes à toutes les pages (injectées par root.jsx)
+export const siteJsonLd = [websiteJsonLd, businessJsonLd].map((data) => JSON.stringify(data));

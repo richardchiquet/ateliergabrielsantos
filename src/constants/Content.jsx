@@ -159,6 +159,7 @@ export const content = {
         subtitle: "Services proposés",
         list_title: "Nos prestations",
         new_construction: {
+            id: "construction-neuve",
             title: "Construction neuve",
             alt: "Échafaudage métallique dressé contre la façade d'un immeuble en construction, encadré de branches de conifères",
             credit: "Photo : them snapshots, Unsplash",
@@ -172,6 +173,7 @@ export const content = {
             ]
         },
         renovation: {
+            id: "renovation",
             title: "Rénovation",
             alt: "Un architecte et un homme en casque de chantier observent des ouvriers sur le chantier de réhabilitation d'un bâtiment en briques entouré d'échafaudages",
             credit: "Photo : Mark Potterton, Unsplash",
@@ -186,6 +188,7 @@ export const content = {
             ]
         },
         interior_design: {
+            id: "amenagement-interieur",
             title: "Aménagement intérieur",
             alt: "Salon aux murs habillés de bois avec étagères, canapé, fauteuils et suspensions lumineuses, ouvert par une grande baie vitrée sur la ville",
             credit: "Photo : Zaji Kanamajinas, Unsplash",
@@ -199,6 +202,7 @@ export const content = {
             ],
         },
         furniture: {
+            id: "mobilier",
             title: "Mobilier",
             alt: "Détail d'un fauteuil en bois au coussin vert et à l'assise jaune cloutée, baigné de soleil",
             credit: "Photo : Hans, Unsplash",
@@ -212,6 +216,7 @@ export const content = {
             ]
         },
         public_facilities: {
+            id: "equipement-public",
             title: "Équipement public",
             alt: "Grande cour intérieure d'un musée couverte d'une verrière, traversée par des visiteurs",
             credit: "Photo : Fabrizio Coco, Unsplash",
@@ -225,6 +230,7 @@ export const content = {
             ]
         },
         extension: {
+            id: "extension",
             title: "Extension",
             alt: "Ossature bois d'une extension en construction accolée à une maison en briques, une échelle appuyée contre la structure",
             credit: "Photo : Curated Lifestyle, Unsplash",
@@ -275,6 +281,17 @@ export const content = {
             projects: "Voir les projets"
         }
     },
+    legal_links: {
+        label: "Informations légales",
+        notice: {
+            url: "/mentions-legales",
+            title: "Mentions légales"
+        },
+        privacy: {
+            url: "/politique-de-confidentialite",
+            title: "Politique de confidentialité"
+        }
+    },
     social_media: {
         title: "Réseaux sociaux",
         linkedin: {
@@ -290,4 +307,39 @@ export const content = {
             url: "https://www.architectes-pour-tous.fr/architectes-pour-tous/santos-gabriel"
         }
     }
+};
+
+// Listes partagées par plusieurs composants
+
+// Réseaux sociaux
+export const socials = [
+    content.social_media.linkedin,
+    content.social_media.instagram,
+    content.social_media.architectes_pour_tous,
+];
+
+// Services de la page Services ; « id » = ancre de la section (/services#id)
+export const serviceList = [
+    content.services.new_construction,
+    content.services.renovation,
+    content.services.extension,
+    content.services.interior_design,
+    content.services.furniture,
+    content.services.public_facilities,
+];
+
+// Liens de contact
+export const contactLinks = {
+    phone: { 
+        label: content.contact.phone.text, 
+        href: `tel:${content.contact.phone.url}` 
+    },
+    email: { 
+        label: content.contact.email.text, 
+        href: `mailto:${content.contact.email.text}` 
+    },
+    address: { 
+        label: content.contact.address.text, 
+        href: content.contact.address.url 
+    },
 };

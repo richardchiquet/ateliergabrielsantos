@@ -157,11 +157,8 @@
     --font-title: "Satoshi", sans-serif;
     --font-body: "Instrument Sans", sans-serif;
 
-    /* Font weights */
-    --font-regular: 400;
-    --font-medium: 500;
-    --font-semibold: 600;
-    --font-bold: 700;
+    /* Graisses : celles de Tailwind (font-normal 400, font-medium 500, font-semibold 600, font-bold 700).
+       Pas de variables --font-* ici : Tailwind v4 les réserve aux familles de polices. */
 
     /*
         Échelle d'espacement unique (Tailwind : 1 unité = 4px) :
@@ -205,23 +202,14 @@
         background-color: var(--color-cream);
         color: var(--color-ink);
         font-family: var(--font-body);
-        font-weight: var(--font-regular);
+        font-weight: 400;
         font-size: 1rem;
         line-height: 1.5rem;
-    }
-
-    header, footer {
-        background-color: var(--color-greige-100);
     }
 
     h1 { @apply text-display; }
     h2 { @apply text-title; }
     h3 { @apply text-subtitle; }
-
-    p, li {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
 
     p {
         max-width: 65ch;
@@ -234,26 +222,13 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after {
+        *:not(.project-slide, .project-caption), *::before, *::after {
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.01ms !important;
             transition-delay: 0s !important;
             animation-delay: 0s !important;
             scroll-behavior: auto !important;
-        }
-
-        .project-slide {
-            transition-duration: 500ms !important;
-        }
-
-        .project-caption {
-            transition-duration: 300ms !important;
-        }
-
-        .group:hover .project-caption,
-        .group:focus-within .project-caption {
-            transition-delay: 200ms !important;
         }
     }
 }
@@ -293,6 +268,31 @@
     font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.5rem;
+}
+
+/* Mentions légales & Politique de confidentialité */
+@utility legal-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+
+    & > li + li {
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    & > li + li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        height: 0.75rem;
+        translate: 0 -50%;
+        border-left: 1px solid color-mix(in oklab, var(--color-ink) 40%, transparent);
+    }
 }
 
 @utility text-small {
@@ -369,14 +369,14 @@
     grid-column: full;
 }
 
-/* Boutons (styles d'origine, utilisés via le composant Button) */
+/* Boutons */
 .cta-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-body);
     font-size: var(--text-base);
-    font-weight: var(--font-medium);
+    font-weight: 500;
     padding: 0.8em;
     border-radius: 1.5em;
 }
@@ -433,17 +433,12 @@
     min-height: calc(100svh - var(--spacing-header));
 }
 
-@utility max-h-section {
-    max-height: calc(100svh - var(--spacing-header));
-}
-
 @utility h-section {
     height: calc(100svh - var(--spacing-header));
 }
 
 /*
-    Flèches des carrousels : sans fond, flèche foncée par défaut (crème sur l'accueil, voir Accueil.jsx).
-    Zone cliquable de 44px, posées sur les bords gauche / droit de l'image.
+    Flèches des carrousels 
 */
 .swiper {
     --swiper-navigation-color: var(--color-ink);
@@ -455,10 +450,12 @@
 .swiper .swiper-button-next {
     width: 2.75rem;
     height: 2.75rem;
-    margin-top: -1.375rem; /* centrage vertical exact de la zone de 44px */
+    margin-top: -1.375rem;
 }
 
-/* Mobile : flèche plus petite (20px de haut au lieu de 44px), zone cliquable inchangée (44px) */
+/* 
+    Mobile : Flèches des carrousels  
+*/
 @media (width < 48rem) {
     .swiper .swiper-button-prev svg,
     .swiper .swiper-button-next svg {
@@ -474,8 +471,7 @@
 }
 
 /*
-    Pagination des carrousels : zone cliquable de 24×24px (WCAG 2.2, critère 2.5.8),
-    le point visible reste de 8px (dessiné en ::before).
+    Pagination des carrousels
 */
 .swiper .swiper-pagination-bullet {
     width: 1.5rem;
@@ -508,9 +504,7 @@
 }
 
 /*
-    Cartes de la page Projets sur écran tactile (tablette) : pas de survol possible,
-    donc le titre et les informations sont affichés sous l'image, comme en mobile.
-    (Règle hors couche Tailwind : elle l'emporte sur les classes md: de la carte.)
+    Cartes de la page Projets sur écran tactile (tablette)
 */
 @media (hover: none) and (width >= 48rem) {
     .project-caption {

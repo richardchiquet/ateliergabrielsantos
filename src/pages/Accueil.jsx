@@ -1,5 +1,6 @@
 import { buildMeta } from "../constants/Seo";
-import { content } from "../constants/Content";
+import { content, contactLinks, serviceList } from "../constants/Content";
+import { serviceImages } from "../constants/ServiceImages";
 import { Link } from "react-router";
 import Container from "../components/layout/Container";
 
@@ -18,56 +19,46 @@ import matiereArgile from "../assets/photosAccueil/matiereArgile.webp";
 import matiereBois from "../assets/photosAccueil/matiereBois.webp";
 import matierePaille from "../assets/photosAccueil/matierePaille.webp";
 import projet1 from "../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.webp";
-import projet1Srcset from "../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.webp?w=960;1600&format=webp&as=srcset";
+import projet1Srcset from "../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.webp?w=320;960;1600&format=webp&as=srcset";
 import projet2 from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.webp";
-import projet2Srcset from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.webp?w=960;1600&format=webp&as=srcset";
+import projet2Srcset from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.webp?w=320;960;1600&format=webp&as=srcset";
 import projet3 from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.webp";
-import projet3Srcset from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.webp?w=960;1600&format=webp&as=srcset";
-import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.webp";
-import serviceRenovation from "../assets/photosServices/renovation.webp";
-import serviceEquipementPublic from "../assets/photosServices/equipementPublic.webp";
-import serviceExtension from "../assets/photosServices/extension.webp";
-import serviceAmenagementInterieur from "../assets/photosServices/amenagementInterieur.webp";
-import serviceMobilier from "../assets/photosServices/mobilier.webp";
+import projet3Srcset from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.webp?w=320;960;1600&format=webp&as=srcset";
 
-const services = [
+// Projets du carrousel (mêmes images que la galerie des fiches projet)
+const homeProjects = [
     { 
-        src: serviceConstructionNeuve, 
-        alt: content.services.new_construction.alt, 
-        description: content.services.new_construction.title, 
-        hash: "#construction-neuve" 
+        project: content.projects.project_1, 
+        src: projet1, 
+        srcSet: projet1Srcset 
     },
     { 
-        src: serviceRenovation, 
-        alt: content.services.renovation.alt, 
-        description: content.services.renovation.title, 
-        hash: "#renovation" 
+        project: content.projects.project_2, 
+        src: projet2, 
+        srcSet: projet2Srcset 
     },
     { 
-        src: serviceExtension, 
-        alt: content.services.extension.alt, 
-        description: content.services.extension.title, 
-        hash: "#extension" 
-    },
-    { 
-        src: serviceAmenagementInterieur, 
-        alt: content.services.interior_design.alt, 
-        description: content.services.interior_design.title, 
-        hash: "#amenagement-interieur-et-mobilier" 
-    },
-    { 
-        src: serviceMobilier, 
-        alt: content.services.furniture.alt, 
-        description: content.services.furniture.title, 
-        hash: "#amenagement-interieur-et-mobilier" 
-    },
-    { 
-        src: serviceEquipementPublic, 
-        alt: content.services.public_facilities.alt, 
-        description: content.services.public_facilities.title, 
-        hash: "#equipement-public" 
+        project: content.projects.project_3, 
+        src: projet3, 
+        srcSet: projet3Srcset 
     },
 ];
+
+// Réglages du carrousel
+const carouselStyle = {
+    '--swiper-navigation-color': 'var(--color-cream)',
+    '--swiper-pagination-color': 'var(--color-chrome-50)',
+    '--swiper-pagination-bullet-inactive-color': 'var(--color-chrome-50)',
+};
+const carouselA11y = {
+    prevSlideMessage: "Projet précédent",
+    nextSlideMessage: "Projet suivant",
+    paginationBulletMessage: "Aller au projet {{index}}",
+    slideLabelMessage: "Projet {{index}} sur {{slidesLength}}",
+};
+const carouselKeyboard = { enabled: true, onlyInViewport: true };
+const carouselPagination = { clickable: true };
+const carouselModules = [A11y, Keyboard, Pagination, Navigation];
 
 // Seule la diapositive affichée reste accessible au clavier et aux lecteurs d'écran
 function updateInertSlides(swiper) {
@@ -92,7 +83,6 @@ export default function AccueilPage() {
                 <section aria-labelledby="hero-title" className="relative isolate h-section">
                     <img
                         src={backgroundHome}
-                        // Versions réduites pour les petits écrans ; en portrait, l'image couvre la hauteur (≈ 178 % de la hauteur en largeur)
                         srcSet={`${backgroundHomeSrcset}, ${backgroundHome} 2560w`}
                         sizes="(max-aspect-ratio: 16/9) 178vh, 100vw"
                         alt={content.home.background_alt}
@@ -183,63 +173,34 @@ export default function AccueilPage() {
                     <div className="grid-page w-full">
                         <div>
                             <Swiper
-                                style={{
-                                    '--swiper-navigation-color': 'var(--color-cream)',
-                                    '--swiper-pagination-color': 'var(--color-chrome-50)',
-                                    '--swiper-pagination-bullet-inactive-color': 'var(--color-chrome-50)',
-                                }}
+                                style={carouselStyle}
                                 slidesPerView={1}
                                 onInit={updateInertSlides}
                                 onSlideChange={updateInertSlides}
                                 onLoopFix={updateInertSlides}
                                 lazyPreloadPrevNext={1}
-                                keyboard={{ enabled: true, onlyInViewport: true }}
-                                a11y={{
-                                    prevSlideMessage: "Projet précédent",
-                                    nextSlideMessage: "Projet suivant",
-                                    paginationBulletMessage: "Aller au projet {{index}}",
-                                    slideLabelMessage: "Projet {{index}} sur {{slidesLength}}",
-                                }}
+                                keyboard={carouselKeyboard}
+                                a11y={carouselA11y}
                                 spaceBetween={10}
-                                pagination={{ clickable: true }}
+                                pagination={carouselPagination}
                                 loop={true}
                                 navigation={true}
-                                modules={[A11y, Keyboard, Pagination, Navigation]}
+                                modules={carouselModules}
                                 className="mx-auto aspect-video w-[min(100%,calc((100svh-var(--spacing-header)-16rem)*16/9))]"
                             >
-                                <SwiperSlide>
-                                    <Link to={`/projets/${content.projects.project_1.url}`} className="group relative block h-full w-full overflow-hidden">
-                                        <img loading="lazy" decoding="async" src={projet1} srcSet={`${projet1Srcset}, ${projet1} 2560w`} sizes="(min-width: 69rem) 69rem, 100vw" alt="" className="h-full w-full object-cover" />
-                                        {/* Dégradé sous le titre */}
-                                        <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
-                                            <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
-                                                {content.projects.project_1.title}
-                                            </h3>
-                                        </div>
-                                    </Link>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Link to={`/projets/${content.projects.project_2.url}`} className="group relative block h-full w-full overflow-hidden">
-                                        <img loading="lazy" decoding="async" src={projet2} srcSet={`${projet2Srcset}, ${projet2} 2560w`} sizes="(min-width: 69rem) 69rem, 100vw" alt="" className="h-full w-full object-cover" />
-                                        {/* Dégradé sous le titre */}
-                                        <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
-                                            <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
-                                                {content.projects.project_2.title}
-                                            </h3>
-                                        </div>
-                                    </Link>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Link to={`/projets/${content.projects.project_3.url}`} className="group relative block h-full w-full overflow-hidden">
-                                        <img loading="lazy" decoding="async" src={projet3} srcSet={`${projet3Srcset}, ${projet3} 2560w`} sizes="(min-width: 69rem) 69rem, 100vw" alt="" className="h-full w-full object-cover" />
-                                        {/* Dégradé sous le titre */}
-                                        <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
-                                            <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
-                                                {content.projects.project_3.title}
-                                            </h3>
-                                        </div>
-                                    </Link>
-                                </SwiperSlide>
+                                {homeProjects.map(({ project, src, srcSet }) => (
+                                    <SwiperSlide key={project.url}>
+                                        <Link to={`/projets/${project.url}`} className="group relative block h-full w-full overflow-hidden">
+                                            <img loading="lazy" decoding="async" src={src} srcSet={`${srcSet}, ${src} 2560w`} sizes="(min-width: 69rem) 69rem, 100vw" alt="" className="h-full w-full object-cover" />
+                                            {/* Dégradé sous le titre */}
+                                            <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
+                                                <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
+                                                    {project.title}
+                                                </h3>
+                                            </div>
+                                        </Link>
+                                    </SwiperSlide>
+                                ))}
                             </Swiper>
                         </div>
                     </div>
@@ -254,13 +215,13 @@ export default function AccueilPage() {
                         {content.services.title}
                     </h2>
                     <ul className="grid-layout gap-y-12 mt-12">
-                        {services.map((service) => (
-                            <li key={service.description} className="md:col-span-4">
+                        {serviceList.map((service) => (
+                            <li key={service.id} className="md:col-span-4">
                                 <article className="group relative">
                                     <div className="overflow-hidden">
                                         <img
                                             className="aspect-3/2 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                            src={service.src}
+                                            src={serviceImages[service.id]}
                                             alt=""
                                             width="1200"
                                             height="800"
@@ -269,8 +230,8 @@ export default function AccueilPage() {
                                         />
                                     </div>
                                     <h3 className="mt-4">
-                                        <Link to={{ pathname: "/services", hash: service.hash }} className="underline-offset-4 after:absolute after:inset-0 group-hover:underline">
-                                            {service.description}
+                                        <Link to={{ pathname: "/services", hash: `#${service.id}` }} className="underline-offset-4 after:absolute after:inset-0 group-hover:underline">
+                                            {service.title}
                                         </Link>
                                     </h3>
                                 </article>
@@ -291,11 +252,11 @@ export default function AccueilPage() {
                             {content.home.contact.text}
                         </p>
                         <div className="py-2 justify-center items-center gap-6 mt-12 flex flex-row max-md:flex-col">
-                            <a href={`tel:${content.contact.phone.url}`} className="cta-button orange-tertiary">
-                                {content.contact.phone.text}
+                            <a href={contactLinks.phone.href} className="cta-button orange-tertiary">
+                                {contactLinks.phone.label}
                             </a>
-                            <a href={`mailto:${content.contact.email.text}`} className="cta-button orange-secondary">
-                                {content.contact.email.text}
+                            <a href={contactLinks.email.href} className="cta-button orange-secondary">
+                                {contactLinks.email.label}
                             </a>
                         </div>
                     </Container>

@@ -1,5 +1,5 @@
 import { buildMeta } from "../constants/Seo";
-import { content } from "../constants/Content";
+import { content, contactLinks } from "../constants/Content";
 import Container from "../components/layout/Container";
 
 // Images
@@ -47,11 +47,11 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className="mt-12 flex flex-col gap-8 justify-center items-center md:flex-row md:flex-wrap md:justify-start">
-                        <a href={`tel:${content.contact.phone.url}`} className="cta-button orange-tertiary min-w-42 w-fit">
-                            {content.contact.phone.text}
+                        <a href={contactLinks.phone.href} className="cta-button orange-tertiary min-w-42 w-fit">
+                            {contactLinks.phone.label}
                         </a>
-                        <a href={`mailto:${content.contact.email.text}`} className="cta-button orange-secondary inline-flex w-fit max-w-full break-all">
-                            {content.contact.email.text}
+                        <a href={contactLinks.email.href} className="cta-button orange-secondary inline-flex w-fit max-w-full break-all">
+                            {contactLinks.email.label}
                         </a>
                     </div>
                 </div>

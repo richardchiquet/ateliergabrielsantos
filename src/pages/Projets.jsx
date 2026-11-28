@@ -2,7 +2,7 @@ import { buildMeta } from "../constants/Seo";
 import { content } from "../constants/Content";
 import Container from "../components/layout/Container";
 import { Link } from "react-router";
-import { projetsConfig } from "./projets/ProjetsConfig";
+import { getProjetDetails, projetsConfig } from "./projets/ProjetsConfig";
 
 const projects = Object.values(projetsConfig).map((projet) => ({
   to: `/projets/${projet.url}`,
@@ -10,24 +10,7 @@ const projects = Object.values(projetsConfig).map((projet) => ({
   srcSet: projet.coverSrcset,
   title: projet.content.title,
   color: projet.color,
-  details: [
-    [
-        content.projects.category.name, 
-        projet.category
-    ],
-    [
-        content.projects.status.name, 
-        projet.status
-    ],
-    [
-        content.projects.location.name, 
-        projet.location
-    ],
-    [
-        content.projects.year.name, 
-        projet.year
-    ],
-  ].filter(([, value]) => value),
+  details: getProjetDetails(projet),
 }));
 
 export const meta = () => buildMeta({

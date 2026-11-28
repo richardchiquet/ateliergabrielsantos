@@ -1,6 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { Analytics } from "@vercel/analytics/react";
-import { businessJsonLd, websiteJsonLd } from "./constants/Seo";
+import { siteJsonLd } from "./constants/Seo";
 import "./index.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -17,14 +17,9 @@ export function Layout({ children }) {
                 <link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossOrigin="" />
                 <Meta />
                 <Links />
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-                />
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
-                />
+                {siteJsonLd.map((json) => (
+                    <script key={json} type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />
+                ))}
             </head>
             <body>
                 <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-100 focus:bg-cream focus:px-4 focus:py-2">

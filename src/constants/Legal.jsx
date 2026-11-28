@@ -1,19 +1,17 @@
-import { content } from "./Content";
+import { content, contactLinks } from "./Content";
+import { buildMeta } from "./Seo";
 
-const { address, phone, email } = content.contact;
-const mail = { label: email.text, href: `mailto:${email.text}` };
-const tel = { label: phone.text, href: `tel:${phone.url}` };
-const place = { label: address.text, href: address.url };
+const { address } = content.contact;
+const { email: mail, phone: tel, address: place } = contactLinks;
+const { label: links_label, notice, privacy } = content.legal_links;
 
 export const legal = {
     updated: "27 novembre 2026",
     updated_label: "Mise à jour le",
     toc_label: "Sommaire",
-    links_label: "Informations légales",
-
+    links_label,
     notice: {
-        url: "/mentions-legales",
-        title: "Mentions légales",
+        ...notice,
         meta_title: "Mentions légales | Atelier Gabriel Santos",
         meta_description: "Mentions légales du site de L'atelier Gabriel Santos, architecte inscrit à l'Ordre des architectes d'Île-de-France.",
         intro: "Qui édite ce site, qui l'héberge, et comment en utiliser les contenus.",
@@ -186,8 +184,7 @@ export const legal = {
     },
 
     privacy: {
-        url: "/politique-de-confidentialite",
-        title: "Politique de confidentialité",
+        ...privacy,
         meta_title: "Politique de confidentialité | Atelier Gabriel Santos",
         meta_description: "Données personnelles traitées par le site de L'atelier Gabriel Santos : aucun cookie, aucun formulaire, mesure d'audience anonyme.",
         intro: "Quelles données ce site traite, pourquoi, combien de temps, et comment exercer vos droits.",
@@ -321,3 +318,13 @@ export const legal = {
         ],
     },
 };
+
+// Balises meta d'une page légale
+export function legalMeta(page) {
+    return buildMeta({
+        title: page.meta_title,
+        description: page.meta_description,
+        path: page.url,
+        breadcrumb: page.title,
+    });
+}

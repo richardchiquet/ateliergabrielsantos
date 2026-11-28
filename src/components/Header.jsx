@@ -1,8 +1,9 @@
-import { content } from "../constants/Content";
+import { content, socials } from "../constants/Content";
 import { Link, NavLink } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import Container from "./layout/Container";
-import { legal } from "../constants/Legal";
+import ExternalLink from "./ExternalLink";
+import LegalLinks from "./LegalLinks";
 
 // Images
 import logo from "../assets/logoNB.png";
@@ -29,12 +30,6 @@ const links = [
         to: "/contact", 
         label: content.contact.title 
     },
-];
-
-const socials = [
-    content.social_media.linkedin,
-    content.social_media.instagram,
-    content.social_media.architectes_pour_tous,
 ];
 
 const linkClass = "underline-offset-8 decoration-2 hover:underline aria-[current=page]:underline";
@@ -85,7 +80,7 @@ export default function Header() {
     const close = () => setIsMenuOpen(false);
 
     return (
-        <header className="sticky top-0 z-50 shadow-md">
+        <header className="sticky top-0 z-50 bg-greige-100 shadow-md">
             <Container className="flex h-header items-center justify-between">
                 <Link to="/" onClick={close} className="flex items-center">
                     <img src={logo} alt={content.home.logo_alt} width="48" height="48" className="h-12 w-12" />
@@ -144,31 +139,16 @@ export default function Header() {
                     <ul className="flex flex-col items-center gap-[min(1rem,2svh)]">
                         {socials.map((social) => (
                             <li key={social.url}>
-                                <a href={social.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                                <ExternalLink href={social.url} className={linkClass}>
                                     {social.title}
-                                    <span className="sr-only"> (nouvel onglet)</span>
-                                </a>
+                                </ExternalLink>
                             </li>
                         ))}
                     </ul>
                 </nav>
 
                 {/* Pas de footer en mobile : les liens légaux sont en bas du menu */}
-                <nav aria-label={legal.links_label} className="mx-4 mt-auto shrink-0 pb-4">
-                    {/* Les deux liens séparés par un fil vertical */}
-                    <ul className="flex items-center justify-center gap-x-4 [&>li]:text-xs [&>li]:leading-4 [&>li+li]:relative [&>li+li]:pl-4 [&>li+li]:before:absolute [&>li+li]:before:left-0 [&>li+li]:before:top-1/2 [&>li+li]:before:h-3 [&>li+li]:before:-translate-y-1/2 [&>li+li]:before:border-l [&>li+li]:before:border-ink/40 [&>li+li]:before:content-['']">
-                        <li>
-                            <Link to={legal.notice.url} onClick={close} className={`inline-flex min-h-6 items-center ${linkClass}`}>
-                                {legal.notice.title}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to={legal.privacy.url} onClick={close} className={`inline-flex min-h-6 items-center ${linkClass}`}>
-                                {legal.privacy.title}
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
+                <LegalLinks className="mx-4 mt-auto shrink-0 pb-4" linkClassName={`inline-flex min-h-6 items-center ${linkClass}`} onNavigate={close} />
             </div>
         </header>
     );

@@ -1,22 +1,20 @@
 import { Link } from "react-router";
 import Container from "./Container";
+import ExternalLink from "../ExternalLink";
 import { legal } from "../../constants/Legal";
 
 const linkClass = "underline underline-offset-4 break-words";
 
-// Un morceau de paragraphe : texte, lien (interne ou externe) ou information manquante (surlignée).
+// Un morceau de paragraphe : texte, lien interne, lien vers un autre site, ou lien mailto / tel
 function Part({ part }) {
-    if (typeof part === "string") return part;
+    if (typeof part === "string") return <>{part}</>;
     if (part.href.startsWith("/")) {
         return <Link to={part.href} className={linkClass}>{part.label}</Link>;
     }
-    const external = part.href.startsWith("http");
-    return (
-        <a href={part.href} className={linkClass} {...(external && { target: "_blank", rel: "noopener noreferrer" })}>
-            {part.label}
-            {external && <span className="sr-only"> (nouvel onglet)</span>}
-        </a>
-    );
+    if (part.href.startsWith("http")) {
+        return <ExternalLink href={part.href} className={linkClass}>{part.label}</ExternalLink>;
+    }
+    return <a href={part.href} className={linkClass}>{part.label}</a>;
 }
 
 const Parts = ({ value }) => (Array.isArray(value) ? value : [value]).map((part, i) => <Part key={i} part={part} />);
