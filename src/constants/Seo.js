@@ -113,4 +113,4 @@ export const businessJsonLd = {
 };
 
 // Données structurées communes à toutes les pages (injectées par root.jsx)
-export const siteJsonLd = [websiteJsonLd, businessJsonLd].map((data) => JSON.stringify(data));
+export const siteJsonLd = [websiteJsonLd, businessJsonLd].map((data) => JSON.stringify(data).replace(/</g, "\\u003c"));
