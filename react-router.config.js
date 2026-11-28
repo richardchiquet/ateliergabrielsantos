@@ -21,13 +21,11 @@ const listPages = [
 ]
 
 // Sitemap généré à chaque compilation à partir de listPages
-// sitemapExclude : pages pré-rendues mais à ne pas mettre en avant (ex. un projet mineur)
-const sitemapExclude = new Set()
 const priority = { '/': '1.0', '/projets': '0.9', '/services': '0.9', '/contact': '0.8', '/atelier': '0.7', [notice.url]: '0.2', [privacy.url]: '0.2' }
 
 function buildSitemap() {
   const lastmod = new Date().toISOString().slice(0, 10)
-  const urls = listPages.filter((page) => !sitemapExclude.has(page))
+  const urls = listPages
     .map((page) => `  <url><loc>${siteUrl}${page === '/' ? '/' : page}</loc><lastmod>${lastmod}</lastmod><priority>${priority[page] ?? '0.6'}</priority></url>`)
     .join('\n')
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`

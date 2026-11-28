@@ -18,7 +18,7 @@ function Paragraphs({ text, className = "" }) {
     return (
         <div className={className}>
             {text.split(/\n\s*\n/).map((paragraph, index) => (
-                <p key={index} className={`text-formatting ${index > 0 ? "mt-3" : ""}`}>
+                <p key={paragraph} className={`text-formatting ${index > 0 ? "mt-3" : ""}`}>
                     {paragraph.trim()}
                 </p>
             ))}

@@ -49,7 +49,8 @@ function imageLabel(path) {
     const last = name.split("-").pop().trim();
     const rule = listImageLabelRules.find(([re]) => re.test(last));
     if (!rule) return last.toLowerCase();
-    const number = last.match(/(\d+)$/)?.[1];
+    const lastWord = last.split(" ").pop();
+    const number = /^\d+$/.test(lastWord) ? lastWord : undefined;
     return number && rule[1] !== listImageLabels.ground_floor_plan ? `${rule[1]} ${Number(number)}` : rule[1];
 }
 
