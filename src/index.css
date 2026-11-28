@@ -1,61 +1,72 @@
 @import "tailwindcss";
 
+/*
+    Polices hébergées sur le site (public/fonts) :
+    - Satoshi (titres) : Indian Type Foundry, licence ITF Free Font License (fontshare.com)
+    - Instrument Sans (texte) : licence SIL Open Font License, police variable 400 à 700
+*/
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/satoshi-300.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/satoshi-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/satoshi-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/satoshi-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Instrument Sans";
+    src: url("/fonts/instrument-sans-latin-ext.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Instrument Sans";
+    src: url("/fonts/instrument-sans-latin.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @theme {
 
-    /* Colors */
-    --color-primary-50: #f6f4f0;
-    --color-primary-100: #eae3d7;
-    --color-primary-200: #d6c7b2;
-    --color-primary-300: #bea586;
-    --color-primary-400: #a88560;
-    --color-primary-500: #9c7756;
-    --color-primary-600: #856049;
-    --color-primary-700: #6c4b3c;
-    --color-primary-800: #5c4037;
-    --color-primary-900: #503833;
-    --color-primary-950: #2d1e1b;
-
-    --color-secondary-50: #f6f8f5;
-    --color-secondary-100: #eaf0e8;
-    --color-secondary-200: #d6e1d1;
-    --color-secondary-300: #b4c9ac;
-    --color-secondary-400: #7a9b6d;
-    --color-secondary-500: #6a8a5d;
-    --color-secondary-600: #547049;
-    --color-secondary-700: #44593c;
-    --color-secondary-800: #394833;
-    --color-secondary-900: #2f3c2b;
-    --color-secondary-950: #171f14;
-
-    --color-accent-50: #F9F6ED;
-    --color-accent-100: #F0E7D1;
-    --color-accent-200: #E2CFA6;
-    --color-accent-300: #D0B074;
-    --color-accent-400: #C89F5F;
-    --color-accent-500: #B3813F;
-    --color-accent-600: #996635;
-    --color-accent-700: #7B4C2D;
-    --color-accent-800: #68402B;
-    --color-accent-900: #5A3729;
-    --color-accent-950: #331C15;
-
-    --color-neutral-50: #FAFAF9;
-    --color-neutral-100: #F5F5F4;
-    --color-neutral-200: #E7E5E4;
-    --color-neutral-300: #D6D3D1;
-    --color-neutral-400: #A9A29D;
-    --color-neutral-500: #79716B;
-    --color-neutral-600: #58534D;
-    --color-neutral-700: #45403B;
-    --color-neutral-800: #292524;
-    --color-neutral-900: #1C1917;
-    --color-neutral-950: #0C0A09;
+    /* 
+        Eames Colors palette: 
+        https://hueatlas.com/color-palettes/eames-color-palette/ 
+    */
     
     --color-greige-50: #f8f7f4;
     --color-greige-100: #eeebe6;
     --color-greige-200: #dbd6cd;
     --color-greige-300: #c4bbad;
-    --color-greige-400: #b5a898;
+    --color-greige-400: #b5a898; /* Greige Eames */
     --color-greige-500: #9b8874;
     --color-greige-600: #8e7968;
     --color-greige-700: #776457;
@@ -69,28 +80,52 @@
     --color-orange-300: #ebb886;
     --color-orange-400: #e29255;
     --color-orange-500: #dc7533;
-    --color-orange-600: #d4612a;
+    --color-orange-600: #d4612a; /* Orange Eames */
     --color-orange-700: #aa4924;
     --color-orange-800: #883b24;
     --color-orange-900: #6e3220;
     --color-orange-950: #3b180f;
 
-    --color-matcha-50: #f6f9ed;
-    --color-matcha-100: #e7f0d4;
-    --color-matcha-200: #d3e3ac;
-    --color-matcha-300: #b8d17c;
-    --color-matcha-400: #a2c055;
-    --color-matcha-500: #8eab3f;
-    --color-matcha-600: #7a9033;
-    --color-matcha-700: #616f2a;
-    --color-matcha-800: #535c27;
-    --color-matcha-900: #494f26;
-    --color-matcha-950: #282c12;
+    --color-walnut-50: #f8f6ee;
+    --color-walnut-100: #efe9d2;
+    --color-walnut-200: #e0d2a8;
+    --color-walnut-300: #cdb477;
+    --color-walnut-400: #be9a51;
+    --color-walnut-500: #af8743;
+    --color-walnut-600: #966b38;
+    --color-walnut-700: #7a5230; /* Walnut Eames */
+    --color-walnut-800: #66442d;
+    --color-walnut-900: #583a2b;
+    --color-walnut-950: #321e16;
+
+    --color-chrome-50: #fafafa;
+    --color-chrome-100: #f4f5f5;
+    --color-chrome-200: #e5e6e6;
+    --color-chrome-300: #d5d6d7;
+    --color-chrome-400: #a8aaac; /* Chrome Eames */
+    --color-chrome-500: #737678;
+    --color-chrome-600: #545659;
+    --color-chrome-700: #414244;
+    --color-chrome-800: #282829;
+    --color-chrome-900: #19191a;
+    --color-chrome-950: #0a0a0a;
+
+    --color-parchment-50: #f9f7f3;
+    --color-parchment-100: #f1ede3;
+    --color-parchment-200: #e0d5c0; /* Parchment Eames */
+    --color-parchment-300: #d0bfa1;
+    --color-parchment-400: #bda07a;
+    --color-parchment-500: #af8a60;
+    --color-parchment-600: #a27854;
+    --color-parchment-700: #876147;
+    --color-parchment-800: #6e503e;  
+    --color-parchment-900: #594335;
+    --color-parchment-950: #2f221b;
 
     --color-seafoam-50: #f4f9f8;
     --color-seafoam-100: #dcebe8;
     --color-seafoam-200: #b8d7d1;
-    --color-seafoam-300: #78b0a8;
+    --color-seafoam-300: #78b0a8; /* Seafoam Eames */
     --color-seafoam-400: #649d97;
     --color-seafoam-500: #4a827d;
     --color-seafoam-600: #3a6764;
@@ -104,138 +139,265 @@
     --color-lemon-200: #f2ee99;
     --color-lemon-300: #ebe15e;
     --color-lemon-400: #e2d030;
-    --color-lemon-500: #d4be20;
+    --color-lemon-500: #d4be20; /* Lemon Eames */
     --color-lemon-600: #af9318;
     --color-lemon-700: #8a6e16;
     --color-lemon-800: #725819;
     --color-lemon-900: #614a1b;
     --color-lemon-950: #38280b;
 
-    --color-walnut-50: #f8f6ee;
-    --color-walnut-100: #efe9d2;
-    --color-walnut-200: #e0d2a8;
-    --color-walnut-300: #cdb477;
-    --color-walnut-400: #be9a51;
-    --color-walnut-500: #af8743;
-    --color-walnut-600: #966b38;
-    --color-walnut-700: #7a5230;
-    --color-walnut-800: #66442d;
-    --color-walnut-900: #583a2b;
-    --color-walnut-950: #321e16;
-
-    --color-chrome-50: #fafafa;
-    --color-chrome-100: #f4f5f5;
-    --color-chrome-200: #e5e6e6;
-    --color-chrome-300: #d5d6d7;
-    --color-chrome-400: #a8aaac;
-    --color-chrome-500: #737678;
-    --color-chrome-600: #545659;
-    --color-chrome-700: #414244;
-    --color-chrome-800: #282829;
-    --color-chrome-900: #19191a;
-    --color-chrome-950: #0a0a0a;
-
-    --color-parchment-50: #f9f7f3;
-    --color-parchment-100: #f1ede3;
-    --color-parchment-200: #e0d5c0;
-    --color-parchment-300: #d0bfa1;
-    --color-parchment-400: #bda07a;
-    --color-parchment-500: #af8a60;
-    --color-parchment-600: #a27854;
-    --color-parchment-700: #876147;
-    --color-parchment-800: #6e503e;  
-    --color-parchment-900: #594335;
-    --color-parchment-950: #2f221b;
+    /* Couleurs de marque (tokens à utiliser dans le code) */
+    --color-cream: var(--color-greige-50);   /* #F8F7F4 : fond par défaut */
+    --color-ink: var(--color-chrome-950);    /* #0A0A0A : texte */
+    --color-teal: var(--color-seafoam-300);  /* #78B0A8 */
+    --color-mustard: var(--color-lemon-500); /* #D4BE20 */
+    --color-accent: var(--color-orange-600); /* #D4612A : bouton « Contactez-moi » */
 
     /* Fonts */
-    --font-title: "Satoshi", "sans-serif";
-    --font-body: "Montserrat", sans-serif;
+    --font-title: "Satoshi", sans-serif;
+    --font-body: "Instrument Sans", sans-serif;
 
-    --font-regular: 400;
-    --font-medium: 500;
-    --font-semibold: 600;
-    --font-bold: 700;
+    /* Graisses : celles de Tailwind (font-normal 400, font-medium 500, font-semibold 600, font-bold 700).
+       Pas de variables --font-* ici : Tailwind v4 les réserve aux familles de polices. */
+
+    /*
+        Échelle d'espacement unique (Tailwind : 1 unité = 4px) :
+        8px = 2 · 16px = 4 · 24px = 6 · 32px = 8 · 48px = 12 · 80px = 20 · 120px = 30
+        N'utiliser que ces valeurs pour les marges, paddings et gaps.
+    */
+
+    /* Hauteur du header : sert aussi au décalage des ancres (scroll-padding-top sur html) */
+    --spacing-header: 4.5rem;
+
 }
 
 @layer base {
 
-  h1 {
-    font-family: var(--font-title);
-    font-size: var(--text-4xl);
-    font-weight: var(--font-medium);
-  }
+    /* Les ancres (ex. /services#renovation) s'arrêtent sous le header sticky, pas derrière */
+    html {
+        scroll-padding-top: var(--spacing-header);
+    }
 
-  h2 {
-    font-family: var(--font-title);
-    font-size: var(--text-3xl);
-    font-weight: var(--font-regular);
-  }
+    /* Variables de la grille (voir grid-layout / grid-page plus bas) */
+    :root {
+        --grid-cols: 4;
+        --grid-gutter: 1rem;
+        --grid-margin: 1.5rem;
+        --content-max: 69rem; /* 1104px */
 
-  h3 {
-    font-family: var(--font-title);
-    font-size: var(--text-xl);
-    font-weight: var(--font-regular);
-  }
+        @media (width >= 48rem) {
+            --grid-cols: 8;
+            --grid-gutter: 1.5rem;
+            --grid-margin: 2rem;
+        }
 
-  h4 {
-    font-family: var(--font-title);
-    font-size: var(--text-lg);
-    font-weight: var(--font-regular);
-  }
+        @media (width >= 64rem) {
+            --grid-cols: 12;
+            --grid-gutter: 2rem;
+            --grid-margin: 3rem;
+        }
+    }
 
-  p {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: var(--font-regular);
-  }
+    body {
+        background-color: var(--color-cream);
+        color: var(--color-ink);
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
 
-  ul {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: var(--font-regular);
-  }
+    h1 { @apply text-display; }
+    h2 { @apply text-title; }
+    h3 { @apply text-subtitle; }
 
-}
+    p {
+        max-width: 65ch;
+    }
 
-.cta-button {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-    padding: 0.8em;
-    border-radius: 2em;
-}
+    :focus-visible {
+        outline: 2px solid var(--color-ink);
+        outline-offset: 3px;
+        border-radius: 2px;
+    }
 
-.home-primary {
-    color: white;
-    background-color: var(--color-orange-600); 
-
-    &:hover {
-        background-color: var(--color-orange-700);
+    @media (prefers-reduced-motion: reduce) {
+        *:not(.project-slide, .project-caption), *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            transition-delay: 0s !important;
+            animation-delay: 0s !important;
+            scroll-behavior: auto !important;
+        }
     }
 }
 
-.home-secondary {
-    color: black;
-    background-color: var(--color-orange-100); 
-    
+/* Typographie */
+@utility text-display {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-size: clamp(2rem, 6vw + 1rem, 3rem);
+    line-height: 1.15;
+}
+
+@utility text-title {
+    font-family: var(--font-title);
+    font-weight: 500;
+    font-size: clamp(1.625rem, 3vw + 1rem, 2.25rem);
+    line-height: 1.2;
+}
+
+@utility text-subtitle {
+    font-family: var(--font-title);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 1vw + 1rem, 1.5rem);
+    line-height: 1.3;
+}
+
+@utility text-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@utility text-body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* Mentions légales & Politique de confidentialité */
+@utility legal-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+
+    & > li + li {
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    & > li + li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        height: 0.75rem;
+        translate: 0 -50%;
+        border-left: 1px solid color-mix(in oklab, var(--color-ink) 40%, transparent);
+    }
+}
+
+@utility text-small {
+    font-family: var(--font-body);
+    font-size: 0.875rem; /* jamais en dessous de 14px */
+    line-height: 1.25rem;
+}
+
+/* Respecte les \n du contenu */
+@utility text-formatting {
+    white-space: pre-line;
+}
+
+/*
+    Grille du site : 4 colonnes en mobile, 8 en tablette (md), 12 en bureau (lg).
+
+    | Écran   | Colonnes | Gouttière | Marge |
+    | mobile  | 4        | 16px      | 24px  |
+    | ≥ 768   | 8        | 24px      | 32px  |
+    | ≥ 1024  | 12       | 32px      | 48px  |
+
+    Largeur du contenu : 1104px max (1200px avec les marges).
+
+    Trois outils :
+    - container-page : conteneur centré avec les marges (composant Container) ;
+    - grid-layout    : grille de colonnes à l'intérieur d'un Container.
+                       Par défaut un enfant prend toute la largeur ; on le place avec
+                       col-span-* / col-start-* (préfixes md: = 8 colonnes, lg: = 12 colonnes) ;
+    - grid-page      : grille pleine largeur avec lignes nommées, pour faire déborder un élément
+                       jusqu'au bord de l'écran sans position absolue :
+                         col-content            → largeur du contenu (défaut)
+                         col-full               → toute la largeur de l'écran
+                         col-[col_5/span_6]     → colonnes 5 à 10 du contenu
+                         col-[full-start/col_4] → du bord gauche de l'écran jusqu'à la colonne 3 incluse
+                         col-[col_9/full-end]   → de la colonne 9 jusqu'au bord droit de l'écran
+*/
+@utility container-page {
+    width: 100%;
+    max-width: calc(var(--content-max) + 2 * var(--grid-margin));
+    margin-inline: auto;
+    padding-inline: var(--grid-margin);
+}
+
+@utility grid-layout {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+    column-gap: var(--grid-gutter);
+
+    :where(& > *) {
+        grid-column: 1 / -1;
+    }
+}
+
+@utility grid-page {
+    --col-max: calc((var(--content-max) - (var(--grid-cols) - 1) * var(--grid-gutter)) / var(--grid-cols));
+    display: grid;
+    grid-template-columns:
+        [full-start] minmax(calc(var(--grid-margin) - var(--grid-gutter)), 1fr)
+        [content-start] repeat(var(--grid-cols), [col] minmax(0, var(--col-max)))
+        [content-end] minmax(calc(var(--grid-margin) - var(--grid-gutter)), 1fr)
+        [full-end];
+    column-gap: var(--grid-gutter);
+
+    :where(& > *) {
+        grid-column: content;
+    }
+}
+
+@utility col-content {
+    grid-column: content;
+}
+
+@utility col-full {
+    grid-column: full;
+}
+
+/* Boutons */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: 0.8em;
+    border-radius: 1.5em;
+}
+
+.orange-primary {
+    background-color: var(--color-orange-600);
+
+    &:hover {
+        background-color: var(--color-orange-500);
+    }
+}
+
+.orange-secondary {
+    background-color: var(--color-orange-50);
+
     &:hover {
         background-color: var(--color-orange-200);
     }
-    
 }
 
-.project-button {
-    color: white;
-    background-color: var(--color-primary-400); 
-
-    &:hover {
-        background-color: var(--color-primary-200);
-        color: black;
-    }   
-}
-
-.contact-primary {
-    color: black;
+.orange-tertiary {
     background-color: var(--color-orange-300);
 
     &:hover {
@@ -243,19 +405,114 @@
     }
 }
 
-.contact-secondary {
-    color: black;
-    background-color: var(--color-orange-100);
+.walnut-primary {
+    color: var(--color-chrome-50);
+    background-color: var(--color-walnut-700);
 
     &:hover {
-        background-color: var(--color-orange-200);
+        background-color: var(--color-walnut-500);
+        color: var(--color-chrome-950);
     }
 }
 
-.burger-menu {
-    font-size: var(--text-xl);
+.walnut-secondary {
+    background-color: var(--color-walnut-50);
+
+    &:hover {
+        background-color: var(--color-walnut-300);
+    }
 }
 
-.text-formatting {
-  white-space: pre-line; /* respecte les \n, ignore les espaces multiples */
+/*
+    Hauteur d'une section = hauteur visible de l'écran moins le header (sticky).
+    svh : hauteur réellement visible sur mobile, barre d'adresse comprise.
+    - min-h-section : au moins un écran, la section grandit si le contenu dépasse (cas général) ;
+    - h-section     : exactement un écran, pour les sections dont les enfants sont en hauteurs relatives (h-full, %).
+*/
+@utility min-h-section {
+    min-height: calc(100svh - var(--spacing-header));
+}
+
+@utility h-section {
+    height: calc(100svh - var(--spacing-header));
+}
+
+/*
+    Flèches des carrousels 
+*/
+.swiper {
+    --swiper-navigation-color: var(--color-ink);
+    --swiper-navigation-size: 1rem;
+    --swiper-navigation-sides-offset: 0.75rem;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-top: -1.375rem;
+}
+
+/* 
+    Mobile : Flèches des carrousels  
+*/
+@media (width < 48rem) {
+    .swiper .swiper-button-prev svg,
+    .swiper .swiper-button-next svg {
+        width: auto;
+        height: 1.25rem;
+    }
+}
+
+.swiper .swiper-button-prev:focus-visible,
+.swiper .swiper-button-next:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+}
+
+/*
+    Pagination des carrousels
+*/
+.swiper .swiper-pagination-bullet {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    opacity: 1;
+}
+
+.swiper .swiper-pagination-bullet::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--swiper-pagination-bullet-inactive-color, var(--color-ink));
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.35);
+}
+
+.swiper .swiper-pagination-bullet-active::before {
+    background: var(--swiper-pagination-color, var(--color-ink));
+    opacity: 1;
+}
+
+.swiper .swiper-pagination-bullet:focus-visible {
+    outline: 2px solid var(--swiper-pagination-color, var(--color-ink));
+    outline-offset: -2px;
+}
+
+/*
+    Cartes de la page Projets sur écran tactile (tablette)
+*/
+@media (hover: none) and (width >= 48rem) {
+    .project-caption {
+        position: static;
+        margin: 0;
+        padding: 0.5rem 0 3rem 2rem;
+        opacity: 1;
+        pointer-events: auto;
+        color: var(--color-ink);
+    }
 }

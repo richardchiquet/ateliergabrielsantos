@@ -1,4 +1,80 @@
 {
   "outputDirectory": "build/client",
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/projets/Projet1",
+      "destination": "/projets/micro-habitat",
+      "permanent": true
+    },
+    {
+      "source": "/projets/Projet2",
+      "destination": "/projets/maison-familiale-modulable",
+      "permanent": true
+    },
+    {
+      "source": "/projets/Projet3",
+      "destination": "/projets/cabane-en-bord-de-lac",
+      "permanent": true
+    },
+    {
+      "source": "/projets/Projet4",
+      "destination": "/projets/amenagement-couilly-pont-aux-dames",
+      "permanent": true
+    },
+    {
+      "source": "/projets/Projet5",
+      "destination": "/projets/cabanon-de-jardin",
+      "permanent": true
+    },
+    {
+      "source": "/projets/Projet6",
+      "destination": "/projets/appartement-a-nice",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
 }

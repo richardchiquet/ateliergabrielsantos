@@ -1,84 +1,82 @@
-import { content } from "../constants/Content";
+import { content, contactLinks, serviceList, socials } from "../constants/Content";
 import { Link } from "react-router";
+import Container from "./layout/Container";
+import ExternalLink from "./ExternalLink";
+import LegalLinks from "./LegalLinks";
+
+const [emailUser, emailDomain] = contactLinks.email.label.split("@");
+
+const linkClass = "underline-offset-4 hover:underline";
 
 export default function Footer() {
     return (
-        <footer className="bg-primary-50 text-black py-6 px-4 flex flex-wrap justify-around max-md:hidden">
-            <div>
-                <h3 className="mb-4">
-                    {content.about.title}
-                </h3>
-                <p className="text-formatting max-w-xs">
-                    {content.about.text}
-                </p>
-            </div>
-            <div>
-                <h3 className="mb-4">
-                    {content.navigation.title}
-                </h3>
-                <nav>
-                    <ul className="space-y-1 list-style">
-                        <li>
-                            <Link to="/" className="hover:text-gray-500">
-                                {content.home.title}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/projets" className="hover:text-gray-500">
-                                {content.projects.title}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/services" className="hover:text-gray-500">
-                                {content.services.title}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/atelier" className="hover:text-gray-500">
-                                {content.atelier.title}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/contact" className="hover:text-gray-500">
-                                {content.contact.title}
-                            </Link>
-                        </li>
+        <footer className="bg-greige-100 py-12 max-md:hidden">
+            <Container className="grid-layout gap-y-8">
+                <div className="md:col-span-4 lg:col-span-3">
+                    <h2 className="text-subtitle mb-4">
+                        {content.about.title}
+                    </h2>
+                    <p className="text-formatting">
+                        {content.about.text}
+                    </p>
+                </div>
+                
+                <nav aria-labelledby="footer-services" className="md:col-span-4 lg:col-span-3">
+                    <h2 id="footer-services" className="text-subtitle mb-4">
+                        {content.services.title}
+                    </h2>
+                    <ul className="flex flex-col gap-2">
+                        {serviceList.map((service) => (
+                            <li key={service.id}>
+                                <Link to={{ pathname: "/services", hash: `#${service.id}` }} className={linkClass}>
+                                    {service.title}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
-            </div>
-            <div>
-                <h3 className="mb-4">
-                    {content.social_media.title}
-                </h3>
-                <nav>
-                    <ul className="space-y-1">
-                        <li>
-                            <a href={content.social_media.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">{content.social_media.linkedin.title}</a>
-                        </li>
-                        <li>
-                            <a href={content.social_media.instagram.url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500">{content.social_media.instagram.title}</a>
-                        </li>
+
+                <nav aria-labelledby="footer-social" className="md:col-span-4 lg:col-span-3">
+                    <h2 id="footer-social" className="text-subtitle mb-4">
+                        {content.social_media.title}
+                    </h2>
+                    <ul className="flex flex-col gap-2">
+                        {socials.map((social) => (
+                            <li key={social.url}>
+                                <ExternalLink href={social.url} className={linkClass}>
+                                    {social.title}
+                                </ExternalLink>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
-            </div>
-            <div>
-                <h3 className="mb-4">
-                    {content.contact.title}
-                </h3>
-                <p>
-                    {content.contact.address.title} : {content.contact.address.text}
-                </p>
-                <p className="mt-1">
-                    {content.contact.phone.title} : <a href={`tel:${content.contact.phone.url}`} className="hover:text-gray-500">
-                        {content.contact.phone.text}
-                    </a>
-                </p>
-                <p className="mt-1">
-                    {content.contact.email.title} : <a href={`mailto:${content.contact.email.text}`} className="hover:text-gray-500">
-                        {content.contact.email.text}
-                    </a>
-                </p>
-            </div>
+
+                <address className="not-italic md:col-span-4 lg:col-span-3">
+                    <h2 className="text-subtitle mb-4">
+                        {content.contact.title}
+                    </h2>
+                    <p className="mt-2">
+                        {content.contact.address.title} :{" "}
+                        <ExternalLink href={contactLinks.address.href} className={linkClass}>
+                            {contactLinks.address.label}
+                        </ExternalLink>
+                    </p>
+                    <p className="mt-2">
+                        {content.contact.phone.title} :{" "}
+                        <a href={contactLinks.phone.href} className={linkClass}>
+                            {contactLinks.phone.label}
+                        </a>
+                    </p>
+                    <p className="mt-2">
+                        {content.contact.email.title} :{" "}
+                        <a href={contactLinks.email.href} className={linkClass}>
+                            {emailUser}<wbr />@{emailDomain}
+                        </a>
+                    </p>
+                </address>
+
+                <LegalLinks className="col-span-full" linkClassName={linkClass} />
+            </Container>
         </footer>
-    )
+    );
 }

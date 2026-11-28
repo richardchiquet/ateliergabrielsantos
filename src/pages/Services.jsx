@@ -1,136 +1,110 @@
-import Header from "../components/Header"
 import { buildMeta } from "../constants/Seo";
-import Footer from "../components/Footer";
 import { content } from "../constants/Content";
-
-import Scroll from "../components/Scroll";
+import Container from "../components/layout/Container";
 
 // Images
-import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.png";
-import serviceRenovation from "../assets/photosServices/renovation.png";
-import serviceEquipementPublic from "../assets/photosServices/equipementPublic.png";
-import serviceExtension from "../assets/photosServices/extension.png";
-import serviceAmenagementInterieur from "../assets/photosServices/amenagementInterieur.png";
-import serviceMobilier from "../assets/photosServices/mobilier.png";
+import { serviceImages } from "../constants/ServiceImages";
 
 export const meta = () => buildMeta({
     title: content.meta.services.title,
     description: content.meta.services.description,
     path: "/services",
+    breadcrumb: content.services.title,
 });
 
+// Intertitre « Nos prestations » puis la liste
 function ServicesList({items}){
     return (
-        <ul className="list-disc mx-5">
-            {items.map((item, index) => (
-                <li key={item-index}>{item}</li>
+        <>
+        <p className="text-eyebrow mt-3">
+            {content.services.list_title}
+        </p>
+        <ul className="list-disc mx-5 mt-2">
+            {items.map((item) => (
+                <li key={item}>{item}</li>
             ))}
         </ul>
+        </>
     )
 }
 
-export default function Services() {
-
+function ServiceText({ service, className = "" }) {
     return (
-        <div id="0" className="min-h-screen scroll-mt-100">
-            <Header />
-            <Scroll />
-            <div className="w-full min-h-[calc(100vh-76px)]">
-                <h1 className="px-6 md:px-50 py-6 md:py-10 text-left w-full">
-                    {content.services.subtitle}
-                </h1>
+        <div className={`flex flex-col max-md:pl-8 ${className}`}>
+            <h2 className="mb-5">
+                {service.title}
+            </h2>
+            <p className="mb-3">
+                {service.text}
+            </p>
+            <ServicesList items={service.list} />
+        </div>
+    );
+}
 
-                {/* Construction Neuve */}
-                <div id="construction-neuve" className="w-full min-h-[calc(100vh-70px)] bg-white scroll-mt-100">
-                    <div className="flex flex-col md:flex-row items-center gap-10 px-6 md:px-50 md:py-10  justify-between">
-                        <img src={serviceConstructionNeuve} alt="Construction neuve en matériaux biosourcés" className="w-[60%] md:w-[30%] max-w-xl h-auto object-cover" />
-                        <div className="flex flex-col justify-end w-full md:w-[40%]">
-                            <h2 className="mb-5">
-                                {content.services.new_construction.title}
-                            </h2>
-                            <p className="mb-3">
-                                {content.services.new_construction.text}
-                            </p>
-                            <ServicesList items={content.services.new_construction.list} />
-                        </div>
-                    </div>
+function ServiceBlock({ service, imageSide = "left" }) {
+    const right = imageSide === "right";
+    return (
+        <Container className="grid-layout items-center gap-y-6 py-20 md:gap-y-12 md:py-12">
+            <img
+                src={serviceImages[service.id]}
+                alt={service.alt}
+                className={`w-full h-auto object-cover md:row-start-1 md:col-span-3 lg:col-span-4 ${right ? "md:col-start-6 lg:col-start-9" : "md:col-start-1"}`}
+            />
+            <ServiceText
+                service={service}
+                className={`justify-center md:row-start-1 md:col-span-4 lg:col-span-6 ${right ? "md:col-start-1" : "md:col-start-5 lg:col-start-6"}`}
+            />
+        </Container>
+    );
+}
+
+function ServiceHalf({ service }) {
+    return (
+        <div id={service.id} className="grid grid-cols-subgrid gap-y-6 md:col-span-4 lg:col-span-6">
+            <img src={serviceImages[service.id]} alt={service.alt} className="col-span-full w-full aspect-3/2 object-cover" />
+            <ServiceText service={service} className="col-span-full" />
+        </div>
+    );
+}
+
+export default function Services() {
+    return (
+        <div>
+            {/* Construction neuve */}
+            <section id={content.services.new_construction.id} className="w-full min-h-section flex flex-col">
+                <Container>
+                    <h1 className="py-12 text-left w-full">
+                        {content.services.subtitle}
+                    </h1>
+                </Container>
+                <div className="my-auto">
+                    <ServiceBlock service={content.services.new_construction} imageSide="left" />
                 </div>
+            </section>
 
-                {/* Rénovation */}
-                <div id="renovation" className="w-full min-h-[calc(100vh-70px)] bg-seafoam-300 scroll-mt-17">
-                    <div className="flex flex-col-reverse md:flex-row px-6 md:px-50 py-10 justify-between items-center gap-10 min-h-[80vh]">
-                        <div className="flex flex-col justify-center w-full md:w-[40%]">
-                            <h2 className="mb-5">
-                                {content.services.renovation.title}
-                            </h2>
-                            <p className="mb-3">
-                                {content.services.renovation.text}
-                            </p>
-                            <ServicesList items={content.services.renovation.list} />
-                        </div>
-                        <img src={serviceRenovation} alt="Rénovation de bâtiment existant" className="w-full md:w-1/2 max-w-xl h-auto object-cover" />
-                    </div>
-                </div>
+            {/* Renovation */}
+            <section id={content.services.renovation.id} className="bg-seafoam-300 w-full min-h-section flex flex-col justify-center">
+                <ServiceBlock service={content.services.renovation} imageSide="right" />
+            </section>
 
-                {/* Aménagement intérieur et Mobilier */}
-                <div id="amenagement-interieur-et-mobilier" className="w-full min-h-[calc(100vh-70px)] bg-white flex flex-col justify-start scroll-mt-17">
-                    <div className="flex flex-col md:flex-row mt-10 px-6 md:px-50 justify-between items-center gap-10">
-                        <img src={serviceAmenagementInterieur} alt="Aménagement intérieur" className="w-full md:w-1/2 max-w-xl h-auto object-cover" />
-                        <div className="flex flex-col justify-center w-full md:w-[30%]">
-                            <h2 className="mb-5">
-                                {content.services.interior_design.title}
-                            </h2>
-                            <p className="mb-3">
-                                {content.services.interior_design.text}
-                            </p>
-                            <ServicesList items={content.services.interior_design.list} />
-                        </div>
-                    </div>
-                    <div className="flex flex-col md:flex-row px-6 md:px-50 md:py-10 py-30 justify-start items-center gap-10">
-                        <img src={serviceMobilier} alt="Mobilier sur mesure" className="w-[60%] md:w-[15%] h-auto object-cover" />
-                        <div className="flex flex-col justify-center w-full md:w-[30%] mx-70">
-                            <h2 className="mb-5">
-                                {content.services.furniture.title}
-                            </h2>
-                            <p className="mb-3">
-                                {content.services.furniture.text}
-                            </p>
-                            <ul className="list-disc mx-5">
-                                <ServicesList items={content.services.furniture.list} />
-                            </ul>
-                        </div>
-                    </div>                    
-                </div>
+            {/* Extension */}
+            <section id={content.services.extension.id} className="w-full min-h-section flex flex-col justify-center">
+                <ServiceBlock service={content.services.extension} imageSide="left" />
+            </section>
 
-                {/* Equipement public et Extension */}
-                <div id="equipement-public-et-extension" className="w-full min-h-[calc(100vh-70px)] bg-lemon-500 flex flex-col md:flex-row justify-center items-start gap-10 px-6 md:px-50 py-16 scroll-mt-17">
-                    <div className="flex flex-col  w-full md:w-1/2 gap-6">
-                        <img src={serviceEquipementPublic} alt="Équipement public" className="w-[60%] md:w-[40%] h-auto object-cover " />
-                        <div className="flex flex-col justify-center w-full">
-                            <h2 className="mb-5">
-                                {content.services.public_facilities.title}
-                            </h2>
-                            <p className="mb-3">
-                                {content.services.public_facilities.text}
-                            </p>
-                            <ServicesList items={content.services.public_facilities.list} />
-                        </div>
-                    </div>
-                    <div className="flex flex-col w-full md:w-1/2 gap-6">
-                        <img src={serviceExtension} alt="Extension de maison" className="w-[60%] md:w-[40%] h-auto object-cover" />
-                        <div className="flex flex-col justify-center w-full">
-                            <h2 className="mb-5">
-                                {content.services.extension.title}
-                            </h2>
-                            <p className="mb-3">
-                                {content.services.extension.text}
-                            </p>
-                            <ServicesList items={content.services.extension.list} />
-                        </div>
-                    </div>
-                </div>               
-            </div>
-            <Footer />
+            {/* Aménagement intérieur et mobilier */}
+            <section id="amenagement-interieur-et-mobilier" className="bg-lemon-500 w-full min-h-section flex flex-col justify-center">
+                <Container className="grid-layout items-start gap-y-20 py-20 md:gap-y-12 md:py-12">
+                    <ServiceHalf service={content.services.interior_design} />
+                    <ServiceHalf service={content.services.furniture} />
+                </Container>
+            </section>
+            
+            {/* Équipement public */}
+            <section id={content.services.public_facilities.id} className="w-full min-h-section flex flex-col justify-center">
+                <ServiceBlock service={content.services.public_facilities} imageSide="right" />
+            </section>
         </div>
     )
 }

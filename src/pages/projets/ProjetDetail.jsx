@@ -1,118 +1,167 @@
-import { useParams, Link } from "react-router";
-import { useState, useEffect } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import { absolute, buildMeta, pageTitle, websiteUrl } from "../../constants/Seo";
 import { content } from "../../constants/Content";
+import Container from "../../components/layout/Container";
+import { useParams, Link } from "react-router";
+import { useState } from "react";
+
+// Projects
 import "./projet.css";
+import { getProjetByUrl, getProjetDetails } from "./ProjetsConfig";
+import NotFound, { meta as notFoundMeta } from "../NotFound";
+
+// Swiper
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import { projetsConfig } from "./ProjetsConfig";
-import { buildMeta } from "../../constants/Seo";
-import NotFound, { meta as notFoundMeta } from "../NotFound";
+import { A11y, FreeMode, Keyboard, Navigation, Thumbs } from "swiper/modules";
+
+const a11y = {
+  prevSlideMessage: "Image précédente",
+  nextSlideMessage: "Image suivante",
+  firstSlideMessage: "Première image",
+  lastSlideMessage: "Dernière image",
+  slideLabelMessage: "Image {{index}} sur {{slidesLength}}",
+};
 
 export const meta = ({ params }) => {
-  const projet = projetsConfig[params.projetId];
+  const projet = getProjetByUrl(params.projetId);
+
   if (!projet) return notFoundMeta();
+
   const { title, description } = projet.content;
+  const path = `/projets/${params.projetId}`;
+
   return buildMeta({
-    title: `${title} | Projet d'architecture | L'atelier Gabriel Santos`,
-    description: description.replace(/\s+/g, " ").trim().slice(0, 155).replace(/\s\S*$/, "") + "…",
-    path: `/projets/${params.projetId}`,
-    image: projet.cover,
+    title: pageTitle(title),
+    description: projet.content.meta_description,
+    path,
+    image: projet.coverOg,
+    imageAlt: `${title}, projet de l'atelier Gabriel Santos`,
+    breadcrumb: [
+      [
+        content.projects.title, 
+        "/projets"
+      ], 
+      [
+        title, 
+        path
+      ]
+    ],
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: title,
+        description: description.replace(/\s+/g, " ").trim(),
+        url: absolute(path),
+        image: absolute(projet.cover),
+        creator: { "@id": `${websiteUrl}/#atelier` },
+        inLanguage: "fr-FR",
+        ...(projet.category && { genre: projet.category }),
+        ...(projet.location && { locationCreated: { "@type": "Place", name: projet.location } }),
+        ...(projet.year && { dateCreated: projet.year }),
+      },
+    ],
   });
 };
 
+// Réglages des carrousels
+const mainKeyboard = { enabled: true, onlyInViewport: true };
+const mainModules = [A11y, Keyboard, Navigation, Thumbs];
+const thumbsModules = [FreeMode, Thumbs];
+
 export default function ProjetDetail() {
   const { projetId } = useParams();
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [images, setImages] = useState([]);
-  const projet = projetsConfig[projetId];
-
-  useEffect(() => {
-    setImages([]);
-    setThumbsSwiper(null);
-
-    if (!projet) return;
-    let isMounted = true;
-
-    Promise.all(projet.getImageLoader().map((load) => load()))
-      .then((modules) => {
-        if (isMounted) {
-          setImages(modules.map((m) => m.default));
-        }
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, [projet, projetId]);
+  const projet = getProjetByUrl(projetId);
 
   if (!projet) return <NotFound />;
 
-  const { color, content: projetContent, text_color, category, status } = projet;
+  // key permet de forcer le rechargement du composant ProjetPage si l'URL change (ex. navigation entre projets)
+  return <ProjetPage key={projetId} projet={projet} />;
+}
+
+function ProjetPage({ projet }) {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const { color, content: projetContent, images } = projet;
+  const details = getProjetDetails(projet);
 
   return (
-    <div className={`${text_color}`}>
-      <Header />
-      <div className={`w-full h-full ${color} grid grid-cols-12 place-items-start relative`}>
-        <Link to={{ pathname: "/projets" }} className="text-4xl col-start-2">
-          {content.projects.icon_back}
+    <div className={`w-full min-h-section ${color}`}>
+      <Container className="grid-layout place-items-start content-start relative min-h-section">
+        <Link to="/projets" className="inline-flex min-h-11 items-center gap-2 underline-offset-4 hover:underline">
+          {content.projects.back}
         </Link>
-        <div className="col-start-2 col-end-12 mb-5">
-          <h1>{projetContent.title}</h1>
-          <p>{category}</p>
-          <p>{status}</p>
+        <div className="mb-6">
+          <h1>
+            {projetContent.title}
+          </h1>
+          {/* Informations compactes sous le titre */}
+          {details.length > 0 && (
+            <dl className="text-small mt-2 grid grid-cols-2 gap-x-(--grid-gutter) gap-y-1 md:flex md:flex-wrap md:gap-x-6">
+              {details.map(([label, value]) => (
+                <div key={label} className="flex gap-1">
+                  <dt>{label} :</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </div>
-        <div className="md:col-start-2 md:col-end-12 col-start-1 col-end-13 w-full md:w-8/10 mx-auto">
-          {images.length === 0 ? (
-            <img src={projet.cover} alt={projetContent.title} className="w-full h-auto object-contain" />
-          ) : (
-          <>
+        {/* Carrousel sur toute la largeur du contenu */}
+        <div className="w-full">
           <Swiper
-            key={`${projetId}-main`}
-            style={{ "--swiper-navigation-color": "#000000", "--swiper-pagination-color": "#000000" }}
-            loop={images.length > 1}
+            rewind
+            lazyPreloadPrevNext={1}
+            keyboard={mainKeyboard}
+            a11y={a11y}
             spaceBetween={10}
             navigation
             thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-            modules={[FreeMode, Navigation, Thumbs]}
+            modules={mainModules}
             className="mySwiper2"
           >
             {images.map((image, index) => (
-              <SwiperSlide key={`${image}-${index}`}>
-                <img src={image} alt={`${projetContent.title} – vue ${index + 1}`} className="w-full h-full object-contain" />
+              <SwiperSlide key={image.src}>
+                <img
+                  src={image.src}
+                  srcSet={image.srcSet}
+                  sizes="(min-width: 69rem) 69rem, 100vw"
+                  alt={`${projetContent.title} – ${image.label}`}
+                  // Première image : affichée tout de suite et chargée en priorité (LCP)
+                  {...(index === 0 ? { fetchPriority: "high" } : { loading: "lazy" })}
+                  decoding="async"
+                  className={image.isDrawing ? "is-drawing" : undefined}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
           <div className="max-md:hidden mt-3">
             <Swiper
-              key={`${projetId}-thumbs`}
               onSwiper={setThumbsSwiper}
               spaceBetween={10}
-              slidesPerView={Math.min(9, images.length || 1)}
+              slidesPerView={Math.min(9, images.length)}
               freeMode
               watchSlidesProgress
-              modules={[FreeMode, Navigation, Thumbs]}
+              modules={thumbsModules}
               className="mySwiper"
             >
-              {images.map((image, index) => (
-                <SwiperSlide key={`${image}-${index}`}>
-                  <img src={image} alt={`${projetContent.title} – miniature ${index + 1}`} className="w-full h-auto object-contain" />
+              {images.map((image) => (
+                <SwiperSlide key={image.src}>
+                  <img src={image.src} srcSet={image.srcSet} sizes="10rem" alt="" loading="lazy" decoding="async" className={image.isDrawing ? "is-drawing" : undefined} />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
-          </>
-          )}
         </div>
-        <div className="col-start-2 col-end-12 mt-20 mb-20">
-          <p className="text-formatting">{projetContent.description}</p>
+        <div className="mt-20 mb-20 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-8">
+          <div className="lg:mx-auto lg:max-w-[75ch]">
+            <p className="text-formatting">
+              {projetContent.description}
+            </p>
+          </div>
         </div>
-      </div>
-      <Footer />
+      </Container>
     </div>
   );
 }

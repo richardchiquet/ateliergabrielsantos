@@ -1,77 +1,148 @@
 import { content } from "../../constants/Content";
 
-// Images
-import cover1 from "../../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.jpg";
-import cover2 from "../../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.jpg";
-import cover3 from "../../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.jpg";
-import cover4 from "../../assets/photosProjets/projet4/003-1-RENOVATION INTERIEUR 01-Vue INT 01.jpg";
-import cover5 from "../../assets/photosProjets/projet5/006-1-CABANON 01-Vue EXT 01.jpg";
-import cover6 from "../../assets/photosProjets/projet6/007-1-Appartement Nice-Vue INT 01.jpg";
+/*
+    Images des projets, résolues à la compilation (vite-imagetools)
+    Les URL sont importées directement (eager)
+*/
+const listPhotoProjet = "../../assets/photosProjets";
+// Galerie 
+const galleryUrls = import.meta.glob("../../assets/photosProjets/*/*.{jpg,jpeg,png,webp}", { eager: true, import: "default" });
+const gallerySrcsets = import.meta.glob("../../assets/photosProjets/*/*.{jpg,jpeg,png,webp}", { eager: true, import: "default", query: "?w=320;960;1600&format=webp&as=srcset" });
+// Couvertures 
+const coverSrcsets = import.meta.glob("../../assets/photosProjets/*/[0-9][0-9][0-9]-1-*.webp", { eager: true, import: "default", query: "?w=640;1280&format=webp&as=srcset" });
+const coverOgs = import.meta.glob("../../assets/photosProjets/*/[0-9][0-9][0-9]-1-*.webp", { eager: true, import: "default", query: "?w=1200&h=630&fit=cover&format=jpeg&quality=82" });
 
-const imageLoader = import.meta.glob("../../assets/photosProjets/*/*.jpg");
+const listImageLabels = content.projects.image_labels;
+const listImageLabelRules = [
+    [
+        /^Vue EXT/i, 
+        listImageLabels.exterior
+    ],
+    [
+        /^Vue INT/i, 
+        listImageLabels.interior
+    ],
+    [
+        /^Plan RDC/i, 
+        listImageLabels.ground_floor_plan
+    ],
+    [
+        /^Plan/i, 
+        listImageLabels.plan
+    ],
+    [
+        /^Coupe/i, 
+        listImageLabels.section
+    ],
+    [
+        /^Fa[cç]ade/i, 
+        listImageLabels.facade
+    ],
+    [
+        /^Axonom[eé]trie/i, 
+        listImageLabels.axonometric
+    ],
+];
 
-function getImageLoaderForFolder(folderName) {
-    return Object.entries(imageLoader)
-    .filter(([path]) => path.includes(`/photosProjets/${folderName}/`))
-    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, undefined, { numeric: true }))
-    .map(([, loader]) => loader);
+function imageLabel(path) {
+    const name = decodeURIComponent(path.split("/").pop()).replace(/\.[a-z0-9]+$/i, "");
+    const last = name.split("-").pop().trim();
+    const rule = listImageLabelRules.find(([re]) => re.test(last));
+    if (!rule) return last.toLowerCase();
+    const lastWord = last.split(" ").pop();
+    const number = /^\d+$/.test(lastWord) ? lastWord : undefined;
+    return number && rule[1] !== listImageLabels.ground_floor_plan ? `${rule[1]} ${Number(number)}` : rule[1];
+}
 
+const inFolder = (glob, folder) => Object.entries(glob).find(([path]) => path.startsWith(`${listPhotoProjet}/${folder}/`))?.[1];
+
+function folderImages(folder) {
+    const images = Object.keys(galleryUrls)
+        .filter((path) => path.startsWith(`${listPhotoProjet}/${folder}/`))
+        .sort((pathA, pathB) => pathA.localeCompare(pathB, undefined, { numeric: true }))
+        .map((path) => ({
+            src: galleryUrls[path],
+            srcSet: `${gallerySrcsets[path]}, ${galleryUrls[path]} 2560w`,
+            label: imageLabel(path),
+            isDrawing: !/Vue (EXT|INT)/i.test(path.split("/").pop()),
+        }));
+    return {
+        images,
+        cover: images[0].src,
+        coverSrcset: inFolder(coverSrcsets, folder),
+        coverOg: inFolder(coverOgs, folder),
+    };
 }
 
 export const projetsConfig = {
     Projet1: {
+        url: content.projects.project_1.url,
         color: "bg-chrome-400",
         content: content.projects.project_1,
-        text_color: "text-black",
-        category: content.projects.category.draft,
-        cover: cover1,
-        status: "",
-        getImageLoader: () => getImageLoaderForFolder("projet1"),
+        category: content.projects.category.new_construction,
+        status: content.projects.status.draft,
+        location: content.projects.empty,
+        year: content.projects.year.twentySix,
+        ...folderImages("projet1"),
     },
     Projet2: {
+        url: content.projects.project_2.url,
         color: "bg-greige-400",
         content: content.projects.project_2,
-        text_color: "text-black",
-        category: content.projects.category.draft,
-        cover: cover2,
-        status: "",
-        getImageLoader: () => getImageLoaderForFolder("projet2"),
+        category: content.projects.category.new_construction,
+        status: content.projects.status.draft,
+        location: content.projects.empty,
+        year: content.projects.year.twentySix,
+        ...folderImages("projet2"),
     },
     Projet3: {
-        color: "bg-chrome-900",
+        url: content.projects.project_3.url,
+        color: "bg-walnut-400",
         content: content.projects.project_3,
-        text_color: "text-white",
-        category: content.projects.category.draft,
-        cover: cover3,
-        status: "",
-        getImageLoader: () => getImageLoaderForFolder("projet3"),
+        category: content.projects.category.new_construction,
+        status: content.projects.status.draft,
+        location: content.projects.empty,
+        year: content.projects.year.twentySix,
+        ...folderImages("projet3"),
     },
     Projet4: {
-        color: "bg-seafoam-400",
+        url: content.projects.project_4.url,
+        color: "bg-seafoam-300",
         content: content.projects.project_4,
-        text_color: "text-black",
-        category: content.projects.category.draft,
-        cover: cover4,
-        status:"",
-        getImageLoader: () => getImageLoaderForFolder("projet4"),
+        category: content.projects.category.interior_design,
+        status: content.projects.status.draft,
+        location: content.projects.empty,
+        year: content.projects.year.twentySix,
+        ...folderImages("projet4"),
     },
     Projet5: {
+        url: content.projects.project_5.url,
         color: "bg-greige-400",
         content: content.projects.project_5,
-        text_color: "text-black",
-        category: content.projects.category.draft,
-        cover: cover5,
-        status: "",
-        getImageLoader: () => getImageLoaderForFolder("projet5"),
+        category: content.projects.category.new_construction,
+        status: content.projects.status.draft,
+        location: content.projects.empty,
+        year: content.projects.year.twentySix,
+        ...folderImages("projet5"),
     },
     Projet6: {
+        url: content.projects.project_6.url,
         color: "bg-orange-400",
         content: content.projects.project_6,
-        text_color: "text-black",
-        category: content.projects.category.draft,
-        cover: cover6,
-        status: content.projects.status.ongoing,
-        getImageLoader: () => getImageLoaderForFolder("projet6"),
+        category: content.projects.category.renovation,
+        status: content.projects.status.draft,
+        location: content.projects.location.nice,
+        year: content.projects.year.twentySix,
+        ...folderImages("projet6"),
     }
-
 };
+
+// Informations affichées sous le titre
+export const getProjetDetails = (projet) => [
+    [content.projects.category.name, projet.category],
+    [content.projects.status.name, projet.status],
+    [content.projects.location.name, projet.location],
+    [content.projects.year.name, projet.year],
+].filter(([, value]) => value);
+
+export const getProjetByUrl = (url) => Object.values(projetsConfig).find((projet) => projet.url === url);

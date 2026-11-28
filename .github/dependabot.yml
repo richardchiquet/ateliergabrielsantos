@@ -1,0 +1,13 @@
+# Dependabot : propose chaque mois une pull request de mise à jour des dépendances npm
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    groups:
+      dependances:
+        update-types:
+          - "minor"
+          - "patch"

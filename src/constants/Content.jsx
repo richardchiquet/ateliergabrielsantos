@@ -2,28 +2,28 @@ export const content = {
     name: "Gabriel Santos",
     about: {
         title: "À propos",
-        text: "Gabriel Santos, architecte HMONP, vous accompagne dans la conception et la réalisation de vos projets à travers l'utilisation de matériaux naturels et écologiques."
+        text: "Gabriel Santos, architecte HMONP installé en Seine-et-Marne, vous accompagne dans la conception et la réalisation de vos projets à travers l'utilisation de matériaux naturels et écologiques. Il intervient en Île-de-France et dans les départements limitrophes."
     },
     meta: {
         accueil: {
-            title: "L'atelier Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77)",
-            description: "Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77), conçoit des maisons, rénovations et extensions saines en matériaux biosourcés : bois, paille, argile.",
+            title: "Gabriel Santos, architecte HMONP en Seine-et-Marne (77)",
+            description: "Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77), conçoit maisons, rénovations et extensions saines en bois, paille et argile.",
         },
         projets: {
-            title: "Projets d'architecture en matériaux sains | Atelier Gabriel Santos",
+            title: "Projets en matériaux sains | Atelier Gabriel Santos",
             description: "Micro-habitats, maison familiale évolutive, rénovation intérieure et cabanon : les projets de Gabriel Santos, architecte HMONP en Île-de-France.",
         },
         services: {
-            title: "Services d'architecte : construction, rénovation | Atelier Gabriel Santos",
-            description: "Construction neuve, rénovation, extension, équipement public, aménagement intérieur et mobilier sur mesure : les missions de Gabriel Santos, architecte HMONP.",
+            title: "Construction, rénovation (77) | Atelier Gabriel Santos",
+            description: "Construction neuve, rénovation, extension, équipement public, aménagement intérieur et mobilier sur mesure : les missions de Gabriel Santos, architecte.",
         },
         atelier: {
-            title: "L'atelier : l'architecte et sa philosophie | Atelier Gabriel Santos",
+            title: "L'architecte et sa démarche | Atelier Gabriel Santos",
             description: "Architecte HMONP diplômé en 2021, Gabriel Santos place les matériaux bio-sourcés et géo-sourcés au cœur de sa démarche pour concevoir des espaces sains.",
         },
         contact: {
-            title: "Contact : architecte à Couilly-Pont-aux-Dames (77) | Atelier Gabriel Santos",
-            description: "Contactez Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77). Intervention en Île-de-France et départements limitrophes, du lundi au vendredi.",
+            title: "Contacter l'architecte (77) | Atelier Gabriel Santos",
+            description: "Contactez Gabriel Santos, architecte HMONP à Couilly-Pont-aux-Dames (77860), en Île-de-France et départements limitrophes, du lundi au vendredi.",
         },
     },
     navigation: {
@@ -31,8 +31,9 @@ export const content = {
     },
     home: {
         title: "Accueil",
-        subtitle: "L'atelier Gabriel Santos",
+        subtitle: "Atelier Gabriel Santos",
         second_title: "Architecte HMONP\nCréateur d'espaces sains et fonctionnels",
+        background_alt: "Perspective d'une maison familiale contemporaine à portiques en bois et toiture en tuiles, entourée d'un jardin luxuriant",
         logo_alt: "Logo de l'atelier Gabriel Santos",
         cta: {
             contact: "Contactez-moi",
@@ -41,18 +42,18 @@ export const content = {
         },
         materials: {
             title: "Une approche par les matériaux",
-            text: "Je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public.\n\nMon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.",
+            text: "Depuis la Seine-et-Marne, je conçois des espaces sains et fonctionnels adaptés aux usagers, que ce soit de l'habitat ou des établissements recevant du public (ERP), partout en Île-de-France.\n\nMon approche du projet se fait à travers les matériaux : de par leur aspect, leurs propriétés et leur impact environnemental. Les matériaux sont un point central dans ma démarche architecturale.",
             clay: {
                 name: "Argile",
-                description: "Image illustrative de l'argile, matériau naturel qui permet de réguler l'humidité et la température dans les bâtiments."
+                description: "Enduit de terre crue à la surface texturée, parsemée de fibres végétales"
             },
             wood: {
                 name: "Bois",
-                description: "Image illustrative du bois, matériau renouvelable et écologique qui offre une grande variété d'essences et de finitions."
+                description: "Planches de bois brut aux teintes brunes, traversées par une poutre horizontale"
             },
             straw: {
                 name: "Paille",
-                description: "Image illustrative de la paille, matériau isolant naturel qui permet de réduire les besoins en chauffage et en climatisation."
+                description: "Gros plan sur une botte de paille compressée"
             }
         },
         contact: {
@@ -65,40 +66,76 @@ export const content = {
     },
     projects: {
         title: "Projets",
-        back: "Retour aux projets",
-        icon_back: "←",
+        back: "← Retour aux projets",
+        image_labels: {
+            exterior: "vue extérieure",
+            interior: "vue intérieure",
+            ground_floor_plan: "plan du rez-de-chaussée",
+            plan: "plan",
+            section: "coupe",
+            facade: "façade",
+            axonometric: "axonométrie",
+        },
+        empty: "",
         status: {
-            ongoing: "Statut : En cours",
-            completed: "Statut : Terminé"
+            name: "Statut",
+            draft: "Esquisse",
+            ongoing: "En cours",
+            completed: "Terminé"
         },
         category: {
-            project: "Catégorie : Projet",
-            draft: "Catégorie : Ébauche",
-            competition: "Catégorie : Concours"
+            name: "Catégorie",
+            new_construction: "Construction neuve",
+            extension: "Extension",
+            renovation: "Rénovation",
+            interior_design: "Aménagement intérieur",
+            furniture: "Mobilier",
+            public_facilities: "Équipement public",
+        },
+        location:{
+            name: "Lieu",
+            nice: "Nice",
+            ile_de_france: "Île-de-France"
+        },
+        year: {
+            name: "Année",
+            twentySix: "2026",
         },
         project_1: {
-            title: "Micro Habitat 1",
-            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical. Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison. La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. La pergolas et les brises soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
+            url: "micro-habitat",
+            meta_description: "Micro-habitat en ossature bois isolée en laine de bois : un volume simple, une façade vitrée et une pergola sur terrasse. Projet de Gabriel Santos.",
+            title: "Micro Habitat",
+            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualité avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet est un volume simple avec une façade largement vitrée et du bardage bois vertical. Le bardage bois est séparé en deux parties par un élément horizontal qui se prolonge afin de créer une pergola qui recouvre une large terrasse faisant toute la longueur de la maison. La toiture est en tôle acier à joint debout afin de prolonger la verticalité du bardage de la façade.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossature bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. La pergola et les brise-soleil orientables permettent aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
         },
         project_2: {
-            title: "Famille House 1",
-            description: "Le projet intègre dès sa conception l'idée que dans le futur, le bâtiment puisse être étendu afin d'accueillir une famille plus nombreuse. Dans ce cas, l'extension se fait de manière horizontale dans la continuité structurelle du bâtiment ce qui permet, à terme, d'ajouter une chambre parentale avec une salle de bain supplémentaire.\n\nAu niveau architectural, le projet crée une série de portiques en bois qui donnent une épaisseur importante et un langage contemporain à la façade. La façade largement vitrée domine un soubassement en béton brut venant en continuité des portiques qui assoit le bâtiment dans le sol. Enfin la toiture en tuile plate de pays permet au bâtiment de s'intégrer facilement dans le contexte urbain ou rural des communes françaises.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Les cloisonnements principaux sont réalisés en blocs de terre comprimée ce qui apporte en complément de l'isolant une inertie thermique importante au bâtiment. En combinant ces deux éléments (isolation et inertie) nous créons les conditions pour que le confort d'hiver comme d'été soit idéal. Le système de portique en bois combiné à des brises soleil orientables, permet aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de maison familiale a pour objectif d'évoluer avec la famille qui s'y installe et de proposer tout ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
+            url: "maison-familiale-modulable",
+            meta_description: "Maison familiale à portiques en bois et façade vitrée, pensée dès sa conception pour s'agrandir avec la famille. Projet de Gabriel Santos, architecte.",
+            title: "Maison familiale modulable",
+            description: "Le projet intègre dès sa conception l'idée que dans le futur, le bâtiment puisse être étendu afin d'accueillir une famille plus nombreuse. Dans ce cas, l'extension se fait de manière horizontale dans la continuité structurelle du bâtiment ce qui permet, à terme, d'ajouter une chambre parentale avec une salle de bain supplémentaire.\n\nAu niveau architectural, le projet crée une série de portiques en bois qui donnent une épaisseur importante et un langage contemporain à la façade. La façade largement vitrée domine un soubassement en béton brut venant en continuité des portiques qui assoit le bâtiment dans le sol. Enfin la toiture en tuile plate de pays permet au bâtiment de s'intégrer facilement dans le contexte urbain ou rural des communes françaises.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en béton avec vide sanitaire. Les murs à ossature bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Les cloisonnements principaux sont réalisés en blocs de terre comprimée ce qui apporte en complément de l'isolant une inertie thermique importante au bâtiment. En combinant ces deux éléments (isolation et inertie) nous créons les conditions pour que le confort d'hiver comme d'été soit idéal. Le système de portique en bois combiné à des brise-soleil orientables permet aux usagers de gérer facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de maison familiale a pour objectif d'évoluer avec la famille qui s'y installe et de proposer tout ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
         },
         project_3: {
-            title: "Micro Habitat 2",
-            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet s'implante dans un paysage boisé et entretient un rapport à la nature particulier. Le bâtiment est un volume simple brisé en son centre avec une façade largement vitrée et des parties pleines en bardage bois brûlé inspiré de la technique japonaise du Shou-sugi-ban. Le bardage bois brûlé permet à ce dernier d'être plus durable et de mieux résister aux intempéries. La toiture est en tôle acier finement ondulée et vient en large débord par rapport aux façades. Une large terrasse et une circulation couverte sont aménagées sous ce débord tout autour de la maison. Un escalier immergé est installé le long de la circulation pour donner accès au bassin de baignade mitoyen avec le bâtiment.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en pieux permettant d'installer le bâtiment au-dessus du sol. Cela permet de limiter l'impact du bâtiment sur les sols existants. Les murs à ossatures bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. Le large débord de toiture permet au bâtiment de limiter facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
+            url: "cabane-en-bord-de-lac",
+            meta_description: "Micro-habitat en bois brûlé (shou-sugi-ban) dans un paysage boisé, au bord d'un lac : un volume simple et vitré. Projet de Gabriel Santos.",
+            title: "Cabane en bord de lac",
+            description: "Le projet de micro-habitat a pour objectif de proposer une construction accessible à tous. Il propose des prestations de qualité avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet s'implante dans un paysage boisé et entretient un rapport à la nature particulier. Le bâtiment est un volume simple brisé en son centre avec une façade largement vitrée et des parties pleines en bardage bois brûlé inspiré de la technique japonaise du Shou-sugi-ban. Le bardage bois brûlé permet à ce dernier d'être plus durable et de mieux résister aux intempéries. La toiture est en tôle acier finement ondulée et vient en large débord par rapport aux façades. Une large terrasse et une circulation couverte sont aménagées sous ce débord tout autour de la maison. Un escalier immergé est installé le long de la circulation pour donner accès au bassin de baignade mitoyen avec le bâtiment.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations en pieux permettant d'installer le bâtiment au-dessus du sol. Cela permet de limiter l'impact du bâtiment sur les sols existants. Les murs à ossature bois et la toiture sont isolés en laine de bois, afin d'atteindre des niveaux de résistance thermique élevée avec des matériaux bio-sourcés. Cette isolation combinée avec un système de PAC réversible nous offre des conditions idéales pour un confort d'hiver comme d'été. Le large débord de toiture permet au bâtiment de limiter facilement les apports de lumière directs tout en gardant une luminosité suffisante en intérieur.\n\nPour terminer, ce projet de micro-habitat a pour objectif de donner accès à un logement aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de thermique, confort, luminosité, santé, usages et qualité architecturale."
         },
         project_4: {
-            title: "Rénovation intérieure",
-            description: "Le projet d'aménagement de cet intérieur a pour objectif de proposer une qualité de vie importante aux usagers. Il propose des prestations de qualités avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet s'implante dans une maison de ville ancienne avec très peu d'ouvertures sur l'extérieur. Cette contrainte nous amène donc à aller chercher la lumière en y installant les éléments les plus bas de côté des ouvertures et installer les éléments hauts sur les murs du fond de la pièce. L'aménagement du projet propose, premièrement un meuble bas sur mesure permettant d'intégrer des rangements, un radiateur et le meuble télévision. Ce meuble permet également de poser des plantes sur le plan supérieur mais également de proposer des assises lorsqu'il y a des invités. Deuxièmement la cuisine intégrée au projet vient en prolongement de ce meuble bas sur le fond de la pièce. Le meuble vient prendre toute la largeur de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en faïence et le comptoir en terrazzo. Ensuite, le sol existant est remplacé par des tomettes traditionnelles. Ayant une inertie thermique élevée et étant facilement nettoyable ce matériau permet au projet de conserver l'esthétique traditionnelle du reste de la maison tout en étant facile d'entretien et se mariant à merveille avec le mobilier contemporain.\n\nPour conclure, ce projet d'aménagement a pour objectif de donner un espace intérieur de qualité aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de confort, luminosité, santé, usages et qualité architecturale."
+            url: "amenagement-couilly-pont-aux-dames",
+            meta_description: "Aménagement intérieur d'une maison de ville ancienne à Couilly-Pont-aux-Dames (77), pensé pour capter la lumière avec des matériaux sains.",
+            title: "Aménagement à Couilly-Pont-aux-Dames",
+            description: "Le projet d'aménagement de cet intérieur a pour objectif de proposer une qualité de vie importante aux usagers. Il propose des prestations de qualité avec des matériaux sains et performants ainsi qu'une qualité d'espace et architecturale importante.\n\nArchitecturalement, le projet s'implante dans une maison de ville ancienne avec très peu d'ouvertures sur l'extérieur. Cette contrainte nous amène donc à aller chercher la lumière en y installant les éléments les plus bas de côté des ouvertures et installer les éléments hauts sur les murs du fond de la pièce. L'aménagement du projet propose, premièrement un meuble bas sur mesure permettant d'intégrer des rangements, un radiateur et le meuble télévision. Ce meuble permet également de poser des plantes sur le plan supérieur mais également de proposer des assises lorsqu'il y a des invités. Deuxièmement la cuisine intégrée au projet vient en prolongement de ce meuble bas sur le fond de la pièce. Le meuble vient prendre toute la largeur de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en faïence et le comptoir en terrazzo. Ensuite, le sol existant est remplacé par des tomettes traditionnelles. Ayant une inertie thermique élevée et étant facilement nettoyable ce matériau permet au projet de conserver l'esthétique traditionnelle du reste de la maison tout en étant facile d'entretien et se mariant à merveille avec le mobilier contemporain.\n\nPour conclure, ce projet d'aménagement a pour objectif de donner un espace intérieur de qualité aux coûts raisonnés tout en donnant ce qui se fait de meilleur en termes de confort, luminosité, santé, usages et qualité architecturale."
         },
         project_5: {
-            title: "Cabanon",
-            description: "Le projet de cabanon de jardin a pour objectif de proposer une construction légère et esthétique à installer dans un jardin. Il propose des prestations de qualités et une capacité d'usage élevé. La qualité d'espace et architecturale permet au projet de s'intégrer facilement dans son environnement.\n\nArchitecturalement, le projet s'implante dans un paysage entouré de nature et entretient un rapport particulier à celle-ci. Le cabanon est un volume simple proposant une façade montrant un parallélépipède droit lorsqu'elle est fermée et une richesse d'ouverture possible lorsqu'elle est ouverte. La structure en bois est visible en partie basse et haute du volume parallélépipédique et permet à une toiture en tôle acier finement ondulée de venir couvrir et étancher le cabanon. Les ouvertures de façade sont comme des volets et permettent une multiplicité des usages rendant le cabanon central dans l'usage du jardin.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations superficielles. Cela permet de limiter l'impact du bâtiment sur les sols existants.\n\nPour conclure, ce projet de cabanon a pour objectif de donner accès à un rangement de jardin aux coûts raisonnés tout en donnant une multiplicité d'usage pratique ainsi qu'une qualité architecturale."
+            url: "cabanon-de-jardin",
+            meta_description: "Cabanon de jardin léger : un volume simple qui s'ouvre largement sur la nature et s'intègre à son environnement. Projet de Gabriel Santos.",
+            title: "Cabanon de jardin",
+            description: "Le projet de cabanon de jardin a pour objectif de proposer une construction légère et esthétique à installer dans un jardin. Il propose des prestations de qualité et une capacité d'usage élevée. La qualité d'espace et architecturale permet au projet de s'intégrer facilement dans son environnement.\n\nArchitecturalement, le projet s'implante dans un paysage entouré de nature et entretient un rapport particulier à celle-ci. Le cabanon est un volume simple proposant une façade montrant un parallélépipède droit lorsqu'elle est fermée et une richesse d'ouvertures possibles lorsqu'elle est ouverte. La structure en bois est visible en partie basse et haute du volume parallélépipédique et permet à une toiture en tôle acier finement ondulée de venir couvrir et étancher le cabanon. Les ouvertures de façade sont comme des volets et permettent une multiplicité des usages rendant le cabanon central dans l'usage du jardin.\n\nEn termes de technique : le projet est conçu en ossature et charpente bois posées sur des fondations superficielles. Cela permet de limiter l'impact du bâtiment sur les sols existants.\n\nPour conclure, ce projet de cabanon a pour objectif de donner accès à un rangement de jardin aux coûts raisonnés tout en donnant une multiplicité d'usage pratique ainsi qu'une qualité architecturale."
         },
         project_6: {
-            title: "Appartement Nice",
-            description: "Ce projet à pour objectif la restructuration de la partie salle d’eau et cuisine d’un appartement à Nice. Cet appartement est situé en RDC et possède une double orientation avec de grandes ouvertures.\n\nLa maîtrise d’ouvrage souhaite aménager dans cet appartement de 32m2 un espace nuit avec un accès direct à une salle d’eau, ainsi qu’une deuxième salle d’eau accessible depuis l’espace de vie principal et d’une cuisine sur mesure le long de la façade.\n\n\nPour ce faire j’ai proposé plusieurs configurations, toutes, respectant les contraintes de programme et d’espace. Vous voyez ici la proposition qui optimise au maximum la taille de la pièce de vie en créant ainsi un grand volume capable d’accueillir une dizaine de personnes.\n\nDans cette pièce, une cuisine sur mesure vient en prolongement de la façade et fait face à la mezzanine existante de l’appartement. Le meuble vient prendre la quasi-totalité de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en inox et le comptoir en terrazzo. En termes de technique, le meuble contient un évier, un réfrigérateur, une machine à laver, un micro-onde, des rangements, une banquette pouvant devenir un lit, une unité intérieure de climatisation et un écran pour projecteur déroulant.\n\nLa pièce de vie étant optimisée au maximum, la pièce de nuit et les salles d’eau sont, de ce fait, réduites à leurs strict minimum. En termes de couleurs et de matériaux les zones humides sont traitées sur les murs en faïence de couleur vert émeraude et sur le sol en carrelage gris. La pièce de nuit est séparée de la zone humide par une porte coulissante imitation shogi japonais afin de créer une ambiance calme et détendue dans cette pièce. Le sol est en tatami ce qui permet de créer une zone à usage mixte : une pièce de rangement, une pièce de travail, ou avec un futon une pièce pour dormir.\n\nEn résumé, ce projet d’aménagement a été un petit casse tête contraint par un espace de 32m2 et un programme comportant beaucoup d’éléments à faire fonctionner ensemble. Ce qui n’empêche pas d’avoir un espace agréable, fonctionnel et adapté au besoin du client."
+            url: "appartement-a-nice",
+            meta_description: "Restructuration de la cuisine et des salles d'eau d'un appartement de 32 m² à Nice : espace nuit, deux salles d'eau et cuisine sur mesure.",
+            title: "Appartement à Nice",
+            description: "Ce projet a pour objectif la restructuration de la partie salle d’eau et cuisine d’un appartement à Nice. Cet appartement est situé en RDC et possède une double orientation avec de grandes ouvertures.\n\nLa maîtrise d’ouvrage souhaite aménager dans cet appartement de 32 m² un espace nuit avec un accès direct à une salle d’eau, ainsi qu’une deuxième salle d’eau accessible depuis l’espace de vie principal et une cuisine sur mesure le long de la façade.\n\nPour ce faire, j’ai proposé plusieurs configurations, toutes respectant les contraintes de programme et d’espace. Vous voyez ici la proposition qui optimise au maximum la taille de la pièce de vie en créant ainsi un grand volume capable d’accueillir une dizaine de personnes.\n\nDans cette pièce, une cuisine sur mesure vient en prolongement de la façade et fait face à la mezzanine existante de l’appartement. Le meuble vient prendre la quasi-totalité de la pièce. Seul le plan de travail vient creuser ce volume afin de permettre à la lumière naturelle de venir éclairer la crédence en inox et le comptoir en terrazzo. En termes de technique, le meuble contient un évier, un réfrigérateur, une machine à laver, un micro-ondes, des rangements, une banquette pouvant devenir un lit, une unité intérieure de climatisation et un écran pour projecteur déroulant.\n\nLa pièce de vie étant optimisée au maximum, la pièce de nuit et les salles d’eau sont, de ce fait, réduites à leur strict minimum. En termes de couleurs et de matériaux les zones humides sont traitées sur les murs en faïence de couleur vert émeraude et sur le sol en carrelage gris. La pièce de nuit est séparée de la zone humide par une porte coulissante imitation shoji japonais afin de créer une ambiance calme et détendue dans cette pièce. Le sol est en tatami ce qui permet de créer une zone à usage mixte : une pièce de rangement, une pièce de travail, ou avec un futon une pièce pour dormir.\n\nEn résumé, ce projet d’aménagement a été un petit casse-tête contraint par un espace de 32 m² et un programme comportant beaucoup d’éléments à faire fonctionner ensemble. Ce qui n’empêche pas d’avoir un espace agréable, fonctionnel et adapté au besoin du client."
         },
     },
     atelier: {
@@ -106,20 +143,26 @@ export const content = {
         subtitle: "L'architecte derrière l'atelier",
         history: {
             title: "Son histoire",
-            textPart1: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics, des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.",
-            textPart2: "Mon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage.\n\nLa simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet.\nLe temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers.\n\nLa réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
+            alt: "Homme dessinant à la main la perspective d'un bâtiment sur un rouleau de papier, une règle posée à côté",
+            textPart1: "L'atelier d'architecture Gabriel Santos est une entreprise dirigée par un architecte HMONP diplômé en 2021.\n\nMon expérience me permet d'explorer tout type de projet architectural : de l'habitat particulier, des logements, des équipements publics (ERP), des commerces, de l'aménagement intérieur et du dessin de mobilier.\n\nEngagées dans des démarches critiques sur la profession, les questions écologiques sont centrales dans mon travail et deviennent une opportunité de projet capable de faire émerger une architecture chaleureuse qui s'inscrit dans un contexte local, qui maîtrise son empreinte environnementale et qui offre une grande qualité de vie et d'usage.",
+            textPart2: "Mon approche du projet cherche à trouver un équilibre entre les éléments existants, ceux créés par le projet et les besoins de la maîtrise d'ouvrage.\n\nLa simplicité et la cohérence des aménagements proposés permettent d'apprécier une qualité architecturale et de créer des projets où le rapport qualité-prix prend tout son sens et devient inhérent au projet. Le temps de la conception et du dialogue est très important. Il permet, lorsqu'il est suffisant, d'éviter une conception trop générale et peu adaptée aux besoins des usagers.\n\nLa réussite d'un projet passe par une définition précise des ouvrages mis en œuvre. Le choix des matériaux, le rapport au sol, la cohérence structurelle, les aménagements extérieurs, la gestion des flux, le choix des couleurs et tant d'autres sont des enjeux qui contribuent grandement à la qualité finale du projet."
         },
         philosophy: {
             title: "Sa philosophie",
-            textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43% des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.",
+            alt: "Gabriel Santos enlaçant un immense pilier en bois rouge dans la salle d'un temple japonais",
+            textPart1: "La place des matériaux est centrale dans le secteur de la construction. Celui-ci représente 43 % des émissions de gaz à effet de serre en France en 2022. Il participe donc grandement au dérèglement climatique.\n\nL'utilisation de matériaux bio-sourcés et géo-sourcés accompagnés d'une conception prenant en compte les variations climatiques est une solution adaptée pour réduire l'impact environnemental du secteur.",
             textPart2: "C'est pour cela que j'ai à cœur de concevoir des espaces sains et fonctionnels adaptés aux besoins des usagers.\n\nEt cela passe par la compréhension des matériaux utilisés dans la construction : leur aspect, leurs propriétés et leur impact environnemental.\nLes matériaux et leur mise en œuvre sont un point central dans ma démarche architecturale."
         }
     },
     services: {
         title: "Services",
         subtitle: "Services proposés",
+        list_title: "Nos prestations",
         new_construction: {
+            id: "construction-neuve",
             title: "Construction neuve",
+            alt: "Échafaudage métallique dressé contre la façade d'un immeuble en construction, encadré de branches de conifères",
+            credit: "Photo : them snapshots, Unsplash",
             text: "Conception et réalisation de bâtiments performants où l'attention est portée sur la nature des matériaux, leur mise en œuvre et sur leur efficacité énergétique.",
             list: [
                 "Étude de faisabilité et programmation",
@@ -130,8 +173,11 @@ export const content = {
             ]
         },
         renovation: {
+            id: "renovation",
             title: "Rénovation",
-            text: "Conception et réalisation de réhabilitation de bâtiment existant où l'attention est portée sur la mise en valeur des éléments présents. La mise aux normes et l'amélioration des performances du bâtiment passe par le réemploi de matériaux et techniques traditionnelles.",
+            alt: "Un architecte et un homme en casque de chantier observent des ouvriers sur le chantier de réhabilitation d'un bâtiment en briques entouré d'échafaudages",
+            credit: "Photo : Mark Potterton, Unsplash",
+            text: "Conception et réalisation de réhabilitation de bâtiment existant où l'attention est portée sur la mise en valeur des éléments présents. La mise aux normes et l'amélioration des performances du bâtiment passent par le réemploi de matériaux et techniques traditionnelles.",
             list: [
                 "Diagnostics des existants",
                 "Mise aux normes réglementaires",
@@ -142,7 +188,10 @@ export const content = {
             ]
         },
         interior_design: {
+            id: "amenagement-interieur",
             title: "Aménagement intérieur",
+            alt: "Salon aux murs habillés de bois avec étagères, canapé, fauteuils et suspensions lumineuses, ouvert par une grande baie vitrée sur la ville",
+            credit: "Photo : Zaji Kanamajinas, Unsplash",
             text: "Optimisation, personnalisation et design d'espaces intérieurs fonctionnels et esthétiques.",
             list: [
                 "Plans d'aménagement",
@@ -153,7 +202,10 @@ export const content = {
             ],
         },
         furniture: {
+            id: "mobilier",
             title: "Mobilier",
+            alt: "Détail d'un fauteuil en bois au coussin vert et à l'assise jaune cloutée, baigné de soleil",
+            credit: "Photo : Hans, Unsplash",
             text: "Conception de mobilier sur mesure intégré à votre projet.",
             list: [
                 "Design sur mesure",
@@ -164,8 +216,11 @@ export const content = {
             ]
         },
         public_facilities: {
+            id: "equipement-public",
             title: "Équipement public",
-            text: "Conception et réalisation d'établissements recevant du public conformes aux normes d'accessibilité et de sécurité adaptés aux besoins de la maîtrise d'ouvrage.",
+            alt: "Grande cour intérieure d'un musée couverte d'une verrière, traversée par des visiteurs",
+            credit: "Photo : Fabrizio Coco, Unsplash",
+            text: "Conception et réalisation d'établissements recevant du public (ERP) conformes aux normes d'accessibilité et de sécurité adaptés aux besoins de la maîtrise d'ouvrage.",
             list: [
                 "Mise en conformité",
                 "Accessibilité PMR",
@@ -175,7 +230,10 @@ export const content = {
             ]
         },
         extension: {
+            id: "extension",
             title: "Extension",
+            alt: "Ossature bois d'une extension en construction accolée à une maison en briques, une échelle appuyée contre la structure",
+            credit: "Photo : Curated Lifestyle, Unsplash",
             text: "Développement harmonieux de votre espace de vie en respectant l'architecture existante.",
             list: [
                 "Étude de faisabilité",
@@ -188,7 +246,8 @@ export const content = {
     },
     contact: {
         title: "Contact",
-        subtitle: "Un projet ? Contactez-moi !",
+        subtitle: "Un projet ?\nContactez-moi !",
+        alt: "Portrait de Gabriel Santos, architecte HMONP",
         text: "Je serais ravi d'échanger avec vous sur votre projet d'aménagement ou de construction.\nN'hésitez pas à me contacter pour toute interrogation ou demande de rendez-vous.",
         place: {
             title: "Zone d'intervention",
@@ -196,11 +255,12 @@ export const content = {
         },
         hours: {
             title: "Horaires",
-            text: "Lundi - Vendredi : 9h - 18h"
+            text: "Lundi - Vendredi : 10h - 17h"
         },
         address: {
             title: "Adresse",
-            text: "3 Place du Marché, 77860 Couilly-Pont-aux-Dames"
+            text: "3 Place du Marché, 77860 Couilly-Pont-aux-Dames",
+            url: "https://maps.app.goo.gl/FYcmSHEngpb9MeS48"
         },
         phone: {
             title: "Téléphone",
@@ -221,6 +281,17 @@ export const content = {
             projects: "Voir les projets"
         }
     },
+    legal_links: {
+        label: "Informations légales",
+        notice: {
+            url: "/mentions-legales",
+            title: "Mentions légales"
+        },
+        privacy: {
+            url: "/politique-de-confidentialite",
+            title: "Politique de confidentialité"
+        }
+    },
     social_media: {
         title: "Réseaux sociaux",
         linkedin: {
@@ -230,6 +301,45 @@ export const content = {
         instagram: {
             title: "Instagram",
             url: "https://www.instagram.com/atelier_gabrielsantos/"
+        },
+        architectes_pour_tous: {
+            title: "Architectes pour tous",
+            url: "https://www.architectes-pour-tous.fr/architectes-pour-tous/santos-gabriel"
         }
     }
+};
+
+// Listes partagées par plusieurs composants
+
+// Réseaux sociaux
+export const socials = [
+    content.social_media.linkedin,
+    content.social_media.instagram,
+    content.social_media.architectes_pour_tous,
+];
+
+// Services de la page Services ; « id » = ancre de la section (/services#id)
+export const serviceList = [
+    content.services.new_construction,
+    content.services.renovation,
+    content.services.extension,
+    content.services.interior_design,
+    content.services.furniture,
+    content.services.public_facilities,
+];
+
+// Liens de contact
+export const contactLinks = {
+    phone: { 
+        label: content.contact.phone.text, 
+        href: `tel:${content.contact.phone.url}` 
+    },
+    email: { 
+        label: content.contact.email.text, 
+        href: `mailto:${content.contact.email.text}` 
+    },
+    address: { 
+        label: content.contact.address.text, 
+        href: content.contact.address.url 
+    },
 };
