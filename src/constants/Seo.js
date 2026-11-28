@@ -1,7 +1,7 @@
 import { content } from "./Content";
 
 // Images
-import ogImage from "../assets/photosAccueil/backgroundHome.webp";
+import ogImage from "../assets/photosAccueil/backgroundHome.webp?w=1200&h=630&fit=cover&format=jpeg&quality=82";
 import logo from "../assets/logoNB.png";
 
 export const websiteUrl = "https://www.ateliergabrielsantos.com";
@@ -9,7 +9,20 @@ export const websiteName = "L'atelier Gabriel Santos";
 
 const absolute = (path) => (path.startsWith("http") ? path : `${websiteUrl}${path}`);
 
-export function buildMeta({ title, description, path, image = ogImage }) {
+export function breadcrumbJsonLd(items) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [[content.home.title, "/"], ...items].map(([name, path], index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name,
+            item: absolute(path),
+        })),
+    };
+}
+
+export function buildMeta({ title, description, path, image = ogImage, imageAlt = content.home.background_alt, breadcrumb, jsonLd = [] }) {
     const url = absolute(path);
     const imageUrl = absolute(image);
     return [
@@ -23,11 +36,17 @@ export function buildMeta({ title, description, path, image = ogImage }) {
         { property: "og:description", content: description },
         { property: "og:url", content: url },
         { property: "og:image", content: imageUrl },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: imageAlt },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
         { name: "twitter:image", content: imageUrl },
-    ];
+        { name: "twitter:image:alt", content: imageAlt },
+        ...(breadcrumb ? [breadcrumbJsonLd([[breadcrumb, path]])] : []),
+        ...jsonLd,
+    ].map((entry) => (entry["@context"] ? { "script:ld+json": entry } : entry));
 }
 
 export const websiteJsonLd = {
@@ -72,8 +91,23 @@ export const businessJsonLd = {
     openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
+        opens: "10:00",
+        closes: "17:00",
     },
-    sameAs: [content.social_media.linkedin.url, content.social_media.instagram.url],
+    sameAs: [content.social_media.linkedin.url, content.social_media.instagram.url, content.social_media.architectes_pour_tous.url],
+    hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: content.services.title,
+        itemListElement: [
+            content.services.new_construction,
+            content.services.renovation,
+            content.services.extension,
+            content.services.interior_design,
+            content.services.furniture,
+            content.services.public_facilities,
+        ].map((service) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: service.title, description: service.text, areaServed: "Île-de-France" },
+        })),
+    },
 };

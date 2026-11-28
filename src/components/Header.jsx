@@ -2,6 +2,7 @@ import { content } from "../constants/Content";
 import { Link, NavLink } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import Container from "./layout/Container";
+import { legal } from "../constants/Legal";
 
 // Images
 import logo from "../assets/logoNB.png";
@@ -36,7 +37,6 @@ const socials = [
     content.social_media.architectes_pour_tous,
 ];
 
-// NavLink ajoute aria-current="page" au lien actif ; on le signale aussi visuellement.
 const linkClass = "underline-offset-8 decoration-2 hover:underline aria-[current=page]:underline";
 
 function MenuIcon({ open }) {
@@ -52,7 +52,7 @@ function MenuIcon({ open }) {
 }
 
 export default function Header() {
-    const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const buttonRef = useRef(null);
     const firstLinkRef = useRef(null);
 
@@ -60,10 +60,10 @@ export default function Header() {
         if (!isMenuOpen) return;
         firstLinkRef.current?.focus();
 
-        // Tant que le menu est ouvert : le contenu derrière n'est plus atteignable (clavier, lecteurs d'écran)
-        // et la page ne défile plus
         const background = [document.querySelector('body > a[href="#contenu"]'), document.getElementById("contenu"), document.querySelector("body > footer")].filter(Boolean);
-        background.forEach((el) => { el.inert = true; });
+        background.forEach((el) => { 
+            el.inert = true; 
+        });
         const previousOverflow = document.body.style.overflow;
         document.body.style.overflow = "hidden";
 
@@ -74,6 +74,7 @@ export default function Header() {
             }
         };
         document.addEventListener("keydown", onKeyDown);
+
         return () => {
             document.removeEventListener("keydown", onKeyDown);
             background.forEach((el) => { el.inert = false; });
@@ -117,12 +118,9 @@ export default function Header() {
                 </button>
             </Container>
 
-            <div
-                id="menu-mobile"
-                className={`fixed inset-x-0 top-header bottom-0 overflow-y-auto bg-cream md:hidden ${isMenuOpen ? "block" : "hidden"}`}
-            >
-                <nav aria-label="Navigation mobile">
-                    <ul className="flex flex-col items-center gap-8 py-12">
+            <div id="menu-mobile" className={`fixed inset-x-0 top-header bottom-0 flex-col overflow-y-auto bg-cream md:hidden ${isMenuOpen ? "flex" : "hidden"}`}>
+                <nav aria-label="Navigation mobile" className="shrink-0">
+                    <ul className="flex flex-col items-center gap-[min(2rem,4svh)] py-[min(3rem,4svh)]">
                         {links.map((link, index) => (
                             <li key={link.to}>
                                 <NavLink
@@ -139,11 +137,11 @@ export default function Header() {
                     </ul>
                 </nav>
 
-                <nav aria-labelledby="menu-mobile-reseaux" className="mx-4 py-8">
-                    <h2 id="menu-mobile-reseaux" className="text-eyebrow mb-4 text-center">
+                <nav aria-labelledby="menu-mobile-reseaux" className="mx-4 shrink-0 py-[min(2rem,3svh)]">
+                    <h2 id="menu-mobile-reseaux" className="text-eyebrow mb-[min(1rem,2svh)] text-center">
                         {content.social_media.title}
                     </h2>
-                    <ul className="flex flex-col items-center gap-4">
+                    <ul className="flex flex-col items-center gap-[min(1rem,2svh)]">
                         {socials.map((social) => (
                             <li key={social.url}>
                                 <a href={social.url} target="_blank" rel="noopener noreferrer" className={linkClass}>
@@ -152,6 +150,23 @@ export default function Header() {
                                 </a>
                             </li>
                         ))}
+                    </ul>
+                </nav>
+
+                {/* Pas de footer en mobile : les liens légaux sont en bas du menu */}
+                <nav aria-label={legal.links_label} className="mx-4 mt-auto shrink-0 pb-4">
+                    {/* Les deux liens séparés par un fil vertical */}
+                    <ul className="flex items-center justify-center gap-x-4 [&>li]:text-xs [&>li]:leading-4 [&>li+li]:relative [&>li+li]:pl-4 [&>li+li]:before:absolute [&>li+li]:before:left-0 [&>li+li]:before:top-1/2 [&>li+li]:before:h-3 [&>li+li]:before:-translate-y-1/2 [&>li+li]:before:border-l [&>li+li]:before:border-ink/40 [&>li+li]:before:content-['']">
+                        <li>
+                            <Link to={legal.notice.url} onClick={close} className={`inline-flex min-h-6 items-center ${linkClass}`}>
+                                {legal.notice.title}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to={legal.privacy.url} onClick={close} className={`inline-flex min-h-6 items-center ${linkClass}`}>
+                                {legal.privacy.title}
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -12,13 +12,17 @@ import { A11y, Keyboard, Pagination, Navigation } from "swiper/modules";
 
 // Images
 import backgroundHome from "../assets/photosAccueil/backgroundHome.webp";
+import backgroundHomeSrcset from "../assets/photosAccueil/backgroundHome.webp?w=960;1600&format=webp&as=srcset";
 import logo from "../assets/logoNB.png";
 import matiereArgile from "../assets/photosAccueil/matiereArgile.webp";
 import matiereBois from "../assets/photosAccueil/matiereBois.webp";
 import matierePaille from "../assets/photosAccueil/matierePaille.webp";
 import projet1 from "../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.webp";
+import projet1Srcset from "../assets/photosProjets/projet1/001-1-MICRO HABITAT 01-Vue EXT 01.webp?w=960;1600&format=webp&as=srcset";
 import projet2 from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.webp";
+import projet2Srcset from "../assets/photosProjets/projet2/002-1-FAMILY HOUSE 01-Vue EXT 01.webp?w=960;1600&format=webp&as=srcset";
 import projet3 from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.webp";
+import projet3Srcset from "../assets/photosProjets/projet3/004-1-MICRO HABITAT 02-Vue EXT 01.webp?w=960;1600&format=webp&as=srcset";
 import serviceConstructionNeuve from "../assets/photosServices/constructionNeuve.webp";
 import serviceRenovation from "../assets/photosServices/renovation.webp";
 import serviceEquipementPublic from "../assets/photosServices/equipementPublic.webp";
@@ -26,7 +30,6 @@ import serviceExtension from "../assets/photosServices/extension.webp";
 import serviceAmenagementInterieur from "../assets/photosServices/amenagementInterieur.webp";
 import serviceMobilier from "../assets/photosServices/mobilier.webp";
 
-// Même ordre que la page Services
 const services = [
     { 
         src: serviceConstructionNeuve, 
@@ -66,8 +69,7 @@ const services = [
     },
 ];
 
-// Seule la diapositive affichée reste accessible au clavier et aux lecteurs d'écran :
-// les autres sont rendues « inert » (hors tabulation), sinon Tab passerait par les liens des projets cachés.
+// Seule la diapositive affichée reste accessible au clavier et aux lecteurs d'écran
 function updateInertSlides(swiper) {
     swiper.slides.forEach((slide, index) => {
         slide.inert = index !== swiper.activeIndex;
@@ -87,11 +89,12 @@ export default function AccueilPage() {
             <div className="w-full h-full">
 
                 {/* Section d'accueil */}
-                {/* L'image est une vraie balise <img> (et non un fond CSS) : elle est chargée en priorité (meilleur LCP)
-                    et a un texte alternatif. Elle couvre la section en arrière-plan (absolute + object-cover). */}
                 <section aria-labelledby="hero-title" className="relative isolate h-section">
                     <img
                         src={backgroundHome}
+                        // Versions réduites pour les petits écrans ; en portrait, l'image couvre la hauteur (≈ 178 % de la hauteur en largeur)
+                        srcSet={`${backgroundHomeSrcset}, ${backgroundHome} 2560w`}
+                        sizes="(max-aspect-ratio: 16/9) 178vh, 100vw"
                         alt={content.home.background_alt}
                         width="1600"
                         height="900"
@@ -99,17 +102,16 @@ export default function AccueilPage() {
                         decoding="async"
                         className="absolute inset-0 -z-10 h-full w-full object-cover"
                     />
-                    {/* Voile de contraste (texte blanc ≥ 4.5:1) : 60 % uniforme en mobile ;
-                        en bureau, dégradé de 30 % (côté logo) à 60 % dès 40 % de la largeur puis 70 % (côté texte). */}
+                    {/* Voile de contraste */}
                     <div className="h-full w-full bg-ink/60 md:bg-transparent md:bg-linear-to-r md:from-ink/30 md:via-ink/60 md:via-40% md:to-ink/70">
                     <Container className="flex flex-row justify-center items-center h-full">
-                        {/* Logo décoratif ici : le nom de l'atelier est juste à côté, dans le h1 */}
+                        {/* Logo */}
                         <img className="h-100 w-auto invert max-md:hidden" src={logo} alt="" width="400" height="400" />
                         <div className="flex flex-col justify-start items-start">
                             <h1 id="hero-title" className="text-7xl text-chrome-50 text-left mb-5">
                                 {content.home.subtitle}
                             </h1>
-                            {/* Accroche : un paragraphe, pas un titre de section */}
+                            {/* Accroche */}
                             <p className="text-formatting text-subtitle text-chrome-50 text-left mb-5">
                                 {content.home.second_title}
                             </p>
@@ -126,18 +128,11 @@ export default function AccueilPage() {
                     </div>
                 </section>
 
-                {/* Matériaux + En savoir plus.
-                    Mobile : les deux blocs tiennent ensemble dans un écran (espacements resserrés, liens sur une ligne).
-                    Tablette et bureau : Matériaux seul (En savoir plus masqué, la navigation suffit). */}
+                {/* Matériaux + En savoir plus */}
                 <Container className="min-h-section flex flex-col justify-center py-6 md:py-0">
                     <h2 className="pb-6 text-left w-full md:py-20">
                         {content.home.materials.title}
                     </h2>
-                    {/* Bandes de matériaux posées directement sur la grille du site.
-                        Mobile (4 col.) : texte, puis une rangée bois / argile / paille.
-                        Tablette (8 col.) : bandes empilées sur les colonnes 1 à 4, texte sur 5 à 8.
-                        Bureau (12 col.) : bandes empilées sur les colonnes 1 à 6, texte sur 9 à 12.
-                        (col-start répété en lg : un col-span lg: seul réinitialiserait la colonne de départ) */}
                     <div className="grid-layout gap-y-6 w-full md:gap-y-4 md:pb-20">
                         <p className="text-formatting md:col-start-5 md:col-span-4 md:row-start-1 md:row-span-3 md:self-center lg:col-start-9 lg:col-span-4">
                             {content.home.materials.text}
@@ -185,83 +180,75 @@ export default function AccueilPage() {
                             {content.projects.title}
                         </h2>
                     </Container>
-                    {/* Titre, carrousel et bouton forment un seul bloc centré verticalement dans la section */}
                     <div className="grid-page w-full">
-                    <div>
-                        <Swiper
-                            style={{
-                                '--swiper-navigation-color': 'var(--color-cream)',
-                                '--swiper-pagination-color': 'var(--color-chrome-50)',
-                                '--swiper-pagination-bullet-inactive-color': 'var(--color-chrome-50)',
-                            }}
-                            slidesPerView={1}
-                            onInit={updateInertSlides}
-                            onSlideChange={updateInertSlides}
-                            onLoopFix={updateInertSlides}
-                            // Précharge le projet précédent et le suivant (y compris en boucle, premier ↔ dernier)
-                            lazyPreloadPrevNext={1}
-                            keyboard={{ enabled: true, onlyInViewport: true }}
-                            a11y={{
-                                prevSlideMessage: "Projet précédent",
-                                nextSlideMessage: "Projet suivant",
-                                paginationBulletMessage: "Aller au projet {{index}}",
-                                slideLabelMessage: "Projet {{index}} sur {{slidesLength}}",
-                            }}
-                            spaceBetween={10}
-                            pagination={{ clickable: true }}
-                            loop={true}
-                            navigation={true}
-                            modules={[A11y, Keyboard, Pagination, Navigation]}
-                            // Cadre 16:9 : toute la largeur du contenu, sans dépasser la hauteur de l'écran moins le header,
-                            // le titre, le bouton et les marges (16rem). Toutes les images ont la même taille.
-                            className="mx-auto aspect-video w-[min(100%,calc((100svh-var(--spacing-header)-16rem)*16/9))]"
-                        >
-                            <SwiperSlide>
-                                <Link to="/projets/Projet1" className="group relative block h-full w-full overflow-hidden">
-                                    <img loading="lazy" decoding="async" src={projet1} alt="" className="h-full w-full object-cover" />
-                                    {/* Dégradé sous le titre : ≥ 60 % de noir derrière le texte blanc (contraste ≥ 4.5:1 sur toute photo),
-                                        transparent vers le haut pour laisser l'image visible */}
-                                    <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
-                                        <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
-                                            {content.projects.project_1.title}
-                                        </h3>
-                                    </div>
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to="/projets/Projet2" className="group relative block h-full w-full overflow-hidden">
-                                    <img loading="lazy" decoding="async" src={projet2} alt="" className="h-full w-full object-cover" />
-                                    {/* Dégradé sous le titre : ≥ 60 % de noir derrière le texte blanc (contraste ≥ 4.5:1 sur toute photo),
-                                        transparent vers le haut pour laisser l'image visible */}
-                                    <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
-                                        <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
-                                            {content.projects.project_2.title}
-                                        </h3>
-                                    </div>
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to="/projets/Projet3" className="group relative block h-full w-full overflow-hidden">
-                                    <img loading="lazy" decoding="async" src={projet3} alt="" className="h-full w-full object-cover" />
-                                    {/* Dégradé sous le titre : ≥ 60 % de noir derrière le texte blanc (contraste ≥ 4.5:1 sur toute photo),
-                                        transparent vers le haut pour laisser l'image visible */}
-                                    <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
-                                        <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
-                                            {content.projects.project_3.title}
-                                        </h3>
-                                    </div>
-                                </Link>
-                            </SwiperSlide>
-                        </Swiper>
-                    </div>
+                        <div>
+                            <Swiper
+                                style={{
+                                    '--swiper-navigation-color': 'var(--color-cream)',
+                                    '--swiper-pagination-color': 'var(--color-chrome-50)',
+                                    '--swiper-pagination-bullet-inactive-color': 'var(--color-chrome-50)',
+                                }}
+                                slidesPerView={1}
+                                onInit={updateInertSlides}
+                                onSlideChange={updateInertSlides}
+                                onLoopFix={updateInertSlides}
+                                lazyPreloadPrevNext={1}
+                                keyboard={{ enabled: true, onlyInViewport: true }}
+                                a11y={{
+                                    prevSlideMessage: "Projet précédent",
+                                    nextSlideMessage: "Projet suivant",
+                                    paginationBulletMessage: "Aller au projet {{index}}",
+                                    slideLabelMessage: "Projet {{index}} sur {{slidesLength}}",
+                                }}
+                                spaceBetween={10}
+                                pagination={{ clickable: true }}
+                                loop={true}
+                                navigation={true}
+                                modules={[A11y, Keyboard, Pagination, Navigation]}
+                                className="mx-auto aspect-video w-[min(100%,calc((100svh-var(--spacing-header)-16rem)*16/9))]"
+                            >
+                                <SwiperSlide>
+                                    <Link to={`/projets/${content.projects.project_1.url}`} className="group relative block h-full w-full overflow-hidden">
+                                        <img loading="lazy" decoding="async" src={projet1} srcSet={`${projet1Srcset}, ${projet1} 2560w`} sizes="(min-width: 69rem) 69rem, 100vw" alt="" className="h-full w-full object-cover" />
+                                        {/* Dégradé sous le titre */}
+                                        <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
+                                            <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
+                                                {content.projects.project_1.title}
+                                            </h3>
+                                        </div>
+                                    </Link>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <Link to={`/projets/${content.projects.project_2.url}`} className="group relative block h-full w-full overflow-hidden">
+                                        <img loading="lazy" decoding="async" src={projet2} srcSet={`${projet2Srcset}, ${projet2} 2560w`} sizes="(min-width: 69rem) 69rem, 100vw" alt="" className="h-full w-full object-cover" />
+                                        {/* Dégradé sous le titre */}
+                                        <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
+                                            <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
+                                                {content.projects.project_2.title}
+                                            </h3>
+                                        </div>
+                                    </Link>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <Link to={`/projets/${content.projects.project_3.url}`} className="group relative block h-full w-full overflow-hidden">
+                                        <img loading="lazy" decoding="async" src={projet3} srcSet={`${projet3Srcset}, ${projet3} 2560w`} sizes="(min-width: 69rem) 69rem, 100vw" alt="" className="h-full w-full object-cover" />
+                                        {/* Dégradé sous le titre */}
+                                        <div className="absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-ink/80 via-ink/60 to-transparent px-6 pt-20 pb-10 text-center">
+                                            <h3 className="text-4xl text-chrome-50 underline-offset-4 group-hover:underline">
+                                                {content.projects.project_3.title}
+                                            </h3>
+                                        </div>
+                                    </Link>
+                                </SwiperSlide>
+                            </Swiper>
+                        </div>
                     </div>
                     <Link to={{ pathname: "/projets" }} className="cta-button walnut-secondary mt-6">
                         {content.home.cta.projects}
                     </Link>
                 </div>
 
-                {/* Section de Services : grille de cartes (image 3:2 + titre), 3 colonnes en bureau, 2 en tablette, 1 en mobile.
-                    Toute la carte est cliquable via le lien du titre. */}
+                {/* Section de Services */}
                 <Container className="min-h-section flex flex-col justify-center py-20 max-md:hidden">
                     <h2 id="services-title" className="text-left w-full">
                         {content.services.title}

@@ -1,9 +1,7 @@
 /*
-    Carrousel de la fiche projet.
-    Toutes les images ont la même taille : un cadre 16:9 (grande image) ou 3:2 (miniatures)
-    rempli par la photo (cover). Les dessins (plans, coupes, façades) sont affichés en entier
-    (contain) sur fond crème, dans le même cadre.
-    Le cadre fait toute la largeur du carrousel : les flèches restent donc sur les bords de l'image.
+    Carrousel de la fiche projet
+    Toutes les images ont la même taille 
+    Le cadre fait toute la largeur du carrousel
 */
 .mySwiper2 {
   width: 100%;

@@ -10,18 +10,20 @@ const listPages = [
   '/services',
   '/atelier',
   '/contact',
-  '/projets/Projet1',
-  '/projets/Projet2',
-  '/projets/Projet3',
-  '/projets/Projet4',
-  '/projets/Projet5',
-  '/projets/Projet6',
+  '/projets/micro-habitat',
+  '/projets/maison-familiale-modulable',
+  '/projets/cabane-en-bord-de-lac',
+  '/projets/amenagement-couilly-pont-aux-dames',
+  '/projets/cabanon-de-jardin',
+  '/projets/appartement-a-nice',
+  '/mentions-legales',
+  '/politique-de-confidentialite',
 ]
 
-// Sitemap généré à chaque compilation à partir de listPages.
-// sitemapExclude : pages pré-rendues mais à ne pas mettre en avant (ex. un projet mineur).
+// Sitemap généré à chaque compilation à partir de listPages
+// sitemapExclude : pages pré-rendues mais à ne pas mettre en avant (ex. un projet mineur)
 const sitemapExclude = new Set()
-const priority = { '/': '1.0', '/projets': '0.9', '/services': '0.9', '/contact': '0.8', '/atelier': '0.7' }
+const priority = { '/': '1.0', '/projets': '0.9', '/services': '0.9', '/contact': '0.8', '/atelier': '0.7', '/mentions-legales': '0.2', '/politique-de-confidentialite': '0.2' }
 
 function buildSitemap() {
   const lastmod = new Date().toISOString().slice(0, 10)
@@ -41,7 +43,10 @@ export default {
     v8_splitRouteModules: true,
     v8_viteEnvironmentApi: true,
   },
-  prerender: [...listPages, '/404'],
+  prerender: [
+    ...listPages, 
+    '/404'
+  ],
   async buildEnd({ reactRouterConfig }) {
     const client = path.resolve(reactRouterConfig.buildDirectory, 'client')
     await rename(path.join(client, '404', 'index.html'), path.join(client, '404.html'))

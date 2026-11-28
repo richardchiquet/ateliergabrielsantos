@@ -13,7 +13,6 @@ export function Layout({ children }) {
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link rel="icon" type="image/svg+xml" href="/atelierGabrielSantosIcon.svg?v=2" />
-                {/* Polices hébergées sur le site (RGPD : aucune adresse IP transmise à Google Fonts ou Fontshare) */}
                 <link rel="preload" href="/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossOrigin="" />
                 <link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossOrigin="" />
                 <Meta />

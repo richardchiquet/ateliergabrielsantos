@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-    Polices hébergées sur le site (public/fonts) : plus aucun appel à Google Fonts ni à Fontshare.
+    Polices hébergées sur le site (public/fonts) :
     - Satoshi (titres) : Indian Type Foundry, licence ITF Free Font License (fontshare.com)
     - Instrument Sans (texte) : licence SIL Open Font License, police variable 400 à 700
 */
@@ -169,7 +169,7 @@
         N'utiliser que ces valeurs pour les marges, paddings et gaps.
     */
 
-    /* Hauteur du header : sert aussi au scroll-margin-top des sections (scroll-mt-header) */
+    /* Hauteur du header : sert aussi au décalage des ancres (scroll-padding-top sur html) */
     --spacing-header: 4.5rem;
 
 }
@@ -238,15 +238,11 @@
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.01ms !important;
-            /* sans ça, un délai (ex. titre des cartes Projets) s'appliquerait encore alors que l'animation est coupée */
             transition-delay: 0s !important;
             animation-delay: 0s !important;
             scroll-behavior: auto !important;
         }
 
-        /* Exception voulue, comme sur le site d'origine : le glissement de la bande des cartes Projets
-           (court, horizontal, déclenché par la souris) est gardé même avec « réduire les animations ».
-           Même couche que la règle ci-dessus, sélecteurs plus précis : ils l'emportent. */
         .project-slide {
             transition-duration: 500ms !important;
         }

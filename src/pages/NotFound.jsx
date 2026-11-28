@@ -11,8 +11,6 @@ export const meta = () => [
 export default function NotFound() {
     return (
         <div className="bg-walnut-200">
-            {/* « Page introuvable » est le titre de page (h1) : en haut à gauche comme sur les autres pages.
-                Le grand « 404 », le texte et les boutons sont centrés verticalement dans l'espace restant (my-auto). */}
             <Container className="min-h-section flex flex-col pb-20">
                 <h1 className="py-12 text-left">
                     {content.not_found.title}
